@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_LoginViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBx-2n-0to">
+                    <rect key="frame" x="55" y="75" width="265" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Rn1-zF-z7E"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5O-Zl-6LS">
+                    <rect key="frame" x="55" y="136" width="265" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Wg2-po-v1q"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrb-eq-P3Q">
+                    <rect key="frame" x="55" y="202" width="265" height="36"/>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.76078431372549016" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <size key="titleShadowOffset" width="80" height="0.0"/>
+                    <state key="normal" title="登  陆" image="216,194,158"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyl-oP-fLM">
+                    <rect key="frame" x="55" y="268" width="122.5" height="30"/>
+                    <state key="normal" title="新用户注册"/>
+                    <connections>
+                        <action selector="loginVC_Action_go2RegistVC:" destination="-1" eventType="touchUpInside" id="tm2-fU-x9B"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-CV-tgx">
+                    <rect key="frame" x="197.5" y="268" width="122.5" height="30"/>
+                    <state key="normal" title="忘记密码"/>
+                    <connections>
+                        <action selector="loginVC_Action_go2ForgotPwVC:" destination="-1" eventType="touchUpInside" id="GZv-gh-SxL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="qrb-eq-P3Q" firstAttribute="leading" secondItem="cBx-2n-0to" secondAttribute="leading" id="0Rb-AD-q5f"/>
+                <constraint firstItem="h5O-Zl-6LS" firstAttribute="trailing" secondItem="cBx-2n-0to" secondAttribute="trailing" id="3SD-9z-VMj"/>
+                <constraint firstItem="qrb-eq-P3Q" firstAttribute="trailing" secondItem="cBx-2n-0to" secondAttribute="trailing" id="86e-7C-kfh"/>
+                <constraint firstItem="nyl-oP-fLM" firstAttribute="leading" secondItem="cBx-2n-0to" secondAttribute="leading" id="Nd5-Sh-5CD"/>
+                <constraint firstItem="2lK-CV-tgx" firstAttribute="trailing" secondItem="cBx-2n-0to" secondAttribute="trailing" id="Snu-Jv-r9Z"/>
+                <constraint firstItem="cBx-2n-0to" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="55" id="Ut4-xZ-2ZB"/>
+                <constraint firstItem="cBx-2n-0to" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="55" id="aOF-Dz-uHK"/>
+                <constraint firstItem="qrb-eq-P3Q" firstAttribute="height" secondItem="cBx-2n-0to" secondAttribute="height" id="aVf-Xm-510"/>
+                <constraint firstItem="h5O-Zl-6LS" firstAttribute="leading" secondItem="cBx-2n-0to" secondAttribute="leading" id="cIb-fn-g7S"/>
+                <constraint firstItem="qrb-eq-P3Q" firstAttribute="top" secondItem="h5O-Zl-6LS" secondAttribute="bottom" constant="30" id="gdf-fG-cxS"/>
+                <constraint firstItem="2lK-CV-tgx" firstAttribute="leading" secondItem="nyl-oP-fLM" secondAttribute="trailing" constant="20" id="grA-3v-lem"/>
+                <constraint firstItem="nyl-oP-fLM" firstAttribute="width" secondItem="2lK-CV-tgx" secondAttribute="width" id="hQz-CB-zsC"/>
+                <constraint firstItem="h5O-Zl-6LS" firstAttribute="top" secondItem="cBx-2n-0to" secondAttribute="bottom" constant="25" id="jzq-7k-cxX"/>
+                <constraint firstItem="2lK-CV-tgx" firstAttribute="top" secondItem="nyl-oP-fLM" secondAttribute="top" id="mXb-To-iOd"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="cBx-2n-0to" secondAttribute="trailing" constant="55" id="oAj-2V-ugg"/>
+                <constraint firstItem="h5O-Zl-6LS" firstAttribute="height" secondItem="cBx-2n-0to" secondAttribute="height" id="t4C-IE-CyN"/>
+                <constraint firstItem="nyl-oP-fLM" firstAttribute="top" secondItem="qrb-eq-P3Q" secondAttribute="bottom" constant="30" id="tAT-gD-2bT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="216,194,158" width="16" height="16"/>
+    </resources>
+</document>
