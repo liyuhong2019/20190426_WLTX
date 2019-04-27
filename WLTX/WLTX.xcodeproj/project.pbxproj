@@ -74,6 +74,7 @@
 		C23D0C2A225FB22900ADDAA5 /* WLTX_SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C28225FB22900ADDAA5 /* WLTX_SettingsViewController.xib */; };
 		C23D0C32225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */; };
 		C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */; };
+		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
 		C278EC142264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278EC122264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib */; };
 		C278EC172264F8FB00AD0CAD /* WLTX_ShuttleRouteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC162264F8FB00AD0CAD /* WLTX_ShuttleRouteModel.m */; };
@@ -103,6 +104,7 @@
 		C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4D7692250B79E00B00E17 /* WLTX_UserAgreementViewController.m */; };
 		C2D4D76C2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D4D76A2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib */; };
 		C2D4D7702250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4D76F2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m */; };
+		C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */; };
 		C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F1EE7C223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m */; };
 		C2F1EE7F223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F1EE7D223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib */; };
 		C2F786EA223D205500D27DD7 /* WLTX_ForgotPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F786E8223D205500D27DD7 /* WLTX_ForgotPwViewController.m */; };
@@ -230,6 +232,8 @@
 		C23D0C2F225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_Home_ADDetailsViewController.h; sourceTree = "<group>"; };
 		C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_Home_ADDetailsViewController.m; sourceTree = "<group>"; };
 		C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_Home_ADDetailsViewController.xib; sourceTree = "<group>"; };
+		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
+		C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+YHTapDismiss.m"; sourceTree = "<group>"; };
 		C278EC102264F03000AD0CAD /* WLTX_ShuttleRouteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ShuttleRouteCell.h; sourceTree = "<group>"; };
 		C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ShuttleRouteCell.m; sourceTree = "<group>"; };
 		C278EC122264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ShuttleRouteCell.xib; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		C2D4D76A2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_UserAgreementViewController.xib; sourceTree = "<group>"; };
 		C2D4D76E2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+LYH_CALayer_Extension.h"; sourceTree = "<group>"; };
 		C2D4D76F2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+LYH_CALayer_Extension.m"; sourceTree = "<group>"; };
+		C2E9000722738C7A00D7D9A1 /* UIButton+CQBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CQBlock.h"; sourceTree = "<group>"; };
+		C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CQBlock.m"; sourceTree = "<group>"; };
 		C2F1EE7B223F12D700ADD735 /* WLTX_ForgotPw2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ForgotPw2ViewController.h; sourceTree = "<group>"; };
 		C2F1EE7C223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ForgotPw2ViewController.m; sourceTree = "<group>"; };
 		C2F1EE7D223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ForgotPw2ViewController.xib; sourceTree = "<group>"; };
@@ -574,6 +580,7 @@
 		9BC42DA5222F73D800BB032F /* UIKit框架_分类 */ = {
 			isa = PBXGroup;
 			children = (
+				C2E9000F227393C900D7D9A1 /* UIAlertController */,
 				C2D4D76D2250C02E00B00E17 /* CALayer */,
 				C2024113224AB0B100B8ECA9 /* UIImage */,
 				9BC42DA6222F73D800BB032F /* UIButton */,
@@ -609,6 +616,7 @@
 		9BC42DBF222F972300BB032F /* App(项目) */ = {
 			isa = PBXGroup;
 			children = (
+				C2E9000A2273924600D7D9A1 /* GlobalVC(全局界面) */,
 				C2D4D7642250B78200B00E17 /* UserAgreement(用户协议) */,
 				C2B3CABE223C09EE00562500 /* Login_Regist_ForgotPw(登录注册忘记密码) */,
 				9BC42E34222FA58100BB032F /* Navigation(导航栏) */,
@@ -1369,6 +1377,7 @@
 		C2868C3C225E59730099A296 /* OpenThreeSDKFoundation(开源第三方框架) */ = {
 			isa = PBXGroup;
 			children = (
+				C2E9000622738C7A00D7D9A1 /* BlockButton */,
 				C2868C3D225E59730099A296 /* MJExtension */,
 				C2868C53225E59730099A296 /* AFNetworking */,
 				C2868C62225E59730099A296 /* Tool */,
@@ -1662,6 +1671,63 @@
 			path = CALayer;
 			sourceTree = "<group>";
 		};
+		C2E9000622738C7A00D7D9A1 /* BlockButton */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9000722738C7A00D7D9A1 /* UIButton+CQBlock.h */,
+				C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */,
+			);
+			path = BlockButton;
+			sourceTree = "<group>";
+		};
+		C2E9000A2273924600D7D9A1 /* GlobalVC(全局界面) */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9000B2273924600D7D9A1 /* Controller */,
+				C2E9000C2273924600D7D9A1 /* Son_MVC */,
+				C2E9000D2273924600D7D9A1 /* Model */,
+				C2E9000E2273924600D7D9A1 /* View */,
+			);
+			path = "GlobalVC(全局界面)";
+			sourceTree = "<group>";
+		};
+		C2E9000B2273924600D7D9A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C2E9000C2273924600D7D9A1 /* Son_MVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Son_MVC;
+			sourceTree = "<group>";
+		};
+		C2E9000D2273924600D7D9A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2E9000E2273924600D7D9A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2E9000F227393C900D7D9A1 /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */,
+				C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */,
+			);
+			path = UIAlertController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1823,6 +1889,7 @@
 				C2868C6E225E59730099A296 /* MJProperty.m in Sources */,
 				C2868C75225E59730099A296 /* MJFoundation.m in Sources */,
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
+				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
 				9BC42DB6222F780400BB032F /* ThreeSDK_Tentcent.m in Sources */,
 				C2868C74225E59730099A296 /* MJPropertyKey.m in Sources */,
@@ -1833,6 +1900,7 @@
 				C2D4D7702250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m in Sources */,
 				C2868C7A225E59730099A296 /* AFNetworkReachabilityManager.m in Sources */,
 				9BC42E08222F9BA800BB032F /* LYHNavigationController.m in Sources */,
+				C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */,
 				C2868C6F225E59730099A296 /* NSObject+MJCoding.m in Sources */,
 				C20240E5224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m in Sources */,
 				C23D0C16225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.m in Sources */,
@@ -2029,7 +2097,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WLTX/Classes/ThreeSDKToolKit(第三方工具包)/TencentSDK_Class(腾讯SDK)/Bugly(bug卡顿检测)",
 				);
-				GCC_PREFIX_HEADER = "/Users/liyuhong2018/Desktop/李宇鸿/2019_Project_WLTX/Project/WLTX/WLTX/Classes/AppDelegateKit(应用程序的工具包)/LYH_HeaderFileManagers(头文件管理者)/HeaderFileManagers.pch";
+				GCC_PREFIX_HEADER = "/Users/liyuhong2018/Documents/iOS_Github_Project/20190427_WLTX/20190426_WLTX/WLTX/WLTX/Classes/AppDelegateKit(应用程序的工具包)/LYH_HeaderFileManagers(头文件管理者)/HeaderFileManagers.pch";
 				INFOPLIST_FILE = WLTX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2053,7 +2121,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WLTX/Classes/ThreeSDKToolKit(第三方工具包)/TencentSDK_Class(腾讯SDK)/Bugly(bug卡顿检测)",
 				);
-				GCC_PREFIX_HEADER = "/Users/liyuhong2018/Desktop/李宇鸿/2019_Project_WLTX/Project/WLTX/WLTX/Classes/AppDelegateKit(应用程序的工具包)/LYH_HeaderFileManagers(头文件管理者)/HeaderFileManagers.pch";
+				GCC_PREFIX_HEADER = "/Users/liyuhong2018/Documents/iOS_Github_Project/20190427_WLTX/20190426_WLTX/WLTX/WLTX/Classes/AppDelegateKit(应用程序的工具包)/LYH_HeaderFileManagers(头文件管理者)/HeaderFileManagers.pch";
 				INFOPLIST_FILE = WLTX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

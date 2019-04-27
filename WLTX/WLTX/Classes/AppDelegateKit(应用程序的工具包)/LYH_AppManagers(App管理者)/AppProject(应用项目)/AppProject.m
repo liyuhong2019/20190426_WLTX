@@ -198,4 +198,17 @@
     return YES;
 }
 
+#pragma mark 扩展业务
+// 添加一个房间并且监听按钮的点击回调
+- (void)lyh_addGloalbtn
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(SCREEN_WIDTH - 60, SCREEN_HEIGHT - 150, 40, 40);
+    [btn setBackgroundImage:[UIImage imageNamed:@"plus"] forState:0];
+//    [btn addTarget:self action:@selector(clickbtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.appDelegate.window addSubview:btn];
+    self.gloalBtn = btn;
+
+}
+
 @end

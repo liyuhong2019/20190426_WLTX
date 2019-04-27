@@ -173,7 +173,7 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
 - (void)personalCenterVC_go2SettingsVC:(UIButton *)btn
 {
     YHLog(@"跳转到设置界面");
-    WLTX_SettingsViewController *sVC = [[WLTX_SettingsViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
+    WLTX_SettingsViewController *sVC = [[WLTX_SettingsViewController alloc]initWithNibName:NSStringFromClass([WLTX_SettingsViewController class]) bundle:nil];
     [self.navigationController pushViewController:sVC animated:YES];
 }
 

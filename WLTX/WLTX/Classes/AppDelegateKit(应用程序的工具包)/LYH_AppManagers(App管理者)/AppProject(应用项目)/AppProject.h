@@ -2,8 +2,12 @@
 #import <Foundation/Foundation.h>
 
 @interface AppProject : NSObject
+
+@property (strong,nonatomic) UIButton *gloalBtn;
+
 + (AppProject *)getInstance;
 - (void)lyh_initAppProject;
+
 
 
 /**
@@ -69,4 +73,8 @@
  请求委托打开一个 URL资源
 */
 - (BOOL)appProject_application:(UIApplication *) application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+
+
+#pragma mark 扩展业务
+- (void)lyh_addGloalbtn;
 @end

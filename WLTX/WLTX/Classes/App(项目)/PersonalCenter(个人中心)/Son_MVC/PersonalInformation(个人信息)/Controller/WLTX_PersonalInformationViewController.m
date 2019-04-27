@@ -10,6 +10,12 @@
 
 @interface WLTX_PersonalInformationViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *img_userUrl;
+@property (weak, nonatomic) IBOutlet UILabel *lb_loginNumber;
+@property (weak, nonatomic) IBOutlet UILabel *lb_loginName;
+@property (weak, nonatomic) IBOutlet UILabel *lb_loginUserType;
+
 @end
 
 @implementation WLTX_PersonalInformationViewController
