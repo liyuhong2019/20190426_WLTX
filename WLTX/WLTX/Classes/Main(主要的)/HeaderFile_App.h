@@ -60,5 +60,7 @@
 #import "JKCountDownButton.h"
 #import "UIView+Toast.h"
 #import "IQKeyboardManager.h"
+#pragma mark - 全局类
+#import "AppProject.h"
 
 #endif /* HeaderFile_App_h */

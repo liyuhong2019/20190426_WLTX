@@ -37,6 +37,17 @@ UICollectionViewDataSource
 @end
 
 @implementation WLTX_HomeViewController
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[AppProject getInstance].gloalBtn setHidden:NO];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[AppProject getInstance].gloalBtn setHidden:YES];
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
