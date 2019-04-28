@@ -56,10 +56,12 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[AppProject getInstance].gloalBtn setHidden:NO];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [[AppProject getInstance].gloalBtn setHidden:YES];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
