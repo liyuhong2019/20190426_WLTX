@@ -1,19 +1,27 @@
 //
-//  WLTX_ContributionValueViewController.m
+//  WLTX_CommonWebVC.m
 //  WLTX
 //
-//  Created by liyuhong2019 on 2019/4/12.
+//  Created by liyuhong2019 on 2019/4/30.
 //  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_ContributionValueViewController.h"
+#import "WLTX_CommonWebVC.h"
 
-@interface WLTX_ContributionValueViewController ()
-
+@interface WLTX_CommonWebVC ()
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
 @end
 
-@implementation WLTX_ContributionValueViewController
+@implementation WLTX_CommonWebVC
 
+- (instancetype)initWithWLTX_CommonWebType:(WLTX_CommonWebType)wltx_CommonWebType AndNavTitle:(NSString *)navTitle
+{
+    if (self = [super init]) {
+        _wltx_CommonWebType = wltx_CommonWebType;
+        _navTitle = navTitle;
+    }
+    return self;
+}
 #pragma mark - ♻️ 视图的生命周期 view life cycle start
 /*
  4-1、第一个执行的方法，加载UI：- (void)loadView{ }
@@ -29,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self userAgreementVC_settingsInitData];
+    [self AboutUsVC_settingsInitData];
     
 }
 - (void)dealloc
@@ -40,6 +48,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    switch (self.wltx_CommonWebType) {
+        case WLTX_CommonWebType_AboutUs:
+        {
+            NSLog(@"加载关于我们");
+            [self aboutUsVC_netwrok_getAboutUsRequest];
+        }
+            break;
+        case WLTX_CommonWebType_UserDefine_Begin:
+        {
+            NSLog(@"加载 用户自定义的");
+        }
+            break;
+
+        default:
+            break;
+    }
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -64,32 +89,54 @@
 
 
 #pragma mark - 🏃(代理)Delegate start
+- (void)webViewDidFinishLoad:(UIWebView*)theWebView
+{
+    //  https://www.xuebuyuan.com/3193142.html
+    // 代码作用 :  iOS 禁用UIWebView 加载 网页的长按事件
+    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
+    
+}
 #pragma mark 🏃(代理)Delegate end
 #pragma mark - ✍🏻(自定义方法) custom method start
 /**
  登陆页面 初始化数据
  */
-- (void)userAgreementVC_settingsInitData
+- (void)AboutUsVC_settingsInitData
 {
     YHLog(@"初始化数据");
-    //    self.view.backgroundColor = [UIColor whiteColor];
-    [self userAgreement_settingsNav];
+    NSLog(@"当前网页的类型 是 %ld",self.wltx_CommonWebType);
+    [self aboutUsVC_settingsNav];
+    
 }
 /**
  登陆页面设置 nav
  */
-- (void)userAgreement_settingsNav
+- (void)aboutUsVC_settingsNav
 {
-    self.navigationItem.title = @"贡献值";
+//    self.navigationItem.title = @"关于我们";
+    self.navigationItem.title = self.navTitle;
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
 }
+
 #pragma mark  ✍🏻(自定义方法) custom method end
 
-- (IBAction)go2howGetWebVC:(UIButton *)sender {
-}
 
 #pragma mark - 📶(网络请求)Network start
+- (void)aboutUsVC_netwrok_getAboutUsRequest
+{
+    [AFNetworkingTool postWithURLString:my_AboutUsUrl parameters:nil resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",result);
+        NSString *data = result[@"data"];
+        NSLog(@"data %@",data);
+        [self.webview loadHTMLString:data baseURL:nil];
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
 #pragma mark 💤 控件/对象懒加载 object end

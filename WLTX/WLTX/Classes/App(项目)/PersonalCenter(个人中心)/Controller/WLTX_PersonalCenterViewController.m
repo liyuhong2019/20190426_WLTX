@@ -126,7 +126,9 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
 
         case 3:
         {
-            vc = [[WLTX_AboutUsViewController alloc]init];
+//            vc = [[WLTX_AboutUsViewController alloc]init];
+            vc = [[WLTX_CommonWebVC alloc]initWithWLTX_CommonWebType:WLTX_CommonWebType_AboutUs AndNavTitle:@"关于我们1"];
+
         }
             break;
 

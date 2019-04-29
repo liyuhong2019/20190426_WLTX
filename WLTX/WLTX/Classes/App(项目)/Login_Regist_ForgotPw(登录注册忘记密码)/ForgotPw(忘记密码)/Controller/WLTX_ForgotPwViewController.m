@@ -82,15 +82,43 @@
 
 #pragma mark - ✍🏻 (事件处理) event Action start
 
-- (IBAction)forgotVC_Action_go2SettingNewPasswordVC:(UIButton *)sender
-{
-    WLTX_ForgotPw2ViewController *setPwVC = [[WLTX_ForgotPw2ViewController alloc]initWithNibName:NSStringFromClass([WLTX_ForgotPw2ViewController class]) bundle:nil
-                                        ];
-    [self.navigationController pushViewController:setPwVC animated:YES];
-
+- (IBAction)changePhoneNumberVC_getVerificationCode:(JKCountDownButton *)sender {
     
+    sender.backgroundColor = [UIColor lightGrayColor];
+    sender.enabled = NO;
+    //button type要 设置成custom 否则会闪动
+    [sender startCountDownWithSecond:10];
+    
+    [sender countDownChanging:^NSString *(JKCountDownButton *countDownButton,NSUInteger second) {
+        //        NSString *title = [NSString stringWithFormat:@"%zd秒",second];
+        NSString *title = [NSString stringWithFormat:@"已发送"];
+        return title;
+    }];
+    [sender countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
+        //        countDownButton.enabled = YES;
+        //        return @"点击重新获取";
+        countDownButton.backgroundColor = UIColorFromRGB(0xFFAA24) ;
+        countDownButton.enabled = YES;
+        return @"发送验证码";
+        
+    }];
+    // 发送网络请求
+//    NSDictionary *dict = @{
+//                           @"shouji":self.tf_phone.text
+//                           };
+    //    [self netwrok_getVerificationCodeRequest:dict];
     
 }
+
+//- (IBAction)forgotVC_Action_go2SettingNewPasswordVC:(UIButton *)sender
+//{
+//    WLTX_ForgotPw2ViewController *setPwVC = [[WLTX_ForgotPw2ViewController alloc]initWithNibName:NSStringFromClass([WLTX_ForgotPw2ViewController class]) bundle:nil
+//                                        ];
+//    [self.navigationController pushViewController:setPwVC animated:YES];
+//
+//    
+//    
+//}
 #pragma mark ✍🏻 (事件处理)  event Action end
 
 #pragma mark - 📶(网络请求)Network start

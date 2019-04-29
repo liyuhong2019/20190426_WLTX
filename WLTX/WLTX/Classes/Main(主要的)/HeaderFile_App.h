@@ -21,7 +21,7 @@
 
 // 公共页面
 #import "WLTX_CommonSelectAreaVC.h"                // 选择区域
-
+#import "WLTX_CommonWebVC.h"                       // 公共网页
 // 登录注册忘记密码
 #import "WLTX_LoginViewController.h"                // 登录
 #import "WLTX_RegistViewController.h"               // 注册

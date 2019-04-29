@@ -53,7 +53,6 @@
                                         </label>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4V-Fo-xg9">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
-                                            <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="ClickSettings:" destination="-1" eventType="touchUpInside" id="E07-Ug-KbQ"/>
                                             </connections>
@@ -80,7 +79,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所在区域" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqo-hw-2kV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqo-hw-2kV">
                                             <rect key="frame" x="15" y="16.5" width="58" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,7 +93,6 @@
                                         </label>
                                         <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-KK-hxr">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
-                                            <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="ClickSettings:" destination="-1" eventType="touchUpInside" id="vKb-Hz-21X"/>
                                             </connections>
@@ -133,7 +131,6 @@
                                         </label>
                                         <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caV-RF-2ke">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
-                                            <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="ClickSettings:" destination="-1" eventType="touchUpInside" id="alD-5A-D6z"/>
                                             </connections>
@@ -151,6 +148,23 @@
                                         <constraint firstAttribute="bottom" secondItem="caV-RF-2ke" secondAttribute="bottom" id="tK2-Up-6w8"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xg-oW-xB0">
+                                    <rect key="frame" x="38" y="238" width="299" height="40"/>
+                                    <color key="backgroundColor" red="1" green="0.69803921570000005" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="T5Y-PL-HXO"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="退出登录">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="17"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
@@ -159,13 +173,16 @@
                                 <constraint firstItem="1Ol-tQ-3a9" firstAttribute="height" secondItem="J3n-Km-1Qu" secondAttribute="height" id="8CB-S9-Xdr"/>
                                 <constraint firstItem="3sw-Z8-Qto" firstAttribute="trailing" secondItem="J3n-Km-1Qu" secondAttribute="trailing" id="DuR-FS-TIB"/>
                                 <constraint firstItem="3sw-Z8-Qto" firstAttribute="top" secondItem="1Ol-tQ-3a9" secondAttribute="bottom" constant="15" id="FV3-yq-NNF"/>
+                                <constraint firstAttribute="trailing" secondItem="2xg-oW-xB0" secondAttribute="trailing" constant="38" id="HNw-hY-dH7"/>
                                 <constraint firstItem="J3n-Km-1Qu" firstAttribute="top" secondItem="UrJ-gJ-Sl7" secondAttribute="top" constant="15" id="MXd-7q-CiS"/>
                                 <constraint firstItem="3sw-Z8-Qto" firstAttribute="leading" secondItem="J3n-Km-1Qu" secondAttribute="leading" id="NAD-Q6-adk"/>
                                 <constraint firstItem="3sw-Z8-Qto" firstAttribute="height" secondItem="J3n-Km-1Qu" secondAttribute="height" id="OQO-qR-dQy"/>
+                                <constraint firstItem="2xg-oW-xB0" firstAttribute="top" secondItem="3sw-Z8-Qto" secondAttribute="bottom" constant="43" id="X9D-Aq-wVh"/>
                                 <constraint firstAttribute="height" constant="647" id="Xa4-DH-JGP"/>
                                 <constraint firstItem="1Ol-tQ-3a9" firstAttribute="leading" secondItem="J3n-Km-1Qu" secondAttribute="leading" id="ht4-V1-yfr"/>
                                 <constraint firstItem="1Ol-tQ-3a9" firstAttribute="top" secondItem="J3n-Km-1Qu" secondAttribute="bottom" constant="15" id="oqt-Z8-uSe"/>
                                 <constraint firstItem="J3n-Km-1Qu" firstAttribute="leading" secondItem="UrJ-gJ-Sl7" secondAttribute="leading" constant="10" id="v7a-do-HQp"/>
+                                <constraint firstItem="2xg-oW-xB0" firstAttribute="leading" secondItem="UrJ-gJ-Sl7" secondAttribute="leading" constant="38" id="yH0-jT-nW3"/>
                             </constraints>
                         </view>
                     </subviews>

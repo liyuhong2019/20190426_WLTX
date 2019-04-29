@@ -49,6 +49,8 @@
 		C20240E5224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20240E3224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m */; };
 		C20240E6224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20240E4224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.xib */; };
 		C2024116224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2024115224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m */; };
+		C2039C832277904A00C9BBF6 /* WLTX_CommonWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C2039C812277904A00C9BBF6 /* WLTX_CommonWebVC.m */; };
+		C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2039C822277904A00C9BBF6 /* WLTX_CommonWebVC.xib */; };
 		C204273C225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C204273A225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m */; };
 		C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C204273B225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib */; };
 		C2042741225186E800902A8E /* WLT_LogisticsRecruitmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C204273F225186E800902A8E /* WLT_LogisticsRecruitmentCell.m */; };
@@ -206,6 +208,9 @@
 		C20240E4224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_PersonalCenterCell.xib; sourceTree = "<group>"; };
 		C2024114224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+LYH_UIImage_Extension.h"; sourceTree = "<group>"; };
 		C2024115224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LYH_UIImage_Extension.m"; sourceTree = "<group>"; };
+		C2039C802277904A00C9BBF6 /* WLTX_CommonWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CommonWebVC.h; sourceTree = "<group>"; };
+		C2039C812277904A00C9BBF6 /* WLTX_CommonWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CommonWebVC.m; sourceTree = "<group>"; };
+		C2039C822277904A00C9BBF6 /* WLTX_CommonWebVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CommonWebVC.xib; sourceTree = "<group>"; };
 		C2042739225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_LogisticsRecruitmentViewController.h; sourceTree = "<group>"; };
 		C204273A225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_LogisticsRecruitmentViewController.m; sourceTree = "<group>"; };
 		C204273B225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_LogisticsRecruitmentViewController.xib; sourceTree = "<group>"; };
@@ -1045,6 +1050,40 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
+		C2039C7C2277903300C9BBF6 /* WebView(公共网页) */ = {
+			isa = PBXGroup;
+			children = (
+				C2039C7D2277903300C9BBF6 /* Controller */,
+				C2039C7E2277903300C9BBF6 /* Model */,
+				C2039C7F2277903300C9BBF6 /* View */,
+			);
+			path = "WebView(公共网页)";
+			sourceTree = "<group>";
+		};
+		C2039C7D2277903300C9BBF6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C2039C802277904A00C9BBF6 /* WLTX_CommonWebVC.h */,
+				C2039C812277904A00C9BBF6 /* WLTX_CommonWebVC.m */,
+				C2039C822277904A00C9BBF6 /* WLTX_CommonWebVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C2039C7E2277903300C9BBF6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2039C7F2277903300C9BBF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C2042730225186AA00902A8E /* IntegratedQuery(综合查询) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1419,6 +1458,7 @@
 		C242A1802276143D005B277E /* CommonVC(公共页面) */ = {
 			isa = PBXGroup;
 			children = (
+				C2039C7C2277903300C9BBF6 /* WebView(公共网页) */,
 				C242A1812276143D005B277E /* SelectArea(选择区域) */,
 			);
 			path = "CommonVC(公共页面)";
@@ -2018,6 +2058,7 @@
 				C204274A2251881500902A8E /* WLTX_IntegratedQueryViewController.xib in Resources */,
 				C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */,
 				C23D0C1C225FB00E00ADDAA5 /* WLTX_IReleaseViewController.xib in Resources */,
+				C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */,
 				C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */,
 				9BC42E46222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.xib in Resources */,
 				9BC42D6F222F6C4100BB032F /* Assets.xcassets in Resources */,
@@ -2149,6 +2190,7 @@
 				C2868C7E225E59730099A296 /* AFNetworkingTool.m in Sources */,
 				C20427492251881500902A8E /* WLTX_IntegratedQueryViewController.m in Sources */,
 				9BC42E45222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.m in Sources */,
+				C2039C832277904A00C9BBF6 /* WLTX_CommonWebVC.m in Sources */,
 				9BC42E0B222F9BC200BB032F /* LYHTabBarModel.m in Sources */,
 				C2024116224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m in Sources */,
 				9BC42E32222F9ECD00BB032F /* Test5_ViewController.m in Sources */,
