@@ -1,18 +1,18 @@
 //
-//  WLTX_SettingsViewController.m
+//  WLTX_ChangePhoneNumberVC.m
 //  WLTX
 //
-//  Created by liyuhong2019 on 2019/4/12.
+//  Created by liyuhong2019 on 2019/4/29.
 //  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_SettingsViewController.h"
+#import "WLTX_ChangePhoneNumberVC.h"
 
-@interface WLTX_SettingsViewController ()
+@interface WLTX_ChangePhoneNumberVC ()
 
 @end
 
-@implementation WLTX_SettingsViewController
+@implementation WLTX_ChangePhoneNumberVC
 
 #pragma mark - ♻️ 视图的生命周期 view life cycle start
 /*
@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self settingsViewVC_initData];
+    [self changePhoneNumberVC_initData];
 }
 - (void)dealloc
 {
@@ -71,69 +71,65 @@
 /**
  登陆页面 初始化数据
  */
-- (void)settingsViewVC_initData
+- (void)changePhoneNumberVC_initData
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    [self settingsViewVC_settingsNav];
+    [self changePwVC_settingsNav];
     
 }
 /**
  登陆页面设置 nav
  */
-- (void)settingsViewVC_settingsNav
+- (void)changePwVC_settingsNav
 {
-    self.navigationItem.title = @"设置";
+    self.navigationItem.title = @"更换新手机号";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
 }
 
 #pragma 事件操作
-- (void)settings_Action1_changePhoneNumber
-{
-    NSLog(@"change phone");
-    WLTX_ChangePhoneNumberVC *vc = [[WLTX_ChangePhoneNumberVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
-- (void)settings_Action2_resetPassword
-{
-    NSLog(@"reast password");
-    WLTX_ChangePwVC *vc = [[WLTX_ChangePwVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-
-    
-}
-- (void)personalInformation_Action3_CheckVersionOnUpdate
-{
-    NSLog(@"check version");
-}
+//- (void)settings_Action1_changePhoneNumber
+//{
+//    NSLog(@"change phone");
+//}
+//- (void)settings_Action2_resetPassword
+//{
+//    NSLog(@"reast password");
+//
+//
+//}
+//- (void)personalInformation_Action3_CheckVersionOnUpdate
+//{
+//    NSLog(@"check version");
+//}
 
 #pragma mark  ✍🏻(自定义方法) custom method end
 #pragma mark - 🎬 按钮/点击事件 Action start
+//
+//- (IBAction)ClickSettings:(UIButton *)sender {
+//    switch (sender.tag) {
+//        case 10:
+//        {
+//            [self settings_Action1_changePhoneNumber];
+//        }
+//            break;
+//        case 30:
+//        {
+//            [self settings_Action2_resetPassword];
+//        }
+//            break;
+//
+//        case 50:
+//        {
+//            [self personalInformation_Action3_CheckVersionOnUpdate];
+//        }
+//            break;
+//
+//        default:
+//            break;
+//    }
+//
+//}
 
-- (IBAction)ClickSettings:(UIButton *)sender {
-    switch (sender.tag) {
-        case 10:
-        {
-            [self settings_Action1_changePhoneNumber];
-        }
-            break;
-        case 30:
-        {
-            [self settings_Action2_resetPassword];
-        }
-            break;
-            
-        case 50:
-        {
-            [self personalInformation_Action3_CheckVersionOnUpdate];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-}
 @end

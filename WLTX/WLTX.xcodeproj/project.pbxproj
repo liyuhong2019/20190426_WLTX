@@ -74,6 +74,18 @@
 		C23D0C2A225FB22900ADDAA5 /* WLTX_SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C28225FB22900ADDAA5 /* WLTX_SettingsViewController.xib */; };
 		C23D0C32225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */; };
 		C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */; };
+		C242A17A227608BB005B277E /* WLTX_CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A178227608BB005B277E /* WLTX_CollectionCell.m */; };
+		C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A179227608BB005B277E /* WLTX_CollectionCell.xib */; };
+		C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A17D227608C9005B277E /* WLTX_CollectionModel.m */; };
+		C242A18D2276147B005B277E /* WLTX_RealNameCertificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A18B2276147B005B277E /* WLTX_RealNameCertificationVC.m */; };
+		C242A18E2276147B005B277E /* WLTX_RealNameCertificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A18C2276147B005B277E /* WLTX_RealNameCertificationVC.xib */; };
+		C242A192227615C0005B277E /* WLTX_CommonSelectAreaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A190227615C0005B277E /* WLTX_CommonSelectAreaVC.m */; };
+		C242A193227615C0005B277E /* WLTX_CommonSelectAreaVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A191227615C0005B277E /* WLTX_CommonSelectAreaVC.xib */; };
+		C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A1BA22761B0B005B277E /* YH_SystemImagePickerManager.m */; };
+		C242A1C922764327005B277E /* WLTX_ChangePwVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A1C722764327005B277E /* WLTX_ChangePwVC.m */; };
+		C242A1CA22764327005B277E /* WLTX_ChangePwVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1C822764327005B277E /* WLTX_ChangePwVC.xib */; };
+		C242A1CE22764349005B277E /* WLTX_ChangePhoneNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */; };
+		C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
 		C278EC142264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278EC122264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib */; };
@@ -232,6 +244,26 @@
 		C23D0C2F225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_Home_ADDetailsViewController.h; sourceTree = "<group>"; };
 		C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_Home_ADDetailsViewController.m; sourceTree = "<group>"; };
 		C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_Home_ADDetailsViewController.xib; sourceTree = "<group>"; };
+		C242A177227608BB005B277E /* WLTX_CollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CollectionCell.h; sourceTree = "<group>"; };
+		C242A178227608BB005B277E /* WLTX_CollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CollectionCell.m; sourceTree = "<group>"; };
+		C242A179227608BB005B277E /* WLTX_CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CollectionCell.xib; sourceTree = "<group>"; };
+		C242A17C227608C9005B277E /* WLTX_CollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CollectionModel.h; sourceTree = "<group>"; };
+		C242A17D227608C9005B277E /* WLTX_CollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CollectionModel.m; sourceTree = "<group>"; };
+		C242A17F227609DA005B277E /* WLTX_App_CellManagers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_App_CellManagers.h; sourceTree = "<group>"; };
+		C242A18A2276147B005B277E /* WLTX_RealNameCertificationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_RealNameCertificationVC.h; sourceTree = "<group>"; };
+		C242A18B2276147B005B277E /* WLTX_RealNameCertificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_RealNameCertificationVC.m; sourceTree = "<group>"; };
+		C242A18C2276147B005B277E /* WLTX_RealNameCertificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_RealNameCertificationVC.xib; sourceTree = "<group>"; };
+		C242A18F227615C0005B277E /* WLTX_CommonSelectAreaVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CommonSelectAreaVC.h; sourceTree = "<group>"; };
+		C242A190227615C0005B277E /* WLTX_CommonSelectAreaVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CommonSelectAreaVC.m; sourceTree = "<group>"; };
+		C242A191227615C0005B277E /* WLTX_CommonSelectAreaVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CommonSelectAreaVC.xib; sourceTree = "<group>"; };
+		C242A1BA22761B0B005B277E /* YH_SystemImagePickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_SystemImagePickerManager.m; sourceTree = "<group>"; };
+		C242A1BB22761B0B005B277E /* YH_SystemImagePickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_SystemImagePickerManager.h; sourceTree = "<group>"; };
+		C242A1C622764327005B277E /* WLTX_ChangePwVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ChangePwVC.h; sourceTree = "<group>"; };
+		C242A1C722764327005B277E /* WLTX_ChangePwVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ChangePwVC.m; sourceTree = "<group>"; };
+		C242A1C822764327005B277E /* WLTX_ChangePwVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ChangePwVC.xib; sourceTree = "<group>"; };
+		C242A1CB22764349005B277E /* WLTX_ChangePhoneNumberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ChangePhoneNumberVC.h; sourceTree = "<group>"; };
+		C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ChangePhoneNumberVC.m; sourceTree = "<group>"; };
+		C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ChangePhoneNumberVC.xib; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
 		C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+YHTapDismiss.m"; sourceTree = "<group>"; };
 		C278EC102264F03000AD0CAD /* WLTX_ShuttleRouteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ShuttleRouteCell.h; sourceTree = "<group>"; };
@@ -374,6 +406,7 @@
 				C2868C3C225E59730099A296 /* OpenThreeSDKFoundation(开源第三方框架) */,
 				9BC42D7C222F6C7B00BB032F /* Main(主要的) */,
 				9BC42DBF222F972300BB032F /* App(项目) */,
+				C242A1B922761B0B005B277E /* YH_Tool(我封装的工具类) */,
 				9BC42D85222F73D800BB032F /* AppDelegateKit(应用程序的工具包) */,
 				9BC42D95222F73D800BB032F /* MainApp_Util(应用程序工具包) */,
 				9BC42D8F222F73D800BB032F /* TestClassToolKit(测试工具包) */,
@@ -412,6 +445,7 @@
 				C2FC91B7223979A200892199 /* LYHMacroDefinition.h */,
 				9BC42DB7222F78C400BB032F /* HeaderFileManagers.pch */,
 				C2868C80225E5AE90099A296 /* WLTX_App_HttpRequestUrlManagers.h */,
+				C242A17F227609DA005B277E /* WLTX_App_CellManagers.h */,
 				9BC42D89222F73D800BB032F /* ThreeSDK_HeaderFile(第三方的头文件) */,
 			);
 			path = "LYH_HeaderFileManagers(头文件管理者)";
@@ -616,6 +650,7 @@
 		9BC42DBF222F972300BB032F /* App(项目) */ = {
 			isa = PBXGroup;
 			children = (
+				C242A1802276143D005B277E /* CommonVC(公共页面) */,
 				C2E9000A2273924600D7D9A1 /* GlobalVC(全局界面) */,
 				C2D4D7642250B78200B00E17 /* UserAgreement(用户协议) */,
 				C2B3CABE223C09EE00562500 /* Login_Regist_ForgotPw(登录注册忘记密码) */,
@@ -1159,6 +1194,8 @@
 		C23D0BEE225FAF7400ADDAA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C242A17C227608C9005B277E /* WLTX_CollectionModel.h */,
+				C242A17D227608C9005B277E /* WLTX_CollectionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1166,6 +1203,9 @@
 		C23D0BEF225FAF7400ADDAA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C242A177227608BB005B277E /* WLTX_CollectionCell.h */,
+				C242A178227608BB005B277E /* WLTX_CollectionCell.m */,
+				C242A179227608BB005B277E /* WLTX_CollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1275,6 +1315,7 @@
 		C23D0BFC225FAF7400ADDAA5 /* PersonalInformation(个人信息) */ = {
 			isa = PBXGroup;
 			children = (
+				C242A18522761455005B277E /* Son_MVC */,
 				C23D0BFD225FAF7400ADDAA5 /* Controller */,
 				C23D0BFE225FAF7400ADDAA5 /* Model */,
 				C23D0BFF225FAF7400ADDAA5 /* View */,
@@ -1309,6 +1350,7 @@
 		C23D0C22225FB21800ADDAA5 /* Settings(设置) */ = {
 			isa = PBXGroup;
 			children = (
+				C242A1BD22764301005B277E /* Son_MVC */,
 				C23D0C23225FB21800ADDAA5 /* Controller */,
 				C23D0C24225FB21800ADDAA5 /* Model */,
 				C23D0C25225FB21800ADDAA5 /* View */,
@@ -1368,6 +1410,176 @@
 			sourceTree = "<group>";
 		};
 		C23D0C2E225FB61400ADDAA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C242A1802276143D005B277E /* CommonVC(公共页面) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1812276143D005B277E /* SelectArea(选择区域) */,
+			);
+			path = "CommonVC(公共页面)";
+			sourceTree = "<group>";
+		};
+		C242A1812276143D005B277E /* SelectArea(选择区域) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1822276143D005B277E /* Controller */,
+				C242A1832276143D005B277E /* Model */,
+				C242A1842276143D005B277E /* View */,
+			);
+			path = "SelectArea(选择区域)";
+			sourceTree = "<group>";
+		};
+		C242A1822276143D005B277E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C242A18F227615C0005B277E /* WLTX_CommonSelectAreaVC.h */,
+				C242A190227615C0005B277E /* WLTX_CommonSelectAreaVC.m */,
+				C242A191227615C0005B277E /* WLTX_CommonSelectAreaVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C242A1832276143D005B277E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C242A1842276143D005B277E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C242A18522761455005B277E /* Son_MVC */ = {
+			isa = PBXGroup;
+			children = (
+				C242A18622761455005B277E /* realNameCertification(实名认证) */,
+			);
+			path = Son_MVC;
+			sourceTree = "<group>";
+		};
+		C242A18622761455005B277E /* realNameCertification(实名认证) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A18722761455005B277E /* Controller */,
+				C242A18822761455005B277E /* Model */,
+				C242A18922761455005B277E /* View */,
+			);
+			path = "realNameCertification(实名认证)";
+			sourceTree = "<group>";
+		};
+		C242A18722761455005B277E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C242A18A2276147B005B277E /* WLTX_RealNameCertificationVC.h */,
+				C242A18B2276147B005B277E /* WLTX_RealNameCertificationVC.m */,
+				C242A18C2276147B005B277E /* WLTX_RealNameCertificationVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C242A18822761455005B277E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C242A18922761455005B277E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C242A1B922761B0B005B277E /* YH_Tool(我封装的工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1BB22761B0B005B277E /* YH_SystemImagePickerManager.h */,
+				C242A1BA22761B0B005B277E /* YH_SystemImagePickerManager.m */,
+			);
+			path = "YH_Tool(我封装的工具类)";
+			sourceTree = "<group>";
+		};
+		C242A1BD22764301005B277E /* Son_MVC */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1BE22764301005B277E /* ChangePasswrod(修改密码) */,
+				C242A1C222764301005B277E /* ChangePhoneNumber(修改手机号) */,
+			);
+			path = Son_MVC;
+			sourceTree = "<group>";
+		};
+		C242A1BE22764301005B277E /* ChangePasswrod(修改密码) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1BF22764301005B277E /* Controller */,
+				C242A1C022764301005B277E /* Model */,
+				C242A1C122764301005B277E /* View */,
+			);
+			path = "ChangePasswrod(修改密码)";
+			sourceTree = "<group>";
+		};
+		C242A1BF22764301005B277E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1C622764327005B277E /* WLTX_ChangePwVC.h */,
+				C242A1C722764327005B277E /* WLTX_ChangePwVC.m */,
+				C242A1C822764327005B277E /* WLTX_ChangePwVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C242A1C022764301005B277E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C242A1C122764301005B277E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C242A1C222764301005B277E /* ChangePhoneNumber(修改手机号) */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1C322764301005B277E /* Controller */,
+				C242A1C422764301005B277E /* Model */,
+				C242A1C522764301005B277E /* View */,
+			);
+			path = "ChangePhoneNumber(修改手机号)";
+			sourceTree = "<group>";
+		};
+		C242A1C322764301005B277E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C242A1CB22764349005B277E /* WLTX_ChangePhoneNumberVC.h */,
+				C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */,
+				C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C242A1C422764301005B277E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C242A1C522764301005B277E /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -1793,9 +2005,12 @@
 				9BC42E29222F9E9D00BB032F /* Test3_ViewController.xib in Resources */,
 				C23D0C0D225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.xib in Resources */,
 				9BC42D72222F6C4100BB032F /* LaunchScreen.storyboard in Resources */,
+				C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */,
 				9BC42E3C222FA5C300BB032F /* WLTX_HomeViewController.xib in Resources */,
 				C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */,
+				C242A18E2276147B005B277E /* WLTX_RealNameCertificationVC.xib in Resources */,
 				9BC42E24222F9E8E00BB032F /* Test2_ViewController.xib in Resources */,
+				C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */,
 				C20240E6224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.xib in Resources */,
 				9BC42E50222FACE800BB032F /* WLTX_NestPageViewController.xib in Resources */,
 				C23D0C21225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.xib in Resources */,
@@ -1807,11 +2022,13 @@
 				9BC42E46222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.xib in Resources */,
 				9BC42D6F222F6C4100BB032F /* Assets.xcassets in Resources */,
 				9BC42E1F222F9E7D00BB032F /* Test1_ViewController.xib in Resources */,
+				C242A193227615C0005B277E /* WLTX_CommonSelectAreaVC.xib in Resources */,
 				C278EC142264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib in Resources */,
 				9BC42E33222F9ECD00BB032F /* Test5_ViewController.xib in Resources */,
 				C23D0C2A225FB22900ADDAA5 /* WLTX_SettingsViewController.xib in Resources */,
 				C2F786EB223D205500D27DD7 /* WLTX_ForgotPwViewController.xib in Resources */,
 				C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */,
+				C242A1CA22764327005B277E /* WLTX_ChangePwVC.xib in Resources */,
 				C23D0C17225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.xib in Resources */,
 				9BC42DB0222F73D800BB032F /* README.md in Resources */,
 				C2F1EE7F223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib in Resources */,
@@ -1891,6 +2108,7 @@
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
+				C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */,
 				9BC42DB6222F780400BB032F /* ThreeSDK_Tentcent.m in Sources */,
 				C2868C74225E59730099A296 /* MJPropertyKey.m in Sources */,
 				C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */,
@@ -1903,9 +2121,11 @@
 				C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */,
 				C2868C6F225E59730099A296 /* NSObject+MJCoding.m in Sources */,
 				C20240E5224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m in Sources */,
+				C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */,
 				C23D0C16225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.m in Sources */,
 				C2F786EA223D205500D27DD7 /* WLTX_ForgotPwViewController.m in Sources */,
 				C2868C7C225E59730099A296 /* HttpRequest.m in Sources */,
+				C242A192227615C0005B277E /* WLTX_CommonSelectAreaVC.m in Sources */,
 				C2868C7D225E59730099A296 /* UploadParam.m in Sources */,
 				C2042741225186E800902A8E /* WLT_LogisticsRecruitmentCell.m in Sources */,
 				C23D0C11225FAFED00ADDAA5 /* WLTX_CollectionViewController.m in Sources */,
@@ -1914,6 +2134,8 @@
 				C2868C72225E59730099A296 /* NSObject+MJClass.m in Sources */,
 				C2C11EE022350FB700A694D7 /* ThreeSDK_Ali.m in Sources */,
 				9BC42E1E222F9E7D00BB032F /* Test1_ViewController.m in Sources */,
+				C242A17A227608BB005B277E /* WLTX_CollectionCell.m in Sources */,
+				C242A1C922764327005B277E /* WLTX_ChangePwVC.m in Sources */,
 				C2868C7B225E59730099A296 /* AFSecurityPolicy.m in Sources */,
 				C23D0C20225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.m in Sources */,
 				9BC42DBB222F7BEC00BB032F /* AppProject.m in Sources */,
@@ -1938,6 +2160,7 @@
 				9BC42E0E222F9C0C00BB032F /* LYHTabBar.m in Sources */,
 				C2B3CAD1223C0A1C00562500 /* WLTX_LoginViewController.m in Sources */,
 				9BC42E3B222FA5C300BB032F /* WLTX_HomeViewController.m in Sources */,
+				C242A1CE22764349005B277E /* WLTX_ChangePhoneNumberVC.m in Sources */,
 				C2868C77225E59730099A296 /* AFHTTPSessionManager.m in Sources */,
 				C2868C6C225E59730099A296 /* MJPropertyType.m in Sources */,
 				C23D0C29225FB22900ADDAA5 /* WLTX_SettingsViewController.m in Sources */,
@@ -1945,6 +2168,7 @@
 				C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */,
 				9BC42E02222F9B3700BB032F /* LYHNavigationModel.m in Sources */,
 				9BC42DBE222F947E00BB032F /* LYHBaseViewController.m in Sources */,
+				C242A18D2276147B005B277E /* WLTX_RealNameCertificationVC.m in Sources */,
 				C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */,
 				9BC42E40222FA69C00BB032F /* WLTX_PublishInformationViewController.m in Sources */,
 				9BC42D82222F6C7B00BB032F /* ViewController.m in Sources */,

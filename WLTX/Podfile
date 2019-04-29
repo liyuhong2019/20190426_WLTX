@@ -53,8 +53,11 @@ target 'WLTX' do
   	# 倒计时按钮 JKCountDownButton
   pod 'JKCountDownButton'
   	# 防止按钮 多次点击 UIButton-touch
-    #警告提示框
+    #警告提示框 (SCLAlertView、ios-custom-alertview、AMSmoothAlert、TYAlertController、LGAlertView、FCAlertView、FFToast)
     #pod 'LGAlertView'
+    # 辅助弹出视图 (PopView、)
+    #pod 'PopView'
+
   # ------------------ 第三方开源框架/库 end ------------------
 
 

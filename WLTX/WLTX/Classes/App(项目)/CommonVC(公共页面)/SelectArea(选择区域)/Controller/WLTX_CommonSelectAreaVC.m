@@ -1,18 +1,18 @@
 //
-//  WLTX_SettingsViewController.m
+//  WLTX_CommonSelectAreaVC.m
 //  WLTX
 //
-//  Created by liyuhong2019 on 2019/4/12.
+//  Created by liyuhong2019 on 2019/4/29.
 //  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_SettingsViewController.h"
+#import "WLTX_CommonSelectAreaVC.h"
 
-@interface WLTX_SettingsViewController ()
+@interface WLTX_CommonSelectAreaVC ()
 
 @end
 
-@implementation WLTX_SettingsViewController
+@implementation WLTX_CommonSelectAreaVC
 
 #pragma mark - ♻️ 视图的生命周期 view life cycle start
 /*
@@ -25,10 +25,12 @@
  4-7、最后执行方法，即视图控制器注销方法：- (void)dealloc { }
  4-8、该方法在接收到内存警告时会调用，且系统会自动处理内存释放：- (void)didReceiveMemoryWarning { }
  */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self settingsViewVC_initData];
+    [self commonSelectAreaVC_settingsInitData];
+    
 }
 - (void)dealloc
 {
@@ -38,10 +40,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
-    //    WLTX_LoginViewController *lgVC = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
-    //    LYHNavigationController *nav = [[LYHNavigationController alloc] initWithRootViewController:lgVC];
-    //    [self presentViewController:nav animated:YES completion:nil];
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -71,69 +69,22 @@
 /**
  登陆页面 初始化数据
  */
-- (void)settingsViewVC_initData
+- (void)commonSelectAreaVC_settingsInitData
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    [self settingsViewVC_settingsNav];
-    
+    [self CommonSelectAreaVC_settingsNav];
 }
 /**
  登陆页面设置 nav
  */
-- (void)settingsViewVC_settingsNav
+- (void)CommonSelectAreaVC_settingsNav
 {
-    self.navigationItem.title = @"设置";
+    self.navigationItem.title = @"起始地";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
 }
 
-#pragma 事件操作
-- (void)settings_Action1_changePhoneNumber
-{
-    NSLog(@"change phone");
-    WLTX_ChangePhoneNumberVC *vc = [[WLTX_ChangePhoneNumberVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
-- (void)settings_Action2_resetPassword
-{
-    NSLog(@"reast password");
-    WLTX_ChangePwVC *vc = [[WLTX_ChangePwVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-
-    
-}
-- (void)personalInformation_Action3_CheckVersionOnUpdate
-{
-    NSLog(@"check version");
-}
-
 #pragma mark  ✍🏻(自定义方法) custom method end
-#pragma mark - 🎬 按钮/点击事件 Action start
 
-- (IBAction)ClickSettings:(UIButton *)sender {
-    switch (sender.tag) {
-        case 10:
-        {
-            [self settings_Action1_changePhoneNumber];
-        }
-            break;
-        case 30:
-        {
-            [self settings_Action2_resetPassword];
-        }
-            break;
-            
-        case 50:
-        {
-            [self personalInformation_Action3_CheckVersionOnUpdate];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-}
 @end

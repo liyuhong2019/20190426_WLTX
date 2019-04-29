@@ -7,8 +7,14 @@
 //
 
 #import "WLTX_CollectionViewController.h"
+#import "WLTX_CollectionModel.h"
 
 @interface WLTX_CollectionViewController ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end
 
@@ -29,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self userAgreementVC_settingsInitData];
+    [self collectionVC_settingsInitData];
     
 }
 - (void)dealloc
@@ -69,19 +75,33 @@
 /**
  登陆页面 初始化数据
  */
-- (void)userAgreementVC_settingsInitData
+- (void)collectionVC_settingsInitData
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    [self userAgreement_settingsNav];
+    [self collection_settingsNav];
+    [self collection_CommonSettings];
 }
 /**
  登陆页面设置 nav
  */
-- (void)userAgreement_settingsNav
+- (void)collection_settingsNav
 {
     self.navigationItem.title = @"收藏";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
+    
+}
+
+/**
+ 初始化一些公共设置
+ */
+- (void)collection_CommonSettings
+{
+    self.tableview.dataSource = self;
+    self.tableview.delegate = self;
+//    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WLT_LogisticsRecruitmentCell class]) bundle:nil] forCellReuseIdentifier:WLT_LogisticsRecruitmentCellID];
+
+    [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_CollectionCell class]) bundle:nil] forCellReuseIdentifier:@"WLTX_CollectionCellID"];
     
 }
 #pragma mark  ✍🏻(自定义方法) custom method end

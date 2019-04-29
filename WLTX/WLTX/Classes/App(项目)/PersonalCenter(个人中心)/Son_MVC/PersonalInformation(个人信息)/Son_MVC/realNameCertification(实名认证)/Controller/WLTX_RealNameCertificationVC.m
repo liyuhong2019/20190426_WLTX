@@ -1,29 +1,36 @@
 //
-//  WLTX_PersonalInformationViewController.m
+//  WLTX_RealNameCertificationVC.m
 //  WLTX
 //
-//  Created by liyuhong2019 on 2019/4/12.
+//  Created by liyuhong2019 on 2019/4/29.
 //  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_PersonalInformationViewController.h"
+#import "WLTX_RealNameCertificationVC.h"
 
-@interface WLTX_PersonalInformationViewController ()
-
+@interface WLTX_RealNameCertificationVC ()
 // tool
 @property (nonatomic,strong) YH_SystemImagePickerManager *manager;
+@property (nonatomic,strong) YH_SystemImagePickerManager *manager2;
+@property (nonatomic,strong) YH_SystemImagePickerManager *manager3;
 
+/**
+ positive
+ On the back
+ personal
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *img_positivePic;
+@property (weak, nonatomic) IBOutlet UIImageView *img_backPic;
+@property (weak, nonatomic) IBOutlet UIImageView *img_personalPic;
 
-//
-@property (weak, nonatomic) IBOutlet UIImageView *img_userUrl;
-@property (weak, nonatomic) IBOutlet UILabel *lb_area;
-@property (weak, nonatomic) IBOutlet UILabel *lb_nickName;
-@property (weak, nonatomic) IBOutlet UILabel *lb_registerTime;
-@property (weak, nonatomic) IBOutlet UILabel *lb_realNameType;
+@property (weak, nonatomic) IBOutlet UILabel *lb_positive;
+@property (weak, nonatomic) IBOutlet UILabel *lb_back;
+@property (weak, nonatomic) IBOutlet UILabel *lb_personal;
+
 
 @end
 
-@implementation WLTX_PersonalInformationViewController
+@implementation WLTX_RealNameCertificationVC
 
 #pragma mark - ♻️ 视图的生命周期 view life cycle start
 /*
@@ -40,7 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self personalInformationVC_settingsInitData];
+    [self realNameCertificationVC_settingsInitData];
     
 }
 - (void)dealloc
@@ -80,25 +87,34 @@
 /**
  登陆页面 初始化数据
  */
-- (void)personalInformationVC_settingsInitData
+- (void)realNameCertificationVC_settingsInitData
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    [self personalInformation_settingsNav];
-    
+    [self RealNameCertificationVC_settingsNav];
     
     __weak typeof(self) weakSelf = self;
     [self.manager setDidSelectImageBlock:^(UIImage *img){
-        weakSelf.img_userUrl.image = img;
+        weakSelf.img_positivePic.image = img;
+        weakSelf.lb_positive.text = @"";
     }];
     
+    [self.manager2 setDidSelectImageBlock:^(UIImage *img){
+        weakSelf.img_backPic.image = img;
+        weakSelf.lb_back.text = @"";
+    }];
+    [self.manager3 setDidSelectImageBlock:^(UIImage *img){
+        weakSelf.img_personalPic.image = img;
+        weakSelf.lb_personal.text = @"";
+
+    }];
 }
 /**
  登陆页面设置 nav
  */
-- (void)personalInformation_settingsNav
+- (void)RealNameCertificationVC_settingsNav
 {
-    self.navigationItem.title = @"个人信息";
+    self.navigationItem.title = @"实名认证";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
 }
@@ -111,25 +127,21 @@
 }
 - (void)personalInformation_Action2_area
 {
-    NSLog(@"选择区域");
-    WLTX_CommonSelectAreaVC *vc = [[WLTX_CommonSelectAreaVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+
+    [self.manager2 quickAlertSheetPickerImage];
 
 }
 - (void)personalInformation_Action3_go2realName
 {
-    NSLog(@"去实名认证");
-    // 判断是否实名
-    WLTX_RealNameCertificationVC *vc = [[WLTX_RealNameCertificationVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+
+    [self.manager3 quickAlertSheetPickerImage];
 
 }
 
 #pragma mark  ✍🏻(自定义方法) custom method end
 #pragma mark - 🎬 按钮/点击事件 Action start
 
-- (IBAction)ClickPersonalInfoSettings:(UIButton *)sender {
+- (IBAction)ClickRealNameCertificationSettings:(UIButton *)sender {
     switch (sender.tag) {
         case 10:
         {
@@ -141,13 +153,13 @@
             [self personalInformation_Action2_area];
         }
             break;
-
+            
         case 50:
         {
             [self personalInformation_Action3_go2realName];
         }
             break;
-
+            
         default:
             break;
     }
@@ -155,9 +167,6 @@
 }
 #pragma mark 🎬 按钮/点击事件 Action end
 
-
-#pragma mark - 📶(网络请求)Network start
-#pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
 - (YH_SystemImagePickerManager *)manager{
     if (!_manager) {
@@ -165,6 +174,17 @@
     }
     return _manager;
 }
+- (YH_SystemImagePickerManager *)manager2{
+    if (!_manager2) {
+        _manager2 = [[YH_SystemImagePickerManager alloc] initWithViewController:self];
+    }
+    return _manager2;
+}
+- (YH_SystemImagePickerManager *)manager3{
+    if (!_manager3) {
+        _manager3 = [[YH_SystemImagePickerManager alloc] initWithViewController:self];
+    }
+    return _manager3;
+}
 #pragma mark 💤 控件/对象懒加载 object end
-
 @end

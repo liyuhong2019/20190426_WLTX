@@ -19,6 +19,8 @@
 #import "WLTX_PublishInformationViewController.h"    // 发布消息
 #import "WLTX_PersonalCenterViewController.h"        // 个人中心
 
+// 公共页面
+#import "WLTX_CommonSelectAreaVC.h"                // 选择区域
 
 // 登录注册忘记密码
 #import "WLTX_LoginViewController.h"                // 登录
@@ -26,6 +28,9 @@
 #import "WLTX_UserAgreementViewController.h"        // 用户协议
 #import "WLTX_ForgotPwViewController.h"             // 忘记密码
 #import "WLTX_ForgotPw2ViewController.h"            // 重新设置密码
+#import "WLTX_ChangePwVC.h"                         // 修改密码
+#import "WLTX_ChangePhoneNumberVC.h"                // 更换新手机号
+
 // 1、主页的子界面
 #import "WLTX_Home_ADDetailsViewController.h"       // 广告详情
 #import "WLTX_NestPageViewController.h"             // 下一页
@@ -48,7 +53,10 @@
 #import "WLTX_IReleaseViewController.h"
 #import "WLTX_PersonalInformationViewController.h"
 #import "WLTX_SettingsViewController.h"
-
+    // 子子界面
+    #import "WLTX_RealNameCertificationVC.h"
+    // cell
+    #import "WLTX_CollectionCell.h"
 
 
 #pragma mark - 第三方开源框架/库
@@ -60,6 +68,7 @@
 #import "JKCountDownButton.h"
 #import "UIView+Toast.h"
 #import "IQKeyboardManager.h"
+
 #pragma mark - 全局类
 #import "AppProject.h"
 
