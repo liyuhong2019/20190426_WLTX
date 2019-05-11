@@ -60,6 +60,7 @@
 		C204274A2251881500902A8E /* WLTX_IntegratedQueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20427482251881500902A8E /* WLTX_IntegratedQueryViewController.xib */; };
 		C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */; };
 		C20427502251890B00902A8E /* WLTX_PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */; };
+		C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */ = {isa = PBXBuildFile; fileRef = C20515522283044F00AC1556 /* UIViewController+Extion.m */; };
 		C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */; };
 		C23D0C08225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */; };
 		C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C0A225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m */; };
@@ -88,6 +89,7 @@
 		C242A1CA22764327005B277E /* WLTX_ChangePwVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1C822764327005B277E /* WLTX_ChangePwVC.xib */; };
 		C242A1CE22764349005B277E /* WLTX_ChangePhoneNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */; };
 		C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */; };
+		C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */ = {isa = PBXBuildFile; fileRef = C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
 		C278EC142264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278EC122264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib */; };
@@ -225,6 +227,8 @@
 		C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTX_PersonalCenterViewController.xib; sourceTree = "<group>"; };
 		C204274D2251890B00902A8E /* WLTX_PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTX_PersonalCenterViewController.h; sourceTree = "<group>"; };
 		C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTX_PersonalCenterViewController.m; sourceTree = "<group>"; };
+		C20515512283044F00AC1556 /* UIViewController+Extion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extion.h"; sourceTree = "<group>"; };
+		C20515522283044F00AC1556 /* UIViewController+Extion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extion.m"; sourceTree = "<group>"; };
 		C23D0C04225FAF9500ADDAA5 /* WLTX_AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_AboutUsViewController.h; sourceTree = "<group>"; };
 		C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_AboutUsViewController.m; sourceTree = "<group>"; };
 		C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_AboutUsViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 		C242A1CB22764349005B277E /* WLTX_ChangePhoneNumberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ChangePhoneNumberVC.h; sourceTree = "<group>"; };
 		C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ChangePhoneNumberVC.m; sourceTree = "<group>"; };
 		C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ChangePhoneNumberVC.xib; sourceTree = "<group>"; };
+		C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshEX.m"; sourceTree = "<group>"; };
+		C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshEX.h"; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
 		C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+YHTapDismiss.m"; sourceTree = "<group>"; };
 		C278EC102264F03000AD0CAD /* WLTX_ShuttleRouteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ShuttleRouteCell.h; sourceTree = "<group>"; };
@@ -648,6 +654,8 @@
 		9BC42DA8222F73D800BB032F /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C20515512283044F00AC1556 /* UIViewController+Extion.h */,
+				C20515522283044F00AC1556 /* UIViewController+Extion.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1626,6 +1634,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C261E79A227E5F0A00EBC859 /* MJRefreshTool */ = {
+			isa = PBXGroup;
+			children = (
+				C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */,
+				C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */,
+			);
+			path = MJRefreshTool;
+			sourceTree = "<group>";
+		};
 		C2868C3C225E59730099A296 /* OpenThreeSDKFoundation(开源第三方框架) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1689,6 +1706,7 @@
 		C2868C62225E59730099A296 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C261E79A227E5F0A00EBC859 /* MJRefreshTool */,
 				C2868C63225E59730099A296 /* AFNetworkingTool */,
 			);
 			path = Tool;
@@ -2095,6 +2113,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WLTX/Pods-WLTX-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/STPickerView/STPickerView/Resource/area.plist",
 				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
 			);
@@ -2103,6 +2122,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/area.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMCommonLog.bundle",
 			);
@@ -2182,6 +2202,7 @@
 				9BC42DBB222F7BEC00BB032F /* AppProject.m in Sources */,
 				9BC42E01222F9B2500BB032F /* LYHNavigationView.m in Sources */,
 				C23D0C1B225FB00E00ADDAA5 /* WLTX_IReleaseViewController.m in Sources */,
+				C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */,
 				C2868C78225E59730099A296 /* AFURLSessionManager.m in Sources */,
 				C278EC172264F8FB00AD0CAD /* WLTX_ShuttleRouteModel.m in Sources */,
 				C204273C225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m in Sources */,
@@ -2199,6 +2220,7 @@
 				C2868C71225E59730099A296 /* NSObject+MJProperty.m in Sources */,
 				9BC42E05222F9B8700BB032F /* LYHTabBarController.m in Sources */,
 				C2868C6D225E59730099A296 /* NSObject+MJKeyValue.m in Sources */,
+				C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */,
 				9BC42E0E222F9C0C00BB032F /* LYHTabBar.m in Sources */,
 				C2B3CAD1223C0A1C00562500 /* WLTX_LoginViewController.m in Sources */,
 				9BC42E3B222FA5C300BB032F /* WLTX_HomeViewController.m in Sources */,

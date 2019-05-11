@@ -34,6 +34,9 @@ target 'WLTX' do
   	#SVProgressHUD hub提示
   	#MJExtension 字典转模型
   	#MJRefresh	上下拉刷新
+    pod 'MJRefresh'
+    #pod 'DZNEmptyDataSet' 空数据设置
+    pod 'DZNEmptyDataSet'
   	#IQKeyboardManager 键盘监听回收
   pod 'IQKeyboardManager'
 

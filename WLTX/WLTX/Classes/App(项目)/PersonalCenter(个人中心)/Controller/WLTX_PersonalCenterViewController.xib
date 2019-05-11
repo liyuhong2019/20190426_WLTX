@@ -12,8 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_PersonalCenterViewController">
             <connections>
+                <outlet property="lb_name" destination="Kgl-84-eOD" id="MMa-Hf-I3p"/>
+                <outlet property="lb_phone" destination="kam-5B-axz" id="Gl1-2d-TSG"/>
                 <outlet property="tableView" destination="wHA-ed-kwR" id="a5B-MU-eOH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view_isLogin" destination="9d9-nX-ZLr" id="NcQ-Rm-w3a"/>
+                <outlet property="view_login" destination="sv0-sr-wJD" id="uyQ-UA-FOp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -89,6 +93,30 @@
                                     <constraint firstItem="Dap-6I-c30" firstAttribute="centerX" secondItem="sv0-sr-wJD" secondAttribute="centerX" constant="38" id="zPO-7O-Rag"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9d9-nX-ZLr">
+                                <rect key="frame" x="0.0" y="104" width="375" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13246301428" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgl-84-eOD">
+                                        <rect key="frame" x="69" y="4.5" width="107.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13246301428" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kam-5B-axz">
+                                        <rect key="frame" x="209" y="4.5" width="107.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kgl-84-eOD" firstAttribute="centerY" secondItem="9d9-nX-ZLr" secondAttribute="centerY" id="4pl-rL-Oeq"/>
+                                    <constraint firstItem="kam-5B-axz" firstAttribute="centerY" secondItem="9d9-nX-ZLr" secondAttribute="centerY" id="AN0-DF-jp1"/>
+                                    <constraint firstItem="kam-5B-axz" firstAttribute="centerX" secondItem="9d9-nX-ZLr" secondAttribute="centerX" constant="75" id="TFq-YG-lXD"/>
+                                    <constraint firstItem="Kgl-84-eOD" firstAttribute="centerX" secondItem="9d9-nX-ZLr" secondAttribute="centerX" constant="-65" id="XWa-vg-d57"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -96,9 +124,13 @@
                             <constraint firstItem="h1e-cm-yeq" firstAttribute="bottom" secondItem="b1l-uz-0z5" secondAttribute="bottom" id="0zj-0O-cOn"/>
                             <constraint firstItem="sv0-sr-wJD" firstAttribute="top" secondItem="fWj-Xv-3s4" secondAttribute="bottom" constant="14" id="8Px-JD-G8i"/>
                             <constraint firstItem="h1e-cm-yeq" firstAttribute="trailing" secondItem="b1l-uz-0z5" secondAttribute="trailing" id="BfD-6S-I3O"/>
+                            <constraint firstItem="9d9-nX-ZLr" firstAttribute="trailing" secondItem="sv0-sr-wJD" secondAttribute="trailing" id="LRV-vT-fxh"/>
                             <constraint firstItem="fWj-Xv-3s4" firstAttribute="top" secondItem="h1e-cm-yeq" secondAttribute="top" constant="10" id="LZe-cS-EbA"/>
+                            <constraint firstItem="9d9-nX-ZLr" firstAttribute="height" secondItem="sv0-sr-wJD" secondAttribute="height" id="LrO-n0-4f2"/>
                             <constraint firstItem="b1l-uz-0z5" firstAttribute="top" secondItem="h1e-cm-yeq" secondAttribute="top" id="cq9-Fs-PcA"/>
+                            <constraint firstItem="9d9-nX-ZLr" firstAttribute="leading" secondItem="sv0-sr-wJD" secondAttribute="leading" id="eJB-Dd-geU"/>
                             <constraint firstItem="b1l-uz-0z5" firstAttribute="leading" secondItem="YUI-xY-ysa" secondAttribute="leading" id="sO4-8s-XoY"/>
+                            <constraint firstItem="9d9-nX-ZLr" firstAttribute="top" secondItem="sv0-sr-wJD" secondAttribute="top" id="tuE-K1-PFe"/>
                             <constraint firstItem="sv0-sr-wJD" firstAttribute="leading" secondItem="h1e-cm-yeq" secondAttribute="leading" id="tyR-Md-9IM"/>
                             <constraint firstItem="fWj-Xv-3s4" firstAttribute="centerX" secondItem="YUI-xY-ysa" secondAttribute="centerX" id="uwB-Ii-Jx5"/>
                             <constraint firstItem="h1e-cm-yeq" firstAttribute="trailing" secondItem="sv0-sr-wJD" secondAttribute="trailing" id="w5i-2Z-gxp"/>

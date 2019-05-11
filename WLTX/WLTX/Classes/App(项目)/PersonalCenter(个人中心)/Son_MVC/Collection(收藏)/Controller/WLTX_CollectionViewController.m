@@ -12,10 +12,14 @@
 @interface WLTX_CollectionViewController ()
 <
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+DZNEmptyDataSetSource,
+DZNEmptyDataSetDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
+@property (nonatomic, strong) NSMutableArray *listArr;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation WLTX_CollectionViewController
@@ -70,6 +74,113 @@ UITableViewDataSource
 
 
 #pragma mark - 🏃(代理)Delegate start
+#pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.listArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+
+#pragma mark - DZNEmptyDataSetSource Methods
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"No Application Found";
+    return [[NSAttributedString alloc] initWithString:text attributes:nil];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    UISearchBar *searchBar = self.searchDisplayController.searchBar;
+    
+    NSString *text = [NSString stringWithFormat:@"There are no empty dataset examples for \"%@\".", searchBar.text];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text attributes:nil];
+    
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17.0] range:[attributedString.string rangeOfString:searchBar.text]];
+    
+    return attributedString;
+}
+
+//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+//{
+//    NSString *text = @"Search on the App Store";
+//    UIFont *font = [UIFont systemFontOfSize:16.0];
+//    UIColor *textColor = [UIColor colorWithHex:(state == UIControlStateNormal) ? @"007aff" : @"c6def9"];
+//
+//    NSMutableDictionary *attributes = [NSMutableDictionary new];
+//    [attributes setObject:font forKey:NSFontAttributeName];
+//    [attributes setObject:textColor forKey:NSForegroundColorAttributeName];
+//
+//    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+//}
+//
+//- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+//{
+//    return [UIColor whiteColor];
+//}
+//
+//- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+//{
+//    return -64.0;
+//}
+
+#pragma mark - DZNEmptyDataSetDelegate Methods
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView
+{
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    return YES;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
+{
+    NSLog(@"%s",__FUNCTION__);
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
+{
+    
+    UISearchBar *searchBar = self.searchDisplayController.searchBar;
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.com/apps/%@", searchBar.text]];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+        [[UIApplication sharedApplication] openURL:URL];
+    }
+}
+
+
+
+
 #pragma mark 🏃(代理)Delegate end
 #pragma mark - ✍🏻(自定义方法) custom method start
 /**
@@ -81,6 +192,23 @@ UITableViewDataSource
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self collection_settingsNav];
     [self collection_CommonSettings];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
+        NSLog(@"pageIndex:%zd",pageIndex);
+        weakSelf.page = pageIndex;
+        [self loadData:YES];
+    }];
+    
+    [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
+        NSLog(@"pageIndex:%zd",pageIndex);
+        weakSelf.page = pageIndex;
+        [self loadData:NO];
+    }];
+    
+    [self loadData:YES];
+    
 }
 /**
  登陆页面设置 nav
@@ -99,17 +227,50 @@ UITableViewDataSource
 {
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
+    
+    // 空页面的数据源、数据代理设置
+    self.tableview.emptyDataSetSource = self;
+    self.tableview.emptyDataSetDelegate = self;
+
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WLT_LogisticsRecruitmentCell class]) bundle:nil] forCellReuseIdentifier:WLT_LogisticsRecruitmentCellID];
 
-    [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_CollectionCell class]) bundle:nil] forCellReuseIdentifier:@"WLTX_CollectionCellID"];
+//    [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_CollectionCell class]) bundle:nil] forCellReuseIdentifier:@"WLTX_CollectionCellID"];
     
 }
+
+
+- (void)loadData:(BOOL)isRef
+{
+    if (isRef) {
+        [self.listArr removeAllObjects];
+    }
+    
+    if (self.page < 3) {
+        for (int i = 0; i < 10; i ++) {
+            [self.listArr addObject:@(i)];
+        }
+        [self.tableview endFooterRefresh];
+        [self.tableview reloadData];
+    }
+    else{
+        [self.tableview endFooterNoMoreData];
+    }
+}
+
+
 #pragma mark  ✍🏻(自定义方法) custom method end
 
 
 #pragma mark - 📶(网络请求)Network start
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
+- (NSMutableArray *)listArr
+{
+    if (!_listArr) {
+        _listArr = [NSMutableArray array];
+    }
+    return _listArr;
+}
 #pragma mark 💤 控件/对象懒加载 object end
 
 @end

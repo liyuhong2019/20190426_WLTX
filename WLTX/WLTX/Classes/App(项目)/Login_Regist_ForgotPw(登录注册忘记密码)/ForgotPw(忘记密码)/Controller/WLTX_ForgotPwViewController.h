@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WLTX_ForgotPwViewController : LYHBaseViewController
+@interface WLTX_ForgotPwViewController : UIViewController
 
 @end
 

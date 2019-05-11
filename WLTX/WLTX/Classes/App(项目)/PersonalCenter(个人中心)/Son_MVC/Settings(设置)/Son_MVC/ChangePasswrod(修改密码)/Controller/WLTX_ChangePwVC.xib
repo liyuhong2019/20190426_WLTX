@@ -27,14 +27,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ub-tc-YQK">
-                                    <rect key="frame" x="10" y="15" width="355" height="130"/>
+                                    <rect key="frame" x="10" y="15" width="355" height="180"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_bg" translatesAutoresizingMaskIntoConstraints="NO" id="B9M-ZE-VaX">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="180"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vq0-cW-XEe" userLabel="2、密码">
-                                            <rect key="frame" x="28" y="72" width="299" height="35"/>
+                                            <rect key="frame" x="28" y="124" width="299" height="35"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PersonalCenterNew_13" translatesAutoresizingMaskIntoConstraints="NO" id="zhH-Fc-bGQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="299" height="35"/>
@@ -97,24 +97,72 @@
                                                 <constraint firstItem="5cI-vd-ohW" firstAttribute="top" secondItem="9CJ-Qf-9Zb" secondAttribute="top" id="t6d-3P-0jn"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ac-D0-Y6D" userLabel="4、验证码">
+                                            <rect key="frame" x="28" y="72" width="299" height="35"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PersonalCenterNew_13" translatesAutoresizingMaskIntoConstraints="NO" id="DuU-Ks-RMu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="35"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aTJ-4A-Ygf">
+                                                    <rect key="frame" x="39" y="8" width="140" height="19"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PersonalCenterNew_验证码" translatesAutoresizingMaskIntoConstraints="NO" id="YXV-En-uYr">
+                                                    <rect key="frame" x="18" y="11.5" width="10" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="aNu-hF-OT6"/>
+                                                        <constraint firstAttribute="width" constant="10" id="bJB-Tb-PGR"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0x-eT-nF3" customClass="JKCountDownButton">
+                                                    <rect key="frame" x="189" y="3.5" width="85" height="28"/>
+                                                    <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="85" id="3bh-if-XlF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title=" 获取验证码 ">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="S0x-eT-nF3" secondAttribute="trailing" constant="25" id="3cf-M6-Ubt"/>
+                                                <constraint firstItem="S0x-eT-nF3" firstAttribute="centerY" secondItem="2ac-D0-Y6D" secondAttribute="centerY" id="5II-xX-5fT"/>
+                                                <constraint firstItem="aTJ-4A-Ygf" firstAttribute="leading" secondItem="YXV-En-uYr" secondAttribute="trailing" constant="11" id="6qx-ZJ-C0q"/>
+                                                <constraint firstItem="aTJ-4A-Ygf" firstAttribute="centerY" secondItem="2ac-D0-Y6D" secondAttribute="centerY" id="7VY-T0-Kv7"/>
+                                                <constraint firstItem="DuU-Ks-RMu" firstAttribute="leading" secondItem="2ac-D0-Y6D" secondAttribute="leading" id="87Y-EC-T8G"/>
+                                                <constraint firstItem="YXV-En-uYr" firstAttribute="leading" secondItem="2ac-D0-Y6D" secondAttribute="leading" constant="18" id="B2p-V2-QHh"/>
+                                                <constraint firstItem="S0x-eT-nF3" firstAttribute="leading" secondItem="aTJ-4A-Ygf" secondAttribute="trailing" constant="10" id="D03-LO-LG2"/>
+                                                <constraint firstAttribute="bottom" secondItem="DuU-Ks-RMu" secondAttribute="bottom" id="VGL-Zn-Fjw"/>
+                                                <constraint firstItem="YXV-En-uYr" firstAttribute="centerY" secondItem="2ac-D0-Y6D" secondAttribute="centerY" id="fI0-W6-xZm"/>
+                                                <constraint firstAttribute="trailing" secondItem="DuU-Ks-RMu" secondAttribute="trailing" id="g3e-30-fcY"/>
+                                                <constraint firstItem="DuU-Ks-RMu" firstAttribute="top" secondItem="2ac-D0-Y6D" secondAttribute="top" id="vp9-mL-SHI"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="B9M-ZE-VaX" firstAttribute="leading" secondItem="6ub-tc-YQK" secondAttribute="leading" id="Csb-Yl-I5w"/>
                                         <constraint firstItem="9CJ-Qf-9Zb" firstAttribute="leading" secondItem="6ub-tc-YQK" secondAttribute="leading" constant="28" id="Niw-tG-g56"/>
                                         <constraint firstAttribute="bottom" secondItem="B9M-ZE-VaX" secondAttribute="bottom" id="POd-4u-LfT"/>
-                                        <constraint firstAttribute="height" constant="130" id="QzT-jt-nME"/>
+                                        <constraint firstAttribute="height" constant="180" id="QzT-jt-nME"/>
+                                        <constraint firstItem="2ac-D0-Y6D" firstAttribute="leading" secondItem="vq0-cW-XEe" secondAttribute="leading" id="SJP-S3-PmY"/>
                                         <constraint firstItem="vq0-cW-XEe" firstAttribute="leading" secondItem="9CJ-Qf-9Zb" secondAttribute="leading" id="VZe-0R-sv4"/>
                                         <constraint firstItem="vq0-cW-XEe" firstAttribute="trailing" secondItem="9CJ-Qf-9Zb" secondAttribute="trailing" id="WpH-2f-fYq"/>
                                         <constraint firstItem="B9M-ZE-VaX" firstAttribute="top" secondItem="6ub-tc-YQK" secondAttribute="top" id="bBj-6z-8l2"/>
                                         <constraint firstAttribute="trailing" secondItem="B9M-ZE-VaX" secondAttribute="trailing" id="bZs-pR-1K4"/>
                                         <constraint firstAttribute="trailing" secondItem="9CJ-Qf-9Zb" secondAttribute="trailing" constant="28" id="es4-1j-AXc"/>
-                                        <constraint firstItem="vq0-cW-XEe" firstAttribute="top" secondItem="9CJ-Qf-9Zb" secondAttribute="bottom" constant="17" id="g9Z-mb-YBN"/>
+                                        <constraint firstItem="2ac-D0-Y6D" firstAttribute="trailing" secondItem="vq0-cW-XEe" secondAttribute="trailing" id="k3q-vE-XaO"/>
+                                        <constraint firstItem="2ac-D0-Y6D" firstAttribute="top" secondItem="9CJ-Qf-9Zb" secondAttribute="bottom" constant="17" id="rTW-f1-2ef"/>
                                         <constraint firstItem="9CJ-Qf-9Zb" firstAttribute="top" secondItem="6ub-tc-YQK" secondAttribute="top" constant="20" id="s68-tn-fod"/>
+                                        <constraint firstItem="vq0-cW-XEe" firstAttribute="top" secondItem="2ac-D0-Y6D" secondAttribute="bottom" constant="17" id="t9d-mx-Ts1"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSc-di-CAN">
-                                    <rect key="frame" x="38" y="160" width="299" height="40"/>
+                                    <rect key="frame" x="38" y="210" width="299" height="40"/>
                                     <color key="backgroundColor" red="1" green="0.69803921570000005" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="aCf-iv-e5S"/>
@@ -166,6 +214,7 @@
     <resources>
         <image name="PersonalCenterNew_13" width="300" height="35"/>
         <image name="PersonalCenterNew_密码" width="13" height="16"/>
+        <image name="PersonalCenterNew_验证码" width="13" height="15.5"/>
         <image name="register_bg" width="356" height="265"/>
     </resources>
 </document>

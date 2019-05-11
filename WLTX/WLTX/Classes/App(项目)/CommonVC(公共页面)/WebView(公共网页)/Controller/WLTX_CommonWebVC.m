@@ -137,6 +137,16 @@
         
     }];
 }
+
+
+/**
+ 加载本地HTML文件
+ - (void)loadLocalFile {
+ NSURL *url = [[NSBundle mainBundle] urlForResource:@"localHtml.html" withExtension:nil];
+ NSURLRequest *request = [NSURLRequest requestWithURL:url];
+ [_webView loadRequest:request];
+ }
+ */
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
 #pragma mark 💤 控件/对象懒加载 object end

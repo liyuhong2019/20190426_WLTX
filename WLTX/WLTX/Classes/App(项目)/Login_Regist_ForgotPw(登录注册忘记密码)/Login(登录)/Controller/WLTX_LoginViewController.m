@@ -2,7 +2,11 @@
 
 #import "WLTX_LoginViewController.h"
 
-@interface WLTX_LoginViewController ()
+@interface WLTX_LoginViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIView *view_content;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layout_h;
+@property (weak, nonatomic) IBOutlet UITextField *tf_phone;
+@property (weak, nonatomic) IBOutlet UITextField *tf_password;
 
 @end
 
@@ -36,6 +40,8 @@
 {
     [super viewWillAppear:animated];
     
+    self.layout_h.constant = [UIScreen mainScreen].bounds.size.height;
+    
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -59,6 +65,19 @@
 
 
 #pragma mark - 🏃(代理)Delegate start
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.tf_phone) {
+        
+        if (textField.text.length > 11) {
+            return NO;
+        }
+        
+    }
+  
+    return YES;
+    
+}
 #pragma mark 🏃(代理)Delegate end
 #pragma mark - ✍🏻(自定义方法) custom method start
 
@@ -68,6 +87,9 @@
 - (void)loginVC_settingsInitData
 {
     YHLog(@"初始化数据");
+/* 测试账号信息*/
+    self.tf_phone.text = @"13246301428";
+    self.tf_password.text = @"12345678";
     
 }
 /**
@@ -113,9 +135,86 @@
     [self.navigationController pushViewController:fgVC animated:YES];
 }
 
+
+- (IBAction)go2LoginCheckInputInfo:(UIButton *)sender {
+    [self loginVC_checkInputInfo];
+}
+- (void)loginVC_checkInputInfo
+{
+    // 2、先检测手机号、验证码、密码是不是空的
+    if (self.tf_phone.text.length == 0 ||  self.tf_password.text.length == 0) {
+        [self.view makeToast:@"请检测你的手机号、密码是不是没有填写"];
+        return;
+    }
+    
+    // 3、效验用户输入的是不是正确的手机号、或者密码不能过于简单
+    if (![self vcExtion_cheackPhone:self.tf_phone.text]) {
+        [self.view makeToast:@"请输入正确的手机号码"];
+        return;
+    }
+    
+//    if (self.tf_password.text.length <8) {
+//        [self.view makeToast:@"密码不能少于8位数"];
+//        return;
+//    }
+    
+    
+    // 4、发送注册请求
+    // ....
+    
+    NSDictionary *dict = @{
+                           @"shouji":self.tf_phone.text,
+                           @"password":self.tf_password.text
+                           };
+    [self netwrok_LoginRequest:dict];
+}
+
 #pragma mark ✍🏻 (事件处理)  event Action end
 
 #pragma mark - 📶(网络请求)Network start
+- (void)netwrok_LoginRequest:(NSDictionary *)dict
+{
+    NSLog(@"登录__网络请求");
+    [AFNetworkingTool postWithURLString:my_login parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONString]);
+        NSDictionary *dataDict = result;
+        NSString *status = dataDict[@"status"];
+        NSDictionary *user = dataDict[@"user"];
+        if ([status intValue]) {
+            [self.view makeToast:@"登录成功"];
+            // .... 因此界面 并且设置用户的手机号和名称
+            NSString *user_shouji = user[@"shouji"];
+            NSString *user_name = user[@"name"];
+            NSString *user_img = user[@"img"];
+            
+            NSLog(@"手机 is %@\n昵称 is %@\n头像 is %@",user_shouji,user_name,user_img);
+
+            // ... 将数据存储到本地
+            
+//            1、NSUserDefaults 用来存储 用户设置 系统配置等一些小的数据。2、NSUserDefaults 是定时把缓存中的数据写入磁盘的，而不是即时写入，为了防止在写完NSUserDefaults后程序退出导致的数据丢失，可以在写入数据后使用synchronize强制立即将数据写入磁盘：
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            //1、获取 NSUserDefaults 单例
+            [defaults setObject:user_shouji forKey:@"user_shouji"];
+            //将数据保存到系统配置里面
+            [defaults setObject:user_name forKey:@"user_name"];
+            [defaults setObject:user_img forKey:@"user_img"];
+            [defaults synchronize]; // 立即写入
+
+            // ... 做页面的变化
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            [self.view makeToast:@"登录失败"];
+        }
+        
+    } failure:^(NSError *error) {
+        NSString *errorMsg = [NSString stringWithFormat:@"%@",[error.localizedDescription mj_JSONString]];
+        [self.view makeToast:errorMsg];
+        
+    }];
+}
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
 #pragma mark 💤 控件/对象懒加载 object end

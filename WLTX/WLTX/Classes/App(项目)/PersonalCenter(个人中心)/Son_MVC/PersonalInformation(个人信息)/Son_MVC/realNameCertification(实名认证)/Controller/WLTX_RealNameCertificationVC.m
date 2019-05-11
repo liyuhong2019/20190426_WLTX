@@ -96,6 +96,8 @@
     __weak typeof(self) weakSelf = self;
     [self.manager setDidSelectImageBlock:^(UIImage *img){
         weakSelf.img_positivePic.image = img;
+        NSData *imageData = UIImagePNGRepresentation(img);
+//        NSData *data = [NSData image]
         weakSelf.lb_positive.text = @"";
     }];
     

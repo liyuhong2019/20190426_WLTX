@@ -29,7 +29,9 @@
 #define my_getVerificationCode @"yzm.php"           // 发送验证码
 #define my_isRightVerificationCode @"is_yzm.php"    // 验证码核对
 #define my_registerUserInfo @"zhuce.php"            // 注册，注册用户信息
-
+#define my_login @"denglu.php"                      // 登录
+#define my_getUserInfo @"my_grxx.php"              // 获取个人信息 get请求
+#define my_changePasswrod @"user_xgmm.php"              // 修改密码
 
 
 

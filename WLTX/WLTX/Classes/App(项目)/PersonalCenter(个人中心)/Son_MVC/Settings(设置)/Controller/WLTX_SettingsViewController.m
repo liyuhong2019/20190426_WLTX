@@ -9,6 +9,11 @@
 #import "WLTX_SettingsViewController.h"
 
 @interface WLTX_SettingsViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pw_layout_h;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *version_layout_top;
+@property (weak, nonatomic) IBOutlet UIView *view_pw;
+@property (weak, nonatomic) IBOutlet UIView *view_version;
+@property (weak, nonatomic) IBOutlet UIButton *btn_outLogin;
 
 @end
 
@@ -38,7 +43,30 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
+//    NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
+    
+    
+    if (kWltx_IsLogin) {
+        NSLog(@"已经登录了");
+        self.version_layout_top.constant = 80;
+        self.pw_layout_h.constant = 50;
+        self.btn_outLogin.hidden = NO;
+    }
+    else
+    {
+        NSLog(@"没有登录");
+        self.version_layout_top.constant = 15;
+        self.pw_layout_h.constant = 0;
+        self.view_pw.hidden = YES;
+        self.btn_outLogin.hidden = YES;
+
+    }
+    
+    BOOL islogin = kWltx_IsLogin;
+    
+    
+    NSLog(@"islogin %ld",islogin);
+    
     //    WLTX_LoginViewController *lgVC = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
     //    LYHNavigationController *nav = [[LYHNavigationController alloc] initWithRootViewController:lgVC];
     //    [self presentViewController:nav animated:YES completion:nil];
@@ -77,7 +105,30 @@
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self settingsViewVC_settingsNav];
     
+    
+    
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    
+//    
+//    
+//    NSString *user_name =  [userDefault objectForKey:@"user_name"];
+//    NSString *user_shouji =  [userDefault objectForKey:@"user_shouji"];
+//    NSString *user_img =  [userDefault objectForKey:@"user_img"];
+//    NSLog(@"手机 is %@\n昵称 is %@\n头像 is %@",user_shouji,user_name,user_img);
+//    if (user_shouji == nil && user_name == nil) {
+//        NSLog(@"显示登录UI");
+//    }
+//    else
+//    {
+//        NSLog(@"显示用户数据");
+//    }
+    
+   
+    
+    
 }
+
+
 /**
  登陆页面设置 nav
  */
@@ -136,4 +187,37 @@
     }
     
 }
+- (IBAction)settingsVC_Login:(UIButton *)sender {
+
+    kWltx_OutLogin
+    
+    [self.view makeToast:@"退出登录成功"];
+
+
+    NSLog(@"刷新ui");
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (kWltx_IsLogin) {
+            NSLog(@"已经登录了");
+            self.version_layout_top.constant = 80;
+            self.pw_layout_h.constant = 50;
+            self.btn_outLogin.hidden = NO;
+        }
+        else
+        {
+            NSLog(@"没有登录");
+            self.version_layout_top.constant = 15;
+            self.pw_layout_h.constant = 0;
+            self.view_pw.hidden = YES;
+            self.btn_outLogin.hidden = YES;
+            
+        }
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    });
+}
+
+#pragma mark - 🎬 按钮/点击事件 Action end
+
 @end

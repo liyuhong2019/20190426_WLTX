@@ -320,6 +320,33 @@ return self; \
 #pragma mark 自己封装
 #define BaseColor UIColorFromRGB(0xF4AE49)
 #define btnColor UIColorFromRGB(0xFFB243)
+
+// 判断是否有登录 用户手机号进行处理
+#define kWltx_IsLogin ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"]==nil)? NO : YES
+
+// 退出登录操作 清空本地缓存保存的数据
+#define kWltx_OutLogin  NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];\
+[userDefault removeObjectForKey:@"user_shouji"];\
+[userDefault removeObjectForKey:@"user_name"];\
+[userDefault removeObjectForKey:@"user_img"];\
+[userDefault synchronize];\
+NSLog(@"system userDefault user_shouji is %@",[userDefault objectForKey:@"user_shouji"]);\
+NSLog(@"system userDefault user_name is %@",[userDefault objectForKey:@"user_name"]);\
+NSLog(@"system userDefault user_img is %@",[userDefault objectForKey:@"user_img"]);
+
 #pragma mark  其他人整理、封装
 
 #endif /* LYHMacroDefinition_h */
+
+
+
+/**
+ 保存用户的数据
+ NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+ //1、获取 NSUserDefaults 单例
+ [defaults setObject:user_shouji forKey:@"user_shouji"];
+ //将数据保存到系统配置里面
+ [defaults setObject:user_name forKey:@"user_name"];
+ [defaults setObject:user_img forKey:@"user_img"];
+ [defaults synchronize]; // 立即写入
+ */

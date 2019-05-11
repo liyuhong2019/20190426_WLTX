@@ -106,6 +106,35 @@
 
 #pragma mark  ✍🏻(自定义方法) custom method end
 #pragma mark - 🎬 按钮/点击事件 Action start
+
+- (IBAction)changeVC_getVerificationCode:(JKCountDownButton *)sender {
+    
+    sender.backgroundColor = [UIColor lightGrayColor];
+    sender.enabled = NO;
+    //button type要 设置成custom 否则会闪动
+    [sender startCountDownWithSecond:10];
+    
+    [sender countDownChanging:^NSString *(JKCountDownButton *countDownButton,NSUInteger second) {
+        //        NSString *title = [NSString stringWithFormat:@"%zd秒",second];
+        NSString *title = [NSString stringWithFormat:@"已发送"];
+        return title;
+    }];
+    [sender countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
+        //        countDownButton.enabled = YES;
+        //        return @"点击重新获取";
+        countDownButton.backgroundColor = UIColorFromRGB(0xFFAA24) ;
+        countDownButton.enabled = YES;
+        return @"发送验证码";
+        
+    }];
+    // 发送网络请求
+//    NSDictionary *dict = @{
+//                           @"shouji":self.tf_phone.text
+//                           };
+    //    [self netwrok_getVerificationCodeRequest:dict];
+    
+}
+
 //
 //- (IBAction)ClickSettings:(UIButton *)sender {
 //    switch (sender.tag) {
