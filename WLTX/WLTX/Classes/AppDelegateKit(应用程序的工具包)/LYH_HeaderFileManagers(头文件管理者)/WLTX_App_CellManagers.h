@@ -10,5 +10,7 @@
 #define WLTX_App_CellManagers_h
 
 static NSString * const WLTX_CollectionCellID = @"WLTX_CollectionCell";
+static NSString * const WLTX_PublishInformationCellID = @"WLTX_PublishInformationCell";
+static NSString * const WLTX_PushCarCellID = @"WLTX_PushCarCell";
 
 #endif /* WLTX_App_CellManagers_h */

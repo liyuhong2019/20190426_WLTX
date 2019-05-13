@@ -9,6 +9,8 @@
 #import "WLTX_ContributionValueViewController.h"
 
 @interface WLTX_ContributionValueViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layout_scrollview_h;
+@property (weak, nonatomic) IBOutlet UILabel *lb_contributionValue;
 
 @end
 
@@ -25,7 +27,16 @@
  4-7、最后执行方法，即视图控制器注销方法：- (void)dealloc { }
  4-8、该方法在接收到内存警告时会调用，且系统会自动处理内存释放：- (void)didReceiveMemoryWarning { }
  */
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    lyh_setting_xib_scrollviewHeight
+    
+    NSDictionary *dict = @{
+                           @"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                           };
+    [self netwrok_getContributionValueRequest:dict];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,11 +47,6 @@
 {
     //    [super dealloc];
     // 移除通知处理
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -90,6 +96,29 @@
 }
 
 #pragma mark - 📶(网络请求)Network start
+- (void)netwrok_getContributionValueRequest:(NSDictionary *)dict
+{
+    NSLog(@"贡献值__网络请求");
+    [AFNetworkingTool getWithURLString:my_getSumContributionValue parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONString]);
+        NSDictionary *dataDict = result;
+        NSString *sum = dataDict[@"sum"];
+//        if ([status intValue]) {
+//            [self.view makeToast:@"获取成功"];
+//
+//        }
+//        else
+//        {
+//            [self.view makeToast:@"获取失败"];
+//        }
+        self.lb_contributionValue.text = sum;
+        
+    } failure:^(NSError *error) {
+        NSString *errorMsg = [NSString stringWithFormat:@"%@",[error.localizedDescription mj_JSONString]];
+        [self.view makeToast:errorMsg];
+        
+    }];
+}
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
 #pragma mark 💤 控件/对象懒加载 object end

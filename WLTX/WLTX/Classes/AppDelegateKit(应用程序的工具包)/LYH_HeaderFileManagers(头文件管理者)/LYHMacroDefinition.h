@@ -46,6 +46,11 @@
 #define Height_StatusBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 44.0 : 20.0)
 #define Height_NavBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 88.0 : 64.0)
 #define Height_TabBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 84.0 : 50.0)
+#define Height_SafetyArea_bottom ((IS_IPHONE_X||IS_IPHONE_Xr||IS_IPHONE_Xs||IS_IPHONE_Xs_Max) ? 34 : 0)
+
+// scollview
+#define xib_iphonex_ScrollviewH SCREEN_HEIGHT - Height_NavBar -Height_SafetyArea_bottom
+#define xib_iphone678_ScrollviewH SCREEN_HEIGHT - Height_NavBar
 
 
 #pragma mark  1、设备相关 end
@@ -76,6 +81,12 @@
 #define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
 #define NSLog(FORMAT, ...) nil
+#endif
+
+#if DEBUG
+#define MyFunc NSLog(@"%s",__func__);
+#else
+#define nil
 #endif
 
 //DEBUG  模式下打印日志,当前行 并弹出一个警告
@@ -320,6 +331,14 @@ return self; \
 #pragma mark 自己封装
 #define BaseColor UIColorFromRGB(0xF4AE49)
 #define btnColor UIColorFromRGB(0xFFB243)
+
+#define lyh_setting_xib_scrollviewHeight if (IS_IPHONE_X||IS_IPHONE_Xs_Max||IS_IPHONE_Xr||IS_IPHONE_Xs) { \
+self.layout_scrollview_h.constant = xib_iphonex_ScrollviewH;\
+}\
+else\
+{\
+self.layout_scrollview_h.constant = xib_iphone678_ScrollviewH;\
+}
 
 // 判断是否有登录 用户手机号进行处理
 #define kWltx_IsLogin ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"]==nil)? NO : YES

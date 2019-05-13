@@ -34,5 +34,11 @@
 #define my_changePasswrod @"user_xgmm.php"              // 修改密码
 
 
+/** 我的 发布、共享、等等*/
+#define my_getSumContributionValue @"my_gxz_sum.php"  // 我的贡献值总和
+#define my_getCarList @"yfb_list_cl.php"  // 我发布的车辆
+#define my_getpushInformationList @"yfb_list.php"  // 我发布的信息
+
+
 
 #endif /* WLTX_App_HttpRequestUrlManagers_h */

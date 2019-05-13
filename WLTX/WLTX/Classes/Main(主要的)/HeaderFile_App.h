@@ -41,6 +41,9 @@
     #import "WLT_LogisticsRecruitmentCell.h"            // 物流招聘cell
 // 2、专线查询的子界面
 // 3、发布消息的子界面
+    #import "WLTX_PushCarCell.h"
+    #import "WLTX_PublishInformationCell.h"
+
 // 4、个人中心的子界面
 #import "WLTX_PersonalCenterCell.h"
 

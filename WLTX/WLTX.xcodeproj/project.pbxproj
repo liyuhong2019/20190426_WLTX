@@ -89,6 +89,12 @@
 		C242A1CA22764327005B277E /* WLTX_ChangePwVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1C822764327005B277E /* WLTX_ChangePwVC.xib */; };
 		C242A1CE22764349005B277E /* WLTX_ChangePhoneNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */; };
 		C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */; };
+		C24E35B522889F9F0089BB57 /* WLTX_PushCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35B322889F9F0089BB57 /* WLTX_PushCarCell.m */; };
+		C24E35B622889F9F0089BB57 /* WLTX_PushCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24E35B422889F9F0089BB57 /* WLTX_PushCarCell.xib */; };
+		C24E35BA22889FB60089BB57 /* WLTX_PublishInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35B822889FB60089BB57 /* WLTX_PublishInformationCell.m */; };
+		C24E35BB22889FB60089BB57 /* WLTX_PublishInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24E35B922889FB60089BB57 /* WLTX_PublishInformationCell.xib */; };
+		C24E35BE2288A8160089BB57 /* WLTX_PushCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35BD2288A8160089BB57 /* WLTX_PushCarModel.m */; };
+		C24E35C12288A82C0089BB57 /* WLTX_PublishInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35C02288A82C0089BB57 /* WLTX_PublishInformationModel.m */; };
 		C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */ = {isa = PBXBuildFile; fileRef = C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
@@ -273,6 +279,16 @@
 		C242A1CB22764349005B277E /* WLTX_ChangePhoneNumberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ChangePhoneNumberVC.h; sourceTree = "<group>"; };
 		C242A1CC22764349005B277E /* WLTX_ChangePhoneNumberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ChangePhoneNumberVC.m; sourceTree = "<group>"; };
 		C242A1CD22764349005B277E /* WLTX_ChangePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ChangePhoneNumberVC.xib; sourceTree = "<group>"; };
+		C24E35B222889F9F0089BB57 /* WLTX_PushCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_PushCarCell.h; sourceTree = "<group>"; };
+		C24E35B322889F9F0089BB57 /* WLTX_PushCarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PushCarCell.m; sourceTree = "<group>"; };
+		C24E35B422889F9F0089BB57 /* WLTX_PushCarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_PushCarCell.xib; sourceTree = "<group>"; };
+		C24E35B722889FB60089BB57 /* WLTX_PublishInformationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_PublishInformationCell.h; sourceTree = "<group>"; };
+		C24E35B822889FB60089BB57 /* WLTX_PublishInformationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PublishInformationCell.m; sourceTree = "<group>"; };
+		C24E35B922889FB60089BB57 /* WLTX_PublishInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_PublishInformationCell.xib; sourceTree = "<group>"; };
+		C24E35BC2288A8160089BB57 /* WLTX_PushCarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_PushCarModel.h; sourceTree = "<group>"; };
+		C24E35BD2288A8160089BB57 /* WLTX_PushCarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PushCarModel.m; sourceTree = "<group>"; };
+		C24E35BF2288A82C0089BB57 /* WLTX_PublishInformationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_PublishInformationModel.h; sourceTree = "<group>"; };
+		C24E35C02288A82C0089BB57 /* WLTX_PublishInformationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PublishInformationModel.m; sourceTree = "<group>"; };
 		C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshEX.m"; sourceTree = "<group>"; };
 		C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshEX.h"; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
@@ -1280,6 +1296,10 @@
 		C23D0BF2225FAF7400ADDAA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C24E35BC2288A8160089BB57 /* WLTX_PushCarModel.h */,
+				C24E35BD2288A8160089BB57 /* WLTX_PushCarModel.m */,
+				C24E35BF2288A82C0089BB57 /* WLTX_PublishInformationModel.h */,
+				C24E35C02288A82C0089BB57 /* WLTX_PublishInformationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1287,6 +1307,12 @@
 		C23D0BF3225FAF7400ADDAA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C24E35B222889F9F0089BB57 /* WLTX_PushCarCell.h */,
+				C24E35B322889F9F0089BB57 /* WLTX_PushCarCell.m */,
+				C24E35B422889F9F0089BB57 /* WLTX_PushCarCell.xib */,
+				C24E35B722889FB60089BB57 /* WLTX_PublishInformationCell.h */,
+				C24E35B822889FB60089BB57 /* WLTX_PublishInformationCell.m */,
+				C24E35B922889FB60089BB57 /* WLTX_PublishInformationCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2059,6 +2085,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2042742225186E800902A8E /* WLT_LogisticsRecruitmentCell.xib in Resources */,
+				C24E35BB22889FB60089BB57 /* WLTX_PublishInformationCell.xib in Resources */,
 				C23D0C12225FAFED00ADDAA5 /* WLTX_CollectionViewController.xib in Resources */,
 				9BC42E29222F9E9D00BB032F /* Test3_ViewController.xib in Resources */,
 				C23D0C0D225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.xib in Resources */,
@@ -2075,6 +2102,7 @@
 				C2D4D76C2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib in Resources */,
 				C204274A2251881500902A8E /* WLTX_IntegratedQueryViewController.xib in Resources */,
 				C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */,
+				C24E35B622889F9F0089BB57 /* WLTX_PushCarCell.xib in Resources */,
 				C23D0C1C225FB00E00ADDAA5 /* WLTX_IReleaseViewController.xib in Resources */,
 				C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */,
 				C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */,
@@ -2161,6 +2189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC42E15222F9CCF00BB032F /* AppTabBarViewController.m in Sources */,
+				C24E35B522889F9F0089BB57 /* WLTX_PushCarCell.m in Sources */,
 				C2F786EF223D20EB00D27DD7 /* WLTX_RegistViewController.m in Sources */,
 				C20427452251871A00902A8E /* WLTX_LogisticsRecruitmentModel.m in Sources */,
 				C2868C83225E5D0B0099A296 /* WLTX_HomeAdModel.m in Sources */,
@@ -2177,6 +2206,7 @@
 				9BC42E4F222FACE800BB032F /* WLTX_NestPageViewController.m in Sources */,
 				C2868C79225E59730099A296 /* AFURLRequestSerialization.m in Sources */,
 				C2D4D7702250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m in Sources */,
+				C24E35BA22889FB60089BB57 /* WLTX_PublishInformationCell.m in Sources */,
 				C2868C7A225E59730099A296 /* AFNetworkReachabilityManager.m in Sources */,
 				9BC42E08222F9BA800BB032F /* LYHNavigationController.m in Sources */,
 				C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */,
@@ -2188,6 +2218,7 @@
 				C2868C7C225E59730099A296 /* HttpRequest.m in Sources */,
 				C242A192227615C0005B277E /* WLTX_CommonSelectAreaVC.m in Sources */,
 				C2868C7D225E59730099A296 /* UploadParam.m in Sources */,
+				C24E35C12288A82C0089BB57 /* WLTX_PublishInformationModel.m in Sources */,
 				C2042741225186E800902A8E /* WLT_LogisticsRecruitmentCell.m in Sources */,
 				C23D0C11225FAFED00ADDAA5 /* WLTX_CollectionViewController.m in Sources */,
 				9BC42DE7222F999300BB032F /* UIView+LYH_UIView_Extension.m in Sources */,
@@ -2229,6 +2260,7 @@
 				C2868C6C225E59730099A296 /* MJPropertyType.m in Sources */,
 				C23D0C29225FB22900ADDAA5 /* WLTX_SettingsViewController.m in Sources */,
 				9BC42D83222F6C7B00BB032F /* main.m in Sources */,
+				C24E35BE2288A8160089BB57 /* WLTX_PushCarModel.m in Sources */,
 				C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */,
 				9BC42E02222F9B3700BB032F /* LYHNavigationModel.m in Sources */,
 				9BC42DBE222F947E00BB032F /* LYHBaseViewController.m in Sources */,
