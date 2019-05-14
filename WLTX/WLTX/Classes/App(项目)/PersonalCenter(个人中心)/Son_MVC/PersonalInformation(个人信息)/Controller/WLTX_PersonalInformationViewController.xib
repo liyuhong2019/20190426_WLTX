@@ -13,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_PersonalInformationViewController">
             <connections>
                 <outlet property="img_userUrl" destination="qZF-4c-Wm7" id="e5D-2R-F1M"/>
-                <outlet property="lb_nickName" destination="30U-Dh-05I" id="p7A-K8-nbR"/>
+                <outlet property="lb_lgoinType" destination="HY4-0A-rrw" id="4ND-wi-ppy"/>
+                <outlet property="lb_loginNumber" destination="30U-Dh-05I" id="nbc-an-HGT"/>
+                <outlet property="lb_nickName" destination="NLd-ey-dyn" id="SMd-cL-RUm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,7 +57,6 @@
                                         </imageView>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpk-zR-swU">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="70"/>
-                                            <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="ClickPersonalInfoSettings:" destination="-1" eventType="touchUpInside" id="6Ia-mi-dkG"/>
                                             </connections>
@@ -177,6 +178,7 @@
                             </subviews>
                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="30U-Dh-05I" secondAttribute="trailing" constant="25" id="3wz-0c-p6H"/>
                                 <constraint firstItem="Ohg-Zm-h2G" firstAttribute="trailing" secondItem="guY-e4-alo" secondAttribute="trailing" id="FTp-v2-wnK"/>
                                 <constraint firstAttribute="trailing" secondItem="guY-e4-alo" secondAttribute="trailing" constant="10" id="Fz5-t7-7jl"/>
                                 <constraint firstItem="YOO-jI-IJD" firstAttribute="trailing" secondItem="Ohg-Zm-h2G" secondAttribute="trailing" id="JKC-VE-o4W"/>
@@ -211,7 +213,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="130.40000000000001" y="129.98500749625188"/>
+            <point key="canvasLocation" x="1350" y="201"/>
         </view>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dZT-Py-xLk" userLabel="备胎">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -479,7 +481,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="qO9-hk-Ma6"/>
-            <point key="canvasLocation" x="1102" y="18"/>
+            <point key="canvasLocation" x="274" y="518"/>
         </view>
     </objects>
     <resources>

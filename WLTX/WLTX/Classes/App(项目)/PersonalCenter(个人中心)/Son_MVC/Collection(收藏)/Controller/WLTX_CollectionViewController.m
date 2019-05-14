@@ -8,7 +8,6 @@
 
 #import "WLTX_CollectionViewController.h"
 #import "WLTX_CollectionModel.h"
-
 @interface WLTX_CollectionViewController ()
 <
 UITableViewDelegate,
@@ -18,7 +17,6 @@ DZNEmptyDataSetDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
-@property (nonatomic, strong) NSMutableArray *listArr;
 @property (nonatomic, assign) NSInteger page;
 @end
 
@@ -77,18 +75,18 @@ DZNEmptyDataSetDelegate
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.listArr.count;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 44;
+    return 240;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
-    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",indexPath.row];
+    WLTX_CollectionCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CollectionCellID];
+//    cell.model = self.carModels[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -97,6 +95,9 @@ DZNEmptyDataSetDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    WLTX_SpecialDetailsVC *vc = [[WLTX_SpecialDetailsVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -234,7 +235,7 @@ DZNEmptyDataSetDelegate
 
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WLT_LogisticsRecruitmentCell class]) bundle:nil] forCellReuseIdentifier:WLT_LogisticsRecruitmentCellID];
 
-//    [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_CollectionCell class]) bundle:nil] forCellReuseIdentifier:@"WLTX_CollectionCellID"];
+    [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_CollectionCell class]) bundle:nil] forCellReuseIdentifier:WLTX_CollectionCellID];
     
 }
 
@@ -242,12 +243,12 @@ DZNEmptyDataSetDelegate
 - (void)loadData:(BOOL)isRef
 {
     if (isRef) {
-        [self.listArr removeAllObjects];
+//        [self.listArr removeAllObjects];
     }
     
     if (self.page < 3) {
         for (int i = 0; i < 10; i ++) {
-            [self.listArr addObject:@(i)];
+//            [self.listArr addObject:@(i)];
         }
         [self.tableview endFooterRefresh];
         [self.tableview reloadData];
@@ -257,6 +258,26 @@ DZNEmptyDataSetDelegate
     }
 }
 
+// 去显示石井和太和
+- (IBAction)go2ShowSjOrTh:(UIButton *)sender {
+    switch (sender.tag) {
+        case 10:
+            {
+                NSLog(@"石井");
+            }
+            break;
+        case 20:
+        {
+            NSLog(@"太和");
+        }
+            break;
+
+        default:
+            break;
+    }
+    
+}
+
 
 #pragma mark  ✍🏻(自定义方法) custom method end
 
@@ -264,13 +285,7 @@ DZNEmptyDataSetDelegate
 #pragma mark - 📶(网络请求)Network start
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
-- (NSMutableArray *)listArr
-{
-    if (!_listArr) {
-        _listArr = [NSMutableArray array];
-    }
-    return _listArr;
-}
+
 #pragma mark 💤 控件/对象懒加载 object end
 
 @end

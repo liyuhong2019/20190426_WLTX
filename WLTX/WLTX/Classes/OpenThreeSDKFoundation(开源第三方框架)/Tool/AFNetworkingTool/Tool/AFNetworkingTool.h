@@ -90,6 +90,13 @@ NS_ASSUME_NONNULL_BEGIN
                           failure:(Failure_Block)failure;
 
 
+
+
++ (void)uploadPictureWith:(NSString *)URLString
+               parameters:(id)parameters
+                     data:(NSData *)data
+                  success:(nullable void (^)(id  responseObject))success
+                  failure:(nullable void (^)(NSError *_Nullable error))failure;
 @end
 
 

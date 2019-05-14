@@ -342,7 +342,7 @@ self.layout_scrollview_h.constant = xib_iphone678_ScrollviewH;\
 
 // 判断是否有登录 用户手机号进行处理
 #define kWltx_IsLogin ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"]==nil)? NO : YES
-
+#define kWltx_userShouji [[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"]
 // 退出登录操作 清空本地缓存保存的数据
 #define kWltx_OutLogin  NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];\
 [userDefault removeObjectForKey:@"user_shouji"];\

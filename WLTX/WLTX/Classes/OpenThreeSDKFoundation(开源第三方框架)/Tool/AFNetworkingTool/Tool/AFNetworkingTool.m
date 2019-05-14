@@ -226,6 +226,80 @@
     }];
 }
 
+
+#pragma mark - 上传单张
++ (void)uploadPictureWith:(NSString *)URLString
+               parameters:(id)parameters
+                     data:(NSData *)data
+                  success:(nullable void (^)(id  responseObject))success
+                  failure:(nullable void (^)(NSError *_Nullable error))failure
+{
+    // 1.请求管理器
+    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
+    
+    //2.取token（项目中的应用）
+    //    NSString *cookiesdata = [[NSUserDefaults standardUserDefaults] valueForKey:@"token"]?[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]:@"";
+    //3.传token
+    //    [sessionManager.requestSerializer setValue:kWltx_userShouji forHTTPHeaderField:@"shouji"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",BaseURL,URLString];
+
+//    NSString *url = @"http://m.0201566.com/appapi/up.php";
+    //    if ([URLString containsString:BaseAPI]) {
+    //        url = URLString;
+    //    }else{
+    //        url = [NSString stringWithFormat:@"%@%@",BaseAPI,URLString];
+    //    }
+    //2.上传文件
+    [sessionManager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@.png",[formatter stringFromDate:[NSDate date]]];
+        //上传文件参数
+        [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/jpeg"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        //打印上传进度
+        CGFloat progress = 100.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
+        NSLog(@"上传进度 %f",progress);
+        //        [SVProgressHUD showWithStatus:@"正在上传..."];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //        ResponseObject *response = [ResponseObject mj_objectWithKeyValues:responseObject];
+        // 回调成功之后的block
+        //        NSLog(@"%@",response);
+        
+        //        success(response);
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //            [SVProgressHUD dismiss];
+        });
+        //请求成功
+        NSLog(@"请求成功：%@",responseObject);
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 回调失败之后的block
+        //        [SVProgressHUD showErrorWithStatus:@"上传失败~"];
+        //        failure(error);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //            [SVProgressHUD dismiss];
+        });
+        YHLog(@"\n 请求url %@\n 请求参数 %@\n failure %@\n",url,parameters,error);
+        YHLog(@"error code is %ld",error.code);         // 错误码
+        YHLog(@"error userinfo is %@",error.userInfo);  // 错误的信息 包含url、错误码、
+        NSString *errorMsg = [NSString stringWithFormat:@"%@",[error.localizedDescription mj_JSONString]];
+        // 打印错误详情信息
+        YHLog(@"error localizedDescription is %@",errorMsg);
+        if (failure) {
+            failure(error);
+        }
+        
+    }];
+}
+
 /**
  *  对象转换为字典
  *
@@ -279,4 +353,6 @@
     }
     return [self getObjectData:obj];
 }
+
+
 @end

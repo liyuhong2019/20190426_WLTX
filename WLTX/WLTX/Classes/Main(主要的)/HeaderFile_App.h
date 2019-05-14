@@ -22,6 +22,9 @@
 // 公共页面
 #import "WLTX_CommonSelectAreaVC.h"                // 选择区域
 #import "WLTX_CommonWebVC.h"                       // 公共网页
+#import "WLTX_ReleaseCommonInfoVC.h"                // 全局公共发布
+#import "WLTX_ReleaseCarInfoVC.h"                // 全局车发布
+
 // 登录注册忘记密码
 #import "WLTX_LoginViewController.h"                // 登录
 #import "WLTX_RegistViewController.h"               // 注册
@@ -35,6 +38,7 @@
 #import "WLTX_Home_ADDetailsViewController.h"       // 广告详情
 #import "WLTX_NestPageViewController.h"             // 下一页
 #import "WLTX_IntegratedQueryViewController.h"      // 综合查询
+#import "WLTX_SpecialLineVC.h"                      // 首页 更多专线
 #import "WLTX_ShuttleRouteCell.h"                   // 主页 专线cell
     // 综合查询的子界面
     #import "WLTX_LogisticsRecruitmentViewController.h" // 物流招聘
@@ -58,6 +62,9 @@
 #import "WLTX_SettingsViewController.h"
     // 子子界面
     #import "WLTX_RealNameCertificationVC.h"
+    #import "WLTX_SpecialDetailsVC.h"
+
+
     // cell
     #import "WLTX_CollectionCell.h"
 

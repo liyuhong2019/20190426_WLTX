@@ -38,7 +38,9 @@
 #define my_getSumContributionValue @"my_gxz_sum.php"  // 我的贡献值总和
 #define my_getCarList @"yfb_list_cl.php"  // 我发布的车辆
 #define my_getpushInformationList @"yfb_list.php"  // 我发布的信息
-
+#define my_getmy_grxx @"my_grxx.php"  // 个人信息
+#define my_UpiconFile @"up.php"  // 上传头像图片
+#define my_collection @"my_shoucang.php"  // 收藏
 
 
 #endif /* WLTX_App_HttpRequestUrlManagers_h */
