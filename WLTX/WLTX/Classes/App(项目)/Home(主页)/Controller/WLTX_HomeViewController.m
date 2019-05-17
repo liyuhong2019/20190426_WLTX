@@ -117,12 +117,12 @@ UICollectionViewDataSource
 
 
 #pragma mark - 测试action
-- (IBAction)pushNestPage:(UIButton *)sender {
-//    WLTX_NestPageViewController *vc = [[WLTX_NestPageViewController alloc]initWithNibName:NSStringFromClass([WLTX_NestPageViewController class]) bundle:nil];
-    WLTX_LogisticsRecruitmentViewController *vc = [[WLTX_LogisticsRecruitmentViewController alloc]initWithNibName:NSStringFromClass([WLTX_LogisticsRecruitmentViewController class]) bundle:nil];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (IBAction)pushNestPage:(UIButton *)sender {
+////    WLTX_NestPageViewController *vc = [[WLTX_NestPageViewController alloc]initWithNibName:NSStringFromClass([WLTX_NestPageViewController class]) bundle:nil];
+//    WLTX_LogisticsRecruitmentViewController *vc = [[WLTX_LogisticsRecruitmentViewController alloc]initWithNibName:NSStringFromClass([WLTX_LogisticsRecruitmentViewController class]) bundle:nil];
+//    
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 - (IBAction)login:(UIButton *)sender {
     NSLog(@"%s,友盟SDK登录",__func__);

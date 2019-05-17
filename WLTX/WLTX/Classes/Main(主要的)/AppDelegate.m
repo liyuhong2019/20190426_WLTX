@@ -1,11 +1,4 @@
 #import "AppDelegate.h"
-
-// singleton
-#import "AppProject.h"
-
-// Controller
-#import "AppTabBarViewController.h"
-
 @interface AppDelegate ()
 
 @end
@@ -26,8 +19,8 @@
 #warning 这一块代码到时候封装到appProject里面
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    AppTabBarViewController *tabBarVC = [[AppTabBarViewController alloc] init];
-    self.window.rootViewController = tabBarVC;
+    self.tabBarVC = [[AppTabBarViewController alloc] init];
+    self.window.rootViewController = self.tabBarVC;
     [self.window makeKeyAndVisible];
     
     [self setGlobalBtn];
@@ -53,37 +46,41 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"请选择类型" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *arr = @[@"物流供应",@"货源信",@"车源信息",@"物流招聘"];
     
-    
+    // 不能跳转 参考 https://www.jianshu.com/p/20f56bf7be84
+    int index =  [self.tabBarVC selectedIndex];
+    //拿到tabbar的当前分栏的NavigationController
+    LYHNavigationController *nav = [self.tabBarVC.viewControllers objectAtIndex:self.tabBarVC.selectedIndex];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:arr[0] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击了按钮1，进入按钮1的事件");
         [AppProject getInstance].gloalBtn.hidden = NO;
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        });
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //        });
         [self.window.rootViewController dismissViewControllerAnimated:NO completion:^{
             
         }];
-
+        
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
-        vc.releaseType = ReleaseType_Logistics;
-        vc.hidesBottomBarWhenPushed= YES;
-        [(LYHNavigationController *)self.window.rootViewController.navigationController pushViewController:vc animated:YES];
-
+        //        vc.releaseType = ReleaseType_Logistics;
+        //        vc.hidesBottomBarWhenPushed= YES;
+        //        [(LYHNavigationController *)self.window.rootViewController.navigationController pushViewController:vc animated:YES];
+        // 需要拿到当前的tabbar的导航栏进行跳转
+        [nav pushViewController:vc animated:YES];
         NSLog(@"点击了按钮1，进入按钮1的事件 end");
-
+        
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:arr[1] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [AppProject getInstance].gloalBtn.hidden = NO;
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
         vc.releaseType = ReleaseType_Logistics;
-        [self.window.rootViewController.navigationController pushViewController:vc animated:YES];
-
+        [nav pushViewController:vc animated:YES];
+        
     }];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:arr[2] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [AppProject getInstance].gloalBtn.hidden = NO;
         WLTX_ReleaseCarInfoVC *vc = [[WLTX_ReleaseCarInfoVC alloc]init];
-        [self.window.rootViewController.navigationController pushViewController:vc animated:YES];
-
+        [nav pushViewController:vc animated:YES];
+        
         
         
     }];
@@ -93,8 +90,9 @@
         
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
         vc.releaseType = ReleaseType_Logistics;
-        [self.window.rootViewController.navigationController pushViewController:vc animated:YES];
-
+        [nav pushViewController:vc animated:YES];
+        //        [self.window.rootViewController.navigationController pushViewController:vc animated:YES];
+        
         
     }];
     UIAlertAction *action5 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
