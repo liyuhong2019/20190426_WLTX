@@ -16,7 +16,7 @@ DZNEmptyDataSetSource,
 DZNEmptyDataSetDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
-
+@property (strong,nonatomic) NSMutableArray *myCollectionArr;
 @property (nonatomic, assign) NSInteger page;
 @end
 
@@ -38,6 +38,13 @@ DZNEmptyDataSetDelegate
 {
     [super viewDidLoad];
     [self collectionVC_settingsInitData];
+    
+    NSDictionary *dict = @{
+                           @"shouji":kWltx_userShouji,
+                           @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
+                           };
+    [self netwrok_getmyCollectionListRequest:dict];
+
     
 }
 - (void)dealloc
@@ -75,18 +82,20 @@ DZNEmptyDataSetDelegate
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return self.myCollectionArr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 240;
+    return 175;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WLTX_CollectionCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CollectionCellID];
 //    cell.model = self.carModels[indexPath.row];
+    cell.model = self.myCollectionArr[indexPath.row];
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -190,9 +199,11 @@ DZNEmptyDataSetDelegate
 - (void)collectionVC_settingsInitData
 {
     YHLog(@"初始化数据");
+    self.page = 0; // 初始化 为第0页
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self collection_settingsNav];
     [self collection_CommonSettings];
+    
     
     
     __weak typeof(self) weakSelf = self;
@@ -204,8 +215,17 @@ DZNEmptyDataSetDelegate
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);
+        
+        NSLog(@"self.page :%zd",self.page);
+
+        
+        if (self.page == 0) {
+//            [self loadData:NO];
+            [self.tableview endFooterNoMoreData];
+            return ;
+        }
+        
         weakSelf.page = pageIndex;
-        [self loadData:NO];
     }];
     
     [self loadData:YES];
@@ -230,8 +250,8 @@ DZNEmptyDataSetDelegate
     self.tableview.delegate = self;
     
     // 空页面的数据源、数据代理设置
-    self.tableview.emptyDataSetSource = self;
-    self.tableview.emptyDataSetDelegate = self;
+//    self.tableview.emptyDataSetSource = self;
+//    self.tableview.emptyDataSetDelegate = self;
 
 //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WLT_LogisticsRecruitmentCell class]) bundle:nil] forCellReuseIdentifier:WLT_LogisticsRecruitmentCellID];
 
@@ -283,9 +303,38 @@ DZNEmptyDataSetDelegate
 
 
 #pragma mark - 📶(网络请求)Network start
+#pragma mark -
+// 1、综合页面里面查询
+// 专线路线
+
+- (void)netwrok_getmyCollectionListRequest:(NSDictionary *)dict
+{
+    [AFNetworkingTool getWithURLString:my_collection parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONObject]);
+        NSArray *data = result[@"data"];
+        
+        NSMutableArray *tempArrModel = [NSMutableArray array];
+        self.myCollectionArr = [WLTX_CollectionModel mj_objectArrayWithKeyValuesArray:data];
+        NSLog(@"integratedQueryListArr %@",self.myCollectionArr);
+        
+        [self.tableview reloadData];
+        //        self.data_ad = tempArr;
+        self.page = [result[@"nextpage"] integerValue];
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 #pragma mark 📶(网络请求)Network end
 #pragma mark - 💤 控件/对象懒加载 object start
-
+- (NSMutableArray *)myCollectionArr
+{
+    if (_myCollectionArr == nil) {
+        _myCollectionArr  = [NSMutableArray array];
+    }
+    return _myCollectionArr;
+}
 #pragma mark 💤 控件/对象懒加载 object end
 
 @end
