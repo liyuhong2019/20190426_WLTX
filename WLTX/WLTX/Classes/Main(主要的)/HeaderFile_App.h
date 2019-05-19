@@ -43,6 +43,7 @@
     // 综合查询的子界面
     #import "WLTX_LogisticsRecruitmentViewController.h" // 物流招聘
     #import "WLT_LogisticsRecruitmentCell.h"            // 物流招聘cell
+    #import "WLTX_CommonLogisticsCell.h"                // 物流供求
 // 2、专线查询的子界面
 // 3、发布消息的子界面
     #import "WLTX_PushCarCell.h"

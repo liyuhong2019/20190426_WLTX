@@ -18,6 +18,8 @@ DZNEmptyDataSetDelegate
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong,nonatomic) NSMutableArray *myCollectionArr;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger nextpage;
+
 @end
 
 @implementation WLTX_CollectionViewController
@@ -48,12 +50,12 @@ DZNEmptyDataSetDelegate
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.page = 0; // 初始化 为第0页
+    self.page = 1; // 初始化 为第0页
     NSDictionary *dict = @{
                            @"shouji":kWltx_userShouji,
                            @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
                            };
-    [self netwrok_getmyCollectionListRequest:dict];
+    [self netwrok_getmyCollectionListRequest:dict Withappend:NO];
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -92,6 +94,11 @@ DZNEmptyDataSetDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WLTX_CollectionCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CollectionCellID];
+    
+//    if (!cell) {
+//        cell = (WLTX_CollectionCell *)[[NSBundle mainBundle]loadNibNamed:@"WLTX_CollectionCell" owner:nil options:nil].firstObject;
+//
+//    }
 //    cell.model = self.carModels[indexPath.row];
     cell.model = self.myCollectionArr[indexPath.row];
     [cell.btn_phoneNumber cq_addEventHandler:^{
@@ -218,26 +225,37 @@ DZNEmptyDataSetDelegate
     __weak typeof(self) weakSelf = self;
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);
-        weakSelf.page = pageIndex;
-        [self loadData:YES];
+//        weakSelf.page = pageIndex;
+        self.page = 1; // 初始化 为第1页
+        NSDictionary *dict = @{
+                               @"shouji":kWltx_userShouji,
+                               @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
+                               };
+        [self netwrok_getmyCollectionListRequest:dict Withappend:NO];
     }];
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
-        NSLog(@"pageIndex:%zd",pageIndex);
+        //NSLog(@"pageIndex:%zd",pageIndex);
         
+        NSLog(@"下拉刷新");
         NSLog(@"self.page :%zd",self.page);
+        NSLog(@"nextpage :%zd",self.nextpage);
 
-        
-        if (self.page == 0) {
-//            [self loadData:NO];
+        // 这里逻辑判断
+        if (self.nextpage == 0) {
             [self.tableview endFooterNoMoreData];
             return ;
         }
         
-        weakSelf.page = pageIndex;
+        NSDictionary *dict = @{
+                               @"shouji":kWltx_userShouji,
+                               @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
+                               };
+        [self netwrok_getmyCollectionListRequest:dict Withappend:YES];
+        [self.tableview endFooterRefresh];
+        
     }];
     
-    [self loadData:YES];
     
 }
 /**
@@ -315,19 +333,33 @@ DZNEmptyDataSetDelegate
 #pragma mark -
 // 1、综合页面里面查询
 // 我的收藏列表
-- (void)netwrok_getmyCollectionListRequest:(NSDictionary *)dict
+- (void)netwrok_getmyCollectionListRequest:(NSDictionary *)dict Withappend:(BOOL)append
 {
     [AFNetworkingTool getWithURLString:my_collection parameters:dict resultClass:nil success:^(id result) {
         NSLog(@"result = %@",[result mj_JSONObject]);
         NSArray *data = result[@"data"];
         
         NSMutableArray *tempArrModel = [NSMutableArray array];
-        self.myCollectionArr = [WLTX_CollectionModel mj_objectArrayWithKeyValuesArray:data];
+        if (!append) {
+            [self.myCollectionArr removeAllObjects];
+            self.myCollectionArr = [WLTX_CollectionModel mj_objectArrayWithKeyValuesArray:data];
+        }
+        else
+        {
+            for (NSDictionary *dict in data) {
+                WLTX_CollectionModel *model = [WLTX_CollectionModel mj_objectWithKeyValues:dict];
+                [self.myCollectionArr addObject:model];
+            }
+        }
         NSLog(@"integratedQueryListArr %@",self.myCollectionArr);
         
-        [self.tableview reloadData];
+        
         //        self.data_ad = tempArr;
-        self.page = [result[@"nextpage"] integerValue];
+        self.page += [result[@"nextpage"] integerValue];
+
+        self.nextpage = [result[@"nextpage"] integerValue];
+
+        [self.tableview reloadData];
         
         
     } failure:^(NSError *error) {

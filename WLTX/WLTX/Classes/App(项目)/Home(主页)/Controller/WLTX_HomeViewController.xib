@@ -379,6 +379,9 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHD-BH-n3P">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="75"/>
+                                            <connections>
+                                                <action selector="go2IntegratedQuery:" destination="-1" eventType="touchUpInside" id="Rj0-yy-oqj"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

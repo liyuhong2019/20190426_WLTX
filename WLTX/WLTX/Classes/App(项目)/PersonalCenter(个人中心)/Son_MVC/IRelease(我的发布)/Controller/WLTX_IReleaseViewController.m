@@ -20,6 +20,7 @@ UITableViewDataSource>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *infomationModels;
 @property (nonatomic, strong) NSMutableArray *carModels;
+@property (nonatomic, assign) NSInteger nextpage;
 
 @end
 
@@ -127,7 +128,6 @@ UITableViewDataSource>
 - (void)userAgreementVC_settingsInitData
 {
     YHLog(@"初始化数据");
-    //    self.view.backgroundColor = [UIColor whiteColor];
     [self userAgreement_settingsNav];
     self.tableview.tag = 10;
     self.tableview.tableFooterView = [[UIView alloc]init];
@@ -135,46 +135,71 @@ UITableViewDataSource>
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_PublishInformationCell class]) bundle:nil] forCellReuseIdentifier:WLTX_PublishInformationCellID];
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_PushCarCell class]) bundle:nil] forCellReuseIdentifier:WLTX_PushCarCellID];
 
-    self.page = 0;
-
+    self.page = 1; // 从1开始、因为下拉是从2开始
     NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                           @"page":[NSString stringWithFormat:@"%ld",self.page],
                            };
-    [self netwrok_getpushInformationRequest:dict];
+    [self netwrok_getpushInformationRequest:dict Withappend:NO];
     
     
     __weak typeof(self) weakSelf = self;
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);
-        weakSelf.page = pageIndex;
-        [self loadData:YES];
+//        weakSelf.page = pageIndex;
+        self.page = 1; // 从1开始、因为下拉是从2开始
+        if (self.tableview.tag == 10) {
+            // 这里判断是那个tableview
+            NSLog(@"已发布的上拉刷新");
+            NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                                   @"page":[NSString stringWithFormat:@"%ld",self.page],
+                                   };
+            [self netwrok_getpushInformationRequest:dict Withappend:NO];
+        }
+        else
+        {
+            NSLog(@"车卡的上拉刷新");
+            NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                                   @"page":[NSString stringWithFormat:@"%ld",self.page],
+                                   };
+            [self netwrok_getpushCarRequest:dict Withappend:NO];
+        }
+        
     }];
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);
-        weakSelf.page = pageIndex;
-        [self loadData:NO];
+        NSLog(@"nextpage :%zd",self.nextpage);
+        // 这里逻辑判断
+        if (self.nextpage == 0) {
+            [self.tableview endFooterNoMoreData];
+            return ;
+        }
+        
+        if (self.tableview.tag == 10) {
+            // 这里判断是那个tableview
+            NSLog(@"已发布的下拉刷新");
+            NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                                   @"page":[NSString stringWithFormat:@"%ld",self.page],
+                                   };
+            [self netwrok_getpushInformationRequest:dict Withappend:YES];
+            [self.tableview endFooterRefresh];
+        }
+        else
+        {
+            NSLog(@"车卡的下拉刷新");
+            NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                                   @"page":[NSString stringWithFormat:@"%ld",self.page],
+                                   };
+            [self netwrok_getpushCarRequest:dict Withappend:YES];
+            [self.tableview endFooterRefresh];
+        }
+
+        
     }];
     
-    [self loadData:YES];
     
 }
-- (void)loadData:(BOOL)isRef
-{
-    if (isRef) {
-//        [self.listArr removeAllObjects];
-    }
-    
-    if (self.page < 3) {
-        for (int i = 0; i < 10; i ++) {
-//            [self.listArr addObject:@(i)];
-        }
-        [self.tableview endFooterRefresh];
-        [self.tableview reloadData];
-    }
-    else{
-        [self.tableview endFooterNoMoreData];
-    }
-}
+
 /**
  登陆页面设置 nav
  */
@@ -189,40 +214,56 @@ UITableViewDataSource>
 - (IBAction)relodData:(UIButton *)sender {
     [self.btn_pushInformation setTitleColor:[UIColor orangeColor] forState:0];
     [self.btn_pushCar setTitleColor:[UIColor blackColor] forState:0];
-    
+    self.tableview.tag = 10;
     NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
-                           @"gage":@"0"
+                           @"page":@"1"
                            };
     
-    [self netwrok_getpushInformationRequest:dict];
-    self.tableview.tag = 10;
+    [self netwrok_getpushInformationRequest:dict Withappend:NO];
     [self.tableview reloadData];
 }
 - (IBAction)relodData2:(UIButton *)sender {
     [self.btn_pushCar setTitleColor:[UIColor orangeColor] forState:0];
     [self.btn_pushInformation setTitleColor:[UIColor blackColor] forState:0];
-    
-    NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
-                           @"gage":@"0"
-                           };
-    [self netwrok_getpushCarRequest:dict];
     self.tableview.tag = 20;
+    NSDictionary *dict = @{@"shouji":[[NSUserDefaults standardUserDefaults] objectForKey:@"user_shouji"],
+                           @"page":@"1"
+                           };
+    [self netwrok_getpushCarRequest:dict Withappend:NO];
     [self.tableview reloadData];
 }
 
 #pragma mark - 📶(网络请求)Network start
 // 获取发布信息
-- (void)netwrok_getpushInformationRequest:(NSDictionary *)dict
+- (void)netwrok_getpushInformationRequest:(NSDictionary *)dict Withappend:(BOOL)append
 {
     [AFNetworkingTool getWithURLString:my_getpushInformationList parameters:dict resultClass:nil success:^(id result) {
         NSLog(@"获取发布信息 result = %@",[result mj_JSONString]);
         NSDictionary *dataDict = result;
         NSString *all_number = dataDict[@"all_num"];
-        self.page = [[dataDict objectForKey:@"nextpage"] integerValue];
+        self.nextpage = [[dataDict objectForKey:@"nextpage"] integerValue];
+        self.page += [dataDict[@"nextpage"] integerValue];
         NSArray *dataArr = dataDict[@"data"];
-        NSMutableArray *dataMArr  =
-        self.infomationModels = [WLTX_PublishInformationModel mj_objectArrayWithKeyValuesArray:dataArr];
+//        NSMutableArray *dataMArr  =
+//        self.infomationModels = [WLTX_PublishInformationModel mj_objectArrayWithKeyValuesArray:dataArr];
         //NSLog(@"dataMArr %@",dataMArr);
+        
+        if (!append) {
+            [self.infomationModels removeAllObjects];
+            self.infomationModels = [WLTX_PublishInformationModel mj_objectArrayWithKeyValuesArray:dataArr];
+        }
+        else
+        {
+            NSLog(@"dataArr count %ld",dataArr.count);
+
+            for (NSDictionary *dict in dataArr) {
+                WLTX_PublishInformationModel *model = [WLTX_PublishInformationModel mj_objectWithKeyValues:dict];
+                NSLog(@"count %ld",self.infomationModels.count);
+                [self.infomationModels addObject:model];
+            }
+            NSLog(@"count %ld",self.infomationModels.count);
+        }
+        
         
         [self.tableview reloadData];
         
@@ -235,17 +276,40 @@ UITableViewDataSource>
 }
 
 
-- (void)netwrok_getpushCarRequest:(NSDictionary *)dict
+- (void)netwrok_getpushCarRequest:(NSDictionary *)dict Withappend:(BOOL)append
 {
     [AFNetworkingTool getWithURLString:my_getCarList parameters:dict resultClass:nil success:^(id result) {
         NSLog(@"result = %@",[result mj_JSONString]);
         NSDictionary *dataDict = result;
         NSString *all_number = dataDict[@"all_num"];
-        self.page = [[dataDict objectForKey:@"nextpage"] integerValue];
+        if ([dataDict[@"data"] isKindOfClass:[NSString class]]) {
+            NSLog(@"返回的数据是空的字符串");
+            return ;
+        }
+//        self.page = [[dataDict objectForKey:@"nextpage"] integerValue];
+        self.nextpage = [[dataDict objectForKey:@"nextpage"] integerValue];
+        self.page += [dataDict[@"nextpage"] integerValue];
+      
         NSArray *dataArr = dataDict[@"data"];
-        NSMutableArray *dataMArr  =self.carModels = [WLTX_PushCarModel mj_objectArrayWithKeyValuesArray:dataArr];
+//        NSMutableArray *dataMArr  =self.carModels = [WLTX_PushCarModel mj_objectArrayWithKeyValuesArray:dataArr];
         //NSLog(@"dataMArr %@",dataMArr);
+//        self.page += [dataDict[@"nextpage"] integerValue];
+       
         
+        
+        if (!append) {
+            [self.carModels removeAllObjects];
+            self.carModels = [WLTX_PushCarModel mj_objectArrayWithKeyValuesArray:dataArr];
+        }
+        else
+        {
+            
+            for (NSDictionary *dict in dataArr) {
+                WLTX_PushCarModel *model = [WLTX_PushCarModel mj_objectWithKeyValues:dict];
+                [self.carModels addObject:model];
+            }
+        }
+
         [self.tableview reloadData];
         
     } failure:^(NSError *error) {

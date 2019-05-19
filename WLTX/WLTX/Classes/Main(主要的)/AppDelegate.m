@@ -53,18 +53,12 @@
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:arr[0] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击了按钮1，进入按钮1的事件");
-        [AppProject getInstance].gloalBtn.hidden = NO;
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //        });
-        [self.window.rootViewController dismissViewControllerAnimated:NO completion:^{
-            
-        }];
-        
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
         //        vc.releaseType = ReleaseType_Logistics;
         //        vc.hidesBottomBarWhenPushed= YES;
         //        [(LYHNavigationController *)self.window.rootViewController.navigationController pushViewController:vc animated:YES];
         // 需要拿到当前的tabbar的导航栏进行跳转
+        vc.releaseType = ReleaseType_Logistics;
         [nav pushViewController:vc animated:YES];
         NSLog(@"点击了按钮1，进入按钮1的事件 end");
         
@@ -72,7 +66,7 @@
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:arr[1] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [AppProject getInstance].gloalBtn.hidden = NO;
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
-        vc.releaseType = ReleaseType_Logistics;
+        vc.releaseType = ReleaseType_Cargo;
         [nav pushViewController:vc animated:YES];
         
     }];
@@ -89,7 +83,7 @@
         [AppProject getInstance].gloalBtn.hidden = NO;
         
         WLTX_ReleaseCommonInfoVC *vc = [[WLTX_ReleaseCommonInfoVC alloc]init];
-        vc.releaseType = ReleaseType_Logistics;
+        vc.releaseType = ReleaseType_Reruitment;
         [nav pushViewController:vc animated:YES];
         //        [self.window.rootViewController.navigationController pushViewController:vc animated:YES];
         

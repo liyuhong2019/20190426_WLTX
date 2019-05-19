@@ -134,6 +134,10 @@ UICollectionViewDataSource
     NSLog(@"%s,友盟SD分享",__func__);
     [self go2WeChatShare];
 }
+- (IBAction)go2IntegratedQuery:(UIButton *)sender {
+    WLTX_IntegratedQueryViewController *vc = [[WLTX_IntegratedQueryViewController alloc]init];
+    [self.navigationController pushViewController: vc animated:YES];
+}
 
 
 

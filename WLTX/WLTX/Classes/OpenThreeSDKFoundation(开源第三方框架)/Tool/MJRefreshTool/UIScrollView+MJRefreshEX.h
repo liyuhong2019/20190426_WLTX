@@ -40,4 +40,5 @@
  */
 - (void)endFooterNoMoreData;
 
+- (void)resetNoMoreData;
 @end

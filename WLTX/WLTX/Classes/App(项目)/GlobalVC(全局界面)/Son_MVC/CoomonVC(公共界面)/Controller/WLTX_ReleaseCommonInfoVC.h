@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 typedef NS_OPTIONS(NSUInteger, ReleaseType) {
-    ReleaseType_Logistics = 0,  // 物流供求
+    ReleaseType_Logistics = 1,  // 物流供求
     ReleaseType_Cargo,          // 货源信
-    ReleaseType_Reruitment,     // 物流招聘
+    ReleaseType_Reruitment =5,     // 物流招聘
     
 };
 NS_ASSUME_NONNULL_BEGIN

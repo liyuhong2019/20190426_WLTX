@@ -13,10 +13,19 @@
 // 域名或者ip
 #define WLTX_DomainOrIpUrl @"http://m.0201566.com/appapi/"
 
+/*** 公共部分 ***/
+#define Coomon_Release @"wdfb.php"                    // 发布 1物流供求 ，2 货源信息 ，5 物流招聘，3车源信息
+//#define Coomon_integrateQueryList @"zhcx_list.php"                    // 综合列表
+#define Coomon_integrateQueryList(detailsId,page) [NSString stringWithFormat: @"zhcx_list.php?id=%@&page=%@",detailsId,page] // 综合列表
+
+#define my_integrateQueryDetails(detailsId) [NSString stringWithFormat: @"zhcx_content.php?id=%@",detailsId] // 综合单页
+
+
 /*** 主页 ***/
 #define Home_AdUrl @"banner.php"                    // 广告轮播图
 #define Home_AdDetail @"banner_cont.php?id="        // 广告详情
 #define Home_ShuttleRouteUrl @"zxzs.php"            // 专线展示
+#define Home_IntegratedQueryListUrl @"zhcx.php"      // 综合查询
 
 /*** 专线查询 ***/
 

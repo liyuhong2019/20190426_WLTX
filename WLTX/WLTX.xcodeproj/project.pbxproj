@@ -62,6 +62,17 @@
 		C20427502251890B00902A8E /* WLTX_PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */; };
 		C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */ = {isa = PBXBuildFile; fileRef = C20515522283044F00AC1556 /* UIViewController+Extion.m */; };
 		C219218E2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */; };
+		C21921912291562D00953BF1 /* WLTX_IntegratedQueryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921902291562D00953BF1 /* WLTX_IntegratedQueryView.m */; };
+		C21921952291567F00953BF1 /* WLTX_IntegratedQueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921932291567F00953BF1 /* WLTX_IntegratedQueryCell.m */; };
+		C21921962291567F00953BF1 /* WLTX_IntegratedQueryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921942291567F00953BF1 /* WLTX_IntegratedQueryCell.xib */; };
+		C219219922915E7E00953BF1 /* WLTX_IntegratedQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C219219822915E7E00953BF1 /* WLTX_IntegratedQueryModel.m */; };
+		C21921A42291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921A22291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m */; };
+		C21921A52291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921A32291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib */; };
+		C21921AE22916AE600953BF1 /* WLTX_CommonLogisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921AC22916AE600953BF1 /* WLTX_CommonLogisticsCell.m */; };
+		C21921AF22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921AD22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib */; };
+		C21921B722917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921B522917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m */; };
+		C21921B822917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */; };
+		C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */; };
 		C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */; };
 		C23D0C08225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */; };
 		C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C0A225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m */; };
@@ -252,6 +263,24 @@
 		C20515522283044F00AC1556 /* UIViewController+Extion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extion.m"; sourceTree = "<group>"; };
 		C219218C2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsFbwdModel.h; sourceTree = "<group>"; };
 		C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsFbwdModel.m; sourceTree = "<group>"; };
+		C219218F2291562D00953BF1 /* WLTX_IntegratedQueryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_IntegratedQueryView.h; sourceTree = "<group>"; };
+		C21921902291562D00953BF1 /* WLTX_IntegratedQueryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_IntegratedQueryView.m; sourceTree = "<group>"; };
+		C21921922291567F00953BF1 /* WLTX_IntegratedQueryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_IntegratedQueryCell.h; sourceTree = "<group>"; };
+		C21921932291567F00953BF1 /* WLTX_IntegratedQueryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_IntegratedQueryCell.m; sourceTree = "<group>"; };
+		C21921942291567F00953BF1 /* WLTX_IntegratedQueryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_IntegratedQueryCell.xib; sourceTree = "<group>"; };
+		C219219722915E7E00953BF1 /* WLTX_IntegratedQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_IntegratedQueryModel.h; sourceTree = "<group>"; };
+		C219219822915E7E00953BF1 /* WLTX_IntegratedQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_IntegratedQueryModel.m; sourceTree = "<group>"; };
+		C21921A12291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CoomonIntegratedQueryListVC.h; sourceTree = "<group>"; };
+		C21921A22291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CoomonIntegratedQueryListVC.m; sourceTree = "<group>"; };
+		C21921A32291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CoomonIntegratedQueryListVC.xib; sourceTree = "<group>"; };
+		C21921AB22916AE600953BF1 /* WLTX_CommonLogisticsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CommonLogisticsCell.h; sourceTree = "<group>"; };
+		C21921AC22916AE600953BF1 /* WLTX_CommonLogisticsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CommonLogisticsCell.m; sourceTree = "<group>"; };
+		C21921AD22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CommonLogisticsCell.xib; sourceTree = "<group>"; };
+		C21921B422917F8100953BF1 /* WLTX_CoomonIQDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CoomonIQDetailsVC.h; sourceTree = "<group>"; };
+		C21921B522917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CoomonIQDetailsVC.m; sourceTree = "<group>"; };
+		C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CoomonIQDetailsVC.xib; sourceTree = "<group>"; };
+		C21921B922918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CoomonIntegratedQueryListModel.h; sourceTree = "<group>"; };
+		C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CoomonIntegratedQueryListModel.m; sourceTree = "<group>"; };
 		C23D0C04225FAF9500ADDAA5 /* WLTX_AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_AboutUsViewController.h; sourceTree = "<group>"; };
 		C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_AboutUsViewController.m; sourceTree = "<group>"; };
 		C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_AboutUsViewController.xib; sourceTree = "<group>"; };
@@ -1172,6 +1201,7 @@
 		C2042732225186AA00902A8E /* Son_MVC */ = {
 			isa = PBXGroup;
 			children = (
+				C219219A229162C100953BF1 /* CommonIntegratedList(综合的类型) */,
 				C2042733225186AA00902A8E /* LogisticsRecruitment(物流招聘) */,
 			);
 			path = Son_MVC;
@@ -1219,6 +1249,8 @@
 		C2042737225186AA00902A8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C219219722915E7E00953BF1 /* WLTX_IntegratedQueryModel.h */,
+				C219219822915E7E00953BF1 /* WLTX_IntegratedQueryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1226,6 +1258,11 @@
 		C2042738225186AA00902A8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C219218F2291562D00953BF1 /* WLTX_IntegratedQueryView.h */,
+				C21921902291562D00953BF1 /* WLTX_IntegratedQueryView.m */,
+				C21921922291567F00953BF1 /* WLTX_IntegratedQueryCell.h */,
+				C21921932291567F00953BF1 /* WLTX_IntegratedQueryCell.m */,
+				C21921942291567F00953BF1 /* WLTX_IntegratedQueryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1238,6 +1275,128 @@
 				C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C219219A229162C100953BF1 /* CommonIntegratedList(综合的类型) */ = {
+			isa = PBXGroup;
+			children = (
+				C219219B229162C100953BF1 /* Controller */,
+				C219219C229162C100953BF1 /* Son_MVC */,
+				C219219F229162C100953BF1 /* Model */,
+				C21921A0229162C100953BF1 /* View */,
+			);
+			path = "CommonIntegratedList(综合的类型)";
+			sourceTree = "<group>";
+		};
+		C219219B229162C100953BF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C21921A12291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.h */,
+				C21921A22291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m */,
+				C21921A32291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C219219C229162C100953BF1 /* Son_MVC */ = {
+			isa = PBXGroup;
+			children = (
+				C21921B022917F5C00953BF1 /* CommonDetais(详情页面) */,
+				C21921A7229169A600953BF1 /* CarInfo(车源信息) */,
+				C21921A6229169A600953BF1 /* Logistics(物流供求) */,
+			);
+			path = Son_MVC;
+			sourceTree = "<group>";
+		};
+		C219219F229162C100953BF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C21921B922918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.h */,
+				C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C21921A0229162C100953BF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C21921AB22916AE600953BF1 /* WLTX_CommonLogisticsCell.h */,
+				C21921AC22916AE600953BF1 /* WLTX_CommonLogisticsCell.m */,
+				C21921AD22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C21921A6229169A600953BF1 /* Logistics(物流供求) */ = {
+			isa = PBXGroup;
+			children = (
+				C21921A9229169E900953BF1 /* Controller */,
+				C21921A8229169E900953BF1 /* Model */,
+				C21921AA229169E900953BF1 /* View */,
+			);
+			path = "Logistics(物流供求)";
+			sourceTree = "<group>";
+		};
+		C21921A7229169A600953BF1 /* CarInfo(车源信息) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "CarInfo(车源信息)";
+			sourceTree = "<group>";
+		};
+		C21921A8229169E900953BF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C21921A9229169E900953BF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C21921AA229169E900953BF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C21921B022917F5C00953BF1 /* CommonDetais(详情页面) */ = {
+			isa = PBXGroup;
+			children = (
+				C21921B122917F5C00953BF1 /* Controller */,
+				C21921B222917F5C00953BF1 /* Model */,
+				C21921B322917F5C00953BF1 /* View */,
+			);
+			path = "CommonDetais(详情页面)";
+			sourceTree = "<group>";
+		};
+		C21921B122917F5C00953BF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C21921B422917F8100953BF1 /* WLTX_CoomonIQDetailsVC.h */,
+				C21921B522917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m */,
+				C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C21921B222917F5C00953BF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C21921B322917F5C00953BF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C23D0BE8225FAF7400ADDAA5 /* ContributionValue(贡献值) */ = {
@@ -2315,8 +2474,10 @@
 				9BC42D72222F6C4100BB032F /* LaunchScreen.storyboard in Resources */,
 				C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */,
 				9BC42E3C222FA5C300BB032F /* WLTX_HomeViewController.xib in Resources */,
+				C21921A52291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib in Resources */,
 				C2CE9762228B4D330094E137 /* WLTX_SpecialLineVC.xib in Resources */,
 				C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */,
+				C21921AF22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib in Resources */,
 				C242A18E2276147B005B277E /* WLTX_RealNameCertificationVC.xib in Resources */,
 				9BC42E24222F9E8E00BB032F /* Test2_ViewController.xib in Resources */,
 				C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */,
@@ -2330,7 +2491,9 @@
 				C24E35B622889F9F0089BB57 /* WLTX_PushCarCell.xib in Resources */,
 				C23D0C1C225FB00E00ADDAA5 /* WLTX_IReleaseViewController.xib in Resources */,
 				C2DC6D312291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib in Resources */,
+				C21921B822917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib in Resources */,
 				C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */,
+				C21921962291567F00953BF1 /* WLTX_IntegratedQueryCell.xib in Resources */,
 				C2DC6D2C229102C400F57263 /* WLTX_SpecialDetailsCell.xib in Resources */,
 				C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */,
 				C2CE9759228B470C0094E137 /* WLTX_SpecialDetailsVC.xib in Resources */,
@@ -2425,6 +2588,8 @@
 				C2868C83225E5D0B0099A296 /* WLTX_HomeAdModel.m in Sources */,
 				C2868C6E225E59730099A296 /* MJProperty.m in Sources */,
 				C2868C75225E59730099A296 /* MJFoundation.m in Sources */,
+				C21921A42291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m in Sources */,
+				C21921952291567F00953BF1 /* WLTX_IntegratedQueryCell.m in Sources */,
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
 				C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
@@ -2446,8 +2611,10 @@
 				C20240E5224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m in Sources */,
 				C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */,
 				C23D0C16225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.m in Sources */,
+				C21921B722917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m in Sources */,
 				C2F786EA223D205500D27DD7 /* WLTX_ForgotPwViewController.m in Sources */,
 				C2868C7C225E59730099A296 /* HttpRequest.m in Sources */,
+				C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */,
 				C242A192227615C0005B277E /* WLTX_CommonSelectAreaVC.m in Sources */,
 				C2868C7D225E59730099A296 /* UploadParam.m in Sources */,
 				C2CE9776228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.m in Sources */,
@@ -2484,12 +2651,14 @@
 				9BC42E0B222F9BC200BB032F /* LYHTabBarModel.m in Sources */,
 				C2024116224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m in Sources */,
 				9BC42E32222F9ECD00BB032F /* Test5_ViewController.m in Sources */,
+				C21921912291562D00953BF1 /* WLTX_IntegratedQueryView.m in Sources */,
 				C20427502251890B00902A8E /* WLTX_PersonalCenterViewController.m in Sources */,
 				C23D0C32225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m in Sources */,
 				C2868C71225E59730099A296 /* NSObject+MJProperty.m in Sources */,
 				9BC42E05222F9B8700BB032F /* LYHTabBarController.m in Sources */,
 				C2868C6D225E59730099A296 /* NSObject+MJKeyValue.m in Sources */,
 				C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */,
+				C21921AE22916AE600953BF1 /* WLTX_CommonLogisticsCell.m in Sources */,
 				9BC42E0E222F9C0C00BB032F /* LYHTabBar.m in Sources */,
 				C2B3CAD1223C0A1C00562500 /* WLTX_LoginViewController.m in Sources */,
 				9BC42E3B222FA5C300BB032F /* WLTX_HomeViewController.m in Sources */,
@@ -2507,6 +2676,7 @@
 				9BC42E40222FA69C00BB032F /* WLTX_PublishInformationViewController.m in Sources */,
 				9BC42D82222F6C7B00BB032F /* ViewController.m in Sources */,
 				C2868C76225E59730099A296 /* AFURLResponseSerialization.m in Sources */,
+				C219219922915E7E00953BF1 /* WLTX_IntegratedQueryModel.m in Sources */,
 				9BC42D84222F6C7B00BB032F /* AppDelegate.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
 			);
