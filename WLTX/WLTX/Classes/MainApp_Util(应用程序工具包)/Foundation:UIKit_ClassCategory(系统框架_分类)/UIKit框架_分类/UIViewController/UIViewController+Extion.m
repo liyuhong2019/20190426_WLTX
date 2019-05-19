@@ -21,4 +21,12 @@
     NSLog(@"是不是手机 %d",isValid);
     return isValid;
 }
+
+// 打电话
+- (void)vcCallPhoneNumber:(NSString *)PhoneNumber
+{
+    NSLog(@"%s ,打电话",__func__);
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",PhoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
 @end

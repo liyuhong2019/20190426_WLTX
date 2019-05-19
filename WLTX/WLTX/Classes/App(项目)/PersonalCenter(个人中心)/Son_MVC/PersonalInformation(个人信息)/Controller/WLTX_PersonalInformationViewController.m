@@ -182,6 +182,7 @@ if (data.length>1024 *1024) {
         NSString *yhtype = dataDict[@"yhtype"];
         NSString *name = dataDict[@"name"];
         NSString *img = dataDict[@"img"];
+    
         NSLog(@"img = %@",img);
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -189,14 +190,23 @@ if (data.length>1024 *1024) {
             self.lb_loginNumber.text = shouji;
             self.lb_lgoinType.text = yhtype;
             
-            [self.img_userUrl sd_setImageWithURL:[NSURL URLWithString:@"http://m.0201566.com/upimg/13246301428_1557857423.jpg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            NSString *strUrl = [img stringByReplacingOccurrencesOfString:@".." withString:@""];
+            NSLog(@"正确的图片地址 %@",strUrl);
+            // 设置更换本地新的URL
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:strUrl forKey:@"user_img"];
+            [defaults synchronize]; // 立即写入
+            NSLog(@"defaults 图片地址 %@",[defaults objectForKey:@"user_img"]);
+
+            
+            [self.img_userUrl sd_setImageWithURL:[NSURL URLWithString:strUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                 if (error) {
                     NSLog(@"图片 上传不了错误信息:%@",error);
                 }
                 else
                 {
-                    UIImage *imagea = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:img]]];
-                    self.img_userUrl.image = imagea;
+//                    UIImage *imagea = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:img]]];
+//                    self.img_userUrl.image = imagea;
 
                 }
 
@@ -222,7 +232,12 @@ if (data.length>1024 *1024) {
         NSString *img = dict[@"img"];
         [self.img_userUrl sd_setImageWithURL:[NSURL URLWithString:img]];
         // 图片存储到本地
-        
+        NSString *strUrl = [img stringByReplacingOccurrencesOfString:@".." withString:@""];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:strUrl forKey:@"user_img"];
+        [defaults synchronize]; // 立即写入
+        NSLog(@"defaults 图片地址 %@",[defaults objectForKey:@"user_img"]);
+
     } failure:^(NSError * _Nullable error) {
         
     }];

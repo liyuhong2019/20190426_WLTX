@@ -61,6 +61,7 @@
 		C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */; };
 		C20427502251890B00902A8E /* WLTX_PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */; };
 		C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */ = {isa = PBXBuildFile; fileRef = C20515522283044F00AC1556 /* UIViewController+Extion.m */; };
+		C219218E2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */; };
 		C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */; };
 		C23D0C08225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */; };
 		C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C0A225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m */; };
@@ -134,6 +135,12 @@
 		C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4D7692250B79E00B00E17 /* WLTX_UserAgreementViewController.m */; };
 		C2D4D76C2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D4D76A2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib */; };
 		C2D4D7702250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4D76F2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m */; };
+		C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DC6D29229102C400F57263 /* WLTX_SpecialDetailsCell.m */; };
+		C2DC6D2C229102C400F57263 /* WLTX_SpecialDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC6D2A229102C400F57263 /* WLTX_SpecialDetailsCell.xib */; };
+		C2DC6D2F2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DC6D2E2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m */; };
+		C2DC6D312291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC6D302291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib */; };
+		C2DC6D39229112F500F57263 /* WLTX_SpecialDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DC6D38229112F500F57263 /* WLTX_SpecialDetailsModel.m */; };
+		C2DC6D3C2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DC6D3B2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m */; };
 		C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */; };
 		C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F1EE7C223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m */; };
 		C2F1EE7F223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F1EE7D223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib */; };
@@ -243,6 +250,8 @@
 		C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTX_PersonalCenterViewController.m; sourceTree = "<group>"; };
 		C20515512283044F00AC1556 /* UIViewController+Extion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extion.h"; sourceTree = "<group>"; };
 		C20515522283044F00AC1556 /* UIViewController+Extion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extion.m"; sourceTree = "<group>"; };
+		C219218C2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsFbwdModel.h; sourceTree = "<group>"; };
+		C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsFbwdModel.m; sourceTree = "<group>"; };
 		C23D0C04225FAF9500ADDAA5 /* WLTX_AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_AboutUsViewController.h; sourceTree = "<group>"; };
 		C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_AboutUsViewController.m; sourceTree = "<group>"; };
 		C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_AboutUsViewController.xib; sourceTree = "<group>"; };
@@ -373,6 +382,16 @@
 		C2D4D76A2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_UserAgreementViewController.xib; sourceTree = "<group>"; };
 		C2D4D76E2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+LYH_CALayer_Extension.h"; sourceTree = "<group>"; };
 		C2D4D76F2250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+LYH_CALayer_Extension.m"; sourceTree = "<group>"; };
+		C2DC6D28229102C400F57263 /* WLTX_SpecialDetailsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsCell.h; sourceTree = "<group>"; };
+		C2DC6D29229102C400F57263 /* WLTX_SpecialDetailsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsCell.m; sourceTree = "<group>"; };
+		C2DC6D2A229102C400F57263 /* WLTX_SpecialDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialDetailsCell.xib; sourceTree = "<group>"; };
+		C2DC6D2D2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsSectionHeaderView.h; sourceTree = "<group>"; };
+		C2DC6D2E2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsSectionHeaderView.m; sourceTree = "<group>"; };
+		C2DC6D302291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialDetailsSectionHeaderView.xib; sourceTree = "<group>"; };
+		C2DC6D37229112F500F57263 /* WLTX_SpecialDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsModel.h; sourceTree = "<group>"; };
+		C2DC6D38229112F500F57263 /* WLTX_SpecialDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsModel.m; sourceTree = "<group>"; };
+		C2DC6D3A2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsDhwdModel.h; sourceTree = "<group>"; };
+		C2DC6D3B2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsDhwdModel.m; sourceTree = "<group>"; };
 		C2E9000722738C7A00D7D9A1 /* UIButton+CQBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CQBlock.h"; sourceTree = "<group>"; };
 		C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CQBlock.m"; sourceTree = "<group>"; };
 		C2F1EE7B223F12D700ADD735 /* WLTX_ForgotPw2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ForgotPw2ViewController.h; sourceTree = "<group>"; };
@@ -1976,6 +1995,12 @@
 		C2CE9753228B46E10094E137 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC6D37229112F500F57263 /* WLTX_SpecialDetailsModel.h */,
+				C2DC6D38229112F500F57263 /* WLTX_SpecialDetailsModel.m */,
+				C2DC6D3A2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.h */,
+				C2DC6D3B2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m */,
+				C219218C2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.h */,
+				C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1983,6 +2008,12 @@
 		C2CE9754228B46E10094E137 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC6D28229102C400F57263 /* WLTX_SpecialDetailsCell.h */,
+				C2DC6D29229102C400F57263 /* WLTX_SpecialDetailsCell.m */,
+				C2DC6D2A229102C400F57263 /* WLTX_SpecialDetailsCell.xib */,
+				C2DC6D2D2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.h */,
+				C2DC6D2E2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m */,
+				C2DC6D302291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2298,7 +2329,9 @@
 				C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */,
 				C24E35B622889F9F0089BB57 /* WLTX_PushCarCell.xib in Resources */,
 				C23D0C1C225FB00E00ADDAA5 /* WLTX_IReleaseViewController.xib in Resources */,
+				C2DC6D312291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib in Resources */,
 				C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */,
+				C2DC6D2C229102C400F57263 /* WLTX_SpecialDetailsCell.xib in Resources */,
 				C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */,
 				C2CE9759228B470C0094E137 /* WLTX_SpecialDetailsVC.xib in Resources */,
 				9BC42E46222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.xib in Resources */,
@@ -2393,6 +2426,7 @@
 				C2868C6E225E59730099A296 /* MJProperty.m in Sources */,
 				C2868C75225E59730099A296 /* MJFoundation.m in Sources */,
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
+				C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
 				C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */,
@@ -2426,16 +2460,19 @@
 				C2CE9771228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.m in Sources */,
 				C2C11EE022350FB700A694D7 /* ThreeSDK_Ali.m in Sources */,
 				9BC42E1E222F9E7D00BB032F /* Test1_ViewController.m in Sources */,
+				C2DC6D39229112F500F57263 /* WLTX_SpecialDetailsModel.m in Sources */,
 				C242A17A227608BB005B277E /* WLTX_CollectionCell.m in Sources */,
 				C242A1C922764327005B277E /* WLTX_ChangePwVC.m in Sources */,
 				C2868C7B225E59730099A296 /* AFSecurityPolicy.m in Sources */,
 				C23D0C20225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.m in Sources */,
 				9BC42DBB222F7BEC00BB032F /* AppProject.m in Sources */,
 				9BC42E01222F9B2500BB032F /* LYHNavigationView.m in Sources */,
+				C219218E2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m in Sources */,
 				C23D0C1B225FB00E00ADDAA5 /* WLTX_IReleaseViewController.m in Sources */,
 				C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */,
 				C2868C78225E59730099A296 /* AFURLSessionManager.m in Sources */,
 				C278EC172264F8FB00AD0CAD /* WLTX_ShuttleRouteModel.m in Sources */,
+				C2DC6D2F2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m in Sources */,
 				C204273C225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m in Sources */,
 				C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */,
 				9BC42E2D222F9EAA00BB032F /* Test4_ViewController.m in Sources */,
@@ -2443,6 +2480,7 @@
 				C20427492251881500902A8E /* WLTX_IntegratedQueryViewController.m in Sources */,
 				9BC42E45222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.m in Sources */,
 				C2039C832277904A00C9BBF6 /* WLTX_CommonWebVC.m in Sources */,
+				C2DC6D3C2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m in Sources */,
 				9BC42E0B222F9BC200BB032F /* LYHTabBarModel.m in Sources */,
 				C2024116224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m in Sources */,
 				9BC42E32222F9ECD00BB032F /* Test5_ViewController.m in Sources */,

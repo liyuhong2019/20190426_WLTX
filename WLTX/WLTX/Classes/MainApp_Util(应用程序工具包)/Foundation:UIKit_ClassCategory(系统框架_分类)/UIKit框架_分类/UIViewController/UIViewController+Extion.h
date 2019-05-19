@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Extion)
 - (BOOL)vcExtion_cheackPhone:(NSString *)mobile;
+- (void)vcCallPhoneNumber:(NSString *)PhoneNumber;
 @end
 
 NS_ASSUME_NONNULL_END

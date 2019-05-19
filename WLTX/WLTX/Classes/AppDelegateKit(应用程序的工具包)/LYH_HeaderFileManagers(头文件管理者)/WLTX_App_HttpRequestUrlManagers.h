@@ -41,6 +41,8 @@
 #define my_getmy_grxx @"my_grxx.php"  // 个人信息
 #define my_UpiconFile @"up.php"  // 上传头像图片
 #define my_collection @"my_shoucang.php"  // 收藏
+#define my_specialDetails(detailsId) [NSString stringWithFormat: @"content.php?id=%@",detailsId] // 专线详情
+#define my_specialCollection(detailsId,phoneNumber) [NSString stringWithFormat: @"shoucang.php?id=%@&shouji=%@",detailsId,phoneNumber] // 物流线路收藏，取消收藏
 
 
 #endif /* WLTX_App_HttpRequestUrlManagers_h */

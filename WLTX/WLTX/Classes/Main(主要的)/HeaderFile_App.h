@@ -47,6 +47,7 @@
 // 3、发布消息的子界面
     #import "WLTX_PushCarCell.h"
     #import "WLTX_PublishInformationCell.h"
+    #import "WLTX_SpecialDetailsCell.h"
 
 // 4、个人中心的子界面
 #import "WLTX_PersonalCenterCell.h"

@@ -42,18 +42,25 @@
     // 设置图片
     if ([model.is_rz isEqualToString:@"0"]) {
         NSLog(@"未认证的图标")
+        [self.img_validation setImage:[UIImage imageNamed:@"未认证"]];
     }
     else
     {
         NSLog(@"未认证的图标")
+        [self.img_validation setImage:[UIImage imageNamed:@"认证"]];
     }
 
     if ([model.is_jpxl isEqualToString:@"0"]) {
-        NSLog(@"🏅️的图标")
+        NSLog(@"🏅️的图标");
+        [self.img_gold setImage:[UIImage imageNamed:@"pthy"]];
+
     }
     else
     {
         NSLog(@"未🏅️的图标")
+        [self.img_gold setImage:[UIImage imageNamed:@"jp"]];
+
+        
     }
 
     
@@ -65,7 +72,24 @@
 
     // 其他设置
     [self.btn_phoneNumber setTitle:model.shouji forState:0];
+//    [self.btn_companyNumber setImage:[UIImage imageNamed:@"座机2"] forState:0];
     [self.btn_companyNumber setTitle:model.tel forState:0];
+    
+    NSURL *fullUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgBaseURL,model.img]];
+    [self.img_icon sd_setImageWithURL:fullUrl placeholderImage:[UIImage imageNamed:@""]];
+    
+    // http://www.0201566.com/tupian/image/20190105/20190105202524_30394.jpg
+    // http://m.0201566.com/tupian/image/20190105/20190105202524_30394.jpg
+    [self.img_icon sd_setImageWithURL:fullUrl placeholderImage:nil options:SDWebImageRetryFailed completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSLog(@"image Url is %@",imageURL.absoluteString);
+        if (image){
+            // Set your image over here
+        }else{
+            //something went wrong
+        }
+
+    }];
+
 
     
 }

@@ -38,14 +38,7 @@ DZNEmptyDataSetDelegate
 {
     [super viewDidLoad];
     [self collectionVC_settingsInitData];
-    
-    NSDictionary *dict = @{
-                           @"shouji":kWltx_userShouji,
-                           @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
-                           };
-    [self netwrok_getmyCollectionListRequest:dict];
 
-    
 }
 - (void)dealloc
 {
@@ -55,6 +48,12 @@ DZNEmptyDataSetDelegate
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.page = 0; // 初始化 为第0页
+    NSDictionary *dict = @{
+                           @"shouji":kWltx_userShouji,
+                           @"page":[NSString stringWithFormat:@"%ld",(long)self.page]
+                           };
+    [self netwrok_getmyCollectionListRequest:dict];
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -95,7 +94,15 @@ DZNEmptyDataSetDelegate
     WLTX_CollectionCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CollectionCellID];
 //    cell.model = self.carModels[indexPath.row];
     cell.model = self.myCollectionArr[indexPath.row];
-    
+    [cell.btn_phoneNumber cq_addEventHandler:^{
+        NSLog(@"打电话");
+        [self vcCallPhoneNumber:cell.model.shouji];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [cell. btn_companyNumber cq_addEventHandler:^{
+        NSLog(@"打固定电话");
+        [self vcCallPhoneNumber:cell.model.tel];
+    } forControlEvents:UIControlEventTouchUpInside];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -105,7 +112,10 @@ DZNEmptyDataSetDelegate
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    WLTX_CollectionModel *model = self.myCollectionArr[indexPath.row];
+    
     WLTX_SpecialDetailsVC *vc = [[WLTX_SpecialDetailsVC alloc]init];
+    vc.detailsId = model.id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -199,7 +209,6 @@ DZNEmptyDataSetDelegate
 - (void)collectionVC_settingsInitData
 {
     YHLog(@"初始化数据");
-    self.page = 0; // 初始化 为第0页
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self collection_settingsNav];
     [self collection_CommonSettings];
@@ -305,8 +314,7 @@ DZNEmptyDataSetDelegate
 #pragma mark - 📶(网络请求)Network start
 #pragma mark -
 // 1、综合页面里面查询
-// 专线路线
-
+// 我的收藏列表
 - (void)netwrok_getmyCollectionListRequest:(NSDictionary *)dict
 {
     [AFNetworkingTool getWithURLString:my_collection parameters:dict resultClass:nil success:^(id result) {

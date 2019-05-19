@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view_isLogin;
 @property (weak, nonatomic) IBOutlet UILabel *lb_name;
 @property (weak, nonatomic) IBOutlet UILabel *lb_phone;
+@property (weak, nonatomic) IBOutlet UIImageView *img_icon;
 
 @end
 
@@ -71,6 +72,7 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
         NSLog(@"显示登录UI");
         self.view_isLogin.hidden = YES;
         self.view_login.hidden = NO;
+        self.img_icon.hidden = YES;
     }
     else
     {
@@ -79,7 +81,11 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
         self.lb_phone.text = user_shouji;
         self.view_isLogin.hidden = NO;
         self.view_login.hidden = YES;
-
+        self.img_icon.hidden = NO;
+        
+        NSString *strUrl = [user_img stringByReplacingOccurrencesOfString:@".." withString:@""];
+        NSLog(@"正确的图片地址");
+        [self.img_icon sd_setImageWithURL:[NSURL URLWithString:strUrl]];
     }
     
 }
