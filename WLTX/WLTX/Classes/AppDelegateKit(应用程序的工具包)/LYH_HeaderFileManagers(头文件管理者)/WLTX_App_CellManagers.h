@@ -19,4 +19,8 @@ static NSString * const WLTX_SpecialDetailsCellID = @"WLTX_SpecialDetailsCell"; 
 // 综合查询
 static NSString * const WLTX_CommonLogisticsCellID = @"WLTX_CommonLogisticsCell";   // 物流供求
 
+/** 专线查询*/
+static NSString * const WLTX_SpecialLineQueryCellID = @"WLTX_SpecialLineQueryCell";
+
+
 #endif /* WLTX_App_CellManagers_h */

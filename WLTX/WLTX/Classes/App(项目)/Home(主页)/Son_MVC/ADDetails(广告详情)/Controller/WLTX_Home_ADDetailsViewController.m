@@ -110,7 +110,8 @@ UIWebViewDelegate
  */
 - (void)adDetails_settingsNav
 {
-    self.navigationItem.title = @"广告详情";
+//    self.navigationItem.title = @"广告详情";
+    self.navigationItem.title = @"物流天地";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
 }

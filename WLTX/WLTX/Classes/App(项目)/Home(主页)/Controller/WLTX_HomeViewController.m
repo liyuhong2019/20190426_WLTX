@@ -191,6 +191,12 @@ UICollectionViewDataSource
     }];
 }
 
+- (IBAction)go2moreSpecialLine:(UIButton *)sender {
+    NSLog(@"查看更多专线");
+    WLTX_SpecialLineVC *vc = [[WLTX_SpecialLineVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 
 #pragma mark - 🏃(代理)Delegate start
@@ -250,6 +256,11 @@ UICollectionViewDataSource
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     NSLog(@"主页 点击 专线展示的 item is %ld",indexPath.row);
+    WLTX_ShuttleRouteModel *model = self.data_shuttleRoute[indexPath.row];
+    WLTX_SpecialDetailsVC *vc = [[WLTX_SpecialDetailsVC alloc]init];
+    vc.detailsId = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
+    
     
 }
 #pragma mark 🏃(代理)Delegate end

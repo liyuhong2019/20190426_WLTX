@@ -336,6 +336,9 @@
                                                     <state key="normal" title="更多 &gt;">
                                                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="go2moreSpecialLine:" destination="-1" eventType="touchUpInside" id="TEw-AD-Kne"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

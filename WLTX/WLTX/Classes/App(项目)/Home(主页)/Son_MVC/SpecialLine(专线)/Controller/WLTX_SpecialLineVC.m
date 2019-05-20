@@ -7,26 +7,65 @@
 //
 
 #import "WLTX_SpecialLineVC.h"
+#import "WLTX_SpecialLineView.h"
+#import "WLTX_SpecialLineModel.h"
 
 @interface WLTX_SpecialLineVC ()
-
+<WLTX_SpecialLineViewDelegate>
+@property (nonatomic,strong) WLTX_SpecialLineView *view_SpecialLine;
 @end
 
 @implementation WLTX_SpecialLineVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self SpecialLineVC_initData];
+
+}
+- (void)SpecialLineVC_initData
+{
+    YHLog(@"初始化数据");
+    
+    [self SpecialLineVC_settingsNav];
+    
+    [self.view addSubview:self.view_SpecialLine];
+    
+    
+}
+- (void)SpecialLineVC_settingsNav
+{
+    self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
+    self.navigationItem.title = @"专线";
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateNormal];
+    //    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateHighlighted];
+    [backButton setTitle:@"发布" forState:0];
+    [backButton setTitleColor:[UIColor blackColor] forState:0];
+    //    [backButton settitf]
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [backButton addTarget:self action:@selector(IntegratedQueryVC_go2Share:) forControlEvents:UIControlEventTouchUpInside];
+    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+- (void)IntegratedQueryVC_go2Share:(UIButton *)btn
+{
+    NSLog(@"发布");
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 懒加载
+- (WLTX_SpecialLineView *)view_SpecialLine
+{
+    if (!_view_SpecialLine) {
+        _view_SpecialLine = [[WLTX_SpecialLineView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.origin.x, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44)];
+        _view_SpecialLine.delegate = self;
+    }
+    return _view_SpecialLine;
 }
-*/
+- (void)wltx_SpecialLineViewClickItemWithModel:(WLTX_SpecialLineModel *)model ClickIndexPath:(NSIndexPath *)indexPath
+{
+    WLTX_SpecialDetailsVC *vc = [[WLTX_SpecialDetailsVC alloc]init];
+    vc.detailsId = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

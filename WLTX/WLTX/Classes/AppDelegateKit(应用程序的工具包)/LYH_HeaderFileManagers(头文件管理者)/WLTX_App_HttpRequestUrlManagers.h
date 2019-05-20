@@ -28,6 +28,8 @@
 #define Home_IntegratedQueryListUrl @"zhcx.php"      // 综合查询
 
 /*** 专线查询 ***/
+#define SpecialLine_ListUrl(page) [NSString stringWithFormat: @"list.php?page=%@",page] // 专线列表
+//#define SpecialLine_ListUrl @"list.php?page="      // 专线列表
 
 /*** 我的 ***/
 #define my_AboutUsUrl @"about.php"                  // 关于我们

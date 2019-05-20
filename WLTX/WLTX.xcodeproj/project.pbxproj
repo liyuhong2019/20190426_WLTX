@@ -73,6 +73,10 @@
 		C21921B722917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921B522917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m */; };
 		C21921B822917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */; };
 		C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */; };
+		C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C231A36922921FF6009488DB /* WLTX_SpecialLineView.m */; };
+		C231A36E22922164009488DB /* WLTX_SpecialLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231A36C22922164009488DB /* WLTX_SpecialLineCell.m */; };
+		C231A36F22922164009488DB /* WLTX_SpecialLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C231A36D22922164009488DB /* WLTX_SpecialLineCell.xib */; };
+		C231A37222922178009488DB /* WLTX_SpecialLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C231A37122922178009488DB /* WLTX_SpecialLineModel.m */; };
 		C23D0C07225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */; };
 		C23D0C08225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */; };
 		C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C0A225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m */; };
@@ -155,6 +159,9 @@
 		C2E9000922738C7A00D7D9A1 /* UIButton+CQBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E9000822738C7A00D7D9A1 /* UIButton+CQBlock.m */; };
 		C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F1EE7C223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m */; };
 		C2F1EE7F223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F1EE7D223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib */; };
+		C2F2570822923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F2570722923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m */; };
+		C2F2570C22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F2570A22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m */; };
+		C2F2570D22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F2570B22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib */; };
 		C2F786EA223D205500D27DD7 /* WLTX_ForgotPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F786E8223D205500D27DD7 /* WLTX_ForgotPwViewController.m */; };
 		C2F786EB223D205500D27DD7 /* WLTX_ForgotPwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F786E9223D205500D27DD7 /* WLTX_ForgotPwViewController.xib */; };
 		C2F786EF223D20EB00D27DD7 /* WLTX_RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F786ED223D20EB00D27DD7 /* WLTX_RegistViewController.m */; };
@@ -281,6 +288,13 @@
 		C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CoomonIQDetailsVC.xib; sourceTree = "<group>"; };
 		C21921B922918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CoomonIntegratedQueryListModel.h; sourceTree = "<group>"; };
 		C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CoomonIntegratedQueryListModel.m; sourceTree = "<group>"; };
+		C231A36822921FF6009488DB /* WLTX_SpecialLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineView.h; sourceTree = "<group>"; };
+		C231A36922921FF6009488DB /* WLTX_SpecialLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineView.m; sourceTree = "<group>"; };
+		C231A36B22922164009488DB /* WLTX_SpecialLineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineCell.h; sourceTree = "<group>"; };
+		C231A36C22922164009488DB /* WLTX_SpecialLineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineCell.m; sourceTree = "<group>"; };
+		C231A36D22922164009488DB /* WLTX_SpecialLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialLineCell.xib; sourceTree = "<group>"; };
+		C231A37022922178009488DB /* WLTX_SpecialLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineModel.h; sourceTree = "<group>"; };
+		C231A37122922178009488DB /* WLTX_SpecialLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineModel.m; sourceTree = "<group>"; };
 		C23D0C04225FAF9500ADDAA5 /* WLTX_AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_AboutUsViewController.h; sourceTree = "<group>"; };
 		C23D0C05225FAF9500ADDAA5 /* WLTX_AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_AboutUsViewController.m; sourceTree = "<group>"; };
 		C23D0C06225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_AboutUsViewController.xib; sourceTree = "<group>"; };
@@ -426,6 +440,11 @@
 		C2F1EE7B223F12D700ADD735 /* WLTX_ForgotPw2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ForgotPw2ViewController.h; sourceTree = "<group>"; };
 		C2F1EE7C223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ForgotPw2ViewController.m; sourceTree = "<group>"; };
 		C2F1EE7D223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ForgotPw2ViewController.xib; sourceTree = "<group>"; };
+		C2F2570622923A1700DBAB3E /* WLTX_SpecialLineQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineQueryModel.h; sourceTree = "<group>"; };
+		C2F2570722923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineQueryModel.m; sourceTree = "<group>"; };
+		C2F2570922923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineQueryCell.h; sourceTree = "<group>"; };
+		C2F2570A22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineQueryCell.m; sourceTree = "<group>"; };
+		C2F2570B22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialLineQueryCell.xib; sourceTree = "<group>"; };
 		C2F786E7223D205500D27DD7 /* WLTX_ForgotPwViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_ForgotPwViewController.h; sourceTree = "<group>"; };
 		C2F786E8223D205500D27DD7 /* WLTX_ForgotPwViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_ForgotPwViewController.m; sourceTree = "<group>"; };
 		C2F786E9223D205500D27DD7 /* WLTX_ForgotPwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_ForgotPwViewController.xib; sourceTree = "<group>"; };
@@ -889,6 +908,8 @@
 		9BC42DCD222F972300BB032F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2F2570622923A1700DBAB3E /* WLTX_SpecialLineQueryModel.h */,
+				C2F2570722923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -896,6 +917,9 @@
 		9BC42DCE222F972300BB032F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2F2570922923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.h */,
+				C2F2570A22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m */,
+				C2F2570B22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2200,6 +2224,8 @@
 		C2CE975C228B4D130094E137 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C231A37022922178009488DB /* WLTX_SpecialLineModel.h */,
+				C231A37122922178009488DB /* WLTX_SpecialLineModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2207,6 +2233,11 @@
 		C2CE975D228B4D130094E137 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C231A36822921FF6009488DB /* WLTX_SpecialLineView.h */,
+				C231A36922921FF6009488DB /* WLTX_SpecialLineView.m */,
+				C231A36B22922164009488DB /* WLTX_SpecialLineCell.h */,
+				C231A36C22922164009488DB /* WLTX_SpecialLineCell.m */,
+				C231A36D22922164009488DB /* WLTX_SpecialLineCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2478,6 +2509,7 @@
 				C2CE9762228B4D330094E137 /* WLTX_SpecialLineVC.xib in Resources */,
 				C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */,
 				C21921AF22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib in Resources */,
+				C231A36F22922164009488DB /* WLTX_SpecialLineCell.xib in Resources */,
 				C242A18E2276147B005B277E /* WLTX_RealNameCertificationVC.xib in Resources */,
 				9BC42E24222F9E8E00BB032F /* Test2_ViewController.xib in Resources */,
 				C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */,
@@ -2485,6 +2517,7 @@
 				9BC42E50222FACE800BB032F /* WLTX_NestPageViewController.xib in Resources */,
 				C23D0C21225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.xib in Resources */,
 				C2CE9772228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.xib in Resources */,
+				C2F2570D22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib in Resources */,
 				C2D4D76C2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib in Resources */,
 				C204274A2251881500902A8E /* WLTX_IntegratedQueryViewController.xib in Resources */,
 				C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */,
@@ -2594,10 +2627,12 @@
 				C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
+				C231A37222922178009488DB /* WLTX_SpecialLineModel.m in Sources */,
 				C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */,
 				9BC42DB6222F780400BB032F /* ThreeSDK_Tentcent.m in Sources */,
 				C2CE9761228B4D330094E137 /* WLTX_SpecialLineVC.m in Sources */,
 				C2868C74225E59730099A296 /* MJPropertyKey.m in Sources */,
+				C2F2570C22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m in Sources */,
 				C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */,
 				C2868C73225E59730099A296 /* NSString+MJExtension.m in Sources */,
 				9BC42E4F222FACE800BB032F /* WLTX_NestPageViewController.m in Sources */,
@@ -2617,6 +2652,7 @@
 				C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */,
 				C242A192227615C0005B277E /* WLTX_CommonSelectAreaVC.m in Sources */,
 				C2868C7D225E59730099A296 /* UploadParam.m in Sources */,
+				C231A36E22922164009488DB /* WLTX_SpecialLineCell.m in Sources */,
 				C2CE9776228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.m in Sources */,
 				C24E35C12288A82C0089BB57 /* WLTX_PublishInformationModel.m in Sources */,
 				C2042741225186E800902A8E /* WLT_LogisticsRecruitmentCell.m in Sources */,
@@ -2642,6 +2678,7 @@
 				C2DC6D2F2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m in Sources */,
 				C204273C225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m in Sources */,
 				C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */,
+				C2F2570822923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m in Sources */,
 				9BC42E2D222F9EAA00BB032F /* Test4_ViewController.m in Sources */,
 				C2868C7E225E59730099A296 /* AFNetworkingTool.m in Sources */,
 				C20427492251881500902A8E /* WLTX_IntegratedQueryViewController.m in Sources */,
@@ -2679,6 +2716,7 @@
 				C219219922915E7E00953BF1 /* WLTX_IntegratedQueryModel.m in Sources */,
 				9BC42D84222F6C7B00BB032F /* AppDelegate.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
+				C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

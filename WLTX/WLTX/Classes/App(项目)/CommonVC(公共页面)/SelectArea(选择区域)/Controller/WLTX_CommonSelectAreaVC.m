@@ -9,6 +9,8 @@
 #import "WLTX_CommonSelectAreaVC.h"
 
 @interface WLTX_CommonSelectAreaVC ()
+@property (weak, nonatomic) IBOutlet UIView *view_coomonUseCity; // 常用城市
+@property (weak, nonatomic) IBOutlet UIView *view_SelectCity;   // 选择城市
 
 @end
 

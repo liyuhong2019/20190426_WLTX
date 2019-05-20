@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *tel;
 @property (nonatomic,strong) NSString *img;
 @property (nonatomic,strong) NSString *url; // 点击之后 跳转的url
+@property (nonatomic,strong) NSString *id; // 点击之后 跳转的url
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 /** 工厂方法 */

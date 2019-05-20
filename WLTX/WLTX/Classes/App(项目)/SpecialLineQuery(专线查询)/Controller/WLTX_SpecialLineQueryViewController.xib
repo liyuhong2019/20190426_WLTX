@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_SpecialLineQueryViewController">
             <connections>
+                <outlet property="tableview" destination="8XT-L4-4yU" id="JLi-et-8eJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,50 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8XT-L4-4yU">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qDj-Ed-X83"/>
+                        <outlet property="delegate" destination="-1" id="AwF-Qu-CI1"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoS-h7-IiJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="出发地到目的地/企业名称/物业园" translatesAutoresizingMaskIntoConstraints="NO" id="s0V-cZ-jND">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-jF-7BJ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="s0V-cZ-jND" firstAttribute="top" secondItem="XoS-h7-IiJ" secondAttribute="top" id="2bN-RE-VnG"/>
+                        <constraint firstItem="s0V-cZ-jND" firstAttribute="leading" secondItem="XoS-h7-IiJ" secondAttribute="leading" id="FyF-Re-PLR"/>
+                        <constraint firstAttribute="trailing" secondItem="CfD-jF-7BJ" secondAttribute="trailing" id="Npa-tZ-RCd"/>
+                        <constraint firstItem="CfD-jF-7BJ" firstAttribute="leading" secondItem="XoS-h7-IiJ" secondAttribute="leading" id="VZg-gk-AxL"/>
+                        <constraint firstAttribute="bottom" secondItem="CfD-jF-7BJ" secondAttribute="bottom" id="Vvp-hD-xLq"/>
+                        <constraint firstAttribute="bottom" secondItem="s0V-cZ-jND" secondAttribute="bottom" id="Zr7-th-Z9x"/>
+                        <constraint firstItem="CfD-jF-7BJ" firstAttribute="top" secondItem="XoS-h7-IiJ" secondAttribute="top" id="b6J-Et-uNu"/>
+                        <constraint firstAttribute="height" constant="44" id="ocE-0h-Uqo"/>
+                        <constraint firstAttribute="trailing" secondItem="s0V-cZ-jND" secondAttribute="trailing" id="rYe-Lg-xvo"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="0.04931640625" green="0.75721571180000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="8XT-L4-4yU" firstAttribute="top" secondItem="XoS-h7-IiJ" secondAttribute="bottom" id="4ok-rK-2jB"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="8XT-L4-4yU" secondAttribute="bottom" id="RZG-qQ-LWS"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XoS-h7-IiJ" secondAttribute="trailing" id="TN9-nI-Ru3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="8XT-L4-4yU" secondAttribute="trailing" id="WCa-nL-T7o"/>
+                <constraint firstItem="XoS-h7-IiJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zz0-1r-2vK"/>
+                <constraint firstItem="8XT-L4-4yU" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="jNk-7p-kX3"/>
+                <constraint firstItem="XoS-h7-IiJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oKM-DZ-obS"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
