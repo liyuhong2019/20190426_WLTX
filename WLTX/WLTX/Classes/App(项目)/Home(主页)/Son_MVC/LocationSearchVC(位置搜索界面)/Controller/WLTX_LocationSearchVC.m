@@ -1,84 +1,118 @@
 //
-//  WLTX_SpecialLineQueryViewController.m
+//  WLTX_LocationSearchVC.m
 //  WLTX
 //
-//  Created by lee on 2019/3/6.
-//  Copyright © 2019年 liyuhong165. All rights reserved.
+//  Created by liyuhong2019 on 2019/5/21.
+//  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_SpecialLineQueryViewController.h"
+#import "WLTX_LocationSearchVC.h"
 #import "WLTX_SpecialLineQueryModel.h"
 #import "WLTX_SpecialLineQueryCell.h"
-#import "WLTX_SpecialLineSearchVC.h"
+@interface WLTX_LocationSearchVC ()
+@property (weak, nonatomic) IBOutlet UILabel *lb_startLocation;
+@property (weak, nonatomic) IBOutlet UILabel *lb_endLocation;
 
-@interface WLTX_SpecialLineQueryViewController ()
-<UITableViewDelegate,
-UITableViewDataSource
->
+
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+// 用于tableview刷新的数据
 @property (strong,nonatomic) NSMutableArray *specialLineArr;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger nextpage;
+
 @end
 
-@implementation WLTX_SpecialLineQueryViewController
+@implementation WLTX_LocationSearchVC
 
-#pragma mark - ♻️ 视图的生命周期 view life cycle start
-/*
- 4-1、第一个执行的方法，加载UI：- (void)loadView{ }
- 4-2、第二个执行的方法，加载UI成功后调用：- (void)viewDidLoad{ }
- 4-3、第三个执行方法，UI即将显示时：- (void)viewWillAppear:(BOOL)animated{ }
- 4-4、第四个执行方法，UI已经显示时：- (void)viewDidAppear:(BOOL)animated{ }
- 4-5、第五个执行方法，UI即将消失时：- (void)viewWillDisappear:(BOOL)animated{ }
- 4-6、第六个执行方法，UI已经消失时：- (void)viewDidDisappear:(BOOL)animated{ }
- 4-7、最后执行方法，即视图控制器注销方法：- (void)dealloc { }
- 4-8、该方法在接收到内存警告时会调用，且系统会自动处理内存释放：- (void)didReceiveMemoryWarning { }
- */
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self SpecialLineQueryVC_settingsInitData];
-}
-- (void)dealloc
-{
-    //    [super dealloc];
-    // 移除通知处理
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
-    //    WLTX_LoginViewController *lgVC = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
-    //    LYHNavigationController *nav = [[LYHNavigationController alloc] initWithRootViewController:lgVC];
-    //    [self presentViewController:nav animated:YES completion:nil];
+    NSLog(@"old %@ ",self.startText);
+
+    NSLog(@"new %@",self.lb_startLocation.text);
     
+    self.lb_startLocation.text = self.startText;
+    self.lb_endLocation.text = self.endText;
+    
+    //
     self.page = 1; // 初始化 为第0页
     NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-    [self netwrok_getmyCollectionListRequestWithPage:page Withappend:NO];
-
+    // 测试数据
+//    NSDictionary *dict = @{
+//                           @"qsd":@"广州",
+//                           @"mdd":@"合肥",
+//                           @"page":page,
+//                           };
+//    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
     
+    NSDictionary *dict = @{
+                           @"qsd":self.lb_startLocation.text,
+                           @"mdd":self.lb_endLocation.text,
+                           @"page":page,
+                           };
+    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[AppProject getInstance].gloalBtn setHidden:NO];
+    
 }
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[AppProject getInstance].gloalBtn setHidden:YES];
+- (IBAction)go2change:(UIButton *)sender {
+    NSString *temp =  self.lb_startLocation.text;
+    self.lb_startLocation.text = self.lb_endLocation.text;
+    self.lb_endLocation.text = temp;
 }
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+- (IBAction)go2SelectCity:(UIButton *)sender {
+    WLTX_CommonSelectAreaVC *vc = [[WLTX_CommonSelectAreaVC alloc]init];
+    switch (sender.tag) {
+        case 10:
+        {
+            NSLog(@"起始点");
+            vc.title = @"起始点";
+            vc.type = WLTX_CommonSelectAreaType_StartLocation;
+            
+        }
+            break;
+        case 20:
+        {
+            NSLog(@"目的地");
+            vc.title = @"目的地";
+            vc.type = WLTX_CommonSelectAreaType_EndLocation;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    vc.block = ^(NSString *cityName,WLTX_CommonSelectAreaType type)
+    {
+        if (type == WLTX_CommonSelectAreaType_StartLocation) {
+            self.startText = cityName;
+            self.lb_startLocation.text = cityName;
+            self.lb_startLocation.textColor = [UIColor blackColor];
+            
+        }
+        else
+        {
+            self.endText = cityName;
+            self.lb_endLocation.text = cityName;
+            self.lb_endLocation.textColor = [UIColor blackColor];
+        }
+        NSLog(@"A界面的block is %@",cityName);
+        
+        // 在这里检测是不是两个地址都填写了
+        // 如果是都填写 就直接跳转到 搜索页面
+        // 相当于执行了查询操作
+    };
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-#pragma mark ♻️ 视图的生命周期 view life cycle end
 
 #pragma mark - 🏃(代理)Delegate start
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -95,12 +129,7 @@ UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WLTX_SpecialLineQueryCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_SpecialLineQueryCellID];
-    
-    //    if (!cell) {
-    //        cell = (WLTX_CollectionCell *)[[NSBundle mainBundle]loadNibNamed:@"WLTX_CollectionCell" owner:nil options:nil].firstObject;
-    //
-    //    }
-    //    cell.model = self.carModels[indexPath.row];
+
     cell.model = self.specialLineArr[indexPath.row];
     [cell.btn_phoneNumber cq_addEventHandler:^{
         NSLog(@"打电话");
@@ -146,9 +175,14 @@ UITableViewDataSource
         NSLog(@"pageIndex:%zd",pageIndex);
         //        weakSelf.page = pageIndex;
         self.page = 1; // 初始化 为第1页
-//        [self netwrok_getmyCollectionListRequestWithappend:NO];
+        //        [self netwrok_getmyCollectionListRequestWithappend:NO];
         NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:NO];
+        NSDictionary *dict = @{
+                               @"qsd":self.lb_startLocation.text,
+                               @"mdd":self.lb_endLocation.text,
+                               @"page":page,
+                               };
+        [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
     }];
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
@@ -165,7 +199,15 @@ UITableViewDataSource
         }
         
         NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:YES];
+//        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:YES];
+        
+        NSDictionary *dict = @{
+                               @"qsd":self.lb_startLocation.text,
+                               @"mdd":self.lb_endLocation.text,
+                               @"page":page,
+                               };
+        [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:YES];
+        
         [self.tableview endFooterRefresh];
         
     }];
@@ -198,21 +240,13 @@ UITableViewDataSource
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_SpecialLineQueryCell class]) bundle:nil] forCellReuseIdentifier:WLTX_SpecialLineQueryCellID];
     
 }
-- (IBAction)go2SearchVC:(UIButton *)sender {
-    WLTX_SpecialLineSearchVC *vc = [[WLTX_SpecialLineSearchVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (IBAction)go2VoiceSearch:(UIButton *)sender {
-    NSLog(@"语音识别");
-}
-
 
 #pragma mark - 📶(网络请求)Network start
-// 1、综合页面里面查询
-- (void)netwrok_getmyCollectionListRequestWithPage:(NSString *)page Withappend:(BOOL)append
+
+- (void)netwrok_getLocationSearchRequestWithDict:(NSDictionary *)dict WithAppend:(BOOL)append
 {
-    [AFNetworkingTool getWithURLString:SpecialLine_ListUrl(page) parameters:nil resultClass:nil success:^(id result) {
-        NSLog(@"result = %@",[result mj_JSONObject]);
+    [AFNetworkingTool getWithURLString:Home_Search parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",result);
         NSArray *data = result[@"data"];
         
         NSMutableArray *tempArrModel = [NSMutableArray array];
@@ -236,20 +270,12 @@ UITableViewDataSource
         self.nextpage = [result[@"nextpage"] integerValue];
         
         [self.tableview reloadData];
-        
+    
         
     } failure:^(NSError *error) {
         
     }];
 }
-#pragma mark - 📶(网络请求)Network end
-#pragma mark - 💤 控件/对象懒加载 object start
-- (NSMutableArray *)specialLineArr
-{
-    if (_specialLineArr == nil) {
-        _specialLineArr = [NSMutableArray array];
-    }
-    return _specialLineArr;
-}
-#pragma mark 💤 控件/对象懒加载 object end
+#pragma mark 📶(网络请求)Network end
+
 @end

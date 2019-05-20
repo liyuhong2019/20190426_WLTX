@@ -15,21 +15,30 @@
 
 /*** 公共部分 ***/
 #define Coomon_Release @"wdfb.php"                    // 发布 1物流供求 ，2 货源信息 ，5 物流招聘，3车源信息
-//#define Coomon_integrateQueryList @"zhcx_list.php"                    // 综合列表
 #define Coomon_integrateQueryList(detailsId,page) [NSString stringWithFormat: @"zhcx_list.php?id=%@&page=%@",detailsId,page] // 综合列表
 
 #define my_integrateQueryDetails(detailsId) [NSString stringWithFormat: @"zhcx_content.php?id=%@",detailsId] // 综合单页
-
+//#define Common_citySearch(cityName) [NSString stringWithFormat:@"province_ts.php?name=%@",cityName] // 首页城市查询
+#define Common_citySearch @"province_ts.php"                    // 首页城市查询
 
 /*** 主页 ***/
 #define Home_AdUrl @"banner.php"                    // 广告轮播图
 #define Home_AdDetail @"banner_cont.php?id="        // 广告详情
 #define Home_ShuttleRouteUrl @"zxzs.php"            // 专线展示
 #define Home_IntegratedQueryListUrl @"zhcx.php"      // 综合查询
+#define Home_Search @"list.php"                     // 知道起始地、目的地去查找
+#define Home_Search1(qsd,mdd,page) [NSString stringWithFormat: @"list.php?qsd=%@&mdd=%@&page=%@",qsd,mdd,page] // 知道起始地、目的地、分页去查找
+
+// 首页进来是 http://m.0201566.com/appapi/list.php?qsd=起始地&mdd=目的地&page=页数
 
 /*** 专线查询 ***/
 #define SpecialLine_ListUrl(page) [NSString stringWithFormat: @"list.php?page=%@",page] // 专线列表
-//#define SpecialLine_ListUrl @"list.php?page="      // 专线列表
+#define SpecialLine_Search @"list.php"                          // 全局搜索
+#define SpecialLine_Search1(q,page) [NSString stringWithFormat: @"list.php?q=%@&page=%@",q,page] // 知道关键字、分页去查找
+
+// ⚠️get 请求不能进行拼接 会出现访问错误 。所以get请求需要用字典包装起来
+//#define SpecialLine_Search(keyword,page) [NSString stringWithFormat: @"list.php?page=%@",page]
+// http://m.0201566.com/appapi/list.php?q=关键词&page=页数
 
 /*** 我的 ***/
 #define my_AboutUsUrl @"about.php"                  // 关于我们

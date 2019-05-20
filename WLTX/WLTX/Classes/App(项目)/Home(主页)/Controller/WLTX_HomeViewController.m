@@ -2,6 +2,8 @@
 #import "AFNetworkingTool.h"
 #import "WLTX_HomeAdModel.h"
 #import "WLTX_ShuttleRouteModel.h"
+#import "WLTX_CommonSelectAreaVC.h"
+#import "WLTX_LocationSearchVC.h"
 
 @interface WLTX_HomeViewController ()
  <
@@ -34,6 +36,10 @@ UICollectionViewDataSource
 //
 @property (weak, nonatomic) IBOutlet UIView *view_voice;
 
+
+// 开始、结束目的地
+@property (weak, nonatomic) IBOutlet UILabel *lb_startLocation;
+@property (weak, nonatomic) IBOutlet UILabel *lb_endLocation;
 
 @end
 
@@ -124,6 +130,110 @@ UICollectionViewDataSource
 //    [self.navigationController pushViewController:vc animated:YES];
 //}
 
+
+- (IBAction)go2changeLocation:(UIButton *)sender {
+    if ([self.lb_endLocation.text isEqualToString:@"目的地"]) {
+        self.lb_startLocation.textColor = RGB(204, 204, 204);
+        NSString *temp = self.lb_startLocation.text;
+        self.lb_endLocation.text = temp;
+        self.lb_endLocation.textColor = RGB(0, 0, 0);
+        self.lb_startLocation.text = @"起始地";
+    }
+    else if ([self.lb_startLocation.text isEqualToString:@"起始地"])
+    {
+        self.lb_endLocation.textColor = RGB(204, 204, 204);
+        NSString *temp = self.lb_endLocation.text;
+        self.lb_startLocation.text = temp;
+        self.lb_startLocation.textColor = RGB(0, 0, 0);
+        self.lb_endLocation.text = @"目的地";
+
+    }
+    else
+    {
+        NSString *temp = self.lb_startLocation.text;
+        self.lb_startLocation.text = self.lb_endLocation.text;
+        self.lb_endLocation.text = temp;
+
+    }
+    
+    
+    
+    
+    
+}
+
+- (IBAction)go2SelectLocation:(UIButton *)sender {
+    WLTX_CommonSelectAreaVC *vc = [[WLTX_CommonSelectAreaVC alloc]init];
+    switch (sender.tag) {
+        case 10:
+        {
+            NSLog(@"起始点");
+            vc.title = @"起始点";
+            vc.type = WLTX_CommonSelectAreaType_StartLocation;
+//            [vc returnSelectCityName:^(NSString * _Nullable cityName) {
+//                NSLog(@"A界面的block is %@",cityName);
+//            }];
+           
+            
+        }
+        break;
+        case 20:
+        {
+            NSLog(@"目的地");
+            vc.title = @"目的地";
+            vc.type = WLTX_CommonSelectAreaType_EndLocation;
+        }
+            break;
+
+        default:
+            break;
+    }
+    vc.block = ^(NSString *cityName,WLTX_CommonSelectAreaType type)
+    {
+        if (type == WLTX_CommonSelectAreaType_StartLocation) {
+            self.lb_startLocation.text = cityName;
+            self.lb_startLocation.textColor = [UIColor blackColor];
+
+        }
+        else
+        {
+            self.lb_endLocation.text = cityName;
+            self.lb_endLocation.textColor = [UIColor blackColor];
+        }
+        NSLog(@"A界面的block is %@",cityName);
+        
+        // 在这里检测是不是两个地址都填写了
+        // 如果是都填写 就直接跳转到 搜索页面
+        // 相当于执行了查询操作
+    };
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)go2VoiceSearch:(UIButton *)sender {
+    NSLog(@"语音识别");
+}
+
+- (IBAction)textSearch:(UIButton *)sender {
+    NSLog(@"文字查询");
+    
+    NSString *startLb = self.lb_startLocation.text;
+    NSString *endLb = self.lb_endLocation.text;
+    
+    NSLog(@"去搜索 ");
+    if ([self.lb_startLocation.text isEqualToString:@"起始地"] || [self.lb_endLocation.text isEqualToString:@"目的地"]) {
+        [self.view makeToast:@"起始地/目的地不能为空"];
+        return;
+    }
+    
+    // vc .startLb
+    WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+    vc.startText = startLb;
+    vc.endText = endLb;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 - (IBAction)login:(UIButton *)sender {
     NSLog(@"%s,友盟SDK登录",__func__);
     [self go2WeChatLogin];
@@ -202,11 +312,14 @@ UICollectionViewDataSource
 #pragma mark - 🏃(代理)Delegate start
 - (void)homeVC_Config
 {
+    self.lb_startLocation.text = @"广州";// 设置默认开始地址为广州
+    self.lb_startLocation.textColor = [UIColor blackColor];
+    
     self.scollview_content.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 1000);
     
     
-    self.view_voice.layer.cornerRadius = self.view_voice.frame.size.height / 2-13;
-    self.view_voice.layer.masksToBounds = YES;
+//    self.view_voice.layer.cornerRadius = self.view_voice.frame.size.height / 2-13;
+//    self.view_voice.layer.masksToBounds = YES;
     
     
     NSLog(@"%f cc",self.scollview_content.size.height);

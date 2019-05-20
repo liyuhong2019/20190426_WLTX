@@ -93,6 +93,17 @@
 		C23D0C2A225FB22900ADDAA5 /* WLTX_SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C28225FB22900ADDAA5 /* WLTX_SettingsViewController.xib */; };
 		C23D0C32225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */; };
 		C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */; };
+		C2400C5A2292C70A0045716E /* CitysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2400C492292C70A0045716E /* CitysCell.xib */; };
+		C2400C5B2292C70A0045716E /* CitysCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C4A2292C70A0045716E /* CitysCell.m */; };
+		C2400C5C2292C70A0045716E /* CityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C4B2292C70A0045716E /* CityView.m */; };
+		C2400C5D2292C70A0045716E /* ProvincesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2400C4D2292C70A0045716E /* ProvincesCell.xib */; };
+		C2400C5E2292C70A0045716E /* ProvincesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C4E2292C70A0045716E /* ProvincesCell.m */; };
+		C2400C5F2292C70A0045716E /* ProvincesView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C4F2292C70A0045716E /* ProvincesView.m */; };
+		C2400C602292C70A0045716E /* AreaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C532292C70A0045716E /* AreaCell.m */; };
+		C2400C612292C70A0045716E /* AreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C542292C70A0045716E /* AreaView.m */; };
+		C2400C622292C70A0045716E /* AreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2400C572292C70A0045716E /* AreaCell.xib */; };
+		C2400C632292C70A0045716E /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2400C582292C70A0045716E /* address.plist */; };
+		C2400C642292C70A0045716E /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C2400C592292C70A0045716E /* PrintBeautifulLog.m */; };
 		C242A17A227608BB005B277E /* WLTX_CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A178227608BB005B277E /* WLTX_CollectionCell.m */; };
 		C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C242A179227608BB005B277E /* WLTX_CollectionCell.xib */; };
 		C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C242A17D227608C9005B277E /* WLTX_CollectionModel.m */; };
@@ -111,6 +122,10 @@
 		C24E35BB22889FB60089BB57 /* WLTX_PublishInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24E35B922889FB60089BB57 /* WLTX_PublishInformationCell.xib */; };
 		C24E35BE2288A8160089BB57 /* WLTX_PushCarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35BD2288A8160089BB57 /* WLTX_PushCarModel.m */; };
 		C24E35C12288A82C0089BB57 /* WLTX_PublishInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C24E35C02288A82C0089BB57 /* WLTX_PublishInformationModel.m */; };
+		C2560B7F22932FBB002295DC /* WLTX_LocationSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B7D22932FBB002295DC /* WLTX_LocationSearchVC.m */; };
+		C2560B8022932FBB002295DC /* WLTX_LocationSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B7E22932FBB002295DC /* WLTX_LocationSearchVC.xib */; };
+		C2560B8822933671002295DC /* WLTX_SpecialLineSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8622933671002295DC /* WLTX_SpecialLineSearchVC.m */; };
+		C2560B8922933671002295DC /* WLTX_SpecialLineSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */; };
 		C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */ = {isa = PBXBuildFile; fileRef = C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
@@ -319,6 +334,24 @@
 		C23D0C2F225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_Home_ADDetailsViewController.h; sourceTree = "<group>"; };
 		C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_Home_ADDetailsViewController.m; sourceTree = "<group>"; };
 		C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_Home_ADDetailsViewController.xib; sourceTree = "<group>"; };
+		C2400C452292C70A0045716E /* PrintBeautifulLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
+		C2400C472292C70A0045716E /* CitysCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitysCell.h; sourceTree = "<group>"; };
+		C2400C482292C70A0045716E /* CityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityView.h; sourceTree = "<group>"; };
+		C2400C492292C70A0045716E /* CitysCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitysCell.xib; sourceTree = "<group>"; };
+		C2400C4A2292C70A0045716E /* CitysCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitysCell.m; sourceTree = "<group>"; };
+		C2400C4B2292C70A0045716E /* CityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityView.m; sourceTree = "<group>"; };
+		C2400C4D2292C70A0045716E /* ProvincesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProvincesCell.xib; sourceTree = "<group>"; };
+		C2400C4E2292C70A0045716E /* ProvincesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvincesCell.m; sourceTree = "<group>"; };
+		C2400C4F2292C70A0045716E /* ProvincesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvincesView.m; sourceTree = "<group>"; };
+		C2400C502292C70A0045716E /* ProvincesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvincesCell.h; sourceTree = "<group>"; };
+		C2400C512292C70A0045716E /* ProvincesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvincesView.h; sourceTree = "<group>"; };
+		C2400C532292C70A0045716E /* AreaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCell.m; sourceTree = "<group>"; };
+		C2400C542292C70A0045716E /* AreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaView.m; sourceTree = "<group>"; };
+		C2400C552292C70A0045716E /* AreaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaCell.h; sourceTree = "<group>"; };
+		C2400C562292C70A0045716E /* AreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaView.h; sourceTree = "<group>"; };
+		C2400C572292C70A0045716E /* AreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaCell.xib; sourceTree = "<group>"; };
+		C2400C582292C70A0045716E /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
+		C2400C592292C70A0045716E /* PrintBeautifulLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
 		C242A177227608BB005B277E /* WLTX_CollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CollectionCell.h; sourceTree = "<group>"; };
 		C242A178227608BB005B277E /* WLTX_CollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CollectionCell.m; sourceTree = "<group>"; };
 		C242A179227608BB005B277E /* WLTX_CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CollectionCell.xib; sourceTree = "<group>"; };
@@ -349,6 +382,12 @@
 		C24E35BD2288A8160089BB57 /* WLTX_PushCarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PushCarModel.m; sourceTree = "<group>"; };
 		C24E35BF2288A82C0089BB57 /* WLTX_PublishInformationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_PublishInformationModel.h; sourceTree = "<group>"; };
 		C24E35C02288A82C0089BB57 /* WLTX_PublishInformationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_PublishInformationModel.m; sourceTree = "<group>"; };
+		C2560B7C22932FBB002295DC /* WLTX_LocationSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_LocationSearchVC.h; sourceTree = "<group>"; };
+		C2560B7D22932FBB002295DC /* WLTX_LocationSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_LocationSearchVC.m; sourceTree = "<group>"; };
+		C2560B7E22932FBB002295DC /* WLTX_LocationSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_LocationSearchVC.xib; sourceTree = "<group>"; };
+		C2560B8522933671002295DC /* WLTX_SpecialLineSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineSearchVC.h; sourceTree = "<group>"; };
+		C2560B8622933671002295DC /* WLTX_SpecialLineSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineSearchVC.m; sourceTree = "<group>"; };
+		C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialLineSearchVC.xib; sourceTree = "<group>"; };
 		C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshEX.m"; sourceTree = "<group>"; };
 		C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshEX.h"; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
@@ -804,6 +843,7 @@
 		9BC42DC2222F972300BB032F /* Son_MVC */ = {
 			isa = PBXGroup;
 			children = (
+				C2560B7322932F14002295DC /* LocationSearchVC(位置搜索界面) */,
 				C2CE975A228B4D130094E137 /* SpecialLine(专线) */,
 				C23D0C2B225FB61400ADDAA5 /* ADDetails(广告详情) */,
 				C2042730225186AA00902A8E /* IntegratedQuery(综合查询) */,
@@ -901,6 +941,7 @@
 		9BC42DCC222F972300BB032F /* Son_MVC */ = {
 			isa = PBXGroup;
 			children = (
+				C2560B8122933659002295DC /* SpecialLineSearch(专线搜索) */,
 			);
 			path = Son_MVC;
 			sourceTree = "<group>";
@@ -1713,6 +1754,55 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C2400C442292C70A0045716E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C2400C452292C70A0045716E /* PrintBeautifulLog.h */,
+				C2400C462292C70A0045716E /* 城市 */,
+				C2400C4C2292C70A0045716E /* 省份 */,
+				C2400C522292C70A0045716E /* 区域 */,
+				C2400C582292C70A0045716E /* address.plist */,
+				C2400C592292C70A0045716E /* PrintBeautifulLog.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		C2400C462292C70A0045716E /* 城市 */ = {
+			isa = PBXGroup;
+			children = (
+				C2400C472292C70A0045716E /* CitysCell.h */,
+				C2400C482292C70A0045716E /* CityView.h */,
+				C2400C492292C70A0045716E /* CitysCell.xib */,
+				C2400C4A2292C70A0045716E /* CitysCell.m */,
+				C2400C4B2292C70A0045716E /* CityView.m */,
+			);
+			path = "城市";
+			sourceTree = "<group>";
+		};
+		C2400C4C2292C70A0045716E /* 省份 */ = {
+			isa = PBXGroup;
+			children = (
+				C2400C4D2292C70A0045716E /* ProvincesCell.xib */,
+				C2400C4E2292C70A0045716E /* ProvincesCell.m */,
+				C2400C4F2292C70A0045716E /* ProvincesView.m */,
+				C2400C502292C70A0045716E /* ProvincesCell.h */,
+				C2400C512292C70A0045716E /* ProvincesView.h */,
+			);
+			path = "省份";
+			sourceTree = "<group>";
+		};
+		C2400C522292C70A0045716E /* 区域 */ = {
+			isa = PBXGroup;
+			children = (
+				C2400C532292C70A0045716E /* AreaCell.m */,
+				C2400C542292C70A0045716E /* AreaView.m */,
+				C2400C552292C70A0045716E /* AreaCell.h */,
+				C2400C562292C70A0045716E /* AreaView.h */,
+				C2400C572292C70A0045716E /* AreaCell.xib */,
+			);
+			path = "区域";
+			sourceTree = "<group>";
+		};
 		C242A1802276143D005B277E /* CommonVC(公共页面) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1725,6 +1815,7 @@
 		C242A1812276143D005B277E /* SelectArea(选择区域) */ = {
 			isa = PBXGroup;
 			children = (
+				C2400C442292C70A0045716E /* Other */,
 				C242A1822276143D005B277E /* Controller */,
 				C242A1832276143D005B277E /* Model */,
 				C242A1842276143D005B277E /* View */,
@@ -1882,6 +1973,74 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C2560B7322932F14002295DC /* LocationSearchVC(位置搜索界面) */ = {
+			isa = PBXGroup;
+			children = (
+				C2560B7422932F14002295DC /* Controller */,
+				C2560B7522932F14002295DC /* Model */,
+				C2560B7622932F14002295DC /* View */,
+			);
+			path = "LocationSearchVC(位置搜索界面)";
+			sourceTree = "<group>";
+		};
+		C2560B7422932F14002295DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C2560B7C22932FBB002295DC /* WLTX_LocationSearchVC.h */,
+				C2560B7D22932FBB002295DC /* WLTX_LocationSearchVC.m */,
+				C2560B7E22932FBB002295DC /* WLTX_LocationSearchVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C2560B7522932F14002295DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2560B7622932F14002295DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2560B8122933659002295DC /* SpecialLineSearch(专线搜索) */ = {
+			isa = PBXGroup;
+			children = (
+				C2560B8222933659002295DC /* Model */,
+				C2560B8322933659002295DC /* View */,
+				C2560B8422933659002295DC /* Contoller */,
+			);
+			path = "SpecialLineSearch(专线搜索)";
+			sourceTree = "<group>";
+		};
+		C2560B8222933659002295DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2560B8322933659002295DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2560B8422933659002295DC /* Contoller */ = {
+			isa = PBXGroup;
+			children = (
+				C2560B8522933671002295DC /* WLTX_SpecialLineSearchVC.h */,
+				C2560B8622933671002295DC /* WLTX_SpecialLineSearchVC.m */,
+				C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */,
+			);
+			path = Contoller;
 			sourceTree = "<group>";
 		};
 		C261E79A227E5F0A00EBC859 /* MJRefreshTool */ = {
@@ -2505,8 +2664,10 @@
 				9BC42D72222F6C4100BB032F /* LaunchScreen.storyboard in Resources */,
 				C242A1CF22764349005B277E /* WLTX_ChangePhoneNumberVC.xib in Resources */,
 				9BC42E3C222FA5C300BB032F /* WLTX_HomeViewController.xib in Resources */,
+				C2400C5D2292C70A0045716E /* ProvincesCell.xib in Resources */,
 				C21921A52291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib in Resources */,
 				C2CE9762228B4D330094E137 /* WLTX_SpecialLineVC.xib in Resources */,
+				C2400C632292C70A0045716E /* address.plist in Resources */,
 				C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */,
 				C21921AF22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib in Resources */,
 				C231A36F22922164009488DB /* WLTX_SpecialLineCell.xib in Resources */,
@@ -2518,6 +2679,8 @@
 				C23D0C21225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.xib in Resources */,
 				C2CE9772228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.xib in Resources */,
 				C2F2570D22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.xib in Resources */,
+				C2560B8922933671002295DC /* WLTX_SpecialLineSearchVC.xib in Resources */,
+				C2400C622292C70A0045716E /* AreaCell.xib in Resources */,
 				C2D4D76C2250B79E00B00E17 /* WLTX_UserAgreementViewController.xib in Resources */,
 				C204274A2251881500902A8E /* WLTX_IntegratedQueryViewController.xib in Resources */,
 				C204273D225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.xib in Resources */,
@@ -2530,6 +2693,7 @@
 				C2DC6D2C229102C400F57263 /* WLTX_SpecialDetailsCell.xib in Resources */,
 				C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */,
 				C2CE9759228B470C0094E137 /* WLTX_SpecialDetailsVC.xib in Resources */,
+				C2560B8022932FBB002295DC /* WLTX_LocationSearchVC.xib in Resources */,
 				9BC42E46222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.xib in Resources */,
 				9BC42D6F222F6C4100BB032F /* Assets.xcassets in Resources */,
 				9BC42E1F222F9E7D00BB032F /* Test1_ViewController.xib in Resources */,
@@ -2537,6 +2701,7 @@
 				C2CE9777228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.xib in Resources */,
 				C278EC142264F03000AD0CAD /* WLTX_ShuttleRouteCell.xib in Resources */,
 				9BC42E33222F9ECD00BB032F /* Test5_ViewController.xib in Resources */,
+				C2400C5A2292C70A0045716E /* CitysCell.xib in Resources */,
 				C23D0C2A225FB22900ADDAA5 /* WLTX_SettingsViewController.xib in Resources */,
 				C2F786EB223D205500D27DD7 /* WLTX_ForgotPwViewController.xib in Resources */,
 				C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */,
@@ -2621,11 +2786,14 @@
 				C2868C83225E5D0B0099A296 /* WLTX_HomeAdModel.m in Sources */,
 				C2868C6E225E59730099A296 /* MJProperty.m in Sources */,
 				C2868C75225E59730099A296 /* MJFoundation.m in Sources */,
+				C2560B7F22932FBB002295DC /* WLTX_LocationSearchVC.m in Sources */,
 				C21921A42291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m in Sources */,
 				C21921952291567F00953BF1 /* WLTX_IntegratedQueryCell.m in Sources */,
+				C2400C602292C70A0045716E /* AreaCell.m in Sources */,
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
 				C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
+				C2400C5E2292C70A0045716E /* ProvincesCell.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
 				C231A37222922178009488DB /* WLTX_SpecialLineModel.m in Sources */,
 				C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */,
@@ -2638,6 +2806,7 @@
 				9BC42E4F222FACE800BB032F /* WLTX_NestPageViewController.m in Sources */,
 				C2868C79225E59730099A296 /* AFURLRequestSerialization.m in Sources */,
 				C2D4D7702250C06700B00E17 /* CALayer+LYH_CALayer_Extension.m in Sources */,
+				C2400C5C2292C70A0045716E /* CityView.m in Sources */,
 				C24E35BA22889FB60089BB57 /* WLTX_PublishInformationCell.m in Sources */,
 				C2868C7A225E59730099A296 /* AFNetworkReachabilityManager.m in Sources */,
 				9BC42E08222F9BA800BB032F /* LYHNavigationController.m in Sources */,
@@ -2657,6 +2826,7 @@
 				C24E35C12288A82C0089BB57 /* WLTX_PublishInformationModel.m in Sources */,
 				C2042741225186E800902A8E /* WLT_LogisticsRecruitmentCell.m in Sources */,
 				C23D0C11225FAFED00ADDAA5 /* WLTX_CollectionViewController.m in Sources */,
+				C2400C5F2292C70A0045716E /* ProvincesView.m in Sources */,
 				9BC42DE7222F999300BB032F /* UIView+LYH_UIView_Extension.m in Sources */,
 				C2868C70225E59730099A296 /* MJExtensionConst.m in Sources */,
 				C2868C72225E59730099A296 /* NSObject+MJClass.m in Sources */,
@@ -2674,6 +2844,7 @@
 				C23D0C1B225FB00E00ADDAA5 /* WLTX_IReleaseViewController.m in Sources */,
 				C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */,
 				C2868C78225E59730099A296 /* AFURLSessionManager.m in Sources */,
+				C2400C612292C70A0045716E /* AreaView.m in Sources */,
 				C278EC172264F8FB00AD0CAD /* WLTX_ShuttleRouteModel.m in Sources */,
 				C2DC6D2F2291084800F57263 /* WLTX_SpecialDetailsSectionHeaderView.m in Sources */,
 				C204273C225186CB00902A8E /* WLTX_LogisticsRecruitmentViewController.m in Sources */,
@@ -2683,8 +2854,10 @@
 				C2868C7E225E59730099A296 /* AFNetworkingTool.m in Sources */,
 				C20427492251881500902A8E /* WLTX_IntegratedQueryViewController.m in Sources */,
 				9BC42E45222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.m in Sources */,
+				C2400C642292C70A0045716E /* PrintBeautifulLog.m in Sources */,
 				C2039C832277904A00C9BBF6 /* WLTX_CommonWebVC.m in Sources */,
 				C2DC6D3C2291378600F57263 /* WLTX_SpecialDetailsDhwdModel.m in Sources */,
+				C2560B8822933671002295DC /* WLTX_SpecialLineSearchVC.m in Sources */,
 				9BC42E0B222F9BC200BB032F /* LYHTabBarModel.m in Sources */,
 				C2024116224AB0C300B8ECA9 /* UIImage+LYH_UIImage_Extension.m in Sources */,
 				9BC42E32222F9ECD00BB032F /* Test5_ViewController.m in Sources */,
@@ -2715,6 +2888,7 @@
 				C2868C76225E59730099A296 /* AFURLResponseSerialization.m in Sources */,
 				C219219922915E7E00953BF1 /* WLTX_IntegratedQueryModel.m in Sources */,
 				9BC42D84222F6C7B00BB032F /* AppDelegate.m in Sources */,
+				C2400C5B2292C70A0045716E /* CitysCell.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
 				C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */,
 			);

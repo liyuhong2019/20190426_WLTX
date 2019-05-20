@@ -21,9 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8XT-L4-4yU">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8XT-L4-4yU">
                     <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="qDj-Ed-X83"/>
                         <outlet property="delegate" destination="-1" id="AwF-Qu-CI1"/>
@@ -38,6 +38,9 @@
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-jF-7BJ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <connections>
+                                <action selector="go2SearchVC:" destination="-1" eventType="touchUpInside" id="1T7-Xv-msO"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,10 +56,30 @@
                         <constraint firstAttribute="trailing" secondItem="s0V-cZ-jND" secondAttribute="trailing" id="rYe-Lg-xvo"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-6P-OIJ">
+                    <rect key="frame" x="157.5" y="577" width="60" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="4PA-PP-bRA"/>
+                        <constraint firstAttribute="height" constant="60" id="PsW-pV-gyE"/>
+                    </constraints>
+                    <state key="normal" image="Home_yuyin"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="go2VoiceSearch:" destination="-1" eventType="touchUpInside" id="SIf-8q-HiR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.04931640625" green="0.75721571180000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="8XT-L4-4yU" firstAttribute="top" secondItem="XoS-h7-IiJ" secondAttribute="bottom" id="4ok-rK-2jB"/>
+                <constraint firstItem="Zbu-6P-OIJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="I4B-7E-jBg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Zbu-6P-OIJ" secondAttribute="bottom" constant="30" id="IWx-1t-JXc"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="8XT-L4-4yU" secondAttribute="bottom" id="RZG-qQ-LWS"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XoS-h7-IiJ" secondAttribute="trailing" id="TN9-nI-Ru3"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="8XT-L4-4yU" secondAttribute="trailing" id="WCa-nL-T7o"/>
@@ -67,4 +90,7 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
+    <resources>
+        <image name="Home_yuyin" width="16.5" height="22"/>
+    </resources>
 </document>

@@ -1,27 +1,29 @@
 //
-//  WLTX_SpecialLineQueryViewController.m
+//  WLTX_SpecialLineSearchVC.m
 //  WLTX
 //
-//  Created by lee on 2019/3/6.
-//  Copyright © 2019年 liyuhong165. All rights reserved.
+//  Created by liyuhong2019 on 2019/5/21.
+//  Copyright © 2019 liyuhong165. All rights reserved.
 //
 
-#import "WLTX_SpecialLineQueryViewController.h"
+#import "WLTX_SpecialLineSearchVC.h"
 #import "WLTX_SpecialLineQueryModel.h"
 #import "WLTX_SpecialLineQueryCell.h"
-#import "WLTX_SpecialLineSearchVC.h"
 
-@interface WLTX_SpecialLineQueryViewController ()
+@interface WLTX_SpecialLineSearchVC ()
 <UITableViewDelegate,
-UITableViewDataSource
->
+UITableViewDataSource,
+UITextFieldDelegate>
+//@property (weak, nonatomic) IBOutlet UISearchBar *search;
+@property (weak, nonatomic) IBOutlet UITextField *tf_search;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong,nonatomic) NSMutableArray *specialLineArr;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger nextpage;
 @end
 
-@implementation WLTX_SpecialLineQueryViewController
+@implementation WLTX_SpecialLineSearchVC
 
 #pragma mark - ♻️ 视图的生命周期 view life cycle start
 /*
@@ -37,7 +39,17 @@ UITableViewDataSource
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self SpecialLineQueryVC_settingsInitData];
+//    _search.barTintColor = [UIColor whiteColor];
+//    _search.backgroundImage = [[UIImage alloc] init];
+
+    
+//    _searchBar.layer.borderWidth = 1;
+//    
+//    _searchBar.layer.borderColor = NAVC_COLOR.CGColor;
+    
     [self SpecialLineQueryVC_settingsInitData];
+    
 }
 - (void)dealloc
 {
@@ -47,26 +59,17 @@ UITableViewDataSource
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
-    //    WLTX_LoginViewController *lgVC = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
-    //    LYHNavigationController *nav = [[LYHNavigationController alloc] initWithRootViewController:lgVC];
-    //    [self presentViewController:nav animated:YES completion:nil];
-    
     self.page = 1; // 初始化 为第0页
     NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-    [self netwrok_getmyCollectionListRequestWithPage:page Withappend:NO];
-
-    
+    [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[AppProject getInstance].gloalBtn setHidden:NO];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[AppProject getInstance].gloalBtn setHidden:YES];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -79,8 +82,71 @@ UITableViewDataSource
     [super didReceiveMemoryWarning];
 }
 #pragma mark ♻️ 视图的生命周期 view life cycle end
-
 #pragma mark - 🏃(代理)Delegate start
+#pragma mark - textFieldDelegate
+
+- (IBAction)go2Search:(UIButton *)sender {
+    [self.tf_search resignFirstResponder];
+    
+    if ([self.tf_search.text isEqualToString:@""]) {
+        NSLog(@"搜索最开始的数据");
+        self.tableview.tag = 10;
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
+    }
+    else
+    {
+        NSLog(@"搜索其他数据");
+        // 这里以tag 区分会比较好
+        
+        [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+        self.tableview.tag = 20;
+        // 加载最新的数据
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        NSDictionary *dict = @{
+                               @"q":self.tf_search.text,
+                               @"page":page
+                               };
+        //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+        
+    }
+    
+}
+- (void)textFieldChanged:(UITextField*)textField{
+    
+    NSString *string = textField.text;
+    NSLog(@"change msg is %@",string);
+    if ([string isEqualToString:@""]) {
+        NSLog(@"搜索最开始的数据");
+        self.tableview.tag = 10;
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
+    }
+    else
+    {
+        NSLog(@"搜索其他数据");
+        // 这里以tag 区分会比较好
+    
+        [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+        self.tableview.tag = 20;
+        // 加载最新的数据
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        NSDictionary *dict = @{
+                               @"q":string,
+                               @"page":page
+                               };
+//        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+
+    }
+}
+
+
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -136,7 +202,7 @@ UITableViewDataSource
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    [self SpecialLineQueryVC_settingsNav];
+    self.navigationItem.title = @"搜索";
     [self SpecialLineQueryVC_CommonSettings];
     
     
@@ -145,10 +211,24 @@ UITableViewDataSource
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);
         //        weakSelf.page = pageIndex;
+        
+        if (self.tableview.tag == 20) {
+            self.page = 1; // 初始化 为第0页
+            NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+//            [self netwrok_getKeywordWithKey:self.tf_search.text SpecialLineListRequestWithPage:page Withappend:NO];
+            NSDictionary *dict = @{
+                                   @"q":self.tf_search.text,
+                                   @"page":page
+                                   };
+            //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+            [self netwrok_getKeywordWithDict:dict Withappend:NO];
+            return ;
+        }
+        
         self.page = 1; // 初始化 为第1页
-//        [self netwrok_getmyCollectionListRequestWithappend:NO];
+        //        [self netwrok_getmyCollectionListRequestWithappend:NO];
         NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:NO];
+        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
     }];
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
@@ -164,24 +244,28 @@ UITableViewDataSource
             return ;
         }
         
+        if (self.tableview.tag == 20) {
+            NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+//            [self netwrok_getKeywordWithKey:self.tf_search.text SpecialLineListRequestWithPage:page Withappend:YES];
+            NSDictionary *dict = @{
+                                   @"q":self.tf_search.text,
+                                   @"page":page
+                                   };
+            //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+            [self netwrok_getKeywordWithDict:dict Withappend:YES];
+
+            [self.tableview endFooterRefresh];
+            return ;
+        }
+        
         NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
-        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:YES];
+        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:YES];
         [self.tableview endFooterRefresh];
         
     }];
     
     
 }
-/**
- 登陆页面设置 nav
- */
-- (void)SpecialLineQueryVC_settingsNav
-{
-    self.navigationItem.title = @"专线查询";
-    self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
-    
-}
-
 /**
  初始化一些公共设置
  */
@@ -197,19 +281,13 @@ UITableViewDataSource
     //    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WLT_LogisticsRecruitmentCell class]) bundle:nil] forCellReuseIdentifier:WLT_LogisticsRecruitmentCellID];
     [self.tableview registerNib:[UINib nibWithNibName:NSStringFromClass([WLTX_SpecialLineQueryCell class]) bundle:nil] forCellReuseIdentifier:WLTX_SpecialLineQueryCellID];
     
-}
-- (IBAction)go2SearchVC:(UIButton *)sender {
-    WLTX_SpecialLineSearchVC *vc = [[WLTX_SpecialLineSearchVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (IBAction)go2VoiceSearch:(UIButton *)sender {
-    NSLog(@"语音识别");
-}
+    // 监听textfiled 内容改变的时候
+    [self.tf_search addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
 
-
+}
 #pragma mark - 📶(网络请求)Network start
-// 1、综合页面里面查询
-- (void)netwrok_getmyCollectionListRequestWithPage:(NSString *)page Withappend:(BOOL)append
+// 1、所有的数据
+- (void)netwrok_getmySpecialLineListRequestWithPage:(NSString *)page Withappend:(BOOL)append
 {
     [AFNetworkingTool getWithURLString:SpecialLine_ListUrl(page) parameters:nil resultClass:nil success:^(id result) {
         NSLog(@"result = %@",[result mj_JSONObject]);
@@ -242,8 +320,43 @@ UITableViewDataSource
         
     }];
 }
+
+// 2、关键字搜索的数据
+//- (void)netwrok_getKeywordWithKey:(NSString *)keyword SpecialLineListRequestWithPage:(NSString *)page Withappend:(BOOL)append
+- (void)netwrok_getKeywordWithDict:(NSDictionary *)dict Withappend:(BOOL)append
+{
+    [AFNetworkingTool getWithURLString:SpecialLine_Search parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONObject]);
+        NSArray *data = result[@"data"];
+        
+        NSMutableArray *tempArrModel = [NSMutableArray array];
+        if (!append) {
+            [self.specialLineArr removeAllObjects];
+            self.specialLineArr = [WLTX_SpecialLineQueryModel mj_objectArrayWithKeyValuesArray:data];
+        }
+        else
+        {
+            for (NSDictionary *dict in data) {
+                WLTX_SpecialLineQueryModel *model = [WLTX_SpecialLineQueryModel mj_objectWithKeyValues:dict];
+                [self.specialLineArr addObject:model];
+            }
+        }
+        NSLog(@"integratedQueryListArr %@",self.specialLineArr);
+        
+        
+        //        self.data_ad = tempArr;
+        self.page += [result[@"nextpage"] integerValue];
+        
+        self.nextpage = [result[@"nextpage"] integerValue];
+        
+        [self.tableview reloadData];
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 #pragma mark - 📶(网络请求)Network end
-#pragma mark - 💤 控件/对象懒加载 object start
 - (NSMutableArray *)specialLineArr
 {
     if (_specialLineArr == nil) {
@@ -251,5 +364,5 @@ UITableViewDataSource
     }
     return _specialLineArr;
 }
-#pragma mark 💤 控件/对象懒加载 object end
+
 @end
