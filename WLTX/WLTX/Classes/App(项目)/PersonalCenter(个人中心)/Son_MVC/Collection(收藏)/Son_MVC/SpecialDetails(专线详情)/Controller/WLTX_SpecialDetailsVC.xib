@@ -105,7 +105,7 @@
                                             <constraint firstAttribute="width" constant="25" id="z4E-cp-zub"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" image="已收藏">
+                                        <state key="normal" image="未收藏">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -170,8 +170,8 @@
     </objects>
     <resources>
         <image name="xlr2" width="18" height="19"/>
-        <image name="已收藏" width="20" height="18.5"/>
         <image name="座机" width="12" height="11"/>
+        <image name="未收藏" width="20" height="18.5"/>
         <image name="电话" width="11" height="12"/>
     </resources>
 </document>

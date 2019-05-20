@@ -353,6 +353,16 @@ NSLog(@"system userDefault user_shouji is %@",[userDefault objectForKey:@"user_s
 NSLog(@"system userDefault user_name is %@",[userDefault objectForKey:@"user_name"]);\
 NSLog(@"system userDefault user_img is %@",[userDefault objectForKey:@"user_img"]);
 
+
+// 检测是否登录逻辑判断
+#define checkisLogin if (!kWltx_IsLogin) {\
+WLTX_LoginViewController *lg = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];\
+LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:lg];\
+[self presentViewController:nav animated:YES completion:nil];\
+return;\
+}\
+
+
 #pragma mark  其他人整理、封装
 
 #endif /* LYHMacroDefinition_h */

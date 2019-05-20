@@ -126,6 +126,9 @@
 		C2560B8022932FBB002295DC /* WLTX_LocationSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B7E22932FBB002295DC /* WLTX_LocationSearchVC.xib */; };
 		C2560B8822933671002295DC /* WLTX_SpecialLineSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8622933671002295DC /* WLTX_SpecialLineSearchVC.m */; };
 		C2560B8922933671002295DC /* WLTX_SpecialLineSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */; };
+		C2560B8D22935BCB002295DC /* CommonCityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8C22935BCB002295DC /* CommonCityView.m */; };
+		C2560B9122935BF0002295DC /* WLTX_CommonCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8F22935BF0002295DC /* WLTX_CommonCityCell.m */; };
+		C2560B9222935BF0002295DC /* WLTX_CommonCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B9022935BF0002295DC /* WLTX_CommonCityCell.xib */; };
 		C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */ = {isa = PBXBuildFile; fileRef = C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
@@ -388,6 +391,11 @@
 		C2560B8522933671002295DC /* WLTX_SpecialLineSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineSearchVC.h; sourceTree = "<group>"; };
 		C2560B8622933671002295DC /* WLTX_SpecialLineSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineSearchVC.m; sourceTree = "<group>"; };
 		C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_SpecialLineSearchVC.xib; sourceTree = "<group>"; };
+		C2560B8B22935BCB002295DC /* CommonCityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonCityView.h; sourceTree = "<group>"; };
+		C2560B8C22935BCB002295DC /* CommonCityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonCityView.m; sourceTree = "<group>"; };
+		C2560B8E22935BF0002295DC /* WLTX_CommonCityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CommonCityCell.h; sourceTree = "<group>"; };
+		C2560B8F22935BF0002295DC /* WLTX_CommonCityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CommonCityCell.m; sourceTree = "<group>"; };
+		C2560B9022935BF0002295DC /* WLTX_CommonCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CommonCityCell.xib; sourceTree = "<group>"; };
 		C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshEX.m"; sourceTree = "<group>"; };
 		C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshEX.h"; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
@@ -1757,6 +1765,7 @@
 		C2400C442292C70A0045716E /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				C2560B8A22935BB6002295DC /* 常用城市 */,
 				C2400C452292C70A0045716E /* PrintBeautifulLog.h */,
 				C2400C462292C70A0045716E /* 城市 */,
 				C2400C4C2292C70A0045716E /* 省份 */,
@@ -2041,6 +2050,18 @@
 				C2560B8722933671002295DC /* WLTX_SpecialLineSearchVC.xib */,
 			);
 			path = Contoller;
+			sourceTree = "<group>";
+		};
+		C2560B8A22935BB6002295DC /* 常用城市 */ = {
+			isa = PBXGroup;
+			children = (
+				C2560B8B22935BCB002295DC /* CommonCityView.h */,
+				C2560B8C22935BCB002295DC /* CommonCityView.m */,
+				C2560B8E22935BF0002295DC /* WLTX_CommonCityCell.h */,
+				C2560B8F22935BF0002295DC /* WLTX_CommonCityCell.m */,
+				C2560B9022935BF0002295DC /* WLTX_CommonCityCell.xib */,
+			);
+			path = "常用城市";
 			sourceTree = "<group>";
 		};
 		C261E79A227E5F0A00EBC859 /* MJRefreshTool */ = {
@@ -2688,6 +2709,7 @@
 				C23D0C1C225FB00E00ADDAA5 /* WLTX_IReleaseViewController.xib in Resources */,
 				C2DC6D312291085200F57263 /* WLTX_SpecialDetailsSectionHeaderView.xib in Resources */,
 				C21921B822917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib in Resources */,
+				C2560B9222935BF0002295DC /* WLTX_CommonCityCell.xib in Resources */,
 				C2039C842277904A00C9BBF6 /* WLTX_CommonWebVC.xib in Resources */,
 				C21921962291567F00953BF1 /* WLTX_IntegratedQueryCell.xib in Resources */,
 				C2DC6D2C229102C400F57263 /* WLTX_SpecialDetailsCell.xib in Resources */,
@@ -2884,12 +2906,14 @@
 				C242A18D2276147B005B277E /* WLTX_RealNameCertificationVC.m in Sources */,
 				C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */,
 				9BC42E40222FA69C00BB032F /* WLTX_PublishInformationViewController.m in Sources */,
+				C2560B8D22935BCB002295DC /* CommonCityView.m in Sources */,
 				9BC42D82222F6C7B00BB032F /* ViewController.m in Sources */,
 				C2868C76225E59730099A296 /* AFURLResponseSerialization.m in Sources */,
 				C219219922915E7E00953BF1 /* WLTX_IntegratedQueryModel.m in Sources */,
 				9BC42D84222F6C7B00BB032F /* AppDelegate.m in Sources */,
 				C2400C5B2292C70A0045716E /* CitysCell.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
+				C2560B9122935BF0002295DC /* WLTX_CommonCityCell.m in Sources */,
 				C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

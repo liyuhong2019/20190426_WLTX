@@ -78,7 +78,6 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-jL-ecw">
                             <rect key="frame" x="0.0" y="33" width="375" height="87"/>
-                            <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,7 +87,6 @@
                         <constraint firstAttribute="height" constant="120" id="KGl-zj-S2V"/>
                         <constraint firstItem="tdG-Gz-nz3" firstAttribute="leading" secondItem="0ia-fq-glK" secondAttribute="leading" constant="8" id="Klf-6N-FxL"/>
                         <constraint firstItem="tdG-Gz-nz3" firstAttribute="top" secondItem="0ia-fq-glK" secondAttribute="top" constant="8" id="dd2-bJ-8e8"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="eaS-Mr-hXW"/>
                         <constraint firstItem="ceD-jL-ecw" firstAttribute="top" secondItem="tdG-Gz-nz3" secondAttribute="bottom" constant="8" id="gbu-EF-M10"/>
                         <constraint firstAttribute="trailing" secondItem="ceD-jL-ecw" secondAttribute="trailing" id="nqQ-NT-0Qc"/>
                     </constraints>
@@ -206,7 +204,6 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chO-4e-e2y">
                             <rect key="frame" x="0.0" y="60" width="375" height="427"/>
-                            <color key="backgroundColor" red="0.84705882349999995" green="0.76078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

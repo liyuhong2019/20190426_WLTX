@@ -12,6 +12,7 @@
 #import "CityView.h"
 #import "AreaView.h"
 
+#import "CommonCityView.h"
 #ifdef DEBUG
 
 #define NSLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
@@ -27,6 +28,7 @@
 <ProvincesViewDelegate,
 CityViewDelegate,
 AreaViewDelegate,
+CommonCityViewDelegate,
 UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view_coomonUseCity; // 常用城市
 @property (weak, nonatomic) IBOutlet UIView *view_SelectCity;   // 选择城市
@@ -40,6 +42,8 @@ UISearchBarDelegate>
 @property NSArray *arrCity;
 //区数组
 @property NSArray *arrDistrict;
+// 常用城市数据
+@property NSMutableArray *commonUseCity;
 
 
 // 选择操作
@@ -66,6 +70,7 @@ UISearchBarDelegate>
 @property (nonatomic,strong) ProvincesView *provincesView;
 @property (nonatomic,strong) CityView *cityView;
 @property (nonatomic,strong) AreaView *areaView;
+@property (nonatomic,strong) CommonCityView *commonCityView;
 
 
 // 
@@ -164,6 +169,28 @@ UISearchBarDelegate>
     // 如果是点击tableview的item 都要记录起来
     // 最多保存10条
     NSLog(@"添加数据到常用城市里面");
+    
+//    NSDictionary *
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.recordClickAllCityTitle forKey:@"showTitle"];
+    [dict setObject:self.cStr forKey:@"getTitle"];
+    if (self.commonUseCity.count >=10) {
+        NSLog(@"第0个下标的数组是 %@",self.commonUseCity[0]);
+        [self.commonUseCity removeObjectAtIndex:0];
+        
+    }
+    [self.commonUseCity addObject:dict];
+    NSLog(@"commonUseCity %@",self.commonUseCity);
+    // 保存到本地
+    NSArray *arr = [self.commonUseCity copy];
+    // 存储
+    NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+    [userD setObject:arr forKey:@"commonUseCity"];
+    NSLog(@"commonUseCity %@",[userD objectForKey:@"commonUseCity"]);
+    
+    
+    [self.tableview reloadData];
+
     
     if (self.block) {
         if ([self.cStr containsString:@"市"]) {
@@ -272,7 +299,8 @@ UISearchBarDelegate>
     
     NSLog(@"select index 1 is arrDistrictStrArr %@",arrDistrictStrArr[1]);
     
-    
+    [self.view_coomonUseCity addSubview:self.commonCityView];
+    self.commonCityView.dataArr = self.commonUseCity;
     [self.view_SelectCity addSubview:self.provincesView];
     self.provincesView.dataArr = provinceStrArr;
 }
@@ -311,12 +339,40 @@ UISearchBarDelegate>
     }
     return _areaView;
 }
+
+- (CommonCityView *)commonCityView
+{
+    if (!_commonCityView) {
+        NSLog(@"provincesView %2f",self.view_coomonUseCity.frame.size.height);
+        _commonCityView = [[CommonCityView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,  CGRectGetHeight(self.view_coomonUseCity.frame))];
+        _commonCityView.delegate = self;
+    }
+    return _commonCityView;
+}
 //- (void)provincesViewClickItem:(NSIndexPath *)indexPath ClickTitle:(NSString *)title
 //{
 //    NSLog(@"click item title is %@",title);
 //}
 
+
 #pragma mark - custom delegate
+
+// 常用城市的点击
+- (void)commonCityViewClickItemCell:(WLTX_CommonCityCell *)cell clickItemIndexPath:(NSIndexPath *)indexPath ClickTitle:(NSString *)title
+{
+    NSLog(@"click item cell %@",cell);
+    NSLog(@"click item title is %@",title);
+    NSString *selectItemName = title;
+    if (self.block) {
+        if ([selectItemName containsString:@"市"]) {
+            selectItemName = [selectItemName stringByReplacingOccurrencesOfString:@"市"withString:@""];
+        }
+        self.block(selectItemName,self.type);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 // 省份点击
 - (void)provincesViewClickItemCell:(ProvincesCell *)cell clickItemIndexPath:(NSIndexPath *)indexPath ClickTitle:(NSString *)title
 {
@@ -537,6 +593,24 @@ UISearchBarDelegate>
 //        [self.navigationController popViewControllerAnimated:YES];
 //
 //    }];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:showData forKey:@"showTitle"];
+    [dict setObject:selectData forKey:@"getTitle"];
+    if (self.commonUseCity.count >=10) {
+        NSLog(@"第0个下标的数组是 %@",self.commonUseCity[0]);
+        [self.commonUseCity removeObjectAtIndex:0];
+        
+    }
+    [self.commonUseCity addObject:dict];
+    NSLog(@"commonUseCity %@",self.commonUseCity);
+    // 保存到本地
+    NSArray *arr = [self.commonUseCity copy];
+    // 存储
+    NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+    [userD setObject:arr forKey:@"commonUseCity"];
+    NSLog(@"commonUseCity %@",[userD objectForKey:@"commonUseCity"]);
+    
     if (self.block) {
         self.block(selectData,self.type);
     }
@@ -571,6 +645,24 @@ UISearchBarDelegate>
     } failure:^(NSError *error) {
         
     }];
+}
+- (NSMutableArray *)commonUseCity
+{
+    if (!_commonUseCity) {
+        _commonUseCity = [NSMutableArray array];
+        
+        NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+        NSArray *array = [userD objectForKey:@"commonUseCity"];
+        if (array.count >0) {
+            _commonUseCity = [NSMutableArray arrayWithArray:array];
+        }
+        else
+        {
+            NSLog(@"本次缓存没数据");
+        }
+        
+    }
+    return _commonUseCity;
 }
 #pragma mark 📶(网络请求)Network end
 

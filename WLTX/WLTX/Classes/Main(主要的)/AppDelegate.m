@@ -35,6 +35,13 @@
     [[AppProject getInstance]lyh_addGloalbtn];
     [[AppProject getInstance].gloalBtn cq_addEventHandler:^{
 //        NSLog(@"点击全局按钮");
+        if (!kWltx_IsLogin) {
+            WLTX_LoginViewController *lg = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
+            LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:lg];
+            [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+            return;
+        }
+        
         [self showAlertController];
         [AppProject getInstance].gloalBtn.hidden = YES;
     } forControlEvents:UIControlEventTouchUpInside];

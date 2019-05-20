@@ -287,6 +287,8 @@ UITableViewDataSource
     
     [self.btn_collection cq_addEventHandler:^{
         NSLog(@"收藏、取消收藏请求");
+        // 先判断用户是否登录
+        checkisLogin
         [self netwrok_CollectionRequest:self.detailsId WithPhoneNumber:kWltx_userShouji];
     } forControlEvents:UIControlEventTouchUpInside];
 

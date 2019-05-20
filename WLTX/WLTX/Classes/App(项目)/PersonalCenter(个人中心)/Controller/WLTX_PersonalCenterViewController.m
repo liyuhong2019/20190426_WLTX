@@ -146,16 +146,27 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
     switch (indexPath.row) {
         case 0:
         {
+            checkisLogin
             vc = [[WLTX_CollectionViewController alloc]init];
         }
             break;
         case 1:
         {
+            checkisLogin
             vc = [[WLTX_PersonalInformationViewController alloc]init];
         }
             break;
         case 2:
         {
+            checkisLogin
+            
+//            if (!kWltx_IsLogin) {
+//                WLTX_LoginViewController *lg = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
+//                LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:lg];
+//                [self presentViewController:nav animated:YES completion:nil];
+//                return;
+//            }
+
             vc = [[WLTX_IReleaseViewController alloc]init];
         }
             break;
@@ -163,13 +174,14 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
         case 3:
         {
 //            vc = [[WLTX_AboutUsViewController alloc]init];
-            vc = [[WLTX_CommonWebVC alloc]initWithWLTX_CommonWebType:WLTX_CommonWebType_AboutUs AndNavTitle:@"关于我们1"];
+            vc = [[WLTX_CommonWebVC alloc]initWithWLTX_CommonWebType:WLTX_CommonWebType_AboutUs AndNavTitle:@"关于我们"];
 
         }
             break;
 
         case 4:
         {
+            checkisLogin
             vc = [[WLTX_ContributionValueViewController alloc]init];
         }
             break;
