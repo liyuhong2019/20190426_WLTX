@@ -25,6 +25,10 @@
         self.appDelegate = appDelegate;
 //        [self lyh_initAppProject];
         
+        NSLog(@"初始化讯飞科大");
+        // 初始化讯飞科大 语音听写功能
+        [[Three_XFKD getInstance]lyh_initTThreeSDK_XFKD_YYTX];
+
 //        NSLog(@"%s , 初始化h5",__func__);
 //        [self lyh_initWithAdd_H5App2Window];
 //        [self lyh_initWithH5_PDRCore];

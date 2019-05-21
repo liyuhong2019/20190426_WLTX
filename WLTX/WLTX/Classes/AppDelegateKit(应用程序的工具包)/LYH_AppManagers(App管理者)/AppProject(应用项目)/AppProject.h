@@ -1,6 +1,7 @@
 // 项目初始化的单例
 #import <Foundation/Foundation.h>
 
+#import "Three_XFKD.h" // 讯飞科大
 @interface AppProject : NSObject
 
 @property (strong,nonatomic) UIButton *gloalBtn;

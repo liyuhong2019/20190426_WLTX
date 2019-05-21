@@ -10,7 +10,7 @@
 #import "WLTX_SpecialLineQueryModel.h"
 #import "WLTX_SpecialLineQueryCell.h"
 #import "WLTX_SpecialLineSearchVC.h"
-
+#import "WLTX_LocationSearchVC.h"
 @interface WLTX_SpecialLineQueryViewController ()
 <UITableViewDelegate,
 UITableViewDataSource
@@ -135,6 +135,7 @@ UITableViewDataSource
 - (void)SpecialLineQueryVC_settingsInitData
 {
     YHLog(@"初始化数据");
+    self.cityStrs = [[NSMutableString alloc]init];
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self SpecialLineQueryVC_settingsNav];
     [self SpecialLineQueryVC_CommonSettings];
@@ -204,6 +205,7 @@ UITableViewDataSource
 }
 - (IBAction)go2VoiceSearch:(UIButton *)sender {
     NSLog(@"语音识别");
+    [self haveView];
 }
 
 
@@ -252,4 +254,170 @@ UITableViewDataSource
     return _specialLineArr;
 }
 #pragma mark 💤 控件/对象懒加载 object end
+
+
+
+#pragma mark - 讯飞科大
+- (void)haveView
+{
+    if (_iflyRecognizerView == nil) {
+        
+        _iflyRecognizerView= [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+        NSLog(@"创建视图");
+    }
+    
+    [_iflyRecognizerView setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+    
+    //set recognition domain
+    [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+    
+    
+    _iflyRecognizerView.delegate = self;
+    
+    if (_iflyRecognizerView != nil) {
+        // 超时的时间
+        //set timeout of recording
+        [_iflyRecognizerView setParameter:@"5000" forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
+        //set VAD timeout of end of speech(EOS)
+        [_iflyRecognizerView setParameter:@"30000" forKey:[IFlySpeechConstant VAD_EOS]];
+        //set VAD timeout of beginning of speech(BOS)
+        [_iflyRecognizerView setParameter:@"30000" forKey:[IFlySpeechConstant VAD_BOS]];
+        //set network timeout
+        [_iflyRecognizerView setParameter:@"20000" forKey:[IFlySpeechConstant NET_TIMEOUT]];
+        
+        //set sample rate, 16K as a recommended option
+        [_iflyRecognizerView setParameter:@"16000" forKey:[IFlySpeechConstant SAMPLE_RATE]];
+        
+        //set language
+        [_iflyRecognizerView setParameter:@"zh_cn" forKey:[IFlySpeechConstant LANGUAGE]];
+        //set accent
+        [_iflyRecognizerView setParameter:@"mandarin" forKey:[IFlySpeechConstant ACCENT]];
+        //set whether or not to show punctuation in recognition results
+        [_iflyRecognizerView setParameter:@"1" forKey:[IFlySpeechConstant ASR_PTT]];
+        [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+//        [_iflyRecognizerView setParameter:@"" forKey:@""]
+        [_iflyRecognizerView start];
+        
+    }
+}
+- (void) noView
+{
+    //创建语音识别对象
+    _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
+    _iFlySpeechRecognizer.delegate = self;
+    //设置识别参数
+    //设置为听写模式
+    [_iFlySpeechRecognizer setParameter: @"iat" forKey: [IFlySpeechConstant IFLY_DOMAIN]];
+    //asr_audio_path 是录音文件名，设置value为nil或者为空取消保存，默认保存目录在Library/cache下。
+    [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+    [_iFlySpeechRecognizer setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+    //启动识别服务
+    [_iFlySpeechRecognizer startListening];
+}
+
+#pragma mark - IFlySpeechRecognizerDelegate
+//IFlySpeechRecognizerDelegate协议实现
+//识别结果返回代理
+- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
+    
+    NSLog(@"results is %@ isLast is %d",results,isLast);
+    
+    NSLog(@"results urldecode %@",results.firstObject);
+    
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = results[0];
+    
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    NSLog(@"resultString 无界面识别器 %@",resultString);
+    
+    
+    
+}
+//识别会话结束返回代理
+- (void)onCompleted: (IFlySpeechError *) error{
+    NSLog(@"error is %@ ",error.errorDesc);
+    [_iflyRecognizerView cancel];
+    
+    if ([error.errorDesc isEqualToString:@"服务正常"]) {
+        NSLog(@"cityStrs %@",self.cityStrs);
+        NSLog(@"拼接的字符串是 %@",self.cityStrs);
+        //  处理字符串
+        
+        NSString *str = [self.cityStrs stringByReplacingOccurrencesOfString:@"。" withString:@""];
+        NSLog(@"处理完。之后的字符串 %@",str);
+        NSMutableArray *array = [NSMutableArray array];
+        if ([str  containsString:@"到"]) {
+            NSArray *arr = [str componentsSeparatedByString:@"到"];//匹配得到的下标
+            array  = arr;
+            NSLog(@"array:%@",array); //结果是adfsfsfs和dfsdf
+        }
+        if (array.count >=1) {
+            NSString *startCity = array[0];
+            NSString *endCity = array[1];
+            NSLog(@"%@ -  %@",startCity,endCity);
+          
+            //  这里进行去跳转到下一个页面
+            WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+            vc.startText = startCity;
+            vc.endText = endCity;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        
+        // 处理解析不出来的语音文字
+        self.cityStrs = [[NSMutableString alloc]init];
+        
+    }
+    else
+    {
+        NSLog(@"语音搜索识别失败");
+    }
+    
+}
+//停止录音回调
+- (void) onEndOfSpeech{
+    NSLog(@"停止录音回调");
+}
+//开始录音回调
+- (void) onBeginOfSpeech{
+    NSLog(@"开始录音回调");
+}
+//音量回调函数
+- (void) onVolumeChanged: (int)volume{
+    NSLog(@"音量回调函数");
+}
+//会话取消回调
+- (void) onCancel{
+    NSLog(@"会话取消回调");
+    
+}
+
+
+#pragma mark view delegate
+/*!
+ *  回调返回识别结果
+ *
+ *  @param resultArray 识别结果，NSArray的第一个元素为NSDictionary，NSDictionary的key为识别结果，sc为识别结果的置信度
+ *  @param isLast      -[out] 是否最后一个结果
+ */
+- (void)onResult:(NSArray *)resultArray isLast:(BOOL) isLast
+{
+    NSLog(@"results is %@ isLast is %d",resultArray,isLast);
+    
+    NSLog(@"results urldecode %@",resultArray.firstObject);
+    
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = resultArray[0];
+    
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    NSLog(@"resultString cc %@",resultString);
+    
+    [self.cityStrs  appendFormat:resultString];
+    NSLog(@"拼接的字符串是 %@",self.cityStrs);
+    //    self.cityStrs = [self.cityStrs appendFormat:resultString];
+}
 @end

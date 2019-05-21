@@ -138,6 +138,9 @@ UISearchBarDelegate>
 - (void)commonSelectAreaVC_settingsInitData
 {
     NSLog(@"初始化数据");
+    self.pStr = @"";
+    self.cStr = @"";
+    self.aStr = @"";
     //    self.view.backgroundColor = [UIColor whiteColor];
     [self CommonSelectAreaVC_settingsNav];
     
@@ -174,6 +177,23 @@ UISearchBarDelegate>
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self.recordClickAllCityTitle forKey:@"showTitle"];
     [dict setObject:self.cStr forKey:@"getTitle"];
+//    if (![self.cStr isEqualToString:@""]) {
+//        NSLog(@"cStr %@",self.cStr);
+//        if ([self.cStr isKindOfClass:[NSNull class]] || [self.cStr isEqual:[NSNull null]] || self.cStr == nil)
+//
+//        {
+//            NSLog(@"字符串为空 %@",self.recordClickAllCityTitle);
+////            [dict setObject:self.pStr forKey:@"getTitle"];
+//        }
+//        else
+//        {
+//            [dict setObject:self.cStr forKey:@"getTitle"];
+//        }
+//    }
+//    else
+//    {
+////        [dict setObject:self.search.text forKey:@"getTitle"];
+//    }
     if (self.commonUseCity.count >=10) {
         NSLog(@"第0个下标的数组是 %@",self.commonUseCity[0]);
         [self.commonUseCity removeObjectAtIndex:0];

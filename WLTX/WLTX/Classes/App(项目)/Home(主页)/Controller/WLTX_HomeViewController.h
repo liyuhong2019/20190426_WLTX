@@ -7,7 +7,14 @@
 //
 
 #import "LYHBaseViewController.h"
-
+#import <iflyMSC/iflyMSC.h>
 @interface WLTX_HomeViewController : LYHBaseViewController
+<IFlySpeechRecognizerDelegate,
+IFlyRecognizerViewDelegate>
+
+// 讯飞科大
+@property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
+@property (nonatomic, strong) IFlyRecognizerView *iflyRecognizerView;
+
 
 @end
