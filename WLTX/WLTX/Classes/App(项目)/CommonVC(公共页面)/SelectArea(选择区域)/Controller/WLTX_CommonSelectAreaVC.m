@@ -7,7 +7,7 @@
 //
 
 #import "WLTX_CommonSelectAreaVC.h"
-
+#import "WLTX_CommonCityCell.h"
 #import "ProvincesView.h"
 #import "CityView.h"
 #import "AreaView.h"
@@ -192,12 +192,19 @@ UISearchBarDelegate>
     [self.tableview reloadData];
 
     
-    if (self.block) {
-        if ([self.cStr containsString:@"市"]) {
-            self.cStr = [self.cStr stringByReplacingOccurrencesOfString:@"市"withString:@""];
-        }
-        self.block(self.cStr,self.type);
+    if (self.type == WLTX_CommonSelectAreaType_ReleaseCarInfo) {
+        self.block(self.recordClickAllCityTitle,self.type);
     }
+    else
+    {
+        if (self.block) {
+            if ([self.cStr containsString:@"市"]) {
+                self.cStr = [self.cStr stringByReplacingOccurrencesOfString:@"市"withString:@""];
+            }
+            self.block(self.cStr,self.type);
+        }
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
     
 }
@@ -364,10 +371,18 @@ UISearchBarDelegate>
     NSLog(@"click item title is %@",title);
     NSString *selectItemName = title;
     if (self.block) {
-        if ([selectItemName containsString:@"市"]) {
-            selectItemName = [selectItemName stringByReplacingOccurrencesOfString:@"市"withString:@""];
+        
+        if (self.type == WLTX_CommonSelectAreaType_ReleaseCarInfo) {
+            self.block(cell.lb_title.text,self.type);
         }
-        self.block(selectItemName,self.type);
+        else
+        {
+            if ([selectItemName containsString:@"市"]) {
+                selectItemName = [selectItemName stringByReplacingOccurrencesOfString:@"市"withString:@""];
+            }
+            self.block(selectItemName,self.type);
+        }
+       
     }
     [self.navigationController popViewControllerAnimated:YES];
     

@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger,WLTX_CommonSelectAreaType)
     WLTX_CommonSelectAreaType_Normal            = 0,
     WLTX_CommonSelectAreaType_StartLocation,
     WLTX_CommonSelectAreaType_EndLocation,
+    WLTX_CommonSelectAreaType_ReleaseCarInfo,
 };
 
 // block 参考 https://www.jianshu.com/p/e82bc3acc2c9

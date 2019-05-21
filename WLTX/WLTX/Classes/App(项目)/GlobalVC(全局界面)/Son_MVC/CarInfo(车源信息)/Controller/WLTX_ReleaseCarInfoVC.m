@@ -9,6 +9,8 @@
 #import "WLTX_ReleaseCarInfoVC.h"
 
 @interface WLTX_ReleaseCarInfoVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layout_scrollview_h;
+@property (weak, nonatomic) IBOutlet UILabel *lb_city;
 
 @end
 
@@ -70,6 +72,7 @@
 - (void)specialDetailsVC_initData
 {
     YHLog(@"初始化数据");
+    lyh_setting_xib_scrollviewHeight
     [self specialDetailsVC_settingsNav];
     
 }
@@ -80,13 +83,15 @@
  */
 - (void)specialDetailsVC_settingsNav
 {
-    self.navigationItem.title = @"专线详情";
+    self.navigationItem.title = @"车源信息";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateHighlighted];
+//    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateNormal];
+//    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateHighlighted];
+    [backButton setTitle:@"发布" forState:0];
+    [backButton setTitleColor:[UIColor whiteColor] forState:0];
     backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [backButton addTarget:self action:@selector(specialDetailsVC_go2Share:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
@@ -94,6 +99,41 @@
 - (void)specialDetailsVC_go2Share:(UIButton *)btn
 {
     NSLog(@"分享");
+}
+
+
+- (IBAction)go2Action:(UIButton *)sender {
+    switch (sender.tag) {
+        case 10:
+            {
+                WLTX_CommonSelectAreaVC *vc = [[WLTX_CommonSelectAreaVC alloc]init];
+                vc.type = WLTX_CommonSelectAreaType_ReleaseCarInfo;
+                vc.block = ^(NSString *cityName, WLTX_CommonSelectAreaType type)
+                {
+                    // 这里需要拿到的是显示的城市 而不是传递的城市 。所以要在内部做一个类型判断
+                    NSLog(@"回调回来的城市是%@",cityName);
+                    self.lb_city.text = cityName;
+                };
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)go2SelectCity
+{
+    
+}
+- (void)go2SelectCarLength
+{
+    
+}
+- (void)go2UpdateImage
+{
+    
 }
 #pragma 事件操作
 

@@ -243,6 +243,16 @@ UICollectionViewDataSource
 - (IBAction)share:(UIButton *)sender {
     NSLog(@"%s,友盟SD分享",__func__);
     [self go2WeChatShare];
+    
+    /**
+     设置分享面板
+     #import <UShareUI/UShareUI.h>
+     [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)]];
+     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+     // 根据获取的platformType确定所选平台进行下一步操作
+     }];
+     */
+    
 }
 - (IBAction)go2IntegratedQuery:(UIButton *)sender {
     WLTX_IntegratedQueryViewController *vc = [[WLTX_IntegratedQueryViewController alloc]init];
