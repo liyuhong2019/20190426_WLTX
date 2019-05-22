@@ -18,11 +18,11 @@
     [super viewDidLoad];
 //    NSLog(@"%s 重写父类的方法",__FUNCTION__);
     
-    [self setupChildVc:[[WLTX_HomeViewController alloc] initWithNibName:NSStringFromClass([WLTX_HomeViewController class]) bundle:nil] title:@"首页" image:@"icon_shouye" selectedImage:@"icon_shouye_Selected" isHiddenNavgationBar:NO];
-    [self setupChildVc:[[WLTX_SpecialLineQueryViewController alloc] initWithNibName:NSStringFromClass([WLTX_SpecialLineQueryViewController class]) bundle:nil] title:@"专线查询" image:@"tabBar_find" selectedImage:@"tabBar_find_click" isHiddenNavgationBar:NO];
+    [self setupChildVc:[[WLTX_HomeViewController alloc] initWithNibName:NSStringFromClass([WLTX_HomeViewController class]) bundle:nil] title:@"首页" image:@"ic_no" selectedImage:@"ic" isHiddenNavgationBar:NO];
+    [self setupChildVc:[[WLTX_SpecialLineQueryViewController alloc] initWithNibName:NSStringFromClass([WLTX_SpecialLineQueryViewController class]) bundle:nil] title:@"专线查询" image:@"ic_line_no" selectedImage:@"ic_line" isHiddenNavgationBar:NO];
 //    [self setupChildVc:[[WLTX_PublishInformationViewController alloc] initWithNibName:NSStringFromClass([WLTX_PublishInformationViewController class]) bundle:nil] title:@"发布消息" image:@"tabBar_find" selectedImage:@"tabBar_find_click" isHiddenNavgationBar:NO];
     
-    [self setupChildVc:[[WLTX_PersonalCenterViewController alloc] initWithNibName:NSStringFromClass([WLTX_PersonalCenterViewController class]) bundle:nil] title:@"个人中心" image:@"tabBar_find" selectedImage:@"tabBar_find_click" isHiddenNavgationBar:NO];
+    [self setupChildVc:[[WLTX_PersonalCenterViewController alloc] initWithNibName:NSStringFromClass([WLTX_PersonalCenterViewController class]) bundle:nil] title:@"个人中心" image:@"ic_user_no" selectedImage:@"ic_user" isHiddenNavgationBar:NO];
     
     [[UITabBar appearance] setBackgroundImage:[self imageWithColor:[UIColor whiteColor]]];
     //  设置tabbar

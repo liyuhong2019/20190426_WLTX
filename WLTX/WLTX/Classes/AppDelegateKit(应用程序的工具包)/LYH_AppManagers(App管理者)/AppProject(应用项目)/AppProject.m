@@ -208,7 +208,7 @@
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(SCREEN_WIDTH - 60, SCREEN_HEIGHT - 150, 40, 40);
-    [btn setBackgroundImage:[UIImage imageNamed:@"plus"] forState:0];
+    [btn setBackgroundImage:[UIImage imageNamed:@"ic_btn_add"] forState:0];
 //    [btn addTarget:self action:@selector(clickbtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.appDelegate.window addSubview:btn];
     self.gloalBtn = btn;

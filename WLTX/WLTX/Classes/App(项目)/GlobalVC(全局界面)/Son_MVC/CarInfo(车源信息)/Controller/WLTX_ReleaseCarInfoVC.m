@@ -9,6 +9,7 @@
 #import "WLTX_ReleaseCarInfoVC.h"
 #import "UIButton+WebCache.h"
 @interface WLTX_ReleaseCarInfoVC ()
+<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *layout_scrollview_h;
 @property (weak, nonatomic) IBOutlet UILabel *lb_city;
 @property (weak, nonatomic) IBOutlet UILabel *lb_carlength;
@@ -307,7 +308,33 @@
     
 }
 
+#pragma mark - tf
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.view_line1.backgroundColor = [UIColor lightGrayColor];
+    self.view_line2.backgroundColor = [UIColor lightGrayColor];
+    self.view_line3.backgroundColor = [UIColor lightGrayColor];
+    self.view_line4.backgroundColor = [UIColor lightGrayColor];
+    
+    if (textField == self.tf_carNumber) {
+        self.view_line1.backgroundColor = RGB(255, 72, 139);
+    }
+    else if (textField == self.tf_carWeight)
+    {
+        self.view_line2.backgroundColor = RGB(255, 72, 139);
+    }
+    
+    else if (textField == self.tf_location)
+    {
+        self.view_line3.backgroundColor = RGB(255, 72, 139);
+    }
+    else if (textField == self.tf_phoneNumber)
+    {
+        self.view_line4.backgroundColor = RGB(255, 72, 139);
+    }
+    
 
+}
 
 // http://m.0201566.com/appapi/up_cheyuan.php
 
