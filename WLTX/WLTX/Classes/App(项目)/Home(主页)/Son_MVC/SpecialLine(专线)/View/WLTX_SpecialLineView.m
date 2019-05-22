@@ -49,8 +49,7 @@ static NSString * const WLTX_SpecialLineCellID = @"WLTX_SpecialLineCell";
     collectionView.showsVerticalScrollIndicator = NO;
     [self addSubview:collectionView];
     self.collectionView=collectionView;
-    [collectionView registerNib:[UINib nibWithNibName:@"WLTX_SpecialLineCell" bundle:nil]
-     forCellWithReuseIdentifier:WLTX_SpecialLineCellID];
+    [collectionView registerNib:[UINib nibWithNibName:@"WLTX_SpecialLineCell" bundle:nil]forCellWithReuseIdentifier:WLTX_SpecialLineCellID];
     
     [self collectionCofig];
     [self network_getIntegratedQueryListRequest];

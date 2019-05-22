@@ -34,6 +34,8 @@
 // 图片数据
 @property (strong,nonatomic) NSData *data;
 
+
+@property (strong,nonatomic) NSString *uploadimage;
 @end
 
 @implementation WLTX_ReleaseCarInfoVC
@@ -176,7 +178,8 @@
         return;
     }
     NSLog(@"发布");
-
+    
+    [self go2push];
     
 }
 
@@ -291,7 +294,7 @@
         NSLog(@"请求成功：%@",responseObject);
         NSDictionary *dict = [responseObject mj_JSONObject];
         NSString *status = dict[@"status"];
-        NSString *img = dict[@"imgurl"];
+        NSString *img = self.uploadimage = dict[@"imgurl"];
         [self.btn_img sd_setBackgroundImageWithURL:[NSURL URLWithString:img] forState:0];
         
 //        [self.btn_img ]
@@ -337,5 +340,54 @@
 }
 
 // http://m.0201566.com/appapi/up_cheyuan.php
+
+#pragma mark -
+- (void)go2push
+{
+    // 4、发送注册请求
+    // ....
+    
+    NSDictionary *dict = @{
+                           @"fblx":@"3",
+                           @"shouji":kWltx_userShouji,
+                           @"city":self.tf_location.text,
+                           @"length":self.lb_carlength.text,
+                           @"img":self.uploadimage,
+                           @"chepai":self.tf_carNumber.text,
+                           @"chezai":self.tf_carWeight.text,
+                           @"dizhi":self.tf_location.text,
+                           @"tel":self.tf_phoneNumber.text
+                           
+                           };
+    [self netwrok_ReleaseRequest:dict];
+}
+// http://m.0201566.com/appapi/up_cheyuan.php
+
+// go2 net
+- (void)netwrok_ReleaseRequest:(NSDictionary *)dict
+{
+    NSLog(@"登录__网络请求");
+    [AFNetworkingTool postWithURLString:Coomon_Release parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONString]);
+        NSDictionary *dataDict = result;
+        NSString *status = dataDict[@"status"];
+        NSLog(@"");
+        if ([status integerValue] == 1) {
+            [self.view makeToast:@"添加成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }
+        else
+        {
+            [self.view makeToast:status];
+        }
+        
+    } failure:^(NSError *error) {
+        NSString *errorMsg = [NSString stringWithFormat:@"%@",[error.localizedDescription mj_JSONString]];
+        [self.view makeToast:errorMsg];
+        
+    }];
+}
 
 @end

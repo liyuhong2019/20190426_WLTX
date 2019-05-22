@@ -74,7 +74,6 @@
 		C21921B822917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21921B622917F8100953BF1 /* WLTX_CoomonIQDetailsVC.xib */; };
 		C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */; };
 		C226DAE42293BEF400C89119 /* Three_XFKD.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DADC2293BEF400C89119 /* Three_XFKD.m */; };
-		C226DAE52293BEF400C89119 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DADE2293BEF400C89119 /* PopupView.m */; };
 		C226DAE62293BEF400C89119 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C226DAE12293BEF400C89119 /* iflyMSC.framework */; };
 		C226DAE72293BEF400C89119 /* 讯飞科大.md in Resources */ = {isa = PBXBuildFile; fileRef = C226DAE32293BEF400C89119 /* 讯飞科大.md */; };
 		C226DAE92293BF1C00C89119 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C226DAE82293BF1B00C89119 /* libz.tbd */; };
@@ -329,8 +328,6 @@
 		C21921B922918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CoomonIntegratedQueryListModel.h; sourceTree = "<group>"; };
 		C21921BA22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CoomonIntegratedQueryListModel.m; sourceTree = "<group>"; };
 		C226DADC2293BEF400C89119 /* Three_XFKD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Three_XFKD.m; sourceTree = "<group>"; };
-		C226DADE2293BEF400C89119 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
-		C226DADF2293BEF400C89119 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		C226DAE12293BEF400C89119 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		C226DAE22293BEF400C89119 /* Three_XFKD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Three_XFKD.h; sourceTree = "<group>"; };
 		C226DAE32293BEF400C89119 /* 讯飞科大.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "讯飞科大.md"; sourceTree = "<group>"; };
@@ -1569,8 +1566,6 @@
 		C226DADD2293BEF400C89119 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				C226DADE2293BEF400C89119 /* PopupView.m */,
-				C226DADF2293BEF400C89119 /* PopupView.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -3045,7 +3040,6 @@
 				9BC42D84222F6C7B00BB032F /* AppDelegate.m in Sources */,
 				C2400C5B2292C70A0045716E /* CitysCell.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
-				C226DAE52293BEF400C89119 /* PopupView.m in Sources */,
 				C226DB0B2294D11200C89119 /* WLTX_CarListInfoCell.m in Sources */,
 				C2560B9122935BF0002295DC /* WLTX_CommonCityCell.m in Sources */,
 				C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */,
@@ -3189,8 +3183,9 @@
 			baseConfigurationReference = 5BC63C83621F6DBC4687F373 /* Pods-WLTX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MBN6DS9YQU;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PQVYPJM3N6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3204,8 +3199,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyh.WLTXS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyh.WLTDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_p1_wltd;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3215,8 +3211,9 @@
 			baseConfigurationReference = B7F140AA52900CABDDFCFB87 /* Pods-WLTX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MBN6DS9YQU;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PQVYPJM3N6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3230,8 +3227,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lyh.WLTXS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lyh.WLTDS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_p1_wltd;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

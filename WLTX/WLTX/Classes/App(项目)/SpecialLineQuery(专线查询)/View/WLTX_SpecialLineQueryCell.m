@@ -8,6 +8,8 @@
 
 #import "WLTX_SpecialLineQueryCell.h"
 #import "WLTX_SpecialLineQueryModel.h"
+
+#define ImgBaseURLB          @"http://www.0201566.com"
 @interface WLTX_SpecialLineQueryCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *img_icon;
 @property (weak, nonatomic) IBOutlet UIImageView *img_gold;
@@ -38,12 +40,12 @@
     _model = model;
     // 设置图片
     if ([model.is_rz isEqualToString:@"0"]) {
-        NSLog(@"未认证的图标")
+        NSLog(@"未认证的图标");
         [self.img_validation setImage:[UIImage imageNamed:@"未认证"]];
     }
     else
     {
-        NSLog(@"未认证的图标")
+        NSLog(@"未认证的图标");
         [self.img_validation setImage:[UIImage imageNamed:@"认证"]];
     }
     
@@ -54,7 +56,7 @@
     }
     else
     {
-        NSLog(@"未🏅️的图标")
+        NSLog(@"未🏅️的图标");
         [self.img_gold setImage:[UIImage imageNamed:@"jp"]];
         
         
@@ -72,7 +74,7 @@
     //    [self.btn_companyNumber setImage:[UIImage imageNamed:@"座机2"] forState:0];
     [self.btn_companyNumber setTitle:model.tel forState:0];
     
-    NSURL *fullUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgBaseURL,model.img]];
+    NSURL *fullUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgBaseURLB,model.img]];
     [self.img_icon sd_setImageWithURL:fullUrl placeholderImage:[UIImage imageNamed:@""]];
     
     // http://www.0201566.com/tupian/image/20190105/20190105202524_30394.jpg

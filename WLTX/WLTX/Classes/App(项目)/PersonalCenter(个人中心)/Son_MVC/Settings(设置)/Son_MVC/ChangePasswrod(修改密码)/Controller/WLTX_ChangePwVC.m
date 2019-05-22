@@ -123,7 +123,7 @@
 }
 - (void)saveChange:(UIButton *)btn
 {
-    MyFunc
+//    MyFunc
     // 1、先检测手机号、验证码、密码是不是空的
     if (self.tf_verificationCode.text.length == 0 || self.tf_newPw.text.length == 0) {
         [self.view makeToast:@"请检测你的验证码、密码是不是没有填写"];
@@ -166,7 +166,7 @@
 #pragma mark - 🎬 按钮/点击事件 Action start
 
 - (IBAction)go2SaveNewPw:(UIButton *)sender {
-    MyFunc
+//    MyFunc
     
     // 1、先检测手机号、验证码、密码是不是空的
     if (self.tf_verificationCode.text.length == 0 || self.tf_newPw.text.length == 0) {

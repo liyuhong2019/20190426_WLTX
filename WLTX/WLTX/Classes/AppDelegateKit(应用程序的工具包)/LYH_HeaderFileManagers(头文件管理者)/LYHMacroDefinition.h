@@ -83,11 +83,11 @@
 #define NSLog(FORMAT, ...) nil
 #endif
 
-#if DEBUG
-#define MyFunc NSLog(@"%s",__func__);
-#else
-#define nil
-#endif
+//#if DEBUG
+//#define MyFunc NSLog(@"%s",__func__);
+//#else
+//#define nil
+//#endif
 
 //DEBUG  模式下打印日志,当前行 并弹出一个警告
 #ifdef DEBUG
