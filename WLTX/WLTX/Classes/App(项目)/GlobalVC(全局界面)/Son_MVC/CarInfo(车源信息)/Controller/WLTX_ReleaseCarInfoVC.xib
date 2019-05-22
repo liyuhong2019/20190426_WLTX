@@ -12,9 +12,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_ReleaseCarInfoVC">
             <connections>
+                <outlet property="btn_img" destination="U5p-F3-A8g" id="lto-pV-ejw"/>
                 <outlet property="layout_scrollview_h" destination="UrB-CX-nI8" id="2fr-Yf-aUF"/>
+                <outlet property="lb_carlength" destination="Nf4-a8-iBP" id="eKc-Xr-eEN"/>
                 <outlet property="lb_city" destination="zK7-kh-B4l" id="3xB-kz-UqP"/>
+                <outlet property="tf_carNumber" destination="az8-uK-IWe" id="03a-kn-Ja0"/>
+                <outlet property="tf_carWeight" destination="Azo-mn-kYd" id="ZPV-NV-fmv"/>
+                <outlet property="tf_location" destination="Vdl-Ci-RBm" id="vqV-rl-hmA"/>
+                <outlet property="tf_phoneNumber" destination="Fi9-nq-BCW" id="55f-26-EHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view_line1" destination="RHA-ge-idc" id="rYl-77-ZXU"/>
+                <outlet property="view_line2" destination="0gN-3H-I2c" id="x3H-zC-NFf"/>
+                <outlet property="view_line3" destination="lUo-eb-iQc" id="FAE-To-FtB"/>
+                <outlet property="view_line4" destination="fox-Ky-HrT" id="QBg-uD-tfL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -145,6 +155,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="69s-L2-o9c"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-ge-idc">
                                                     <rect key="frame" x="74.5" y="51" width="288.5" height="2"/>
@@ -185,6 +198,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="KkP-Ce-brc"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gN-3H-I2c">
                                                     <rect key="frame" x="89.5" y="51" width="273.5" height="2"/>
@@ -225,6 +241,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="aPe-mR-huM"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUo-eb-iQc">
                                                     <rect key="frame" x="59" y="51" width="304" height="2"/>
@@ -265,6 +284,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="CI9-sm-sts"/>
+                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fox-Ky-HrT">
                                                     <rect key="frame" x="59" y="51" width="304" height="2"/>
@@ -319,13 +341,16 @@
                                             <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5p-F3-A8g">
+                                        <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5p-F3-A8g">
                                             <rect key="frame" x="33" y="53" width="65" height="65"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="65" id="0DA-9u-D0K"/>
                                                 <constraint firstAttribute="width" constant="65" id="pu3-Z0-bNZ"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="imgJiahao"/>
+                                            <state key="normal" backgroundImage="imgJiahao"/>
+                                            <connections>
+                                                <action selector="go2Action:" destination="-1" eventType="touchUpInside" id="H4R-Aw-2pr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

@@ -88,6 +88,13 @@
 		C226DAF92293BF7500C89119 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C226DAF82293BF7400C89119 /* QuartzCore.framework */; };
 		C226DAFB2293BF7D00C89119 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C226DAFA2293BF7D00C89119 /* CoreGraphics.framework */; };
 		C226DAFD2293BF8B00C89119 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C226DAFC2293BF8B00C89119 /* libc++.tbd */; };
+		C226DB012294CE5900C89119 /* WLTX_CarListInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DAFF2294CE5900C89119 /* WLTX_CarListInfoVC.m */; };
+		C226DB022294CE5900C89119 /* WLTX_CarListInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226DB002294CE5900C89119 /* WLTX_CarListInfoVC.xib */; };
+		C226DB062294CE7D00C89119 /* WLTX_CarDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DB042294CE7D00C89119 /* WLTX_CarDetailsVC.m */; };
+		C226DB072294CE7D00C89119 /* WLTX_CarDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226DB052294CE7D00C89119 /* WLTX_CarDetailsVC.xib */; };
+		C226DB0B2294D11200C89119 /* WLTX_CarListInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DB092294D11200C89119 /* WLTX_CarListInfoCell.m */; };
+		C226DB0C2294D11200C89119 /* WLTX_CarListInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226DB0A2294D11200C89119 /* WLTX_CarListInfoCell.xib */; };
+		C226DB0F2294D15700C89119 /* WLTX_CarListInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C226DB0E2294D15700C89119 /* WLTX_CarListInfoModel.m */; };
 		C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C231A36922921FF6009488DB /* WLTX_SpecialLineView.m */; };
 		C231A36E22922164009488DB /* WLTX_SpecialLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231A36C22922164009488DB /* WLTX_SpecialLineCell.m */; };
 		C231A36F22922164009488DB /* WLTX_SpecialLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C231A36D22922164009488DB /* WLTX_SpecialLineCell.xib */; };
@@ -338,6 +345,17 @@
 		C226DAF82293BF7400C89119 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C226DAFA2293BF7D00C89119 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C226DAFC2293BF8B00C89119 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C226DAFE2294CE5900C89119 /* WLTX_CarListInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CarListInfoVC.h; sourceTree = "<group>"; };
+		C226DAFF2294CE5900C89119 /* WLTX_CarListInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CarListInfoVC.m; sourceTree = "<group>"; };
+		C226DB002294CE5900C89119 /* WLTX_CarListInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CarListInfoVC.xib; sourceTree = "<group>"; };
+		C226DB032294CE7D00C89119 /* WLTX_CarDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CarDetailsVC.h; sourceTree = "<group>"; };
+		C226DB042294CE7D00C89119 /* WLTX_CarDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CarDetailsVC.m; sourceTree = "<group>"; };
+		C226DB052294CE7D00C89119 /* WLTX_CarDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CarDetailsVC.xib; sourceTree = "<group>"; };
+		C226DB082294D11200C89119 /* WLTX_CarListInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CarListInfoCell.h; sourceTree = "<group>"; };
+		C226DB092294D11200C89119 /* WLTX_CarListInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CarListInfoCell.m; sourceTree = "<group>"; };
+		C226DB0A2294D11200C89119 /* WLTX_CarListInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CarListInfoCell.xib; sourceTree = "<group>"; };
+		C226DB0D2294D15700C89119 /* WLTX_CarListInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CarListInfoModel.h; sourceTree = "<group>"; };
+		C226DB0E2294D15700C89119 /* WLTX_CarListInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CarListInfoModel.m; sourceTree = "<group>"; };
 		C231A36822921FF6009488DB /* WLTX_SpecialLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineView.h; sourceTree = "<group>"; };
 		C231A36922921FF6009488DB /* WLTX_SpecialLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialLineView.m; sourceTree = "<group>"; };
 		C231A36B22922164009488DB /* WLTX_SpecialLineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialLineCell.h; sourceTree = "<group>"; };
@@ -2589,6 +2607,12 @@
 				C2CE976E228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.h */,
 				C2CE976F228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.m */,
 				C2CE9770228B4EB30094E137 /* WLTX_ReleaseCarInfoVC.xib */,
+				C226DAFE2294CE5900C89119 /* WLTX_CarListInfoVC.h */,
+				C226DAFF2294CE5900C89119 /* WLTX_CarListInfoVC.m */,
+				C226DB002294CE5900C89119 /* WLTX_CarListInfoVC.xib */,
+				C226DB032294CE7D00C89119 /* WLTX_CarDetailsVC.h */,
+				C226DB042294CE7D00C89119 /* WLTX_CarDetailsVC.m */,
+				C226DB052294CE7D00C89119 /* WLTX_CarDetailsVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2596,6 +2620,8 @@
 		C2CE976C228B4E870094E137 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C226DB0D2294D15700C89119 /* WLTX_CarListInfoModel.h */,
+				C226DB0E2294D15700C89119 /* WLTX_CarListInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2603,6 +2629,9 @@
 		C2CE976D228B4E870094E137 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C226DB082294D11200C89119 /* WLTX_CarListInfoCell.h */,
+				C226DB092294D11200C89119 /* WLTX_CarListInfoCell.m */,
+				C226DB0A2294D11200C89119 /* WLTX_CarListInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2782,6 +2811,7 @@
 				C21921A52291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.xib in Resources */,
 				C2CE9762228B4D330094E137 /* WLTX_SpecialLineVC.xib in Resources */,
 				C2400C632292C70A0045716E /* address.plist in Resources */,
+				C226DB072294CE7D00C89119 /* WLTX_CarDetailsVC.xib in Resources */,
 				C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */,
 				C21921AF22916AE600953BF1 /* WLTX_CommonLogisticsCell.xib in Resources */,
 				C231A36F22922164009488DB /* WLTX_SpecialLineCell.xib in Resources */,
@@ -2822,12 +2852,14 @@
 				C23D0C33225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib in Resources */,
 				C242A1CA22764327005B277E /* WLTX_ChangePwVC.xib in Resources */,
 				C23D0C17225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.xib in Resources */,
+				C226DB0C2294D11200C89119 /* WLTX_CarListInfoCell.xib in Resources */,
 				9BC42DB0222F73D800BB032F /* README.md in Resources */,
 				C2F1EE7F223F12D700ADD735 /* WLTX_ForgotPw2ViewController.xib in Resources */,
 				9BC42E2E222F9EAA00BB032F /* Test4_ViewController.xib in Resources */,
 				9BC42E41222FA69C00BB032F /* WLTX_PublishInformationViewController.xib in Resources */,
 				C23D0C08225FAF9500ADDAA5 /* WLTX_AboutUsViewController.xib in Resources */,
 				C2F786F0223D20EB00D27DD7 /* WLTX_RegistViewController.xib in Resources */,
+				C226DB022294CE5900C89119 /* WLTX_CarListInfoVC.xib in Resources */,
 				C226DAE72293BEF400C89119 /* 讯飞科大.md in Resources */,
 				9BC42DAC222F73D800BB032F /* 使用说明.md in Resources */,
 				9BC42D6D222F6C3F00BB032F /* Main.storyboard in Resources */,
@@ -2850,6 +2882,7 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/STPickerView/STPickerView/Resource/area.plist",
 				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -2859,6 +2892,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/area.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMCommonLog.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2904,6 +2938,7 @@
 				C2868C75225E59730099A296 /* MJFoundation.m in Sources */,
 				C2560B7F22932FBB002295DC /* WLTX_LocationSearchVC.m in Sources */,
 				C21921A42291630300953BF1 /* WLTX_CoomonIntegratedQueryListVC.m in Sources */,
+				C226DB012294CE5900C89119 /* WLTX_CarListInfoVC.m in Sources */,
 				C21921952291567F00953BF1 /* WLTX_IntegratedQueryCell.m in Sources */,
 				C2400C602292C70A0045716E /* AreaCell.m in Sources */,
 				9BC42E28222F9E9D00BB032F /* Test3_ViewController.m in Sources */,
@@ -2933,6 +2968,7 @@
 				C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */,
 				C23D0C16225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.m in Sources */,
 				C21921B722917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m in Sources */,
+				C226DB062294CE7D00C89119 /* WLTX_CarDetailsVC.m in Sources */,
 				C2F786EA223D205500D27DD7 /* WLTX_ForgotPwViewController.m in Sources */,
 				C2868C7C225E59730099A296 /* HttpRequest.m in Sources */,
 				C21921BB22918CA100953BF1 /* WLTX_CoomonIntegratedQueryListModel.m in Sources */,
@@ -2983,6 +3019,7 @@
 				C23D0C32225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m in Sources */,
 				C2868C71225E59730099A296 /* NSObject+MJProperty.m in Sources */,
 				9BC42E05222F9B8700BB032F /* LYHTabBarController.m in Sources */,
+				C226DB0F2294D15700C89119 /* WLTX_CarListInfoModel.m in Sources */,
 				C2868C6D225E59730099A296 /* NSObject+MJKeyValue.m in Sources */,
 				C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */,
 				C21921AE22916AE600953BF1 /* WLTX_CommonLogisticsCell.m in Sources */,
@@ -3009,6 +3046,7 @@
 				C2400C5B2292C70A0045716E /* CitysCell.m in Sources */,
 				C23D0C0C225FAFD200ADDAA5 /* WLTX_ChangePasswordViewController.m in Sources */,
 				C226DAE52293BEF400C89119 /* PopupView.m in Sources */,
+				C226DB0B2294D11200C89119 /* WLTX_CarListInfoCell.m in Sources */,
 				C2560B9122935BF0002295DC /* WLTX_CommonCityCell.m in Sources */,
 				C231A36A22921FF6009488DB /* WLTX_SpecialLineView.m in Sources */,
 			);

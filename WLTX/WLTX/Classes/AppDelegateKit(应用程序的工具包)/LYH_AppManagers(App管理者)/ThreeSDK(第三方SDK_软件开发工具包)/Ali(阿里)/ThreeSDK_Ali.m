@@ -6,10 +6,13 @@
 //#define UMDemoWeChatAppSecret @"3baf1193c85774b3fd9d18447d76cab0"
 
 // 公司app 青之蓝漫画测试 修改之后 还需要在info.plist 修改 URL type 的 wxappkey
-#define UMAppkey @"5c49aff3f1f5561476000197"
-#define UMDemoWeChatAppkey @"wxb932a84da14f3a96"
-#define UMDemoWeChatAppSecret @"0791e21742d6dd9d8e2bbe1e0d21c6fd"
+//#define UMAppkey @"5c49aff3f1f5561476000197"
+//#define UMDemoWeChatAppkey @"wxb932a84da14f3a96"
+//#define UMDemoWeChatAppSecret @"0791e21742d6dd9d8e2bbe1e0d21c6fd"
 
+#define UMAppkey @"5ce39e9b3fc19569b300100e"
+#define UMDemoWeChatAppkey @"wx17433dc6c9f916d1"
+#define UMDemoWeChatAppSecret @"9254801870ac756b540f6632eebef0d3"
 // 类扩展
 @interface ThreeSDK_Ali ()
 @property (strong,nonatomic) AppDelegate *appDelegate;
@@ -50,7 +53,7 @@
     // 初始化 友盟sdk
     [UMCommonLogManager setUpUMCommonLogManager]; // 开启日志输出 用来检测那里配置出现问题
     [UMConfigure setLogEnabled:YES]; // 设置是否在console输出sdk的log信息.默认是No
-    [UMConfigure initWithAppkey:UMAppkey channel:@"App Store"];
+    [UMConfigure initWithAppkey:UMAppkey channel:@"WLTD"];
     
     // 统计
     // 分享、登录
@@ -121,7 +124,7 @@
     /*
      * 移除相应平台的分享，如微信收藏
      */
-    [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
+//    [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
     
     //    /* 设置分享到QQ互联的appID
     //     * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。

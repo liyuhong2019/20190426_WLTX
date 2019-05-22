@@ -41,34 +41,34 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>wechat</string>
-        <string>weixin</string>
-    </array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLName</key>
-            <string>wx</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>wxb932a84da14f3a96</string>
-            </array>
-        </dict>
-    </array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>麦克风</string>
-    <key>NSLocationUsageDescription</key>
-    <string>地理位置1</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>地理位置2</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>wechat</string>
+		<string>weixin</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>wx</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx17433dc6c9f916d1</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>麦克风</string>
+	<key>NSLocationUsageDescription</key>
+	<string>地理位置1</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>地理位置2</string>
 </dict>
 </plist>

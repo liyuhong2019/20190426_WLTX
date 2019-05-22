@@ -14,6 +14,8 @@ target 'WLTX' do
   # 友盟 日志库（调试）上架前可以移除
     pod 'UMCCommonLog'
 
+    # 弹框
+    pod 'UMCShare/UI'
   # 友盟 统计
      pod 'UMCAnalytics'
 

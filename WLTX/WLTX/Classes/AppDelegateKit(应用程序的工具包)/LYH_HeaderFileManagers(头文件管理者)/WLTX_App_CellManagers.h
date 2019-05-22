@@ -22,5 +22,9 @@ static NSString * const WLTX_CommonLogisticsCellID = @"WLTX_CommonLogisticsCell"
 /** 专线查询*/
 static NSString * const WLTX_SpecialLineQueryCellID = @"WLTX_SpecialLineQueryCell";
 
+/**车信息*/
+static NSString * const WLTX_CarListInfoCellID = @"WLTX_CarListInfoCell";
+
+
 
 #endif /* WLTX_App_CellManagers_h */

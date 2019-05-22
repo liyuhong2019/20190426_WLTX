@@ -4,6 +4,7 @@
 #import "WLTX_IntegratedQueryView.h"
 #import "WLTX_IntegratedQueryModel.h"
 #import "WLTX_CoomonIntegratedQueryListVC.h"
+#import "WLTX_CarListInfoVC.h"
 
 @interface WLTX_IntegratedQueryViewController ()
 <WLTX_IntegratedQueryViewDelegate>
@@ -69,6 +70,8 @@
         // 已经知道 id 1是列表页面 其他也是列表界面
         if ([model.id isEqualToString:@"3"]) {
             NSLog(@"车源信息特殊处理");
+            WLTX_CarListInfoVC *vc = [[WLTX_CarListInfoVC alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else
         {

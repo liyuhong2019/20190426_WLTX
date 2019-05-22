@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <UMShare/UMShare.h>
+#import <UShareUI/UShareUI.h>
 typedef NS_ENUM(NSInteger, SpecialType) {
     SpecialType_Normal = 0,
     SpecialType_Other,

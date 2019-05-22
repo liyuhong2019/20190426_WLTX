@@ -14,6 +14,11 @@
 #define WLTX_DomainOrIpUrl @"http://m.0201566.com/appapi/"
 
 /*** 公共部分 ***/
+// http://m.0201566.com/appapi/cheyuan.php?city=城市&length=车辆成都&page=页数   车辆列表搜索
+//#define Coomon_CarList(page) [NSString stringWithFormat: @"cheyuan.php?city=%@page=%@",page] // 专线列表
+#define Common_CarInfo(detailsId) [NSString stringWithFormat: @"cheyuan_content.php?id=%@",detailsId] // 车详情
+#define Coomon_CarList @"cheyuan.php"                 // 获取车列表
+#define Coomon_upCarImg @"up_cheyuan.php"                 // 上传车的图片
 #define Coomon_Release @"wdfb.php"                    // 发布 1物流供求 ，2 货源信息 ，5 物流招聘，3车源信息
 #define Coomon_integrateQueryList(detailsId,page) [NSString stringWithFormat: @"zhcx_list.php?id=%@&page=%@",detailsId,page] // 综合列表
 
