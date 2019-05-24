@@ -72,7 +72,8 @@ NSString *WLTX_PersonalCenterCellID = @"WLTX_PersonalCenterCell";
         NSLog(@"显示登录UI");
         self.view_isLogin.hidden = YES;
         self.view_login.hidden = NO;
-        self.img_icon.hidden = YES;
+//        self.img_icon.hidden = YES;
+        self.img_icon.image = [UIImage imageNamed:@"头像"];
     }
     else
     {

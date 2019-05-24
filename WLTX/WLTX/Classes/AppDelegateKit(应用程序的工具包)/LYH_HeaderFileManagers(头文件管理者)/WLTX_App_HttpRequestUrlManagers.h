@@ -33,8 +33,8 @@
 #define Home_IntegratedQueryListUrl @"zhcx.php"      // 综合查询
 #define Home_Search @"list.php"                     // 知道起始地、目的地去查找
 #define Home_Search1(qsd,mdd,page) [NSString stringWithFormat: @"list.php?qsd=%@&mdd=%@&page=%@",qsd,mdd,page] // 知道起始地、目的地、分页去查找
+#define Home_Sign @"my_gxz.php"                     // 签到
 
-// 首页进来是 http://m.0201566.com/appapi/list.php?qsd=起始地&mdd=目的地&page=页数
 
 /*** 专线查询 ***/
 #define SpecialLine_ListUrl(page) [NSString stringWithFormat: @"list.php?page=%@",page] // 专线列表

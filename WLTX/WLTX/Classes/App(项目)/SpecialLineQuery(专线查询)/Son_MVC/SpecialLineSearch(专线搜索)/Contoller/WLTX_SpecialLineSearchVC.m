@@ -202,10 +202,8 @@ UITextFieldDelegate>
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"搜索";
     [self SpecialLineQueryVC_CommonSettings];
-    
-    
+    [self SpecialLineVC_settingsNav];
     
     __weak typeof(self) weakSelf = self;
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
@@ -266,6 +264,87 @@ UITextFieldDelegate>
     
     
 }
+- (void)SpecialLineVC_settingsNav
+{
+    self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
+    self.navigationItem.title = @"搜索";
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"fenxiang16"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"fenxiang16"] forState:UIControlStateHighlighted];
+//    [backButton setTitle:@"发布" forState:0];
+    [backButton setTitleColor:[UIColor blackColor] forState:0];
+    //    [backButton settitf]
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [backButton addTarget:self action:@selector(IntegratedQueryVC_go2Share:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+- (void)IntegratedQueryVC_go2Share:(UIButton *)btn
+{
+    NSLog(@"分享");
+    [self openUMShareUI];
+}
+
+- (void)openUMShareUI
+{
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine),@(UMSocialPlatformType_WechatFavorite)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        NSLog(@"paltformType %ld",platformType);
+        //        [self shareWebPageToPlatformType:platformType];
+        [self shareWebPageToPlatformType:platformType withThumbUrlStr:@"" withTitleStr:@"到物流" withSubTitleStr:@"" withWebPageUrl:@"http://m.0201566.com/list.php?ss=1&qsd=&mdd=&sflx=2&sfname=&from=singlemessage"];
+        NSLog(@"userInfo %@",userInfo);
+    }];
+}
+
+// 分享到其他地方
+
+// 分享line 链接
+//- (void)
+
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+                   withThumbUrlStr:(NSString *)thumbURL
+                      withTitleStr:(NSString *)title
+                   withSubTitleStr:(NSString *)subTitle
+                    withWebPageUrl:(NSString *)webUrl
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    //    NSString* thumbURL =  @"https://mobile.umeng.com/images/pic/home/social/img-1.png"; // 分享图标
+    
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject
+                                         shareObjectWithTitle:title
+                                         descr:subTitle
+                                         thumImage:thumbURL];
+    //设置网页地址
+    shareObject.webpageUrl = webUrl;
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                //分享结果消息
+                UMSocialLogInfo(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                
+            }else{
+                UMSocialLogInfo(@"response data is %@",data);
+            }
+        }
+    }];
+}
+
+
 /**
  初始化一些公共设置
  */

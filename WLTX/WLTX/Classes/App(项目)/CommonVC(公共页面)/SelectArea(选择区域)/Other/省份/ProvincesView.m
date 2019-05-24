@@ -20,6 +20,7 @@ static NSString * const ProvincesCellID = @"ProvincesCell";
     if (self = [super initWithFrame:frame])
     {
         //        self.backgroundColor = [UIColor whiteColor];
+//        [self adaptScreenWidthWithType:BSAdaptScreenWidthTypeAll exceptViews:nil];
         [self createUI];
     }
     return self;

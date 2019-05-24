@@ -23,7 +23,7 @@
     self.window.rootViewController = self.tabBarVC;
     [self.window makeKeyAndVisible];
     
-    [self setGlobalBtn];
+//    [self setGlobalBtn];
     // 第三方SDK配置
    
     return YES;

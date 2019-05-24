@@ -89,9 +89,9 @@
     registType = RegistType_Dirver;  // 注册类型默认是 司机
     userAgreement = UserAgreement_Agreed ; // 用户协议 默认是同意的
     
-    self.tf_phone.text = @"13246301428";
+//    self.tf_phone.text = @"13246301428";
 //    self.tf_code.text = @"1234";
-    self.tf_password.text = @"12345678";
+//    self.tf_password.text = @"12345678";
     
 }
 /**

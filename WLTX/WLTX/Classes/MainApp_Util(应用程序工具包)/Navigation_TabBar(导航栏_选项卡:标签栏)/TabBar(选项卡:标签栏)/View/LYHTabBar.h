@@ -10,4 +10,6 @@
 
 @interface LYHTabBar : UITabBar
 @property (nonatomic, strong) UIButton *centerBtn;
+@property (nonatomic, strong) UILabel *centerLb;
+
 @end

@@ -95,6 +95,10 @@ UISearchBarDelegate>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self setup];
+    
+//    [self.view adaptScreenWidthWithType:BSAdaptScreenWidthTypeAll exceptViews:nil];
+    
     [self commonSelectAreaVC_settingsInitData];
     
 }

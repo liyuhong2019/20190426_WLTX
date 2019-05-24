@@ -61,6 +61,10 @@
 		C204274F2251890B00902A8E /* WLTX_PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */; };
 		C20427502251890B00902A8E /* WLTX_PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */; };
 		C20515532283044F00AC1556 /* UIViewController+Extion.m in Sources */ = {isa = PBXBuildFile; fileRef = C20515522283044F00AC1556 /* UIViewController+Extion.m */; };
+		C20D2478229865A20026E057 /* NSLayoutConstraint+IBDesignable.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D2477229865A20026E057 /* NSLayoutConstraint+IBDesignable.m */; };
+		C20D247B229867170026E057 /* NSLayoutConstraint+LYHXib.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D247A229867170026E057 /* NSLayoutConstraint+LYHXib.m */; };
+		C20D247E229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D247D229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.m */; };
+		C20D2481229869850026E057 /* UIView+BSAdaptScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D2480229869850026E057 /* UIView+BSAdaptScreen.m */; };
 		C219218E2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */; };
 		C21921912291562D00953BF1 /* WLTX_IntegratedQueryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921902291562D00953BF1 /* WLTX_IntegratedQueryView.m */; };
 		C21921952291567F00953BF1 /* WLTX_IntegratedQueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C21921932291567F00953BF1 /* WLTX_IntegratedQueryCell.m */; };
@@ -307,6 +311,14 @@
 		C204274E2251890B00902A8E /* WLTX_PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTX_PersonalCenterViewController.m; sourceTree = "<group>"; };
 		C20515512283044F00AC1556 /* UIViewController+Extion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extion.h"; sourceTree = "<group>"; };
 		C20515522283044F00AC1556 /* UIViewController+Extion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extion.m"; sourceTree = "<group>"; };
+		C20D2476229865A20026E057 /* NSLayoutConstraint+IBDesignable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+IBDesignable.h"; sourceTree = "<group>"; };
+		C20D2477229865A20026E057 /* NSLayoutConstraint+IBDesignable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+IBDesignable.m"; sourceTree = "<group>"; };
+		C20D2479229867170026E057 /* NSLayoutConstraint+LYHXib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+LYHXib.h"; sourceTree = "<group>"; };
+		C20D247A229867170026E057 /* NSLayoutConstraint+LYHXib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+LYHXib.m"; sourceTree = "<group>"; };
+		C20D247C229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+BSIBDesignable.h"; sourceTree = "<group>"; };
+		C20D247D229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+BSIBDesignable.m"; sourceTree = "<group>"; };
+		C20D247F229869850026E057 /* UIView+BSAdaptScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BSAdaptScreen.h"; sourceTree = "<group>"; };
+		C20D2480229869850026E057 /* UIView+BSAdaptScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BSAdaptScreen.m"; sourceTree = "<group>"; };
 		C219218C2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_SpecialDetailsFbwdModel.h; sourceTree = "<group>"; };
 		C219218D2291381100953BF1 /* WLTX_SpecialDetailsFbwdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_SpecialDetailsFbwdModel.m; sourceTree = "<group>"; };
 		C219218F2291562D00953BF1 /* WLTX_IntegratedQueryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_IntegratedQueryView.h; sourceTree = "<group>"; };
@@ -846,6 +858,7 @@
 		9BC42DA5222F73D800BB032F /* UIKit框架_分类 */ = {
 			isa = PBXGroup;
 			children = (
+				C20D2475229865810026E057 /* XibLayout */,
 				C2E9000F227393C900D7D9A1 /* UIAlertController */,
 				C2D4D76D2250C02E00B00E17 /* CALayer */,
 				C2024113224AB0B100B8ECA9 /* UIImage */,
@@ -1419,6 +1432,21 @@
 				C204274C2251890B00902A8E /* WLTX_PersonalCenterViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C20D2475229865810026E057 /* XibLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C20D2476229865A20026E057 /* NSLayoutConstraint+IBDesignable.h */,
+				C20D2477229865A20026E057 /* NSLayoutConstraint+IBDesignable.m */,
+				C20D2479229867170026E057 /* NSLayoutConstraint+LYHXib.h */,
+				C20D247A229867170026E057 /* NSLayoutConstraint+LYHXib.m */,
+				C20D247C229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.h */,
+				C20D247D229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.m */,
+				C20D247F229869850026E057 /* UIView+BSAdaptScreen.h */,
+				C20D2480229869850026E057 /* UIView+BSAdaptScreen.m */,
+			);
+			path = XibLayout;
 			sourceTree = "<group>";
 		};
 		C219219A229162C100953BF1 /* CommonIntegratedList(综合的类型) */ = {
@@ -2923,6 +2951,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20D2481229869850026E057 /* UIView+BSAdaptScreen.m in Sources */,
 				C2CE9758228B470C0094E137 /* WLTX_SpecialDetailsVC.m in Sources */,
 				9BC42E15222F9CCF00BB032F /* AppTabBarViewController.m in Sources */,
 				C24E35B522889F9F0089BB57 /* WLTX_PushCarCell.m in Sources */,
@@ -2949,6 +2978,7 @@
 				C2868C74225E59730099A296 /* MJPropertyKey.m in Sources */,
 				C2F2570C22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m in Sources */,
 				C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */,
+				C20D2478229865A20026E057 /* NSLayoutConstraint+IBDesignable.m in Sources */,
 				C2868C73225E59730099A296 /* NSString+MJExtension.m in Sources */,
 				9BC42E4F222FACE800BB032F /* WLTX_NestPageViewController.m in Sources */,
 				C2868C79225E59730099A296 /* AFURLRequestSerialization.m in Sources */,
@@ -2961,6 +2991,7 @@
 				C2868C6F225E59730099A296 /* NSObject+MJCoding.m in Sources */,
 				C20240E5224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.m in Sources */,
 				C242A17E227608C9005B277E /* WLTX_CollectionModel.m in Sources */,
+				C20D247E229868FE0026E057 /* NSLayoutConstraint+BSIBDesignable.m in Sources */,
 				C23D0C16225FAFFD00ADDAA5 /* WLTX_ContributionValueViewController.m in Sources */,
 				C21921B722917F8100953BF1 /* WLTX_CoomonIQDetailsVC.m in Sources */,
 				C226DB062294CE7D00C89119 /* WLTX_CarDetailsVC.m in Sources */,
@@ -2999,6 +3030,7 @@
 				C2F1EE7E223F12D700ADD735 /* WLTX_ForgotPw2ViewController.m in Sources */,
 				C2F2570822923A1700DBAB3E /* WLTX_SpecialLineQueryModel.m in Sources */,
 				9BC42E2D222F9EAA00BB032F /* Test4_ViewController.m in Sources */,
+				C20D247B229867170026E057 /* NSLayoutConstraint+LYHXib.m in Sources */,
 				C2868C7E225E59730099A296 /* AFNetworkingTool.m in Sources */,
 				C20427492251881500902A8E /* WLTX_IntegratedQueryViewController.m in Sources */,
 				9BC42E45222FA6C800BB032F /* WLTX_SpecialLineQueryViewController.m in Sources */,
@@ -3183,6 +3215,7 @@
 			baseConfigurationReference = 5BC63C83621F6DBC4687F373 /* Pods-WLTX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PQVYPJM3N6;
@@ -3211,6 +3244,7 @@
 			baseConfigurationReference = B7F140AA52900CABDDFCFB87 /* Pods-WLTX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PQVYPJM3N6;

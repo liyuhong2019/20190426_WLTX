@@ -15,4 +15,13 @@
 // 系统控件扩展
 #import "UIButton+CQBlock.h"
 
+
+// xib屏幕适配
+//#import "NSLayoutConstraint+IBDesignable.h"
+//#import "NSLayoutConstraint+LYHXib.h"
+
+
+#import "NSLayoutConstraint+BSIBDesignable.h"
+#import "UIView+BSAdaptScreen.h"
+
 #endif /* HeaderFile_SystemKitCategory_h */

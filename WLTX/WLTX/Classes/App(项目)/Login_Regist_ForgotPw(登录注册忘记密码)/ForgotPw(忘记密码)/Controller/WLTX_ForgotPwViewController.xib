@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_ForgotPwViewController">
             <connections>
+                <outlet property="tf_again_pw" destination="cJ9-md-Rkx" id="gkz-Kt-fZA"/>
+                <outlet property="tf_code" destination="Ctv-Ts-oB9" id="aS9-8V-CPg"/>
+                <outlet property="tf_phone" destination="TTb-Yo-7g2" id="4UW-f3-5dn"/>
+                <outlet property="tf_pw" destination="3Yx-M8-Rid" id="vEp-hQ-1xk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,6 +68,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changePhoneNumberVC_getVerificationCode:" destination="-1" eventType="touchUpInside" id="EhR-ZT-mJb"/>
+                                                        <action selector="changeVC_getVerificationCode:" destination="-1" eventType="touchUpInside" id="Uqv-Tt-zKn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -215,6 +220,9 @@
                                             <integer key="value" value="17"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="go2changePassword:" destination="-1" eventType="touchUpInside" id="Icj-kt-rEc"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -56,7 +56,7 @@
 - (WLTX_SpecialLineView *)view_SpecialLine
 {
     if (!_view_SpecialLine) {
-        _view_SpecialLine = [[WLTX_SpecialLineView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.origin.x, 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 44)];
+        _view_SpecialLine = [[WLTX_SpecialLineView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.origin.x, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         _view_SpecialLine.delegate = self;
     }
     return _view_SpecialLine;

@@ -4,6 +4,7 @@
 #import "WLTX_ShuttleRouteModel.h"
 #import "WLTX_CommonSelectAreaVC.h"
 #import "WLTX_LocationSearchVC.h"
+#import "WLTX_SpecialLineSearchVC.h"
 
 @interface WLTX_HomeViewController ()
  <
@@ -320,6 +321,46 @@ UICollectionViewDataSource
     
 }
 
+- (IBAction)go2SearchVc:(UIButton *)sender {
+    WLTX_SpecialLineSearchVC *vc = [[WLTX_SpecialLineSearchVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)go2Sign:(UIButton *)sender {
+    // http://m.0201566.com/appapi/my_gxz.php
+    if (!kWltx_IsLogin) {
+        WLTX_LoginViewController *lg = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
+        LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:lg];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
+    }
+    
+    NSDictionary *dict = @{
+                           @"shouji":kWltx_userShouji,
+                           };
+    [self network_signInRequest:dict];
+    
+}
+- (void)network_signInRequest:(NSDictionary *)dict
+{
+    [AFNetworkingTool getWithURLString:Home_Sign parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",result);
+        NSNumber *status = result[@"status"];
+        NSString *tishi = result[@"tishi"];
+        
+        // {"status":1,"sum":"4","tishi":"签到成功，贡献值+2"}
+        if ([status integerValue] == 1) {
+            [self.view makeToast:tishi];
+        }
+        else
+        {
+            [self.view makeToast:tishi];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark - 🏃(代理)Delegate start
 - (void)homeVC_Config
@@ -350,7 +391,8 @@ UICollectionViewDataSource
     // 水平滚动
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     // 布局对象
-    flowLayout.itemSize = CGSizeMake( ([UIScreen mainScreen].bounds.size.width - 5 - 30)/2 , 110);
+//    flowLayout.itemSize = CGSizeMake( ([UIScreen mainScreen].bounds.size.width - 5 - 30)/2 , 110);
+    flowLayout.itemSize = CGSizeMake( ([UIScreen mainScreen].bounds.size.width - 15)/2 , 130);
     self.collectionview.collectionViewLayout = flowLayout;
     //注册 xib cell
     [self.collectionview registerNib:[UINib nibWithNibName:@"WLTX_ShuttleRouteCell" bundle:nil] forCellWithReuseIdentifier:@"WLTX_ShuttleRouteCell"];

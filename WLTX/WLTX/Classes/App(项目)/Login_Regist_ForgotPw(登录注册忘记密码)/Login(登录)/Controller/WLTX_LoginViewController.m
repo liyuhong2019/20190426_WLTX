@@ -88,8 +88,8 @@
 {
     YHLog(@"初始化数据");
 /* 测试账号信息*/
-    self.tf_phone.text = @"13246301428";
-    self.tf_password.text = @"12345678";
+//    self.tf_phone.text = @"13246301428";
+//    self.tf_password.text = @"12345678";
     
 }
 /**
