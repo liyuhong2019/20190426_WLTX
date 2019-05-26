@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+Extion.h"
+#import "AppDelegate.h"
 
 @implementation UIViewController (Extion)
 // 正则效验
@@ -25,8 +26,14 @@
 // 打电话
 - (void)vcCallPhoneNumber:(NSString *)PhoneNumber
 {
+    // 先发送一个请求 请求成功之后 记录事件统计一下
     NSLog(@"%s ,打电话",__func__);
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.PhoneNumber = PhoneNumber;
     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",PhoneNumber];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
 }
+
+
 @end

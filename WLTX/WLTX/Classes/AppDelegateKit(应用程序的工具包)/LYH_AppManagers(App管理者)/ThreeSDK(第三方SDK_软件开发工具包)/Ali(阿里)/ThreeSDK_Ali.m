@@ -10,7 +10,12 @@
 //#define UMDemoWeChatAppkey @"wxb932a84da14f3a96"
 //#define UMDemoWeChatAppSecret @"0791e21742d6dd9d8e2bbe1e0d21c6fd"
 
-#define UMAppkey @"5ce39e9b3fc19569b300100e"
+//
+//#define UMAppkey @"5ce39e9b3fc19569b300100e" 我的
+//
+//#define UMAppkey @"5ceaf5590cafb2c39a000a0f"
+#define UMAppkey @"5ceb03854ca357c373000be7"    // 新
+
 #define UMDemoWeChatAppkey @"wx17433dc6c9f916d1"
 #define UMDemoWeChatAppSecret @"9254801870ac756b540f6632eebef0d3"
 // 类扩展
@@ -56,6 +61,7 @@
     [UMConfigure initWithAppkey:UMAppkey channel:@"WLTD"];
     
     // 统计
+    [self lyh_initFunction_statistical];
     // 分享、登录
     [self lyh_initFunction_share];
     // 推送
@@ -68,6 +74,7 @@
 - (void)lyh_initFunction_statistical
 {
     NSLog(@"%s,初始化友盟统计",__func__);
+    [MobClick setScenarioType:E_UM_NORMAL];//支持普通场景
 }
 
 

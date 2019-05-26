@@ -130,6 +130,7 @@ UITableViewDataSource
 //    cell.model = self.specialLineArr[indexPath.row];
     [cell.btn_phoneNumber cq_addEventHandler:^{
         NSLog(@"打电话");
+        SharedAppDelegate.companyName = @"";
         [self vcCallPhoneNumber:cell.model.tel];
     } forControlEvents:UIControlEventTouchUpInside];
 //    [cell. btn_companyNumber cq_addEventHandler:^{

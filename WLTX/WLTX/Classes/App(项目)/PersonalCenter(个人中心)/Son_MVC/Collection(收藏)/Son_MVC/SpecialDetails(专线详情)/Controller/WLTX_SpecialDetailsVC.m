@@ -134,9 +134,11 @@ UITableViewDataSource
         WLTX_SpecialDetailsFbwdModel *model = self.fmodels[indexPath.row];
         cell.fModel = model;
         [cell.btn_phoneNumber cq_addEventHandler:^{
+            SharedAppDelegate.companyName = cell.fModel.name;
             [self vcCallPhoneNumber:cell.fModel.shouji];
         } forControlEvents:UIControlEventTouchUpInside];
         [cell.btn_telPhoneNumber cq_addEventHandler:^{
+            SharedAppDelegate.companyName = cell.fModel.name;
             [self vcCallPhoneNumber:cell.fModel.tel];
         } forControlEvents:UIControlEventTouchUpInside];
 
@@ -147,9 +149,11 @@ UITableViewDataSource
         cell.dModel = self.dmodels[indexPath.row];
         
         [cell.btn_phoneNumber cq_addEventHandler:^{
+            SharedAppDelegate.companyName = cell.dModel.name;
             [self vcCallPhoneNumber:cell.dModel.shouji];
         } forControlEvents:UIControlEventTouchUpInside];
         [cell.btn_telPhoneNumber cq_addEventHandler:^{
+            SharedAppDelegate.companyName = cell.dModel.name;
             [self vcCallPhoneNumber:cell.dModel.tel];
         } forControlEvents:UIControlEventTouchUpInside];
 
@@ -280,10 +284,12 @@ UITableViewDataSource
 
     // 按钮事件处理
     [self.btn_phoneNumber cq_addEventHandler:^{
+        SharedAppDelegate.companyName = model.gsname;
         [self vcCallPhoneNumber:model.shouji];
     } forControlEvents:UIControlEventTouchUpInside];
     
     [self.btn_telNumber cq_addEventHandler:^{
+        SharedAppDelegate.companyName = model.gsname;
         [self vcCallPhoneNumber:model.tel];
     } forControlEvents:UIControlEventTouchUpInside];
     

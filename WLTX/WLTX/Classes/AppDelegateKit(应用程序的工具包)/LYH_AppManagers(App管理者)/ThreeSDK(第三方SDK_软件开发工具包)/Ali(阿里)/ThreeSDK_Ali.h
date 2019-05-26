@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UMAnalytics/MobClick.h>           // 统计 sdk
 
 NS_ASSUME_NONNULL_BEGIN
 

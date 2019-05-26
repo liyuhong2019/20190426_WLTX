@@ -1,6 +1,12 @@
 #import "AppDelegate.h"
+#import <CoreTelephony/CTCall.h>
+#import <CoreTelephony/CTCallCenter.h>
+
 @interface AppDelegate ()
 
+{
+    CTCallCenter *callCenter;
+}
 @end
 
 @implementation AppDelegate
@@ -8,6 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 1、项目的一些配置
+    [self callCallBack];
+
     AppProject *appProject = [AppProject getInstance];
     [appProject lyh_initAppProject];
     [appProject lyh_addGloalbtn];
@@ -29,6 +37,124 @@
     return YES;
 }
 
+// 拨打电话的回调
+- (void)callCallBack
+{
+    
+    callCenter = [[CTCallCenter alloc] init];
+    callCenter.callEventHandler = ^(CTCall* call) {
+        if ([call.callState isEqualToString:CTCallStateDisconnected])
+        {
+            NSLog(@"Call has been disconnected");
+        }
+        else if ([call.callState isEqualToString:CTCallStateConnected])
+        {
+            NSLog(@"Call has just been connected");
+        }
+        else if([call.callState isEqualToString:CTCallStateIncoming])
+        {
+            NSLog(@"Call is incoming");
+        }
+        else if ([call.callState isEqualToString:CTCallStateDialing])
+        {
+            NSLog(@"call is dialing");
+            [self customMethodWithOtherPersonPhoneNumber:self.PhoneNumber];
+        }
+        else
+        {
+            NSLog(@"Nothing is done");
+        }
+    };
+    
+}
+- (void)customMethodWithOtherPersonPhoneNumber:(NSString *)phoneNumber
+{
+    //    NSLog(@"%@",Common_citySearch(searchName));
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
+    if (kWltx_IsLogin) {
+        NSLog(@"已经登录了");
+        [dict setObject:phoneNumber forKey:@"shouji"];
+        [dict setObject:kWltx_userShouji forKey:@"user"];
+        [MobClick event:@"phone" label:kWltx_userShouji]; // 当前用户的手机
+    }
+    else
+    {
+        NSLog(@"未登录 不需要发送短信");
+        [dict setObject:phoneNumber forKey:@"shouji"];
+    }
+//    [MobClick event:@"call" label:phoneNumber];
+
+    NSString *str = @"";
+    if ([phoneNumber containsString:@"-"]) {
+        str  = @"固定电话";
+    }
+    else
+    {
+        str = @"手机";
+    }
+
+    [MobClick event:@"type" label:str];
+    [MobClick event:@"name" label:self.companyName];
+
+    NSLog(@"公司名称是 is %@",self.companyName);
+
+
+    [AFNetworkingTool postWithURLString:my_callNumber parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",result);
+
+
+    } failure:^(NSError *error) {
+
+    }];
+}
+
+
+//- (void)customMethodWithOtherPersonPhoneNumber:(NSString *)phoneNumber
+//{
+//    //    NSLog(@"%@",Common_citySearch(searchName));
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    
+//    if (kWltx_IsLogin) {
+//        NSLog(@"已经登录了");
+//        [dict setObject:phoneNumber forKey:@"shouji"];
+//        [dict setObject:kWltx_userShouji forKey:@"user"];
+//        //        [MobClick event:@"phone" label:kWltx_userShouji]; // 当前用户的手机
+//    }
+//    else
+//    {
+//        NSLog(@"未登录 不需要发送短信");
+//        [dict setObject:phoneNumber forKey:@"shouji"];
+//    }
+//    //    [MobClick event:@"call" label:phoneNumber];
+//    
+//    NSString *str = @"";
+//    if ([phoneNumber containsString:@"-"]) {
+//        str  = @"固定电话";
+//    }
+//    else
+//    {
+//        str = @"手机";
+//    }
+//    
+//    NSDictionary *dictcc =@{@"type":str,@"phone":kWltx_userShouji,@"name":self.companyName};
+//    
+//    [MobClick event:@"phone" attributes:dictcc];
+//    //    [MobClick beginEvent:@"type" primarykey:@"type" attributes:@{}]
+//    //    [MobClick event:@"type" label:str];
+//    //    [MobClick event:@"name" label:self.companyName];
+//    
+//    NSLog(@"公司名称是 is %@",self.companyName);
+//    
+//    
+//    [AFNetworkingTool postWithURLString:my_callNumber parameters:dict resultClass:nil success:^(id result) {
+//        NSLog(@"result = %@",result);
+//        
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+//}
 
 - (void)setGlobalBtn
 {

@@ -646,8 +646,8 @@
 		9BC42D7B222F6C7B00BB032F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C2868C3C225E59730099A296 /* OpenThreeSDKFoundation(开源第三方框架) */,
 				9BC42D7C222F6C7B00BB032F /* Main(主要的) */,
+				C2868C3C225E59730099A296 /* OpenThreeSDKFoundation(开源第三方框架) */,
 				9BC42DBF222F972300BB032F /* App(项目) */,
 				C242A1B922761B0B005B277E /* YH_Tool(我封装的工具类) */,
 				9BC42D85222F73D800BB032F /* AppDelegateKit(应用程序的工具包) */,

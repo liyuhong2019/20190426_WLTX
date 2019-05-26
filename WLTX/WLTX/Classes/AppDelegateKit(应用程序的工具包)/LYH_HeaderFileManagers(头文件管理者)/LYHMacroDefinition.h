@@ -332,6 +332,7 @@ return self; \
 #define BaseColor UIColorFromRGB(0xF4AE49)
 #define btnColor UIColorFromRGB(0xFFB243)
 
+#define SharedAppDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define lyh_setting_xib_scrollviewHeight if (IS_IPHONE_X||IS_IPHONE_Xs_Max||IS_IPHONE_Xr||IS_IPHONE_Xs) { \
 self.layout_scrollview_h.constant = xib_iphonex_ScrollviewH;\
 }\
