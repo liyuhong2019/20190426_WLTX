@@ -67,8 +67,11 @@ UICollectionViewDataSource
     [super viewDidLoad];
     
 //    [self addADView];
+    
+
     [self homeVC_createCollectionView];
     [self homeVC_Config];
+    
     
 }
 
@@ -112,6 +115,7 @@ UICollectionViewDataSource
     NSLog(@"点击的id 是 %@ ",model.id);
     WLTX_Home_ADDetailsViewController *vc = [[WLTX_Home_ADDetailsViewController alloc]initWithNibName:NSStringFromClass([WLTX_Home_ADDetailsViewController class]) bundle:nil];
     vc.adId = model.id;
+    vc.weburl = model.url;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -493,13 +497,35 @@ UICollectionViewDataSource
 
 
 #pragma mark - 讯飞科大
+
+// 修改讯飞科大的文字
+
 - (void)haveView
 {
     if (_iflyRecognizerView == nil) {
         
         _iflyRecognizerView= [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+        for(UIView *tview in _iflyRecognizerView.subviews){
+            NSLog(@"tview is %@",tview);
+            if ([tview isKindOfClass:NSClassFromString(@"IFlyRecognizerViewImp")]) {
+                
+                
+                for (UILabel *label in tview.subviews) {
+                    if ([label isKindOfClass:[UILabel class]]) {
+                        if ([label.text containsString:@"语音识别"]) {
+//                            label.hidden = YES;
+                            label.text = @"出发地到目的地 (如:广州到合肥)";
+                        }
+                    }
+                }
+            }
+        }
+        
         NSLog(@"创建视图");
     }
+    
+    // 设置title
+    
     
     [_iflyRecognizerView setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
     

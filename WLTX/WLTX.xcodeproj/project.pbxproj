@@ -181,6 +181,7 @@
 		C2868C83225E5D0B0099A296 /* WLTX_HomeAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2868C82225E5D0B0099A296 /* WLTX_HomeAdModel.m */; };
 		C2B3CAD1223C0A1C00562500 /* WLTX_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B3CACF223C0A1C00562500 /* WLTX_LoginViewController.m */; };
 		C2B3CAD2223C0A1C00562500 /* WLTX_LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B3CAD0223C0A1C00562500 /* WLTX_LoginViewController.xib */; };
+		C2BB46D722AB50AB00796327 /* area20190608.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2BB46D622AB50AB00796327 /* area20190608.plist */; };
 		C2C11EE022350FB700A694D7 /* ThreeSDK_Ali.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C11EDF22350FB700A694D7 /* ThreeSDK_Ali.m */; };
 		C2CE9758228B470C0094E137 /* WLTX_SpecialDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CE9756228B470C0094E137 /* WLTX_SpecialDetailsVC.m */; };
 		C2CE9759228B470C0094E137 /* WLTX_SpecialDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CE9757228B470C0094E137 /* WLTX_SpecialDetailsVC.xib */; };
@@ -511,6 +512,7 @@
 		C2B3CACE223C0A1C00562500 /* WLTX_LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_LoginViewController.h; sourceTree = "<group>"; };
 		C2B3CACF223C0A1C00562500 /* WLTX_LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_LoginViewController.m; sourceTree = "<group>"; };
 		C2B3CAD0223C0A1C00562500 /* WLTX_LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_LoginViewController.xib; sourceTree = "<group>"; };
+		C2BB46D622AB50AB00796327 /* area20190608.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area20190608.plist; sourceTree = "<group>"; };
 		C2C11EDC22350F5500A694D7 /* HeaderFile_ThreeSDK_Ali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderFile_ThreeSDK_Ali.h; sourceTree = "<group>"; };
 		C2C11EDE22350FB700A694D7 /* ThreeSDK_Ali.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeSDK_Ali.h; sourceTree = "<group>"; };
 		C2C11EDF22350FB700A694D7 /* ThreeSDK_Ali.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeSDK_Ali.m; sourceTree = "<group>"; };
@@ -1905,6 +1907,7 @@
 				C2400C4C2292C70A0045716E /* 省份 */,
 				C2400C522292C70A0045716E /* 区域 */,
 				C2400C582292C70A0045716E /* address.plist */,
+				C2BB46D622AB50AB00796327 /* area20190608.plist */,
 				C2400C592292C70A0045716E /* PrintBeautifulLog.m */,
 			);
 			path = Other;
@@ -2886,6 +2889,7 @@
 				C226DAE72293BEF400C89119 /* 讯飞科大.md in Resources */,
 				9BC42DAC222F73D800BB032F /* 使用说明.md in Resources */,
 				9BC42D6D222F6C3F00BB032F /* Main.storyboard in Resources */,
+				C2BB46D722AB50AB00796327 /* area20190608.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) NSString *adId;
 
+@property (strong,nonatomic) NSString *weburl;
+
 @end
 
 NS_ASSUME_NONNULL_END

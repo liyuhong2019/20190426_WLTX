@@ -44,8 +44,8 @@ UIWebViewDelegate
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self aboutUsVC_netwrok_getADdetailRequest];
-
+//    [self aboutUsVC_netwrok_getADdetailRequest];
+    [self loadWebData];
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -70,32 +70,45 @@ UIWebViewDelegate
 
 
 #pragma mark - 🏃(代理)Delegate start
-- (void)webViewDidFinishLoad:(UIWebView*)theWebView
-{
-    //  https://www.xuebuyuan.com/3193142.html
-    // 代码作用 :  iOS 禁用UIWebView 加载 网页的长按事件
-    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
-    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
-    
-    
-    // https://blog.csdn.net/weisubao/article/details/50832060
-    // 代码作用 :  iOS webView 图片适应屏幕问题
-    // 1、只对本地html资源的图片有效果
-    NSString *js = @"function imgAutoFit() { \
-    var imgs = document.getElementsByTagName('img'); \
-    for (var i = 0; i < imgs.length; ++i) {\
-    var img = imgs[i];   \
-    img.style.maxWidth = %f;   \
-    } \
-    }";
-    js = [NSString stringWithFormat:js, [UIScreen mainScreen].bounds.size.width - 20];
-    [self.webview stringByEvaluatingJavaScriptFromString:js];
-    [self.webview stringByEvaluatingJavaScriptFromString:@"imgAutoFit()"];
- 
-    
-}
+
+
+//- (void)webViewDidFinishLoad:(UIWebView*)theWebView
+//{
+//    //  https://www.xuebuyuan.com/3193142.html
+//    // 代码作用 :  iOS 禁用UIWebView 加载 网页的长按事件
+//    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+//    [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
+//
+//
+//    // https://blog.csdn.net/weisubao/article/details/50832060
+//    // 代码作用 :  iOS webView 图片适应屏幕问题
+//    // 1、只对本地html资源的图片有效果
+//    NSString *js = @"function imgAutoFit() { \
+//    var imgs = document.getElementsByTagName('img'); \
+//    for (var i = 0; i < imgs.length; ++i) {\
+//    var img = imgs[i];   \
+//    img.style.maxWidth = %f;   \
+//    } \
+//    }";
+//    js = [NSString stringWithFormat:js, [UIScreen mainScreen].bounds.size.width - 20];
+//    [self.webview stringByEvaluatingJavaScriptFromString:js];
+//    [self.webview stringByEvaluatingJavaScriptFromString:@"imgAutoFit()"];
+//
+//
+//}
 #pragma mark 🏃(代理)Delegate end
 #pragma mark - ✍🏻(自定义方法) custom method start
+- (void)loadWebData
+{
+    NSURL *url = [NSURL URLWithString:self.weburl];
+    
+    // 2. 把URL告诉给服务器,请求,从m.baidu.com请求数据
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    // 3. 发送请求给服务器
+    [self.webview loadRequest:request];
+
+}
+
 /**
  登陆页面 初始化数据
  */

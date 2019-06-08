@@ -411,8 +411,11 @@ UITextFieldDelegate>
         NSArray *data = result[@"data"];
         
         NSMutableArray *tempArrModel = [NSMutableArray array];
+        [self.tableview resetNoMoreData]; // 重置之前可以刷新的数据
+
         if (!append) {
             [self.specialLineArr removeAllObjects];
+            self.page = 1; // 移除数据 都需要清空分页
             self.specialLineArr = [WLTX_SpecialLineQueryModel mj_objectArrayWithKeyValuesArray:data];
         }
         else
@@ -426,9 +429,14 @@ UITextFieldDelegate>
         
         
         //        self.data_ad = tempArr;
+        NSLog(@"page 之前  %ld",self.page);
+
         self.page += [result[@"nextpage"] integerValue];
         
         self.nextpage = [result[@"nextpage"] integerValue];
+        
+        NSLog(@"integratedQueryListArr %ld",self.specialLineArr.count);
+        NSLog(@"page is  %ld",self.page);
         
         [self.tableview reloadData];
         

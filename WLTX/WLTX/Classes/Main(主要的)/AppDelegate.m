@@ -96,7 +96,8 @@
 
     [MobClick event:@"type" label:str];
     [MobClick event:@"name" label:self.companyName];
-
+    NSDictionary *dictcc =@{@"type":str,@"phone":kWltx_userShouji,@"name":self.companyName};
+    [MobClick event:@"call" attributes:dictcc];
     NSLog(@"公司名称是 is %@",self.companyName);
 
 
@@ -114,7 +115,7 @@
 //{
 //    //    NSLog(@"%@",Common_citySearch(searchName));
 //    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    
+//
 //    if (kWltx_IsLogin) {
 //        NSLog(@"已经登录了");
 //        [dict setObject:phoneNumber forKey:@"shouji"];
@@ -127,7 +128,7 @@
 //        [dict setObject:phoneNumber forKey:@"shouji"];
 //    }
 //    //    [MobClick event:@"call" label:phoneNumber];
-//    
+//
 //    NSString *str = @"";
 //    if ([phoneNumber containsString:@"-"]) {
 //        str  = @"固定电话";
@@ -136,23 +137,23 @@
 //    {
 //        str = @"手机";
 //    }
-//    
+//
 //    NSDictionary *dictcc =@{@"type":str,@"phone":kWltx_userShouji,@"name":self.companyName};
-//    
+//
 //    [MobClick event:@"phone" attributes:dictcc];
 //    //    [MobClick beginEvent:@"type" primarykey:@"type" attributes:@{}]
 //    //    [MobClick event:@"type" label:str];
 //    //    [MobClick event:@"name" label:self.companyName];
-//    
+//
 //    NSLog(@"公司名称是 is %@",self.companyName);
-//    
-//    
+//
+//
 //    [AFNetworkingTool postWithURLString:my_callNumber parameters:dict resultClass:nil success:^(id result) {
 //        NSLog(@"result = %@",result);
-//        
-//        
+//
+//
 //    } failure:^(NSError *error) {
-//        
+//
 //    }];
 //}
 

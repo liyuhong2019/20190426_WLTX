@@ -212,6 +212,7 @@ UITableViewDataSource>
 #pragma mark  ✍🏻(自定义方法) custom method end
 
 - (IBAction)relodData:(UIButton *)sender {
+    [self.tableview resetNoMoreData];
     [self.btn_pushInformation setTitleColor:[UIColor orangeColor] forState:0];
     [self.btn_pushCar setTitleColor:[UIColor blackColor] forState:0];
     self.tableview.tag = 10;
@@ -223,6 +224,7 @@ UITableViewDataSource>
     [self.tableview reloadData];
 }
 - (IBAction)relodData2:(UIButton *)sender {
+    [self.tableview resetNoMoreData];
     [self.btn_pushCar setTitleColor:[UIColor orangeColor] forState:0];
     [self.btn_pushInformation setTitleColor:[UIColor blackColor] forState:0];
     self.tableview.tag = 20;

@@ -38,8 +38,12 @@
     self.lb_contact.text = [NSString stringWithFormat:@"联系人:%@",dModel.lxr];
     self.lb_location.text = [NSString stringWithFormat:@"地址:%@",dModel.dizhi];
     
-    
-    
+    [self.btn_phoneNumber setTitle:[NSString stringWithFormat:@"%@",dModel.shouji] forState:0];
+    [self.btn_telPhoneNumber setTitle:[NSString stringWithFormat:@"%@",dModel.tel] forState:0];
+
+//    self.btn_phoneNumber.titleLabel.text = [NSString stringWithFormat:@"%@",dModel.shouji];
+//    self.btn_telPhoneNumber.titleLabel.text = [NSString stringWithFormat:@"%@",dModel.tel];
+
 }
 - (void)setFModel:(WLTX_SpecialDetailsFbwdModel *)fModel
 {
@@ -47,6 +51,10 @@
     self.lb_title.text = fModel.name;
     self.lb_contact.text = [NSString stringWithFormat:@"联系人:%@",fModel.lxr];
     self.lb_location.text = [NSString stringWithFormat:@"地址:%@",fModel.dizhi];
+    
+    [self.btn_phoneNumber setTitle:[NSString stringWithFormat:@"%@",fModel.shouji] forState:0];
+    [self.btn_telPhoneNumber setTitle:[NSString stringWithFormat:@"%@",fModel.tel] forState:0];
+
 
 
 }
