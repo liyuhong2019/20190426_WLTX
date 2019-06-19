@@ -44,8 +44,8 @@ UIWebViewDelegate
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self aboutUsVC_netwrok_getADdetailRequest];
-    [self loadWebData];
+    [self aboutUsVC_netwrok_getADdetailRequest];
+//    [self loadWebData];
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -138,7 +138,7 @@ UIWebViewDelegate
     [AFNetworkingTool postWithURLString:url parameters:nil resultClass:nil success:^(id result) {
         NSLog(@"result = %@",result);
         NSDictionary *dataDict = result[@"data"];
-        NSString *content = dataDict[@"content"];
+        NSString *content = dataDict[@"content"];   
         
         NSLog(@"content %@",content);
         [self.webview loadHTMLString:content baseURL:nil];

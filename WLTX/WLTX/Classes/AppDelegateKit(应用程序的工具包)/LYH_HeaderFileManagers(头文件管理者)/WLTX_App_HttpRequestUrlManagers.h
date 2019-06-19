@@ -25,7 +25,7 @@
 #define my_integrateQueryDetails(detailsId) [NSString stringWithFormat: @"zhcx_content.php?id=%@",detailsId] // 综合单页
 //#define Common_citySearch(cityName) [NSString stringWithFormat:@"province_ts.php?name=%@",cityName] // 首页城市查询
 #define Common_citySearch @"province_ts.php"                    // 首页城市查询
-
+#define Common_cityJson @"city.json"                            // 城市json
 /*** 主页 ***/
 #define Home_AdUrl @"banner.php"                    // 广告轮播图
 #define Home_AdDetail @"banner_cont.php?id="        // 广告详情

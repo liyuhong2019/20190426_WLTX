@@ -12,6 +12,47 @@
 
 
 @implementation AFNetworkingTool
+// not api
++ (void)getWithNotApiURLString:(NSString *)spliceUrl
+              parameters:(id)parameters
+             resultClass:(Class)resultClass
+                 success:(Success_Block)success
+                 failure:(Failure_Block)failure {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+    NSString *url = [NSString stringWithFormat:@"%@%@",NotApiBaseURL,spliceUrl];
+    id _parameters = [self getObjectData:parameters];
+    [manager GET:url parameters:_parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        YHLog(@"\n 请求url %@\n 请求参数 %@\n 结果 %@\n",url,_parameters,responseObject);
+        id keyValues = [responseObject mj_JSONObject];
+        if (resultClass!=nil) {
+            id resultObject = [resultClass mj_objectWithKeyValues:keyValues];
+            if (success) {
+                success(resultObject);
+            }
+        }else{
+            if (success) {
+                success(responseObject);
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        YHLog(@"\n 请求url %@\n 请求参数 %@\n failure %@\n",url,parameters,error);
+        YHLog(@"error code is %ld",error.code);         // 错误码
+        YHLog(@"error userinfo is %@",error.userInfo);  // 错误的信息 包含url、错误码、
+        NSString *errorMsg = [NSString stringWithFormat:@"%@",[error.localizedDescription mj_JSONString]];
+        // 打印错误详情信息
+        YHLog(@"error localizedDescription is %@",errorMsg);
+//        [UIApplication sharedApplication].windows m
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+
+
 // GET请求
 + (void)getWithURLString:(NSString *)spliceUrl
               parameters:(id)parameters

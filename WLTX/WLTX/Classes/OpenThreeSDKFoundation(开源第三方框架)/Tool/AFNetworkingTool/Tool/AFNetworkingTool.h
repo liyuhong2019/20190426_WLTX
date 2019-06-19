@@ -26,6 +26,7 @@
 //#endif
 
 #ifdef DEBUG // 调试状态
+#define NotApiBaseURL    @"http://m.0201566.com/"
 #define BaseURL          @"http://m.0201566.com/appapi/"
 //#define ImgBaseURL          @"http://m.0201566.com"
 #define ImgBaseURL          @"http://www.0201566.com"
@@ -48,7 +49,12 @@ typedef void(^Failures_Block)(NSArray *errorArray);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AFNetworkingTool : NSObject
-
+// not api
++ (void)getWithNotApiURLString:(NSString *)spliceUrl
+              parameters:(id)parameters
+             resultClass:(Class)resultClass
+                 success:(Success_Block)success
+                 failure:(Failure_Block)failure;
 
 // GET请求
 + (void)getWithURLString:(NSString *)spliceUrl
