@@ -61,7 +61,7 @@
 
 - (void)CommonSelectAreaVC_settingsNav
 {
-    self.navigationItem.title = @"信息发布";
+    self.navigationItem.title = @"请选择类型";
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [backButton setTitle:@"关闭" forState:0];
