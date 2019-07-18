@@ -32,7 +32,9 @@
 #define ImgBaseURL          @"http://www.0201566.com"
 
 #else // 发布状态
+#define NotApiBaseURL    @"http://m.0201566.com/"
 #define BaseURL          @"http://m.0201566.com/appapi/"
+#define ImgBaseURL          @"http://www.0201566.com"
 #endif
 
 
