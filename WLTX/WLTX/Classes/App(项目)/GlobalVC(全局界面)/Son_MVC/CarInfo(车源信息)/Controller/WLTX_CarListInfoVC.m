@@ -13,7 +13,8 @@
 
 @interface WLTX_CarListInfoVC ()
 <UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+UITextFieldDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong,nonatomic) NSMutableArray *specialLineArr;
@@ -26,6 +27,13 @@ UITableViewDataSource
 @property (weak, nonatomic) IBOutlet UILabel *lb_carLength;
 // 车长
 @property (strong,nonatomic)  NSArray  *array;
+
+
+
+
+//@property (weak, nonatomic) IBOutlet UISearchBar *search;
+@property (weak, nonatomic) IBOutlet UITextField *tf_search;
+
 @end
 
 @implementation WLTX_CarListInfoVC
@@ -55,11 +63,6 @@ UITableViewDataSource
 {
     [super viewWillAppear:animated];
     NSLog(@"%s,在这里判断用户是否登录 如果没有登录。弹出登录界面",__func__);
-    //    WLTX_LoginViewController *lgVC = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
-    //    LYHNavigationController *nav = [[LYHNavigationController alloc] initWithRootViewController:lgVC];
-    //    [self presentViewController:nav animated:YES completion:nil];
-    
-    
     if ([self.lb_location.text isEqualToString:@""]) {
         self.cityS = @"广州";
 
@@ -208,11 +211,12 @@ UITableViewDataSource
 //    self.lb_location.text = self.cityS;
 //    self.lb_carLength.text = self.carLengthS;
     //    self.view.backgroundColor = [UIColor whiteColor];
-    self.array = @[@"面包车",@"3.米",@"4.2米",@"5.2米",@"6.2米",@"6.8米",@"7.6米",@"8.7米",@"9.6米"];
+    self.array = @[@"面包车",@"3.米",@"4.2米",@"5.2米",@"6.2米",@"6.8米",@"7.6米",@"8.7米",@"9.6米",@"13米",@"17.5米",@"其他车长"];
     [self SpecialLineQueryVC_settingsNav];
     [self SpecialLineQueryVC_CommonSettings];
     
-    
+//    [self.tf_search addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+
     
     __weak typeof(self) weakSelf = self;
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
@@ -229,12 +233,31 @@ UITableViewDataSource
             self.carLengthS = self.lb_carLength.text;
         }
         
-        NSDictionary *dict = @{
-                               @"page":page,
-                               @"city":self.lb_location.text,
-                               @"length":self.carLengthS,
-                               };
-        [weakSelf netwrok_getCarListRequestWithDict:dict Withappend:NO];
+        
+        if (self.tf_search.text.length ==0) {
+            NSLog(@"搜索框没内容");
+            NSDictionary *dict = @{
+                                   @"page":page,
+                                   @"city":self.lb_location.text,
+                                   @"length":self.carLengthS,
+                                   };
+            [weakSelf netwrok_getCarListRequestWithDict:dict Withappend:NO];
+        }
+        else
+        {
+            NSLog(@"搜索框有内容");
+            NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+            NSDictionary *dict = @{
+                                   @"q":self.tf_search.text,
+                                   @"page":page
+                                   };
+            //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+            //        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+            [self netwrok_getCarInfoKeywordWithDict:dict Withappend:NO];
+
+        }
+        
+      
     }];
     
     [self.tableview addFooterWithWithHeaderWithAutomaticallyRefresh:NO loadMoreBlock:^(NSInteger pageIndex) {
@@ -259,12 +282,27 @@ UITableViewDataSource
             self.carLengthS = self.lb_carLength.text;
         }
         
-        NSDictionary *dict = @{
-                               @"page":page,
-                               @"city":self.lb_location.text,
-                               @"length":self.carLengthS,
-                               };
-        [weakSelf netwrok_getCarListRequestWithDict:dict Withappend:YES];
+        
+        if (self.tf_search.text.length ==0) {
+            NSLog(@"搜索框没内容");
+            NSDictionary *dict = @{
+                                   @"page":page,
+                                   @"city":self.lb_location.text,
+                                   @"length":self.carLengthS,
+                                   };
+            [weakSelf netwrok_getCarListRequestWithDict:dict Withappend:YES];
+        }
+        else
+        {
+            NSLog(@"搜索框有内容");
+            NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+            NSDictionary *dict = @{
+                                   @"q":self.tf_search.text,
+                                   @"page":page
+                                   };
+            [self netwrok_getCarInfoKeywordWithDict:dict Withappend:YES];
+        }
+       
 //        [self netwrok_getmyCollectionListRequestWithPage:page Withappend:YES];
         [self.tableview endFooterRefresh];
         
@@ -402,6 +440,19 @@ UITableViewDataSource
         self.lb_carLength.text = self.array[8];
         [self againNetwrokWith:self.array[8]];
     }];
+    
+    UIAlertAction *action91 = [UIAlertAction actionWithTitle:self.array[9] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.lb_carLength.text = self.array[9];
+        [self againNetwrokWith:self.array[9]];
+    }];
+    UIAlertAction *action92 = [UIAlertAction actionWithTitle:self.array[10] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.lb_carLength.text = self.array[10];
+        [self againNetwrokWith:self.array[10]];
+    }];
+    UIAlertAction *action93 = [UIAlertAction actionWithTitle:self.array[11] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.lb_carLength.text = self.array[11];
+        [self againNetwrokWith:self.array[11]];
+    }];
     UIAlertAction *action10 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         
@@ -416,5 +467,128 @@ UITableViewDataSource
     [actionSheet addAction:action8];
     [actionSheet addAction:action9];
     [actionSheet addAction:action10];
+    [actionSheet addAction:action91];
+    [actionSheet addAction:action92];
+    [actionSheet addAction:action93];
+
     [self presentViewController:actionSheet animated:YES completion:nil];
-}@end
+    
+}
+
+#pragma mark - search
+
+#pragma mark - textFieldDelegate
+
+- (IBAction)go2Search:(UIButton *)sender {
+    [self.tf_search resignFirstResponder];
+    
+    if ([self.tf_search.text isEqualToString:@""]) {
+        NSLog(@"搜索最开始的数据");
+        self.tableview.tag = 10;
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+//        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
+    }
+    else
+    {
+        NSLog(@"搜索其他数据");
+        // 这里以tag 区分会比较好
+        
+        [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+        self.tableview.tag = 20;
+        // 加载最新的数据
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        NSDictionary *dict = @{
+                               @"q":self.tf_search.text,
+                               @"page":page
+                               };
+        //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+//        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+            [self netwrok_getCarInfoKeywordWithDict:dict Withappend:NO];
+
+    }
+    
+}
+- (void)textFieldChanged:(UITextField*)textField{
+    
+    NSString *string = textField.text;
+    NSLog(@"change msg is %@",string);
+    if ([string isEqualToString:@""]) {
+        NSLog(@"搜索最开始的数据");
+        self.tableview.tag = 10;
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+//        [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
+    }
+    else
+    {
+        NSLog(@"搜索其他数据");
+        // 这里以tag 区分会比较好
+        
+        [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+        self.tableview.tag = 20;
+        // 加载最新的数据
+        self.page = 1; // 初始化 为第0页
+        NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+        NSDictionary *dict = @{
+                               @"q":string,
+                               @"page":page
+                               };
+        //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+//        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+  
+        //        [self netwrok_getKeywordWithDict:dict Withappend:NO];
+
+    }
+}
+
+
+// 2、关键字搜索的数据
+//- (void)netwrok_getKeywordWithKey:(NSString *)keyword SpecialLineListRequestWithPage:(NSString *)page Withappend:(BOOL)append
+- (void)netwrok_getCarInfoKeywordWithDict:(NSDictionary *)dict Withappend:(BOOL)append
+{
+    [AFNetworkingTool getWithURLString:Coomon_CarList parameters:dict resultClass:nil success:^(id result) {
+        NSLog(@"result = %@",[result mj_JSONObject]);
+        NSArray *data = result[@"data"];
+        
+        NSMutableArray *tempArrModel = [NSMutableArray array];
+        [self.tableview resetNoMoreData]; // 重置之前可以刷新的数据
+        
+        if (!append) {
+            
+            // WLTX_CarListInfoModel *model
+            [self.specialLineArr removeAllObjects];
+            self.page = 1; // 移除数据 都需要清空分页
+            self.specialLineArr = [WLTX_CarListInfoModel mj_objectArrayWithKeyValuesArray:data];
+        }
+        else
+        {
+            for (NSDictionary *dict in data) {
+                WLTX_CarListInfoModel *model = [WLTX_CarListInfoModel mj_objectWithKeyValues:dict];
+                [self.specialLineArr addObject:model];
+            }
+        }
+        NSLog(@"integratedQueryListArr %@",self.specialLineArr);
+        
+        
+        //        self.data_ad = tempArr;
+        NSLog(@"page 之前  %ld",self.page);
+        
+        self.page += [result[@"nextpage"] integerValue];
+        
+        self.nextpage = [result[@"nextpage"] integerValue];
+        
+        NSLog(@"integratedQueryListArr %ld",self.specialLineArr.count);
+        NSLog(@"page is  %ld",self.page);
+        
+        [self.tableview reloadData];
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+@end

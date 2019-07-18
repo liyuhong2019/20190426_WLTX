@@ -18,6 +18,7 @@
 //#define Coomon_CarList(page) [NSString stringWithFormat: @"cheyuan.php?city=%@page=%@",page] // 专线列表
 #define Common_CarInfo(detailsId) [NSString stringWithFormat: @"cheyuan_content.php?id=%@",detailsId] // 车详情
 #define Coomon_CarList @"cheyuan.php"                 // 获取车列表
+#define Coomon_CarList_Search1(q,page) [NSString stringWithFormat: @"cheyuan.php?q=%@&page=%@",q,page] // 知道关键字、分页去查找
 #define Coomon_upCarImg @"up_cheyuan.php"                 // 上传车的图片
 #define Coomon_Release @"wdfb.php"                    // 发布 1物流供求 ，2 货源信息 ，5 物流招聘，3车源信息
 #define Coomon_integrateQueryList(detailsId,page) [NSString stringWithFormat: @"zhcx_list.php?id=%@&page=%@",detailsId,page] // 综合列表

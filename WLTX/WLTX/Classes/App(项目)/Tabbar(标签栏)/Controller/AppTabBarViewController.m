@@ -53,7 +53,9 @@
 //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"你点击了订单按钮11" preferredStyle:UIAlertControllerStyleAlert];
 //    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
 //    [self presentViewController:alert animated:YES completion:nil];
-    [self showAlertController];
+//    [self showAlertController];
+    [self presentListVC];
+
 
 }
 - (UIImage *)imageWithColor:(UIColor *)color{
@@ -124,6 +126,18 @@
 
 #pragma mark  TabBar Initialize end
 #pragma mark - add fun
+
+- (void)presentListVC
+{
+    NSLog(@"弹出列表选择");
+    WLTX_PresentCommonSelectMsgTypeTableViewVC *VC = [[WLTX_PresentCommonSelectMsgTypeTableViewVC alloc]init];
+    LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:VC];
+    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    
+}
+
+
 - (void)showAlertController
 {
     //  使用alertview

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_ReleaseCommonInfoVC">
             <connections>
+                <outlet property="btn_selectCity" destination="jNJ-62-gkf" id="30w-yS-l0l"/>
                 <outlet property="layout_scrollview_h" destination="TZc-KR-HCV" id="LB2-55-Pe1"/>
                 <outlet property="tf_content" destination="mJT-Mz-Jru" id="FxH-Ol-d3u"/>
                 <outlet property="tf_title" destination="UAo-CO-UuU" id="4Nc-r8-bI2"/>
@@ -79,7 +80,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2R5-5A-YQF">
-                                    <rect key="frame" x="0.0" y="103" width="375" height="72"/>
+                                    <rect key="frame" x="0.0" y="153" width="375" height="72"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fje-QJ-i6F">
                                             <rect key="frame" x="18" y="70" width="339" height="2"/>
@@ -125,12 +126,44 @@
                                         <constraint firstItem="Fje-QJ-i6F" firstAttribute="leading" secondItem="mJT-Mz-Jru" secondAttribute="leading" id="pMT-7X-9w5"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-YJ-Yek">
+                                    <rect key="frame" x="0.0" y="102" width="375" height="36"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3An-tq-RX3">
+                                            <rect key="frame" x="8" y="9" width="31" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNJ-62-gkf">
+                                            <rect key="frame" x="59" y="3" width="296" height="30"/>
+                                            <state key="normal" title="请选择城市">
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="specialDetailsVC_go2SelectCity:" destination="-1" eventType="touchUpInside" id="hCu-XN-FYg"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="jNJ-62-gkf" firstAttribute="leading" secondItem="3An-tq-RX3" secondAttribute="trailing" constant="20" id="2Ax-7a-AIK"/>
+                                        <constraint firstItem="3An-tq-RX3" firstAttribute="centerY" secondItem="6rj-YJ-Yek" secondAttribute="centerY" id="N79-2m-lAN"/>
+                                        <constraint firstItem="3An-tq-RX3" firstAttribute="leading" secondItem="6rj-YJ-Yek" secondAttribute="leading" constant="8" id="e2m-qR-1On"/>
+                                        <constraint firstAttribute="height" constant="36" id="g2r-pO-AUl"/>
+                                        <constraint firstItem="jNJ-62-gkf" firstAttribute="centerY" secondItem="6rj-YJ-Yek" secondAttribute="centerY" id="mre-Va-C4n"/>
+                                        <constraint firstAttribute="trailing" secondItem="jNJ-62-gkf" secondAttribute="trailing" constant="20" id="zy1-S4-z39"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="RKF-54-tWE" firstAttribute="top" secondItem="esB-Cu-SeP" secondAttribute="top" constant="15" id="4Zr-mu-Fjb"/>
+                                <constraint firstItem="6rj-YJ-Yek" firstAttribute="top" secondItem="RKF-54-tWE" secondAttribute="bottom" constant="15" id="4lv-nG-w5j"/>
+                                <constraint firstItem="2R5-5A-YQF" firstAttribute="top" secondItem="6rj-YJ-Yek" secondAttribute="bottom" constant="15" id="LqG-lC-aj2"/>
                                 <constraint firstItem="RKF-54-tWE" firstAttribute="leading" secondItem="esB-Cu-SeP" secondAttribute="leading" id="MAZ-Xu-4se"/>
-                                <constraint firstItem="2R5-5A-YQF" firstAttribute="top" secondItem="RKF-54-tWE" secondAttribute="bottom" constant="16" id="R9X-jO-mv8"/>
+                                <constraint firstAttribute="trailing" secondItem="6rj-YJ-Yek" secondAttribute="trailing" id="N38-Ov-pb9"/>
+                                <constraint firstItem="6rj-YJ-Yek" firstAttribute="leading" secondItem="esB-Cu-SeP" secondAttribute="leading" id="RFE-ho-gbo"/>
                                 <constraint firstAttribute="height" constant="647" id="TZc-KR-HCV"/>
                                 <constraint firstAttribute="trailing" secondItem="2R5-5A-YQF" secondAttribute="trailing" id="k1s-oc-ZWU"/>
                                 <constraint firstAttribute="trailing" secondItem="RKF-54-tWE" secondAttribute="trailing" id="piU-16-HWI"/>

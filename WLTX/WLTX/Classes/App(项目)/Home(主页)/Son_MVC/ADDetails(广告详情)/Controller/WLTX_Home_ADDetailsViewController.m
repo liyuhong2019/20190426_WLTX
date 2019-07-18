@@ -11,6 +11,7 @@
  */
 
 #import "WLTX_Home_ADDetailsViewController.h"
+#import "WLTX_Home_ADContactUsVC.h"
 
 @interface WLTX_Home_ADDetailsViewController ()
 <
@@ -42,6 +43,7 @@ UIWebViewDelegate
  4-8、该方法在接收到内存警告时会调用，且系统会自动处理内存释放：- (void)didReceiveMemoryWarning { }
  */
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,6 +59,7 @@ UIWebViewDelegate
 {
     [super viewWillAppear:animated];
 //    [self aboutUsVC_netwrok_getADdetailRequest];
+    [_allPhoneNumber removeAllObjects];
     [self loadWebData];
     
 }
@@ -251,8 +254,12 @@ UIWebViewDelegate
 {
     NSLog(@"联系我们");
     
-    NSLog(@"联系我们 %@",self.allPhoneNumber);
-
+//    NSLog(@"联系我们 %@",self.allPhoneNumber);
+    WLTX_Home_ADContactUsVC *VC = [[WLTX_Home_ADContactUsVC alloc]init];
+    VC.AllNumberArr = self.allPhoneNumber;
+    LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:VC];
+    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark  ✍🏻(自定义方法) custom method end

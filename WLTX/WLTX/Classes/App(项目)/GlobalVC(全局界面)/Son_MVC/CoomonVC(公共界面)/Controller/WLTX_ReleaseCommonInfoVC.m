@@ -20,6 +20,7 @@
 // 内容
 @property (weak, nonatomic) IBOutlet UITextField *tf_content;
 @property (weak, nonatomic) IBOutlet UIView *view_contentLine;
+@property (weak, nonatomic) IBOutlet UIButton *btn_selectCity;
 
 @end
 
@@ -41,7 +42,7 @@
     [super viewDidLoad];
     lyh_setting_xib_scrollviewHeight
     [self specialDetailsVC_initData];
-
+    
 }
 - (void)dealloc
 {
@@ -88,7 +89,7 @@
     {
         self.view_titleLine.backgroundColor = [UIColor grayColor];
         self.view_contentLine.backgroundColor = RGB(255, 72, 139);
-
+        
     }
 }
 
@@ -108,6 +109,34 @@
 }
 #pragma mark 🏃(代理)Delegate end
 #pragma mark - ✍🏻(自定义方法) custom method start
+
+- (IBAction)specialDetailsVC_go2SelectCity:(UIButton *)sender {
+    
+    WLTX_CommonSelectAreaVC *vc = [[WLTX_CommonSelectAreaVC alloc]init];
+    vc.type = WLTX_CommonSelectAreaType_ReleaseCarInfo;
+    vc.block = ^(NSString *cityName,WLTX_CommonSelectAreaType type)
+    {
+        [self.btn_selectCity setTitle:cityName forState:0];
+        
+        NSLog(@"btn 的city %@",self.btn_selectCity.titleLabel.text);
+        //        if (type == WLTX_CommonSelectAreaType_StartLocation) {
+        //
+        //        }
+        //        else
+        //        {
+        //            self.lb_endLocation.text = cityName;
+        //        }
+        //        NSLog(@"A界面的block is %@",cityName);
+        
+        // 在这里检测是不是两个地址都填写了
+        // 如果是都填写 就直接跳转到 搜索页面
+        // 相当于执行了查询操作
+    };
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
 /**
  登陆页面 初始化数据
  */
@@ -149,35 +178,55 @@
     
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateNormal];
-//    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateHighlighted];
+    //    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateNormal];
+    //    [backButton setImage:[UIImage imageNamed:@"PersonalCenterNew_10"] forState:UIControlStateHighlighted];
     [backButton setTitle:@"发布" forState:0];
     [backButton setTitleColor:[UIColor blackColor] forState:0];
-//    [backButton settitf]
+    //    [backButton settitf]
     backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [backButton addTarget:self action:@selector(specialDetailsVC_go2Share:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton addTarget:self action:@selector(specialDetailsVC_Push:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
-- (void)specialDetailsVC_go2Share:(UIButton *)btn
+- (void)specialDetailsVC_Push:(UIButton *)btn
 {
     NSLog(@"发布");
-    // 这里处理不能为空的操作
-    if (self.tf_title.text.length == 0 ||  self.tf_content.text.length == 0) {
-        [self.view makeToast:@"请检测你的标题、内容是不是没有填写"];
+    
+    if (!kWltx_IsLogin) {
+        [self.view makeToast:@"用户还没有登陆"];
         return;
     }
     
-   
+    
+    // 这里处理不能为空的操作
+    if (self.tf_title.text.length == 0 ||  self.tf_content.text.length == 0 || [self.btn_selectCity.titleLabel.text isEqualToString:@"请选择城市"]) {
+        [self.view makeToast:@"请检测你的标题、城市、内容是不是没有填写"];
+        return;
+    }
+    
+    
+    
     
     // 4、发送注册请求
     // ....
+    
+    //    NSDictionary *dict = @{
+    //                           @"fblx":[NSString stringWithFormat:@"%ld",self.releaseType],
+    //                           @"shouji":kWltx_userShouji,
+    //                           @"title":self.tf_title.text,
+    //                           @"content":self.tf_content.text
+    //
+    //                           };
+    
+    NSLog(@"self.btn_selectCity.titleLabel.text %@",self.btn_selectCity.titleLabel.text);
+    
+    NSLog(@"releaseType %lu",(unsigned long)self.releaseType);
     
     NSDictionary *dict = @{
                            @"fblx":[NSString stringWithFormat:@"%ld",self.releaseType],
                            @"shouji":kWltx_userShouji,
                            @"title":self.tf_title.text,
-                           @"content":self.tf_content.text
-
+                           @"content":self.tf_content.text,
+                           @"city":self.btn_selectCity.titleLabel.text
                            };
     [self netwrok_ReleaseRequest:dict];
 }

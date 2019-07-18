@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *tf_phoneNumber;
 @property (weak, nonatomic) IBOutlet UIView *view_line4;
 
+@property (weak, nonatomic) IBOutlet UITextField *tf_driverName;
+@property (weak, nonatomic) IBOutlet UIView *view_line5;
+
 @property (nonatomic,strong) YH_SystemImagePickerManager *manager;
 @property (weak, nonatomic) IBOutlet UIButton *btn_img;
 
@@ -167,8 +170,9 @@
     
     if (self.tf_carNumber.text.length == 0 ||  self.tf_carWeight.text.length == 0
         ||self.tf_location.text.length == 0 ||  self.tf_phoneNumber.text.length == 0
+        || self.tf_driverName.text.length ==0
         ) {
-        [self.view makeToast:@"车牌号/车载吨数/地址/电话"];
+        [self.view makeToast:@"车牌号/车载吨数/地址/电话/司机名称不能为空"];
         return;
 
     }
@@ -318,7 +322,8 @@
     self.view_line2.backgroundColor = [UIColor lightGrayColor];
     self.view_line3.backgroundColor = [UIColor lightGrayColor];
     self.view_line4.backgroundColor = [UIColor lightGrayColor];
-    
+    self.view_line5.backgroundColor = [UIColor lightGrayColor];
+
     if (textField == self.tf_carNumber) {
         self.view_line1.backgroundColor = RGB(255, 72, 139);
     }
@@ -335,6 +340,11 @@
     {
         self.view_line4.backgroundColor = RGB(255, 72, 139);
     }
+    else if (textField == self.tf_driverName)
+    {
+        self.view_line5.backgroundColor = RGB(255, 72, 139);
+    }
+    
     
 
 }
@@ -356,8 +366,8 @@
                            @"chepai":self.tf_carNumber.text,
                            @"chezai":self.tf_carWeight.text,
                            @"dizhi":self.tf_location.text,
-                           @"tel":self.tf_phoneNumber.text
-                           
+                           @"tel":self.tf_phoneNumber.text,
+                           @"siji":self.tf_driverName.text
                            };
     [self netwrok_ReleaseRequest:dict];
 }

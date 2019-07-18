@@ -24,6 +24,7 @@
 #import "WLTX_CommonWebVC.h"                       // 公共网页
 #import "WLTX_ReleaseCommonInfoVC.h"                // 全局公共发布
 #import "WLTX_ReleaseCarInfoVC.h"                // 全局车发布
+#import "WLTX_PresentCommonSelectMsgTypeTableViewVC.h" // 类型选择
 
 // 登录注册忘记密码
 #import "WLTX_LoginViewController.h"                // 登录

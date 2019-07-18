@@ -154,6 +154,10 @@
 		C2560B8D22935BCB002295DC /* CommonCityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8C22935BCB002295DC /* CommonCityView.m */; };
 		C2560B9122935BF0002295DC /* WLTX_CommonCityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2560B8F22935BF0002295DC /* WLTX_CommonCityCell.m */; };
 		C2560B9222935BF0002295DC /* WLTX_CommonCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2560B9022935BF0002295DC /* WLTX_CommonCityCell.xib */; };
+		C25D484822E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25D484622E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.m */; };
+		C25D484922E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25D484722E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.xib */; };
+		C25D484D22E04FB200D2412A /* WLTX_Home_ADContactUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25D484B22E04FB200D2412A /* WLTX_Home_ADContactUsVC.m */; };
+		C25D484E22E04FB200D2412A /* WLTX_Home_ADContactUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25D484C22E04FB200D2412A /* WLTX_Home_ADContactUsVC.xib */; };
 		C261E79D227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m in Sources */ = {isa = PBXBuildFile; fileRef = C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */; };
 		C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = C26C5273227394080056631B /* UIAlertController+YHTapDismiss.m */; };
 		C278EC132264F03000AD0CAD /* WLTX_ShuttleRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C278EC112264F03000AD0CAD /* WLTX_ShuttleRouteCell.m */; };
@@ -456,6 +460,12 @@
 		C2560B8E22935BF0002295DC /* WLTX_CommonCityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_CommonCityCell.h; sourceTree = "<group>"; };
 		C2560B8F22935BF0002295DC /* WLTX_CommonCityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_CommonCityCell.m; sourceTree = "<group>"; };
 		C2560B9022935BF0002295DC /* WLTX_CommonCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_CommonCityCell.xib; sourceTree = "<group>"; };
+		C25D484522E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTX_PresentCommonSelectMsgTypeTableViewVC.h; sourceTree = "<group>"; };
+		C25D484622E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLTX_PresentCommonSelectMsgTypeTableViewVC.m; sourceTree = "<group>"; };
+		C25D484722E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WLTX_PresentCommonSelectMsgTypeTableViewVC.xib; sourceTree = "<group>"; };
+		C25D484A22E04FB200D2412A /* WLTX_Home_ADContactUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTX_Home_ADContactUsVC.h; sourceTree = "<group>"; };
+		C25D484B22E04FB200D2412A /* WLTX_Home_ADContactUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTX_Home_ADContactUsVC.m; sourceTree = "<group>"; };
+		C25D484C22E04FB200D2412A /* WLTX_Home_ADContactUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTX_Home_ADContactUsVC.xib; sourceTree = "<group>"; };
 		C261E79B227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefreshEX.m"; sourceTree = "<group>"; };
 		C261E79C227E5F0A00EBC859 /* UIScrollView+MJRefreshEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefreshEX.h"; sourceTree = "<group>"; };
 		C26C5272227394080056631B /* UIAlertController+YHTapDismiss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YHTapDismiss.h"; sourceTree = "<group>"; };
@@ -1880,6 +1890,9 @@
 				C23D0C2F225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.h */,
 				C23D0C30225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.m */,
 				C23D0C31225FB62D00ADDAA5 /* WLTX_Home_ADDetailsViewController.xib */,
+				C25D484A22E04FB200D2412A /* WLTX_Home_ADContactUsVC.h */,
+				C25D484B22E04FB200D2412A /* WLTX_Home_ADContactUsVC.m */,
+				C25D484C22E04FB200D2412A /* WLTX_Home_ADContactUsVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2596,6 +2609,9 @@
 		C2CE9767228B4E870094E137 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C25D484522E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.h */,
+				C25D484622E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.m */,
+				C25D484722E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.xib */,
 				C2CE9773228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.h */,
 				C2CE9774228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.m */,
 				C2CE9775228B4ED40094E137 /* WLTX_ReleaseCommonInfoVC.xib */,
@@ -2844,6 +2860,7 @@
 				C242A18E2276147B005B277E /* WLTX_RealNameCertificationVC.xib in Resources */,
 				9BC42E24222F9E8E00BB032F /* Test2_ViewController.xib in Resources */,
 				C242A17B227608BB005B277E /* WLTX_CollectionCell.xib in Resources */,
+				C25D484E22E04FB200D2412A /* WLTX_Home_ADContactUsVC.xib in Resources */,
 				C20240E6224A9EA300B8ECA9 /* WLTX_PersonalCenterCell.xib in Resources */,
 				9BC42E50222FACE800BB032F /* WLTX_NestPageViewController.xib in Resources */,
 				C23D0C21225FB02D00ADDAA5 /* WLTX_PersonalInformationViewController.xib in Resources */,
@@ -2889,6 +2906,7 @@
 				C226DAE72293BEF400C89119 /* 讯飞科大.md in Resources */,
 				9BC42DAC222F73D800BB032F /* 使用说明.md in Resources */,
 				9BC42D6D222F6C3F00BB032F /* Main.storyboard in Resources */,
+				C25D484922E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.xib in Resources */,
 				C2BB46D722AB50AB00796327 /* area20190608.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2973,12 +2991,14 @@
 				C2DC6D2B229102C400F57263 /* WLTX_SpecialDetailsCell.m in Sources */,
 				C26C5274227394080056631B /* UIAlertController+YHTapDismiss.m in Sources */,
 				C226DAE42293BEF400C89119 /* Three_XFKD.m in Sources */,
+				C25D484D22E04FB200D2412A /* WLTX_Home_ADContactUsVC.m in Sources */,
 				C2400C5E2292C70A0045716E /* ProvincesCell.m in Sources */,
 				9BC42E23222F9E8E00BB032F /* Test2_ViewController.m in Sources */,
 				C231A37222922178009488DB /* WLTX_SpecialLineModel.m in Sources */,
 				C242A1BC22761B0C005B277E /* YH_SystemImagePickerManager.m in Sources */,
 				9BC42DB6222F780400BB032F /* ThreeSDK_Tentcent.m in Sources */,
 				C2CE9761228B4D330094E137 /* WLTX_SpecialLineVC.m in Sources */,
+				C25D484822E04AFD00D2412A /* WLTX_PresentCommonSelectMsgTypeTableViewVC.m in Sources */,
 				C2868C74225E59730099A296 /* MJPropertyKey.m in Sources */,
 				C2F2570C22923A2D00DBAB3E /* WLTX_SpecialLineQueryCell.m in Sources */,
 				C2D4D76B2250B79E00B00E17 /* WLTX_UserAgreementViewController.m in Sources */,
