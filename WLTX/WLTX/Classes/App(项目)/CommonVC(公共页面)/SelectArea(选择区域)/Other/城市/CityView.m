@@ -66,7 +66,7 @@ static NSString * const CitysCellID = @"CitysCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat width = ([UIScreen mainScreen].bounds.size.width-24*5)/4;
     //    return (CGSize){width,(self.height-2)/2};
-    return (CGSize){width,width};
+    return (CGSize){width,40};
     
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

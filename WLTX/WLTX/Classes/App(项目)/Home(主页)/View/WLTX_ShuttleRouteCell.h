@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class WLTX_ShuttleRouteCell;
+@protocol WLTX_ShuttleRouteCellDelegate <NSObject>
+
+- (void)clickPhoneNumber:(WLTX_ShuttleRouteCell *)cell WithLabel:(UILabel *)label;
+
+@end
+
 @class WLTX_ShuttleRouteModel;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *lb_number;    // 电话
 @property (weak, nonatomic) IBOutlet UIImageView *img_route;   // 图片
 
+@property (weak,nonatomic) id<WLTX_ShuttleRouteCellDelegate> delegate;
 
 @property (strong,nonatomic) WLTX_ShuttleRouteModel *model;
 @end

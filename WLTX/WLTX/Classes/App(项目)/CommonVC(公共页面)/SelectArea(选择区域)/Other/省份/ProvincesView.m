@@ -66,9 +66,11 @@ static NSString * const ProvincesCellID = @"ProvincesCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat width = ([UIScreen mainScreen].bounds.size.width-24*5)/4;
     //    return (CGSize){width,(self.height-2)/2};
-    return (CGSize){width,width};
+    return (CGSize){width,40};
     
 }
+// <ProvincesCell: 0x7ffa1c46a200; baseClass = UICollectionViewCell; frame = (24 0; 73.5 73.5); clipsToBounds = YES; opaque = NO; layer = <CALayer: 0x6000002b19c0>>
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     

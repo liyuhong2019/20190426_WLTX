@@ -14,6 +14,12 @@
     [super awakeFromNib];
     // Initialization code
     self.img_route.layer.masksToBounds = YES;
+    
+    // 给label添加点击事件
+    self.lb_number.userInteractionEnabled = YES;
+    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
+    [self.lb_number addGestureRecognizer:labelTapGestureRecognizer];
+
 }
 
 - (void)setModel:(WLTX_ShuttleRouteModel *)model
@@ -27,5 +33,17 @@
     self.lb_number.text = model.tel;
     
 }
+
+-(void) labelTouchUpInside:(UITapGestureRecognizer *)recognizer{
+    
+    UILabel *label=(UILabel*)recognizer.view;
+    NSLog(@"%@被点击了",label.text);
+    // 通过代理回传
+    if ([self.delegate respondsToSelector:@selector(clickPhoneNumber:WithLabel:)]) {
+        [self.delegate clickPhoneNumber:self WithLabel:label];
+    }
+}
+
+
 
 @end

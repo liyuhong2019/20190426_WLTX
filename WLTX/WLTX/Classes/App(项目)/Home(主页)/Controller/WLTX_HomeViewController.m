@@ -10,7 +10,8 @@
  <
 SDCycleScrollViewDelegate,
 UICollectionViewDelegate,
-UICollectionViewDataSource
+UICollectionViewDataSource,
+WLTX_ShuttleRouteCellDelegate
 >
 
 {
@@ -418,10 +419,17 @@ UICollectionViewDataSource
     static NSString *cellId =@"WLTX_ShuttleRouteCell";
     // 从可重用单元格的队列中 取出一个单元格
     WLTX_ShuttleRouteCell *cell =(WLTX_ShuttleRouteCell *) [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.delegate = self;
     cell.model = self.data_shuttleRoute[indexPath.row];
     
     
     return cell;
+}
+
+- (void)clickPhoneNumber:(WLTX_ShuttleRouteCell *)cell WithLabel:(UILabel *)label
+{
+    NSLog(@"传递到控制器的label的文本 %@",label.text);
+    [self vcCallPhoneNumber:label.text];
 }
 #pragma mark -- item点击跳转
 

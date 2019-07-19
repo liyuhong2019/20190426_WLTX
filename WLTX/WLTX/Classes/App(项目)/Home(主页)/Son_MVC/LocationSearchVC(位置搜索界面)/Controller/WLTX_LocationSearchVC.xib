@@ -74,9 +74,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2j-n3-mdO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                     <subviews>
-                        <view alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKp-yf-ofg">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKp-yf-ofg">
                             <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="kfT-y5-7xL"/>
                             </constraints>
@@ -146,6 +146,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="5WP-pg-5rS" firstAttribute="leading" secondItem="maM-t9-avw" secondAttribute="leading" id="1Fz-f5-kc3"/>
                                 <constraint firstItem="5WP-pg-5rS" firstAttribute="top" secondItem="maM-t9-avw" secondAttribute="top" id="1KT-8d-OEl"/>
@@ -170,6 +171,7 @@
                             </state>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="uwm-JE-WRj" firstAttribute="leading" secondItem="maM-t9-avw" secondAttribute="trailing" id="5XR-LH-gGa"/>
                         <constraint firstItem="maM-t9-avw" firstAttribute="top" secondItem="y2j-n3-mdO" secondAttribute="top" id="9X4-lm-2Yg"/>
