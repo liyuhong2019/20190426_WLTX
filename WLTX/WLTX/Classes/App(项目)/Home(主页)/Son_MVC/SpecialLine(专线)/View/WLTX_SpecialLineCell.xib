@@ -52,12 +52,6 @@
                             <constraint firstAttribute="trailing" secondItem="PJh-PV-AF5" secondAttribute="trailing" constant="8" id="ww6-19-TR2"/>
                             <constraint firstItem="PJh-PV-AF5" firstAttribute="centerY" secondItem="tiG-fh-TSW" secondAttribute="centerY" id="yug-ID-qFk"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="15"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

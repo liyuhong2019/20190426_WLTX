@@ -20,6 +20,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.img_icon.layer.masksToBounds = YES;
+//    self.img_icon.layer.cornerRadius =  ([UIScreen mainScreen].bounds.size.width-24*5)/4;
+    self.img_icon.layer.cornerRadius =  self.img_icon.frame.size.height/2-5;
+
+    
+    NSLog(@"img w %f",self.img_icon.frame.size.width);
+    NSLog(@"img h %f",self.img_icon.frame.size.height);
+
 }
 
 - (void)setModel:(WLTX_IntegratedQueryModel *)model

@@ -100,20 +100,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.type == CoomonIntegratedQueryListType_Logistics) {
-        WLTX_CommonLogisticsCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CommonLogisticsCellID];
-        WLTX_CoomonIntegratedQueryListModel *model = self.dataListArr[indexPath.row];
-        cell.model = model;
-        return cell;
-    }
-    else
-    {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+//    if (self.type == CoomonIntegratedQueryListType_Logistics) {
+//        WLTX_CommonLogisticsCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CommonLogisticsCellID];
+//        WLTX_CoomonIntegratedQueryListModel *model = self.dataListArr[indexPath.row];
+//        cell.model = model;
+//        return cell;
+//    }
+//    else
+//    {
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        return cell;
+//
+//    }
 
-    }
-
+    WLTX_CommonLogisticsCell  *cell = [tableView dequeueReusableCellWithIdentifier:WLTX_CommonLogisticsCellID];
+    WLTX_CoomonIntegratedQueryListModel *model = self.dataListArr[indexPath.row];
+    cell.model = model;
+    return cell;
     
     
 }
@@ -131,6 +135,7 @@
     WLTX_CoomonIQDetailsVC *vc = [[WLTX_CoomonIQDetailsVC alloc]init];
     vc.detailsid =  self.detailId;
     vc.title = model.title;
+    vc.contentStr = model.title;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

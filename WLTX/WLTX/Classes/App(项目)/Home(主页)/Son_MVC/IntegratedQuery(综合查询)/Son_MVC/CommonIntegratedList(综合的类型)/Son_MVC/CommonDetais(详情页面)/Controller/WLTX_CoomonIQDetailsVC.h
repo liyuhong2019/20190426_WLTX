@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WLTX_CoomonIQDetailsVC : UIViewController
 @property (nonatomic,strong) NSString *detailsid;
+@property (nonatomic,strong) NSString *contentStr;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

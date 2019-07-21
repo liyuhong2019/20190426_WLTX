@@ -7,13 +7,21 @@
 //
 
 #import "WLTX_CommonWebVC.h"
+#import "WLTX_Home_ADContactUsVC.h"
 
 @interface WLTX_CommonWebVC ()
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (nonatomic,strong) NSMutableArray *allPhoneNumber;
 @end
 
 @implementation WLTX_CommonWebVC
-
+- (NSMutableArray *)allPhoneNumber
+{
+    if (_allPhoneNumber == nil) {
+        _allPhoneNumber = [NSMutableArray array];
+    }
+    return _allPhoneNumber;
+}
 - (instancetype)initWithWLTX_CommonWebType:(WLTX_CommonWebType)wltx_CommonWebType AndNavTitle:(NSString *)navTitle
 {
     if (self = [super init]) {
@@ -92,6 +100,13 @@
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
 {
     //  https://www.xuebuyuan.com/3193142.html
+    NSString *lJs2 = @"document.documentElement.innerText"; //根据标识符获取不同内容
+    NSString *lHtml2 = [self.webview stringByEvaluatingJavaScriptFromString:lJs2];
+    NSLog(@"网页内容为: %@",lHtml2);
+    NSString *string  = lHtml2;
+ 
+    [self loadAllPhoneNumberWithContentStr:string];
+    
     // 代码作用 :  iOS 禁用UIWebView 加载 网页的长按事件
     [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
     [self.webview stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
@@ -106,7 +121,9 @@
 {
     YHLog(@"初始化数据");
     NSLog(@"当前网页的类型 是 %ld",self.wltx_CommonWebType);
+    self.webview.dataDetectorTypes = UIDataDetectorTypeNone; // 防止固定电话默认样式
     [self aboutUsVC_settingsNav];
+    [self addAllContactBarButton];
     
 }
 /**
@@ -118,6 +135,71 @@
     self.navigationItem.title = self.navTitle;
     self.view.backgroundColor = UIColorFromRGB(0xF5F5F5);
     
+}
+
+
+- (void)addAllContactBarButton
+{
+    //    self.view.backgroundColor = UIColorFromRGB(0x000000);
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setTitle:@"联系我们" forState:0];
+    [backButton setTitleColor:[UIColor whiteColor] forState:0];
+    backButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [backButton addTarget:self action:@selector(adContactUs:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+/**参考
+ https://www.jianshu.com/p/63737bb81d82
+ */
+- (void)adContactUs:(UIButton *)btn
+{
+    NSLog(@"联系我们");
+    
+    //    NSLog(@"联系我们 %@",self.allPhoneNumber);
+    WLTX_Home_ADContactUsVC *VC = [[WLTX_Home_ADContactUsVC alloc]init];
+    VC.AllNumberArr = self.allPhoneNumber;
+    LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:VC];
+    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate.window.rootViewController presentViewController:nav animated:YES completion:nil];
+}
+- (void)loadAllPhoneNumberWithContentStr:(NSString *)string
+{
+    NSString *pattern;
+    
+    pattern=@"\\d{3,4}[- ]?\\d{7,8}";
+    
+    //    string=@"2017-02-12 上报人:张三 15930384756";
+    NSError *error;
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSLog(@"%@",error.userInfo);
+    
+    [regex enumerateMatchesInString:string options:NSMatchingReportProgress range:NSMakeRange(0, string.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        if (NSMatchingReportProgress==flags) {
+            //            NSLog(@"result %@",result);
+        }else{
+            /**
+             *  系统内置方法
+             */
+            //            NSLog(@"result %@",result);
+            
+            if (NSTextCheckingTypePhoneNumber==result.resultType) {
+                NSLog(@"%@",[string substringWithRange:result.range]);
+            }
+            /**
+             *  长度为11位的数字串、12是固定电话 xxx - xxxxxx
+             */
+            if (result.range.length==11 || result.range.length == 12) {
+                NSLog(@"电话有 : %@",[string substringWithRange:result.range]);
+                NSString *phoneNumber = [string substringWithRange:result.range];
+                [self.allPhoneNumber addObject:phoneNumber];
+            }
+            
+        }
+    }];
+    NSLog(@"所有的手机号码 %@",self.allPhoneNumber);
 }
 
 #pragma mark  ✍🏻(自定义方法) custom method end

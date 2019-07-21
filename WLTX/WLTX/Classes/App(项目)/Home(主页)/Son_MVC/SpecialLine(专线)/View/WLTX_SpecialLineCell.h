@@ -1,11 +1,8 @@
-//
-//  WLTX_SpecialLineCell.h
-//  WLTX
-//
-//  Created by liyuhong2019 on 2019/5/20.
-//  Copyright © 2019 liyuhong165. All rights reserved.
-//
-
+/**
+ 原本设置了圆角
+ layer.cornerRadius = 15
+ layer.masksToBounds = YES
+ */
 #import <UIKit/UIKit.h>
 
 @class WLTX_SpecialLineModel;

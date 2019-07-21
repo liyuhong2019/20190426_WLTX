@@ -51,7 +51,12 @@
 - (WLTX_IntegratedQueryView *)view_integratedQuery
 {
     if (!_view_integratedQuery) {
-        _view_integratedQuery = [[WLTX_IntegratedQueryView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//        _view_integratedQuery = [[WLTX_IntegratedQueryView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        CGFloat w = [UIScreen mainScreen].bounds.size.width;
+        CGFloat h = [UIScreen mainScreen].bounds.size.height - 10;
+        _view_integratedQuery = [[WLTX_IntegratedQueryView alloc]initWithFrame:CGRectMake(0, 10, w,h)];
+                                 
+
     }
     _view_integratedQuery.delegate = self;
 //    NSLog(@"navigationController %f",CGRectGetHeight(self.navigationController.navigationItem.titleView.frame));

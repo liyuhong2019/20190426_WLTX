@@ -165,12 +165,16 @@ UITableViewDataSource
 }
 
 // delegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 190;
-}
+// 不能给固定高度 因为有些高度不一样
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    return 170;
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 44;
+//}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44;
+    return -10;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -278,7 +282,10 @@ UITableViewDataSource
 
     CGFloat mar = CGRectGetMaxY(self.lb_companyLocation.frame) - 155.0+16;// 16上下艰巨
     
-    self.view_header.frame = CGRectMake(0, 0, self.view_header.width, self.view_header.height+mar+CGRectGetHeight(self.lb_companyLocation.frame));
+//    self.view_header.frame = CGRectMake(0, 0, self.view_header.width, self.view_header.height+mar+CGRectGetHeight(self.lb_companyLocation.frame));
+    
+    self.view_header.frame = CGRectMake(0, 0, self.view_header.width, self.view_header.height+mar);
+
     NSLog(@"view_header height %f",self.view_header.height);
     [self.tableview reloadData];
 

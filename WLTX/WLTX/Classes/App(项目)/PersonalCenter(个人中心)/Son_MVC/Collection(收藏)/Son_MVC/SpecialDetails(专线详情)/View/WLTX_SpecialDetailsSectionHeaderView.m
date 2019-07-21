@@ -60,8 +60,8 @@
     CGFloat height = CGRectGetHeight(self.contentView.bounds);
     self.img_icon.frame = CGRectMake(width / 4, 0, width / 2, height);
 
-
-    
+    // 这里设置头部偏移上面
+    self.contentView.frame = CGRectMake(self.contentView.frame.origin.x,-10, self.contentView.frame.size.width, self.contentView.frame.size.height);
  
 }
 - (void)setImg_icon:(UIImageView *)img_icon

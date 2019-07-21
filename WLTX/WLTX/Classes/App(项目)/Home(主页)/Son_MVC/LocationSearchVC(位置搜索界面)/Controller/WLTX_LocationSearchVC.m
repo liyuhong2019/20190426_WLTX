@@ -243,6 +243,54 @@
     
 }
 
+// 石井排名、太和排名
+- (IBAction)go2Shiji_RangKing:(UIButton *)sender {
+    NSLog(@"石井排名");
+    // http://m.0201566.com/appapi//list.php?qsd=广州&mdd=广州&a=石井&page=1
+    self.page = 1; // 初始化 为第0页
+    NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    // 测试数据
+    //    NSDictionary *dict = @{
+    //                           @"qsd":@"广州",
+    //                           @"mdd":@"合肥",
+    //                           @"page":page,
+    //                           };
+    //    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
+    
+    NSDictionary *dict = @{
+                           @"qsd":self.lb_startLocation.text,
+                           @"mdd":self.lb_endLocation.text,
+                           @"a" : @"石井",
+                           @"page":page,
+                           };
+    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
+}
+
+
+- (IBAction)go2Taihe_RangKing:(UIButton *)sender {
+    // http://m.0201566.com/appapi//list.php?qsd=广州&mdd=广州&a=太和&page=1
+    NSLog(@"太和排名");
+    self.page = 1; // 初始化 为第0页
+    NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    // 测试数据
+    //    NSDictionary *dict = @{
+    //                           @"qsd":@"广州",
+    //                           @"mdd":@"合肥",
+    //                           @"page":page,
+    //                           };
+    //    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
+    
+    NSDictionary *dict = @{
+                           @"qsd":self.lb_startLocation.text,
+                           @"mdd":self.lb_endLocation.text,
+                           @"a" : @"太和",
+                           @"page":page,
+                           };
+    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
+}
+
+
+
 #pragma mark - 📶(网络请求)Network start
 
 - (void)netwrok_getLocationSearchRequestWithDict:(NSDictionary *)dict WithAppend:(BOOL)append

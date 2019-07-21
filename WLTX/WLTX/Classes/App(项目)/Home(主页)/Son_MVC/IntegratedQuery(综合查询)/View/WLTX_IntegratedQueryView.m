@@ -62,6 +62,7 @@ static NSString * const WLTX_IntegratedQueryCellID = @"WLTX_IntegratedQueryCell"
     WLTX_IntegratedQueryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WLTX_IntegratedQueryCellID forIndexPath:indexPath];
     WLTX_IntegratedQueryModel *model = self.integratedQueryListArr[indexPath.row];
     cell.model = model;
+    
     return cell;
 }
 #pragma mark - UICollectionViewDelegateFlowLayout method

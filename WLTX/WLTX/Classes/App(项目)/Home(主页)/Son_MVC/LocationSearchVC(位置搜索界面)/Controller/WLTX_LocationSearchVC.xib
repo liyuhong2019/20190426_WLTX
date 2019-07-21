@@ -41,6 +41,9 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="go2Shiji_RangKing:" destination="-1" eventType="touchUpInside" id="j4r-Po-PXA"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOi-Hk-wGl">
                             <rect key="frame" x="108" y="5" width="80" height="30"/>
@@ -57,6 +60,9 @@
                                     <integer key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="go2Taihe_RangKing:" destination="-1" eventType="touchUpInside" id="hkt-gD-C4z"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
