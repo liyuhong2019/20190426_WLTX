@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.img_route.layer.masksToBounds = YES;
+//    self.img_route.layer.masksToBounds = YES;
     
     // 给label添加点击事件
     self.lb_number.userInteractionEnabled = YES;
