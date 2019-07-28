@@ -197,6 +197,7 @@ UISearchBarDelegate>
     
     if (self.type == WLTX_CommonSelectAreaType_ReleaseCarInfo) {
         self.block(self.recordClickAllCityTitle,self.type);
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {
@@ -208,29 +209,54 @@ UISearchBarDelegate>
                 NSString *lastObjc = [array lastObject];
                 NSLog(@"最后的字符串是 %@",lastObjc);
                 NSLog(@"回传的字符串 省市区 %@",self.recordClickAllCityTitle);
-                self.block(lastObjc,self.type);
+                if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
+                    WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+                    vc.startText = self.startLocation;
+                    vc.endText = lastName;
+//                    [self.navigationController popViewControllerAnimated:YES];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                else
+                {
+                    self.block(lastObjc,self.type);
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                
             }
             else
             {
+                if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
+                    WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+                    vc.startText = self.startLocation;
+                    vc.endText = self.recordClickAllCityTitle;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                else
+                {
+//                    [self.navigationController popViewControllerAnimated:YES];
+                    self.block(self.recordClickAllCityTitle,self.type);
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                
                 
                 NSLog(@"回传的字符串 省市区 %@",self.recordClickAllCityTitle);
-                self.block(self.recordClickAllCityTitle,self.type);
+//                self.block(self.recordClickAllCityTitle,self.type);
             }
           
         }
     }
     
     
-    if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
-        WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
-        vc.startText = self.startLocation;
-        vc.endText = lastName;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else
-    {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+//    if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
+//        WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+//        vc.startText = self.startLocation;
+//        vc.endText = lastName;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//    else
+//    {
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
     
     
 }

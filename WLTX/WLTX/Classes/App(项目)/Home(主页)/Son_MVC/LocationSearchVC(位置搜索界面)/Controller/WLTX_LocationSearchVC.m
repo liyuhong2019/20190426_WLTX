@@ -27,8 +27,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addCustomBackBarButton];
     [self SpecialLineQueryVC_settingsInitData];
+    
 }
+- (void)addCustomBackBarButton
+{
+    //    self.view.backgroundColor = UIColorFromRGB(0x000000);
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateHighlighted];
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    backButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    // 让按钮内部的所有内容左对齐
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [backButton addTarget:self action:@selector(popRootViewWithButton:) forControlEvents:UIControlEventTouchUpInside];
+    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0); // 这里微调返回键的位置可以让它看上去和左边紧贴
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+-(void)popRootViewWithButton:(UIButton *)btn
+{
+    NSLog(@"返回最顶层");
+    self.navigationController.tabBarController.hidesBottomBarWhenPushed=NO;
+    self.navigationController.tabBarController.selectedIndex=0;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -334,5 +359,20 @@
     }];
 }
 #pragma mark 📶(网络请求)Network end
+
+
+- (IBAction)go2Search:(UIButton *)sender {
+    self.page = 1; // 初始化 为第0页
+    NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    NSLog(@"self.lb_startLocation.text %@",self.lb_startLocation.text);
+    NSLog(@"self.lb_endLocation.text %@",self.lb_endLocation.text);
+    
+    NSDictionary *dict = @{
+                           @"qsd":self.lb_startLocation.text,
+                           @"mdd":self.lb_endLocation.text,
+                           @"page":page,
+                           };
+    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
+}
 
 @end

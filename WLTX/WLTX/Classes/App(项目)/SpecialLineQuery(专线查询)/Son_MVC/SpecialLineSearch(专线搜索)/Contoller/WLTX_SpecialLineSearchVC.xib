@@ -113,6 +113,9 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="go2Shiji_RangKing:" destination="-1" eventType="touchUpInside" id="cqT-sF-fZW"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtv-BJ-Jc7">
                             <rect key="frame" x="108" y="5" width="80" height="30"/>
@@ -129,6 +132,9 @@
                                     <integer key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="go2Taihe_RangKing:" destination="-1" eventType="touchUpInside" id="3bB-aI-aSW"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -148,10 +154,10 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-fM-qLV">
-                    <rect key="frame" x="162.5" y="517" width="50" height="50"/>
+                    <rect key="frame" x="166.5" y="525" width="42" height="42"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="2fq-vK-eXt"/>
-                        <constraint firstAttribute="height" constant="50" id="eR9-US-w70"/>
+                        <constraint firstAttribute="width" constant="42" id="2fq-vK-eXt"/>
+                        <constraint firstAttribute="height" constant="42" id="eR9-US-w70"/>
                     </constraints>
                     <state key="normal" title="Button" image="ic_select_btn_voice"/>
                     <connections>

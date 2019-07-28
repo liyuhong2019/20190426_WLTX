@@ -467,6 +467,43 @@ UITextFieldDelegate>
     return _specialLineArr;
 }
 
+// 石井排名、太和排名
+- (IBAction)go2Shiji_RangKing:(UIButton *)sender {
+    NSLog(@"石井排名");
+    [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+    self.tableview.tag = 20;
+    // 加载最新的数据
+    self.page = 1; // 初始化 为第0页
+    NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    NSDictionary *dict = @{
+                           @"q":@"石井",
+                           @"page":page,
+                           };
+    //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+    [self netwrok_getKeywordWithDict:dict Withappend:NO];
+    
+}
+
+
+- (IBAction)go2Taihe_RangKing:(UIButton *)sender {
+    // http://m.0201566.com/appapi//list.php?qsd=广州&mdd=广州&a=太和&page=1
+    NSLog(@"太和排名");
+    [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+    self.tableview.tag = 20;
+    // 加载最新的数据
+    self.page = 1; // 初始化 为第0页
+    NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+    NSDictionary *dict = @{
+                           @"q":@"太和",
+                           @"page":page,
+                           };
+    //        [self netwrok_getKeywordWithKey:string SpecialLineListRequestWithPage:page Withappend:NO];
+    [self netwrok_getKeywordWithDict:dict Withappend:NO];
+    
+}
+
+
+
 - (IBAction)voiceSearch:(UIButton *)sender {
     NSLog(@"语音搜索");
     [self haveView];
