@@ -99,8 +99,33 @@ static NSString * const WLTX_CommonCityCellID = @"WLTX_CommonCityCell";
     WLTX_CommonCityCell *cell = (WLTX_CommonCityCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     //       MsgCell  *selectCell = [self.msgTableView cellForRowAtIndexPath:indexPath]；
     NSLog(@"%@",self.dataArr[indexPath.row]);
+    
+    
+    NSDictionary *dict = self.dataArr[indexPath.row];
+    NSString *showTitle = dict[@"showTitle"];
+    NSString *getTitle = dict[@"getTitle"];
+
+    NSLog(@" showtitle %@",showTitle);
+    NSLog(@" getTitle %@",getTitle);
+
     if ([self.delegate respondsToSelector:@selector(commonCityViewClickItemCell:clickItemIndexPath:ClickTitle:)]) {
-        [self.delegate commonCityViewClickItemCell:cell clickItemIndexPath:indexPath ClickTitle:self.temp2[indexPath.row]];
+        
+        if ([showTitle containsString:@"-"]) {
+            NSMutableArray *array = [NSMutableArray array];
+            NSArray *arr = [showTitle componentsSeparatedByString:@"-"];//匹配得到的下标
+            array  = arr;
+            NSLog(@"array:%@",array); //结果是adfsfsfs和dfsdf
+            NSLog(@"last obj %@",[array lastObject]);
+            [self.delegate commonCityViewClickItemCell:cell clickItemIndexPath:indexPath ClickTitle:[array lastObject]];
+        }
+        else
+        {
+            NSLog(@"直接回传 showtitle %@",showTitle);
+            [self.delegate commonCityViewClickItemCell:cell clickItemIndexPath:indexPath ClickTitle:showTitle];
+
+        }
+        
+//        [self.delegate commonCityViewClickItemCell:cell clickItemIndexPath:indexPath ClickTitle:self.temp2[indexPath.row]];
     }
 }
 

@@ -21,6 +21,10 @@ UITextFieldDelegate>
 @property (strong,nonatomic) NSMutableArray *specialLineArr;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger nextpage;
+
+// 讯飞科大
+@property (nonatomic,strong) NSMutableString *cityStrs;
+
 @end
 
 @implementation WLTX_SpecialLineSearchVC
@@ -47,6 +51,11 @@ UITextFieldDelegate>
 //    _searchBar.layer.borderWidth = 1;
 //    
 //    _searchBar.layer.borderColor = NAVC_COLOR.CGColor;
+#pragma mark -键盘弹出添加监听事件
+    // 键盘出现的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    // 键盘消失的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     
     [self SpecialLineQueryVC_settingsInitData];
     
@@ -54,11 +63,14 @@ UITextFieldDelegate>
 - (void)dealloc
 {
     //    [super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     // 移除通知处理
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     self.page = 1; // 初始化 为第0页
     NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
     [self netwrok_getmySpecialLineListRequestWithPage:page Withappend:NO];
@@ -204,6 +216,7 @@ UITextFieldDelegate>
 {
     YHLog(@"初始化数据");
     //    self.view.backgroundColor = [UIColor whiteColor];
+    self.cityStrs = [[NSMutableString alloc]init]; // 初始化语音搜索的结果
     [self SpecialLineQueryVC_CommonSettings];
     [self SpecialLineVC_settingsNav];
     
@@ -452,6 +465,221 @@ UITextFieldDelegate>
         _specialLineArr = [NSMutableArray array];
     }
     return _specialLineArr;
+}
+
+- (IBAction)voiceSearch:(UIButton *)sender {
+    NSLog(@"语音搜索");
+    [self haveView];
+}
+
+#pragma mark - 讯飞科大
+
+// 修改讯飞科大的文字
+
+- (void)haveView
+{
+    if (_iflyRecognizerView == nil) {
+        
+        _iflyRecognizerView= [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+        for(UIView *tview in _iflyRecognizerView.subviews){
+            NSLog(@"tview is %@",tview);
+            if ([tview isKindOfClass:NSClassFromString(@"IFlyRecognizerViewImp")]) {
+                
+                
+                for (UILabel *label in tview.subviews) {
+                    if ([label isKindOfClass:[UILabel class]]) {
+                        if ([label.text containsString:@"语音识别"]) {
+                            //                            label.hidden = YES;
+                            label.text = @"出发地到目的地 (如:广州到合肥)";
+                        }
+                    }
+                }
+            }
+        }
+        
+        NSLog(@"创建视图");
+    }
+    
+    // 设置title
+    
+    
+    [_iflyRecognizerView setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
+    
+    //set recognition domain
+    [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+    
+    
+    _iflyRecognizerView.delegate = self;
+    
+    if (_iflyRecognizerView != nil) {
+        // 超时的时间
+        //set timeout of recording
+        [_iflyRecognizerView setParameter:@"5000" forKey:[IFlySpeechConstant SPEECH_TIMEOUT]];
+        //set VAD timeout of end of speech(EOS)
+        [_iflyRecognizerView setParameter:@"30000" forKey:[IFlySpeechConstant VAD_EOS]];
+        //set VAD timeout of beginning of speech(BOS)
+        [_iflyRecognizerView setParameter:@"30000" forKey:[IFlySpeechConstant VAD_BOS]];
+        //set network timeout
+        [_iflyRecognizerView setParameter:@"20000" forKey:[IFlySpeechConstant NET_TIMEOUT]];
+        
+        //set sample rate, 16K as a recommended option
+        [_iflyRecognizerView setParameter:@"16000" forKey:[IFlySpeechConstant SAMPLE_RATE]];
+        
+        //set language
+        [_iflyRecognizerView setParameter:@"zh_cn" forKey:[IFlySpeechConstant LANGUAGE]];
+        //set accent
+        [_iflyRecognizerView setParameter:@"mandarin" forKey:[IFlySpeechConstant ACCENT]];
+        //set whether or not to show punctuation in recognition results
+        [_iflyRecognizerView setParameter:@"1" forKey:[IFlySpeechConstant ASR_PTT]];
+        [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+        
+        [_iflyRecognizerView start];
+        
+    }
+}
+- (void) noView
+{
+    //创建语音识别对象
+    _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
+    _iFlySpeechRecognizer.delegate = self;
+    //设置识别参数
+    //设置为听写模式
+    [_iFlySpeechRecognizer setParameter: @"iat" forKey: [IFlySpeechConstant IFLY_DOMAIN]];
+    //asr_audio_path 是录音文件名，设置value为nil或者为空取消保存，默认保存目录在Library/cache下。
+    [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+    [_iFlySpeechRecognizer setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+    //启动识别服务
+    [_iFlySpeechRecognizer startListening];
+}
+
+#pragma mark - IFlySpeechRecognizerDelegate
+//IFlySpeechRecognizerDelegate协议实现
+//识别结果返回代理
+- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
+    
+    NSLog(@"results is %@ isLast is %d",results,isLast);
+    NSLog(@"results urldecode %@",results.firstObject);
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = results[0];
+    
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    NSLog(@"resultString 无界面识别器 %@",resultString);
+    
+    
+    
+}
+//识别会话结束返回代理
+- (void)onCompleted: (IFlySpeechError *) error{
+    NSLog(@"error is %@ ",error.errorDesc);
+    [_iflyRecognizerView cancel];
+    
+    if ([error.errorDesc isEqualToString:@"服务正常"]) {
+        NSLog(@"cityStrs %@",self.cityStrs);
+        NSLog(@"拼接的字符串是 %@",self.cityStrs);
+        //  处理字符串
+        
+        NSString *str =self.cityStrs;
+        
+        NSLog(@"处理完。之后的字符串 %@",str);
+        
+        if ([self.cityStrs containsString:@"。"]) {
+            str = [self.cityStrs stringByReplacingOccurrencesOfString:@"。" withString:@""];
+            self.navigationItem.title = str;
+            
+            NSLog(@"包含结束符号"); // 才去搜索
+            [self.specialLineArr removeAllObjects]; // 先移除之前的数据
+            self.tableview.tag = 20;
+            // 加载最新的数据
+            self.page = 1; // 初始化 为第0页
+            NSString *page = [NSString stringWithFormat:@"%ld",(long)self.page];
+            NSDictionary *dict = @{
+                                   @"q":str,
+                                   @"page":page
+                                   };
+            [self netwrok_getKeywordWithDict:dict Withappend:NO];
+            self.cityStrs = [[NSMutableString alloc]init];
+        }
+        else
+        {
+            NSLog(@"没有结束符号");
+        }
+        
+    }
+    else
+    {
+        NSLog(@"语音搜索识别失败");
+    }
+    
+}
+//停止录音回调
+- (void) onEndOfSpeech{
+    NSLog(@"停止录音回调");
+}
+//开始录音回调
+- (void) onBeginOfSpeech{
+    NSLog(@"开始录音回调");
+}
+//音量回调函数
+- (void) onVolumeChanged: (int)volume{
+    NSLog(@"音量回调函数");
+}
+//会话取消回调
+- (void) onCancel{
+    NSLog(@"会话取消回调");
+    
+}
+
+
+#pragma mark view delegate
+/*!
+ *  回调返回识别结果
+ *
+ *  @param resultArray 识别结果，NSArray的第一个元素为NSDictionary，NSDictionary的key为识别结果，sc为识别结果的置信度
+ *  @param isLast      -[out] 是否最后一个结果
+ */
+- (void)onResult:(NSArray *)resultArray isLast:(BOOL) isLast
+{
+    NSLog(@"results is %@ isLast is %d",resultArray,isLast);
+    
+    NSLog(@"results urldecode %@",resultArray.firstObject);
+    
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = resultArray[0];
+    
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    NSLog(@"resultString cc %@",resultString);
+    [self.cityStrs  appendFormat:resultString];
+    NSLog(@"拼接的字符串是 %@",self.cityStrs);
+}
+
+#pragma mark -键盘监听方法
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    // 获取键盘的高度
+    CGRect frame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat height = SCREEN_HEIGHT - frame.size.height;
+    
+    NSLog(@"HEIGHT %f",height);
+    self.layout_bottom_h.constant = frame.size.height + 50;
+    
+//    if (height < 455.5) {
+//        self.textFiledScrollView.frame = CGRectMake(0, 64, kViewWidth, height);
+//    }
+//
+//    if (![self.titleTextView.text isEqualToString:@""]) {
+//        self.titleTextView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//    } else {
+//        self.titleTextView.contentInset = UIEdgeInsetsMake(20, 0, -20, 0);// 光标偏移
+//    }
+    
+}
+- (void)keyboardWillBeHiden:(NSNotification *)notification
+{
+    self.layout_bottom_h.constant = 100;
 }
 
 @end

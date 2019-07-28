@@ -11,8 +11,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WLTX_SpecialLineSearchVC : UIViewController
+<IFlySpeechRecognizerDelegate,
+IFlyRecognizerViewDelegate>
+// 讯飞科大
+@property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
+@property (nonatomic, strong) IFlyRecognizerView *iflyRecognizerView;
+
+
 @property (nonatomic,strong) NSString *startText;   // 开始文本
 @property (nonatomic,strong) NSString *endText;     // 结束文本
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layout_bottom_h;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -26,6 +26,7 @@ typedef void(^selectCityNameBlock) (NSString *cityName,WLTX_CommonSelectAreaType
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WLTX_CommonSelectAreaVC : UIViewController
+@property (nonatomic,strong) NSString  *startLocation;
 @property (nonatomic,assign) WLTX_CommonSelectAreaType type;
 //@property (nonatomic, copy) selectCityNameBlock block;//声明一个block属性
 //- (void)returnSelectCityName:(selectCityNameBlock)block;//加上后方便第A视图书写该block方法

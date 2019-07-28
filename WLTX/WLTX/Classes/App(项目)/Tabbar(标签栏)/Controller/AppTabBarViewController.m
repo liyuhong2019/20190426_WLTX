@@ -54,7 +54,16 @@
 //    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
 //    [self presentViewController:alert animated:YES completion:nil];
 //    [self showAlertController];
+    
+    if (!kWltx_IsLogin) {
+        WLTX_LoginViewController *lg = [[WLTX_LoginViewController alloc]initWithNibName:NSStringFromClass([WLTX_LoginViewController class]) bundle:nil];
+        LYHNavigationController *nav = [[LYHNavigationController alloc]initWithRootViewController:lg];
+        [self presentViewController:nav animated:YES completion:nil];
+        return;
+    }
     [self presentListVC];
+
+
 
 
 }

@@ -94,16 +94,25 @@
         str = @"手机";
     }
 
+    if (self.companyName == nil) {
+        self.companyName =@"没有公司名称";
+    }
+    
     [MobClick event:@"type" label:str];
     [MobClick event:@"name" label:self.companyName];
     
     NSString *myPhonenumber = kWltx_userShouji;
     NSLog(@" myPhonenumber %@",myPhonenumber);
-    
+    NSLog(@" str %@",str);
+    NSLog(@" self.companyName %@",self.companyName);
+
     if (myPhonenumber == nil) {
         NSLog(@"手机是空的 就不需要发送接口了");
         return;
     }
+    
+   
+    
     
     NSDictionary *dictcc =@{@"type":str,@"phone":kWltx_userShouji,@"name":self.companyName};
     [MobClick event:@"call" attributes:dictcc];

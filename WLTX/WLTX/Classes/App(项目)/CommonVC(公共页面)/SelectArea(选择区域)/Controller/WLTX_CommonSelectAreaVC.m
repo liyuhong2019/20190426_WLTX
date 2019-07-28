@@ -5,6 +5,8 @@
 #import "AreaView.h"
 
 #import "CommonCityView.h"
+#import "WLTX_LocationSearchVC.h"
+
 #ifdef DEBUG
 
 #define NSLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
@@ -158,6 +160,10 @@ UISearchBarDelegate>
     // 如果是点击tableview的item 都要记录起来
     // 最多保存10条
     NSLog(@"添加数据到常用城市里面");
+    if ([self.search.text isEqualToString:@""]) {
+        [self.view makeToast:@"请选择城市"];
+        return;
+    }
     
     //    NSDictionary *
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -177,6 +183,16 @@ UISearchBarDelegate>
     [userD setObject:arr forKey:@"commonUseCity"];
     NSLog(@"commonUseCity %@",[userD objectForKey:@"commonUseCity"]);
     [self.tableview reloadData];
+    
+    
+    NSString *lastName;
+    if ([self.recordClickAllCityTitle containsString:@"-"]) {
+        
+        NSArray *array = [self.recordClickAllCityTitle componentsSeparatedByString:@"-"];
+        NSString *lastObjc = [array lastObject];
+        lastName = lastObjc;
+        NSLog(@"最后的字符串是 %@",lastObjc);
+    }
     
     
     if (self.type == WLTX_CommonSelectAreaType_ReleaseCarInfo) {
@@ -204,7 +220,18 @@ UISearchBarDelegate>
         }
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
+        WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+        vc.startText = self.startLocation;
+        vc.endText = lastName;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     
 }
 
@@ -445,7 +472,18 @@ UISearchBarDelegate>
         }
         
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    // 记录之前的起始地  然后 根据目的地去跳转
+    
+    if (self.type == WLTX_CommonSelectAreaType_EndLocation) {
+        WLTX_LocationSearchVC *vc = [[WLTX_LocationSearchVC alloc]init];
+        vc.startText = self.startLocation;
+        vc.endText = selectItemName;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+            [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
@@ -521,8 +559,8 @@ UISearchBarDelegate>
     self.areaView.hidden = NO;
     
     // 拿到省份下面的城市数据
-    _arrDistrict = [[_arrCity objectAtIndex:0]objectForKey:@"area"];
-    // NSLog(@"选中省份的城市 %@",_arrCity);
+    _arrDistrict = [[_arrCity objectAtIndex:indexPath.row]objectForKey:@"area"];
+     NSLog(@"选中省份的城市 %@",_arrCity);
     NSMutableArray <NSString *> *arrDistrictStrArr = [NSMutableArray array];
     for (NSString *arrDistrictName in _arrDistrict) {
         //        NSString *arrDistrictName = dict[@"name"];
@@ -707,7 +745,7 @@ UISearchBarDelegate>
             _arrCity=[[_arrProvince objectAtIndex:0] objectForKey:@"city"];
             _arrDistrict=[[_arrCity objectAtIndex:0] objectForKey:@"area"];
         
-            //    NSLog(@" 省份 is %@, 城市 is %@, 区域 is %@",_arrProvince,_arrCity,_arrDistrict);
+                NSLog(@" 省份 is %@, 城市 is %@, 区域 is %@",_arrProvince,_arrCity,_arrDistrict);
         
             NSLog(@" 省份 is %@",_arrProvince);
         
@@ -720,7 +758,7 @@ UISearchBarDelegate>
             NSLog(@"ProvinceArr %@",provinceStrArr);
         
             _arrCity = [[_arrProvince objectAtIndex:2]objectForKey:@"city"];
-            // NSLog(@"选中省份的城市 %@",_arrCity);
+             NSLog(@"选中省份的城市 %@",_arrCity);
             NSMutableArray <NSString *> *arrCityStrArr = [NSMutableArray array];
             for (NSDictionary *dict in _arrCity) {
                 NSString *arrCityName = dict[@"name"];
@@ -730,7 +768,7 @@ UISearchBarDelegate>
         
         
             _arrDistrict = [[_arrCity objectAtIndex:0]objectForKey:@"area"];
-            // NSLog(@"选中省份的城市 %@",_arrCity);
+             NSLog(@"选中省份的城市 %@",_arrCity);
             NSMutableArray <NSString *> *arrDistrictStrArr = [NSMutableArray array];
             for (NSString *arrDistrictName in _arrDistrict) {
                 //        NSString *arrDistrictName = dict[@"name"];
@@ -739,7 +777,7 @@ UISearchBarDelegate>
             NSLog(@"arrDistrictStrArr %@",arrDistrictStrArr);
         
         
-            NSLog(@"select index 1 is arrDistrictStrArr %@",arrDistrictStrArr[1]);
+//            NSLog(@"select index 1 is arrDistrictStrArr %@",arrDistrictStrArr[1]);
         
             [self.view_coomonUseCity addSubview:self.commonCityView];
             self.commonCityView.dataArr = self.commonUseCity;

@@ -24,7 +24,13 @@
     NSString *url = [NSString stringWithFormat:@"%@%@",NotApiBaseURL,spliceUrl];
     id _parameters = [self getObjectData:parameters];
     [manager GET:url parameters:_parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        YHLog(@"\n 请求url %@\n 请求参数 %@\n 结果 %@\n",url,_parameters,responseObject);
+        if ([url containsString:@"city.json"]) {
+            
+        }
+        else
+        {
+            YHLog(@"\n 请求url %@\n 请求参数 %@\n 结果 %@\n",url,_parameters,responseObject);
+        }
         id keyValues = [responseObject mj_JSONObject];
         if (resultClass!=nil) {
             id resultObject = [resultClass mj_objectWithKeyValues:keyValues];

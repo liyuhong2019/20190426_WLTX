@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_SpecialLineSearchVC">
             <connections>
+                <outlet property="layout_bottom_h" destination="7KN-1Q-Y5b" id="Cmq-ul-b3d"/>
                 <outlet property="tableview" destination="3zJ-R3-sYJ" id="koJ-H9-2ZL"/>
                 <outlet property="tf_search" destination="Pzc-5T-7OC" id="Z48-ga-bhq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -146,15 +147,28 @@
                         <outlet property="delegate" destination="-1" id="sMF-1I-Np2"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-fM-qLV">
+                    <rect key="frame" x="162.5" y="517" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="2fq-vK-eXt"/>
+                        <constraint firstAttribute="height" constant="50" id="eR9-US-w70"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="ic_select_btn_voice"/>
+                    <connections>
+                        <action selector="voiceSearch:" destination="-1" eventType="touchUpInside" id="QKa-oh-973"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3zJ-R3-sYJ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0hR-B8-int"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="pO2-fM-qLV" secondAttribute="bottom" constant="100" id="7KN-1Q-Y5b"/>
                 <constraint firstItem="4A4-V8-XS7" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="EL8-Vz-N2q"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="3zJ-R3-sYJ" secondAttribute="bottom" id="HhO-f0-jaD"/>
                 <constraint firstItem="4A4-V8-XS7" firstAttribute="top" secondItem="GRr-cV-ygU" secondAttribute="bottom" constant="4" id="LMi-xi-7m5"/>
                 <constraint firstItem="4A4-V8-XS7" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Li6-ef-Ibm"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="3zJ-R3-sYJ" secondAttribute="trailing" id="Q0U-Gs-NzT"/>
+                <constraint firstItem="pO2-fM-qLV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zza-dO-WRu"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GRr-cV-ygU" secondAttribute="trailing" id="bmr-fd-wgV"/>
                 <constraint firstItem="GRr-cV-ygU" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="hUv-ob-vTJ"/>
                 <constraint firstItem="3zJ-R3-sYJ" firstAttribute="top" secondItem="4A4-V8-XS7" secondAttribute="bottom" constant="4" id="jed-4D-kOX"/>
@@ -166,5 +180,6 @@
     </objects>
     <resources>
         <image name="Home_search" width="18" height="16"/>
+        <image name="ic_select_btn_voice" width="80" height="80"/>
     </resources>
 </document>

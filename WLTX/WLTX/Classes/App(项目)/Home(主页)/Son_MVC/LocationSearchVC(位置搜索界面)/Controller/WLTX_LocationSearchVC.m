@@ -36,6 +36,9 @@
 
     NSLog(@"new %@",self.lb_startLocation.text);
     
+    
+
+    
     self.lb_startLocation.text = self.startText;
     self.lb_endLocation.text = self.endText;
     
@@ -49,7 +52,9 @@
 //                           @"page":page,
 //                           };
 //    [self netwrok_getLocationSearchRequestWithDict:dict WithAppend:NO];
-    
+    NSLog(@"self.lb_startLocation.text %@",self.lb_startLocation.text);
+    NSLog(@"self.lb_endLocation.text %@",self.lb_endLocation.text);
+
     NSDictionary *dict = @{
                            @"qsd":self.lb_startLocation.text,
                            @"mdd":self.lb_endLocation.text,
@@ -82,6 +87,7 @@
         {
             NSLog(@"目的地");
             vc.title = @"目的地";
+            vc.startLocation = self.lb_startLocation.text;
             vc.type = WLTX_CommonSelectAreaType_EndLocation;
         }
             break;
@@ -170,8 +176,9 @@
     [self SpecialLineQueryVC_settingsNav];
     [self SpecialLineQueryVC_CommonSettings];
     
-    
-    
+//    NSLog(@"self.lb_startLocation.text %@",self.lb_startLocation.text);
+//    NSLog(@"self.lb_endLocation.text %@",self.lb_endLocation.text);
+
     __weak typeof(self) weakSelf = self;
     [self.tableview addHeaderWithHeaderWithBeginRefresh:YES animation:YES refreshBlock:^(NSInteger pageIndex) {
         NSLog(@"pageIndex:%zd",pageIndex);

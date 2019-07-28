@@ -188,6 +188,7 @@ WLTX_ShuttleRouteCellDelegate
         {
             NSLog(@"目的地");
             vc.title = @"目的地";
+            vc.startLocation = self.lb_startLocation.text;
             vc.type = WLTX_CommonSelectAreaType_EndLocation;
         }
             break;
@@ -429,6 +430,7 @@ WLTX_ShuttleRouteCellDelegate
 - (void)clickPhoneNumber:(WLTX_ShuttleRouteCell *)cell WithLabel:(UILabel *)label
 {
     NSLog(@"传递到控制器的label的文本 %@",label.text);
+//    SharedAppDelegate.companyName = cell.lb_route.text;
     [self vcCallPhoneNumber:label.text];
 }
 #pragma mark -- item点击跳转

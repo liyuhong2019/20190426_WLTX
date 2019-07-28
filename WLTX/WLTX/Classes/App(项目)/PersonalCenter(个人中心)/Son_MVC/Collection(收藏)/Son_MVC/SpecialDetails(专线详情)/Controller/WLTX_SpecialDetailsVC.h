@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) SpecialType type;
 @property (nonatomic,strong) NSString *detailsId;
+
+@property (nonatomic,strong) NSString *isCollection;  // 在我的收藏里面进来 默认都是收藏的
+
 @end
 
 NS_ASSUME_NONNULL_END
