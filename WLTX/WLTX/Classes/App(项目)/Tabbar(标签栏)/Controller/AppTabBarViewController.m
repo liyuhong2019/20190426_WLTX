@@ -121,7 +121,7 @@
     //设置未选中的TabBarItem的字体颜色、大小
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    attrs[NSForegroundColorAttributeName] = [UIColor blackColor];
     //设置选中了的TabBarItem的字体颜色、大小
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];

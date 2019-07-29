@@ -429,7 +429,10 @@ WLTX_ShuttleRouteCellDelegate
 
 - (void)clickPhoneNumber:(WLTX_ShuttleRouteCell *)cell WithLabel:(UILabel *)label
 {
-    NSLog(@"传递到控制器的label的文本 %@",label.text);
+    NSLog(@"传递到控制器的label的文本 %@___",label.text);
+    NSString*replacedStr = [label.text stringByReplacingOccurrencesOfString:@" "withString:@""];
+
+    label.text = replacedStr;
 //    SharedAppDelegate.companyName = cell.lb_route.text;
     [self vcCallPhoneNumber:label.text];
 }
