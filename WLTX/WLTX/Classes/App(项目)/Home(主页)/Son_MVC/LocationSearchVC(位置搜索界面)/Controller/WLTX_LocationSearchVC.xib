@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLTX_LocationSearchVC">
             <connections>
+                <outlet property="layout_bottom_h" destination="o2c-5Z-XnW" id="Jhn-0Q-qxD"/>
                 <outlet property="lb_endLocation" destination="duS-S5-CtO" id="fv2-8L-4OW"/>
                 <outlet property="lb_startLocation" destination="bJj-Jy-HkW" id="J6B-WN-h0R"/>
                 <outlet property="tableview" destination="sVn-lo-URc" id="iKH-W1-YbQ"/>
@@ -195,11 +196,23 @@
                         <constraint firstAttribute="trailing" secondItem="zKp-yf-ofg" secondAttribute="trailing" id="vlH-zf-ZMP"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG8-6Z-mLW">
+                    <rect key="frame" x="166.5" y="525" width="42" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="gYq-vE-B1T"/>
+                        <constraint firstAttribute="height" constant="42" id="mi5-Ra-vwp"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="ic_select_btn_voice"/>
+                    <connections>
+                        <action selector="voiceSearch:" destination="-1" eventType="touchUpInside" id="E1b-2d-Sfr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="sVn-lo-URc" secondAttribute="bottom" id="1tp-YE-F85"/>
                 <constraint firstItem="sVn-lo-URc" firstAttribute="top" secondItem="cMq-Jj-JqO" secondAttribute="bottom" constant="4" id="5ff-b4-IiA"/>
+                <constraint firstItem="yG8-6Z-mLW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FUv-qv-JPi"/>
                 <constraint firstItem="y2j-n3-mdO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LoD-7V-Cxd"/>
                 <constraint firstItem="y2j-n3-mdO" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="P8E-Ar-oOI"/>
                 <constraint firstItem="cMq-Jj-JqO" firstAttribute="top" secondItem="y2j-n3-mdO" secondAttribute="bottom" constant="4" id="QdQ-h3-oHy"/>
@@ -208,6 +221,7 @@
                 <constraint firstItem="sVn-lo-URc" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Zmb-oE-VSE"/>
                 <constraint firstItem="cMq-Jj-JqO" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="fSq-Sx-r3z"/>
                 <constraint firstItem="sVn-lo-URc" firstAttribute="top" secondItem="cMq-Jj-JqO" secondAttribute="bottom" constant="4" id="feJ-HL-3p0"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="yG8-6Z-mLW" secondAttribute="bottom" constant="100" id="o2c-5Z-XnW"/>
                 <constraint firstItem="y2j-n3-mdO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="tKX-eu-hmk"/>
                 <constraint firstItem="sVn-lo-URc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="wPj-RI-wiK"/>
             </constraints>
@@ -216,5 +230,6 @@
     </objects>
     <resources>
         <image name="Home_qiehuan" width="30" height="30"/>
+        <image name="ic_select_btn_voice" width="80" height="80"/>
     </resources>
 </document>
