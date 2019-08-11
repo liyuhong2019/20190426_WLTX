@@ -39,6 +39,8 @@
 
 
 @property (strong,nonatomic) NSString *uploadimage;
+@property (strong,nonatomic) NSString *imgpath;
+
 @end
 
 @implementation WLTX_ReleaseCarInfoVC
@@ -299,6 +301,8 @@
         NSDictionary *dict = [responseObject mj_JSONObject];
         NSString *status = dict[@"status"];
         NSString *img = self.uploadimage = dict[@"imgurl"];
+        NSString *imagePath = self.imgpath = dict[@"img"];
+        NSLog(@"imgPath is %@",self.imgpath);
         [self.btn_img sd_setBackgroundImageWithURL:[NSURL URLWithString:img] forState:0];
         
 //        [self.btn_img ]
@@ -362,7 +366,7 @@
                            @"shouji":kWltx_userShouji,
                            @"city":self.tf_location.text,
                            @"length":self.lb_carlength.text,
-                           @"img":self.uploadimage,
+                           @"img":self.imgpath,
                            @"chepai":self.tf_carNumber.text,
                            @"chezai":self.tf_carWeight.text,
                            @"dizhi":self.tf_location.text,

@@ -20,9 +20,34 @@
 
 @implementation WLTX_CarDetailsVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.lb_tel.userInteractionEnabled=YES;
+    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labelTouchUpInside:)];
+    [self.lb_tel addGestureRecognizer:labelTapGestureRecognizer];
+
+}
+-(void) labelTouchUpInside:(UITapGestureRecognizer *)recognizer{
+    
+    UILabel *label=(UILabel*)recognizer.view;
+    
+    NSLog(@"%@被点击了",label.text);
+    
+    NSString*replacedStr = [label.text stringByReplacingOccurrencesOfString:@" "withString:@""];
+    
+    label.text = replacedStr;
+    //    SharedAppDelegate.companyName = cell.lb_route.text;
+    [self vcCallPhoneNumber:label.text];
+
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"车源信息详情";
+    
     [self netwrok_getShuttleRouteListRequestWithid:self.detailsId];
 }
 
